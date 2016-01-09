@@ -6,7 +6,7 @@ namespace Forms9PatchDemo
 	{
 		public App ()
 		{
-			const bool XAML = true;
+			const bool XAML = false;
 
 			if (XAML) {
 				MainPage = new MyPage ();
