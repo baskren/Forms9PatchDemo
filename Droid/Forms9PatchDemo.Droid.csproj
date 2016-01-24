@@ -73,10 +73,10 @@
       <HintPath>..\packages\Xamarin.Forms.2.0.0.6490\lib\MonoAndroid10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch">
-      <HintPath>..\packages\Forms9Patch.0.9.5.2\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.6.0\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch.Droid">
-      <HintPath>..\packages\Forms9Patch.0.9.5.2\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.6.0\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

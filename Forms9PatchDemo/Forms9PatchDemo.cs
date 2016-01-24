@@ -6,19 +6,19 @@ namespace Forms9PatchDemo
 	{
 		public App ()
 		{
-			const bool XAML = true;
+			const bool XAML = false;
 
 			if (XAML) {
-				//MainPage = new MyPage ();
+				MainPage = new MyPage ();
 				//MainPage = new ContentViewDemoPage ();
 				MainPage = new FrameDemoPage ();
 			} else {
 				const double fontSize = 9;
 				MainPage = new ContentPage {
-					//Content = new ScrollView {
+					Content = new ScrollView {
 						Content = new StackLayout {
 							Children = {
-								/*
+								
 								#region Original Image
 								new Forms9Patch.Image {
 									Source = ImageSource.FromResource("Forms9PatchDemo.Resources.bubble.9.png"),
@@ -335,7 +335,7 @@ namespace Forms9PatchDemo
 									FontSize = fontSize,
 									HorizontalOptions = LayoutOptions.Center,
 								},
-								*/
+
 								new Forms9Patch.ContentView {
 									BackgroundImage = new Forms9Patch.Image {
 										Source = Forms9Patch.ImageSource.FromMultiResource ("Forms9PatchDemo.Resources.redribbon"),
@@ -354,16 +354,16 @@ namespace Forms9PatchDemo
 									Padding = new Thickness(30,30,110,20),
 									HeightRequest = 80,
 								},
-							/*
+
 								new Label { Text = "Forms9atch.ImageSource.FromMultiSource >> Forms9Patch.ContentView", 
 									FontSize = fontSize,
 									HorizontalOptions = LayoutOptions.Center,
 								},
 								#endregion
-*/
+
 							}
 						}
-					//}
+					}
 				};
 				MainPage.Padding = new Thickness (5, Device.OnPlatform(20,5,5), 5, 5);			
 			}
