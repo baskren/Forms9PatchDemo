@@ -8,11 +8,380 @@ namespace Forms9PatchDemo
 		{
 			const bool XAML = false;
 
+
 			if (XAML) {
 				MainPage = new MyPage ();
 				//MainPage = new ContentViewDemoPage ();
 				MainPage = new FrameDemoPage ();
 			} else {
+
+
+				#region Material Buttons
+				var grid = new Xamarin.Forms.Grid {
+					RowDefinitions = {
+						new RowDefinition { Height = GridLength.Auto },
+					},
+					ColumnDefinitions = {
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+						new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) },
+					},
+
+				};
+
+				var infoIcon = new Forms9Patch.Image {
+					Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info"),
+				};
+
+				grid.Children.Add (new Xamarin.Forms.StackLayout {
+					BackgroundColor = Color.FromHex("#33FF33"),
+					Padding = new Thickness(10),
+					Children = {
+						new Xamarin.Forms.Label {
+							Text = "Default",
+							TextColor = Color.Black,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "",
+							Image = new Forms9Patch.Image {
+								Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.ArrowR"),
+							},
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "sticky",
+							StickyBehavior = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+
+						new Forms9Patch.MaterialButton {
+							Text = "disabled",
+							StickyBehavior = true,
+							IsEnabled = false,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "selected disabled",
+							IsEnabled = false,
+							Selected = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+
+						new Xamarin.Forms.Label {
+							Text = "Background Color, Light Theme",
+							TextColor = Color.Black,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "default",
+							BackgroundColor = Color.FromHex("#E0E0E0"),
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "sticky",
+							StickyBehavior = true,
+							BackgroundColor = Color.FromHex("#E0E0E0"),
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "disabled",
+							StickyBehavior = true,
+							IsEnabled = false,
+							BackgroundColor = Color.FromHex("#E0E0E0"),
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "selected disabled",
+							IsEnabled = false,
+							Selected = true,
+							BackgroundColor = Color.FromHex("#E0E0E0"),
+							Image = new Forms9Patch.Image(infoIcon),
+						},	
+
+						new Xamarin.Forms.Label {
+							Text = "Shadow",
+							TextColor = Color.Black,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "default",
+							HasShadow = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "sticky",
+							StickyBehavior = true,
+							HasShadow = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "disabled",
+							StickyBehavior = true,
+							IsEnabled = false,
+							HasShadow = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "selected disabled",
+							IsEnabled = false,
+							Selected = true,
+							HasShadow = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+
+						new Xamarin.Forms.Label {
+							Text = "Shadow Background Color, Light Theme",
+							TextColor = Color.Black,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "default",
+							BackgroundColor = Color.FromHex("#E0E0E0"),
+							HasShadow = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "sticky",
+							StickyBehavior = true,
+							BackgroundColor = Color.FromHex("#E0E0E0"),
+							HasShadow = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "disabled",
+							StickyBehavior = true,
+							IsEnabled = false,
+							BackgroundColor = Color.FromHex("#E0E0E0"),
+							HasShadow = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "selected disabled",
+							IsEnabled = false,
+							Selected = true,
+							BackgroundColor = Color.FromHex("#E0E0E0"),
+							HasShadow = true,
+							Image = new Forms9Patch.Image(infoIcon),
+						},	
+
+					},
+				}, 0, 0);
+
+
+				grid.Children.Add(new Xamarin.Forms.StackLayout {
+					Padding = new Thickness(10),
+					BackgroundColor = Color.FromHex("#003"),
+					Children = {
+						new Xamarin.Forms.Label {
+							Text = "Default, Dark Theme",
+							TextColor = Color.White,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "default",
+							DarkTheme = true,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "sticky",
+							StickyBehavior = true,
+							DarkTheme = true,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "disabled",
+							StickyBehavior = true,
+							IsEnabled = false,
+							DarkTheme = true,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "selected disabled",
+							IsEnabled = false,
+							Selected = true,
+							DarkTheme = true,
+						},
+						new Xamarin.Forms.Label {
+							Text = "Background Color, Dark Theme",
+							TextColor = Color.White,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "default",
+							BackgroundColor = Color.FromHex("#1194F6"),
+							DarkTheme = true,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "sticky",
+							StickyBehavior = true,
+							BackgroundColor = Color.FromHex("#1194F6"),
+							DarkTheme = true,
+						},
+
+						new Forms9Patch.MaterialButton {
+							Text = "disabled",
+							StickyBehavior = true,
+							IsEnabled = false,
+							BackgroundColor = Color.FromHex("#1194F6"),
+							DarkTheme = true,
+						},
+
+						new Forms9Patch.MaterialButton {
+							Text = "selected disabled",
+							IsEnabled = false,
+							Selected = true,
+							BackgroundColor = Color.FromHex("#1194F6"),
+							DarkTheme = true,
+						},
+						new Xamarin.Forms.Label {
+							Text = "Shadow, Dark Theme",
+							TextColor = Color.White,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "default",
+							DarkTheme = true,
+							HasShadow = true,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "sticky",
+							StickyBehavior = true,
+							DarkTheme = true,
+							HasShadow = true,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "disabled",
+							StickyBehavior = true,
+							IsEnabled = false,
+							DarkTheme = true,
+							HasShadow = true,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "selected disabled",
+							IsEnabled = false,
+							Selected = true,
+							DarkTheme = true,
+							HasShadow = true,
+						},
+						new Xamarin.Forms.Label {
+							Text = "Shadow Background Color, Dark Theme",
+							TextColor = Color.White,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "default",
+							BackgroundColor = Color.FromHex("#1194F6"),
+							DarkTheme = true,
+							HasShadow = true,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "sticky",
+							StickyBehavior = true,
+							BackgroundColor = Color.FromHex("#1194F6"),
+							DarkTheme = true,
+							HasShadow = true,
+						},
+
+						new Forms9Patch.MaterialButton {
+							Text = "disabled",
+							StickyBehavior = true,
+							IsEnabled = false,
+							BackgroundColor = Color.FromHex("#1194F6"),
+							DarkTheme = true,
+							HasShadow = true,
+						},
+
+						new Forms9Patch.MaterialButton {
+							Text = "selected disabled",
+							IsEnabled = false,
+							Selected = true,
+							BackgroundColor = Color.FromHex("#1194F6"),
+							DarkTheme = true,
+							HasShadow = true,
+						},
+					},
+				},1,0);
+
+
+				#endregion
+
+				#region RelativeLayout
+				var heading = new Xamarin.Forms.Label {
+					Text = "RelativeLayout Example",
+					TextColor = Color.Red,
+				};
+
+				var relativelyPositioned = new Xamarin.Forms.Label {
+					Text = "Positioned relative to my parent."
+				};
+
+				var relativeLayout = new Forms9Patch.RelativeLayout {
+					BackgroundImage = new Forms9Patch.Image {
+						Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.ghosts"),
+						Fill = Forms9Patch.Fill.Tile,
+					},
+					BackgroundColor = Color.White,
+					OutlineColor = Color.Green,
+					OutlineWidth = 3,
+					OutlineRadius = 2,
+					HeightRequest = 100,
+				};
+
+				relativeLayout.Children.Add (heading, Constraint.RelativeToParent (parent => 0));
+
+				relativeLayout.Children.Add (relativelyPositioned,
+					Constraint.RelativeToParent (parent => parent.Width / 3),
+					Constraint.RelativeToParent (parent => parent.Height / 2)
+				);
+				#endregion
+
+
+				#region ImageButtons
+				var b2 = new Forms9Patch.ImageButton {
+					DefaultState = new Forms9Patch.ImageButtonState {
+						BackgroundImage = new Forms9Patch.Image {
+							Source = Forms9Patch.ImageSource.FromMultiResource ("Forms9PatchDemo.Resources.button"),
+						},
+						Image = new Xamarin.Forms.Image {
+							Source = ImageSource.FromFile("five.png"),
+						},
+						FontColor = Color.White,
+						Text = "Sticky w/ SelectedState",
+					},
+					SelectedState = new Forms9Patch.ImageButtonState {
+						BackgroundImage = new Forms9Patch.Image {
+							Source = Forms9Patch.ImageSource.FromMultiResource ("Forms9PatchDemo.Resources.image"),
+						},
+						FontColor = Color.Red,
+						Text = "Selected",
+					},
+					StickyBehavior = true,
+					HeightRequest = 50,
+					Alignment = TextAlignment.Start,
+				};
+
+				var b3 = new Forms9Patch.ImageButton {
+					DefaultState = new Forms9Patch.ImageButtonState {
+						BackgroundImage = new Forms9Patch.Image {
+							Source = Forms9Patch.ImageSource.FromMultiResource ("Forms9PatchDemo.Resources.button"),
+						},
+						Image = new Xamarin.Forms.Image {
+							Source = ImageSource.FromFile("five.png"),
+						},
+						FontColor = Color.FromRgb(0.0, 0.0, 0.8),
+						Text = "Sticky w/o SelectedState",
+					},
+					StickyBehavior = true,
+					HeightRequest = 50,
+					Alignment = TextAlignment.Center,
+				};
+
+				var b4 = new Forms9Patch.ImageButton {
+					DefaultState = new Forms9Patch.ImageButtonState {
+						BackgroundImage = new Forms9Patch.Image {
+							Source = Forms9Patch.ImageSource.FromMultiResource ("Forms9PatchDemo.Resources.button"),
+						},
+						Image = new Xamarin.Forms.Image {
+							Source = ImageSource.FromFile("five.png"),
+						},
+						FontColor = Color.White,
+						Text = "Not sticky",
+					},
+					//StickyBehavior = true,
+					HeightRequest = 50,
+					Alignment = TextAlignment.End,
+				};
+				#endregion
+
+
 				const double fontSize = 9;
 				MainPage = new ContentPage {
 					Content = new ScrollView {
@@ -326,7 +695,6 @@ namespace Forms9PatchDemo
 									BackgroundColor = Color.Gray,
 								},
 								#endregion
-
 								#region CapsInset ContentView
 								new Image { 
 									Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.redribbon"), 
@@ -361,6 +729,9 @@ namespace Forms9PatchDemo
 								},
 								#endregion
 
+								b2,b3,b4,
+
+								grid,
 							}
 						}
 					}
