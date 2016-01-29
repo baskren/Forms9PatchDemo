@@ -28,9 +28,8 @@ namespace Forms9PatchDemo
 
 				};
 
-				var infoIcon = new Forms9Patch.Image {
-					Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info"),
-				};
+				var infoIcon = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info");
+				var arrowIcon = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.ArrowR");
 
 				grid.Children.Add (new Xamarin.Forms.StackLayout {
 					BackgroundColor = Color.FromHex("#33FF33"),
@@ -42,27 +41,26 @@ namespace Forms9PatchDemo
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "",
-							Image = new Forms9Patch.Image {
-								Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.ArrowR"),
-							},
+							ImageSource = arrowIcon,
+
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "sticky",
 							StickyBehavior = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = infoIcon,
 						},
 
 						new Forms9Patch.MaterialButton {
 							Text = "disabled",
 							StickyBehavior = true,
 							IsEnabled = false,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = arrowIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
 							Selected = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = infoIcon,
 						},
 
 						new Xamarin.Forms.Label {
@@ -72,27 +70,27 @@ namespace Forms9PatchDemo
 						new Forms9Patch.MaterialButton {
 							Text = "default",
 							BackgroundColor = Color.FromHex("#E0E0E0"),
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = infoIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "sticky",
 							StickyBehavior = true,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = arrowIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "disabled",
 							StickyBehavior = true,
 							IsEnabled = false,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = infoIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
 							Selected = true,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = arrowIcon,
 						},	
 
 						new Xamarin.Forms.Label {
@@ -102,27 +100,27 @@ namespace Forms9PatchDemo
 						new Forms9Patch.MaterialButton {
 							Text = "default",
 							HasShadow = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = infoIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "sticky",
 							StickyBehavior = true,
 							HasShadow = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = arrowIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "disabled",
 							StickyBehavior = true,
 							IsEnabled = false,
 							HasShadow = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = infoIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
 							Selected = true,
 							HasShadow = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = arrowIcon,
 						},
 
 						new Xamarin.Forms.Label {
@@ -133,14 +131,14 @@ namespace Forms9PatchDemo
 							Text = "default",
 							BackgroundColor = Color.FromHex("#E0E0E0"),
 							HasShadow = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = arrowIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "sticky",
 							StickyBehavior = true,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
 							HasShadow = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = infoIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "disabled",
@@ -148,7 +146,7 @@ namespace Forms9PatchDemo
 							IsEnabled = false,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
 							HasShadow = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = arrowIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
@@ -156,7 +154,7 @@ namespace Forms9PatchDemo
 							Selected = true,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
 							HasShadow = true,
-							Image = new Forms9Patch.Image(infoIcon),
+							ImageSource = infoIcon,
 						},	
 
 					},

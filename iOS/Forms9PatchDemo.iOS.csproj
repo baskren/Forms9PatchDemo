@@ -79,12 +79,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Forms9Patch">
-      <HintPath>..\packages\Forms9Patch.0.9.7.0\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
-    </Reference>
-    <Reference Include="Forms9Patch.iOS">
-      <HintPath>..\packages\Forms9Patch.0.9.7.0\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Platform.iOS">
       <HintPath>..\packages\Xamarin.Forms.2.0.1.6505\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
     </Reference>
@@ -96,6 +90,12 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\packages\Xamarin.Forms.2.0.1.6505\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Forms9Patch">
+      <HintPath>..\packages\Forms9Patch.0.9.7.1\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
+    </Reference>
+    <Reference Include="Forms9Patch.iOS">
+      <HintPath>..\packages\Forms9Patch.0.9.7.1\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
