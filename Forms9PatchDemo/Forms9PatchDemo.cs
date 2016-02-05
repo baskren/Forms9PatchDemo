@@ -1,18 +1,42 @@
-﻿using Xamarin.Forms;
+﻿ using Xamarin.Forms;
+using System.Windows.Input;
+using System;
 
 namespace Forms9PatchDemo
 {
 	public class App : Application
 	{
+		ICommand _trueCommand = new Command ((parameter) => System.Diagnostics.Debug.WriteLine ("_simpleCommand Parameter[" + parameter + "]"), parameter=>true );
+
+		ICommand _falseCommand = new Command (parameter => System.Diagnostics.Debug.WriteLine ("_commandB [" + parameter + "]"), parameter => false);
+
+
+		void OnSegmentTapped(object sender, Forms9Patch.SegmentedControlEventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("Tapped Segment[" + e.Index + "] Text=["+e.Segment.Text+"]");
+		}
+
+		void OnSegmentSelected(object sender, Forms9Patch.SegmentedControlEventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("Selected Segment[" + e.Index + "] Text=["+e.Segment.Text+"]");
+		}
+
+		void OnButtonTapped(object sender, EventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("Tapped Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+		}
+
+		void OnButtonSelected(object sender, EventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("Selected Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+		}
+
 		public App ()
 		{
-			const bool XAML = false;
+			const bool XAML = true;
 
 
 			if (XAML) {
-				MainPage = new MyPage ();
+				//MainPage = new MyPage ();
 				//MainPage = new ContentViewDemoPage ();
-				MainPage = new FrameDemoPage ();
+				//MainPage = new FrameDemoPage ();
+				MainPage = new MaterialSegmentControlPage();
 			} else {
 
 
@@ -28,39 +52,80 @@ namespace Forms9PatchDemo
 
 				};
 
-				var infoIcon = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info");
+				var infoIcon =  Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info");
 				var arrowIcon = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.ArrowR");
+
+
+				var mb1 = new Forms9Patch.MaterialButton {
+					Text = "",
+					ImageSource = arrowIcon,
+				};
+				mb1.Tapped += OnButtonTapped;
+				mb1.Selected += OnButtonSelected;
+				var mb2 = new Forms9Patch.MaterialButton {
+					//Text = "sticky",
+					StickyBehavior = true,
+					ImageSource = infoIcon,
+				};
+				mb2.Tapped += OnButtonTapped;
+				mb2.Selected += OnButtonSelected;
+				var mb3 = new Forms9Patch.MaterialButton {
+					//Text = "disabled",
+					StickyBehavior = true,
+					IsEnabled = false,
+					ImageSource = arrowIcon,
+				};
+				mb3.Tapped += OnButtonTapped;
+				mb3.Selected += OnButtonSelected;
+				var mb4 = new Forms9Patch.MaterialButton {
+					//Text = "selected disabled",
+					IsEnabled = false,
+					IsSelected = true,
+					ImageSource = infoIcon,
+				};
+				mb4.Tapped += OnButtonTapped;
+				mb4.Selected += OnButtonSelected;
+
 
 				grid.Children.Add (new Xamarin.Forms.StackLayout {
 					BackgroundColor = Color.FromHex("#33FF33"),
 					Padding = new Thickness(10),
 					Children = {
+
 						new Xamarin.Forms.Label {
-							Text = "Default",
+							Text = "Default, Light",
+							TextColor = Color.Black,
+						},
+						mb1,mb2, mb3, mb4,
+
+						new Xamarin.Forms.Label {
+							Text = "Outline, Light",
 							TextColor = Color.Black,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "",
 							ImageSource = arrowIcon,
-
+							OutlineWidth = 0,
 						},
 						new Forms9Patch.MaterialButton {
-							Text = "sticky",
+							//Text = "sticky",
 							StickyBehavior = true,
 							ImageSource = infoIcon,
+							OutlineWidth = 0,
 						},
-
 						new Forms9Patch.MaterialButton {
-							Text = "disabled",
+							//Text = "disabled",
 							StickyBehavior = true,
 							IsEnabled = false,
 							ImageSource = arrowIcon,
+							OutlineWidth = 0,
 						},
 						new Forms9Patch.MaterialButton {
-							Text = "selected disabled",
+							//Text = "selected disabled",
 							IsEnabled = false,
-							Selected = true,
+							IsSelected = true,
 							ImageSource = infoIcon,
+							OutlineWidth = 0,
 						},
 
 						new Xamarin.Forms.Label {
@@ -70,31 +135,32 @@ namespace Forms9PatchDemo
 						new Forms9Patch.MaterialButton {
 							Text = "default",
 							BackgroundColor = Color.FromHex("#E0E0E0"),
-							ImageSource = infoIcon,
+							ImageSource = arrowIcon,
+							Orientation = StackOrientation.Vertical,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "sticky",
 							StickyBehavior = true,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
-							ImageSource = arrowIcon,
+							ImageSource = infoIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "disabled",
 							StickyBehavior = true,
 							IsEnabled = false,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
-							ImageSource = infoIcon,
+							ImageSource = arrowIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
-							Selected = true,
+							IsSelected = true,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
-							ImageSource = arrowIcon,
+							ImageSource = infoIcon,
 						},	
 
 						new Xamarin.Forms.Label {
-							Text = "Shadow",
+							Text = "Shadow, Light Theme",
 							TextColor = Color.Black,
 						},
 						new Forms9Patch.MaterialButton {
@@ -118,7 +184,7 @@ namespace Forms9PatchDemo
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
-							Selected = true,
+							IsSelected = true,
 							HasShadow = true,
 							ImageSource = arrowIcon,
 						},
@@ -131,14 +197,14 @@ namespace Forms9PatchDemo
 							Text = "default",
 							BackgroundColor = Color.FromHex("#E0E0E0"),
 							HasShadow = true,
-							ImageSource = arrowIcon,
+							ImageSource = infoIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "sticky",
 							StickyBehavior = true,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
 							HasShadow = true,
-							ImageSource = infoIcon,
+							ImageSource = arrowIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "disabled",
@@ -146,15 +212,15 @@ namespace Forms9PatchDemo
 							IsEnabled = false,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
 							HasShadow = true,
-							ImageSource = arrowIcon,
+							ImageSource = infoIcon,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
-							Selected = true,
+							IsSelected = true,
 							BackgroundColor = Color.FromHex("#E0E0E0"),
 							HasShadow = true,
-							ImageSource = infoIcon,
+							ImageSource = arrowIcon,
 						},	
 
 					},
@@ -187,9 +253,40 @@ namespace Forms9PatchDemo
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
-							Selected = true,
+							IsSelected = true,
 							DarkTheme = true,
 						},
+
+						new Xamarin.Forms.Label {
+							Text = "Outline, Dark Theme",
+							TextColor = Color.White,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "default",
+							DarkTheme = true,
+							OutlineWidth = 0,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "sticky",
+							StickyBehavior = true,
+							DarkTheme = true,
+							OutlineWidth = 0,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "disabled",
+							StickyBehavior = true,
+							IsEnabled = false,
+							DarkTheme = true,
+							OutlineWidth = 0,
+						},
+						new Forms9Patch.MaterialButton {
+							Text = "selected disabled",
+							IsEnabled = false,
+							IsSelected = true,
+							DarkTheme = true,
+							OutlineWidth = 0,
+						},
+
 						new Xamarin.Forms.Label {
 							Text = "Background Color, Dark Theme",
 							TextColor = Color.White,
@@ -198,6 +295,8 @@ namespace Forms9PatchDemo
 							Text = "default",
 							BackgroundColor = Color.FromHex("#1194F6"),
 							DarkTheme = true,
+							ImageSource = arrowIcon,
+							Orientation = StackOrientation.Vertical,
 						},
 						new Forms9Patch.MaterialButton {
 							Text = "sticky",
@@ -217,7 +316,7 @@ namespace Forms9PatchDemo
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
-							Selected = true,
+							IsSelected = true,
 							BackgroundColor = Color.FromHex("#1194F6"),
 							DarkTheme = true,
 						},
@@ -246,7 +345,7 @@ namespace Forms9PatchDemo
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
-							Selected = true,
+							IsSelected = true,
 							DarkTheme = true,
 							HasShadow = true,
 						},
@@ -280,16 +379,209 @@ namespace Forms9PatchDemo
 						new Forms9Patch.MaterialButton {
 							Text = "selected disabled",
 							IsEnabled = false,
-							Selected = true,
+							IsSelected = true,
 							BackgroundColor = Color.FromHex("#1194F6"),
 							DarkTheme = true,
 							HasShadow = true,
 						},
 					},
 				},1,0);
+				#endregion
 
+
+				#region Light SegmentedControl
+
+				var sc1 = new Forms9Patch.MaterialSegmentedControl {
+					Segments = {
+
+						new Forms9Patch.Segment {
+							Text = "A",
+							ImageSource = arrowIcon,
+							Command = _trueCommand,
+							CommandParameter = "sc1 A",
+						},
+						new Forms9Patch.Segment {
+							//Text = "B",
+							IsSelected = true,
+							ImageSource = arrowIcon,
+							Command = _trueCommand,
+							CommandParameter = "sc1 B",
+						},
+						new Forms9Patch.Segment {
+							Text = "C",
+							Command = _trueCommand,
+							CommandParameter = "sc1 C",
+						},
+
+						new Forms9Patch.Segment {
+							Text = "D",
+							//IsEnabled = false,
+							Command = _falseCommand,
+							CommandParameter = "sc1 D",
+						},
+					},
+				};
+				sc1.SegmentSelected += OnSegmentSelected;
+				sc1.SegmentTapped += OnSegmentTapped;
+
+				var seg1 = new Forms9Patch.Segment {
+					//Text = "A",
+					ImageSource = arrowIcon,
+				};
+				seg1.Tapped += OnButtonTapped;
+				seg1.Selected += OnButtonTapped;
+				var seg2 = new Forms9Patch.Segment {
+					Text = "B",
+					IsSelected = true,
+				};
+				seg2.Tapped += OnButtonTapped;
+				seg2.Selected += OnButtonTapped;
+				var seg3 = new Forms9Patch.Segment {
+					Text = "C",
+				};
+				seg3.Tapped += OnButtonTapped;
+				seg3.Selected += OnButtonTapped;
+				var seg4 = new Forms9Patch.Segment {
+					Text = "D",
+					IsEnabled = false,
+				};
+				seg4.Tapped += OnButtonTapped;
+				seg4.Selected += OnButtonTapped;
+
+
+				var sc2 = new Forms9Patch.MaterialSegmentedControl {
+					OutlineWidth = 0,
+					Segments = {
+						seg1, seg2, seg3, seg4,
+					},
+				};
+				//sc2.SegmentSelected += OnSegmentSelected;
+				//sc2.SegmentTapped += OnSegmentTapped;
+
+				var sc3 = new Forms9Patch.MaterialSegmentedControl {
+					//OutlineColor = Color.Transparent,
+					BackgroundColor = Color.FromHex("#E0E0E0"),
+					Segments = {
+						new Forms9Patch.Segment {
+							Text = "A",
+						},
+						new Forms9Patch.Segment {
+							Text = "B",
+							IsSelected = true,
+						},
+						new Forms9Patch.Segment {
+							Text = "C",
+						},
+						new Forms9Patch.Segment {
+							//Text = "D",
+							IsEnabled = false,
+							ImageSource = arrowIcon,
+						},
+					},
+				};
+				sc3.SegmentSelected += OnSegmentSelected;
+				sc3.SegmentTapped += OnSegmentTapped;
+
+				var sc4 = new Forms9Patch.MaterialSegmentedControl {
+					BackgroundColor = Color.FromHex("#E0E0E0"),
+					OutlineWidth = 0,
+					SeparatorWidth = 1,
+					StickyBehavior = Forms9Patch.SegmentControlStickyBehavior.None,
+					Segments = {
+						new Forms9Patch.Segment {
+							Text = "A",
+							ImageSource = arrowIcon,
+							Orientation = StackOrientation.Vertical,
+						},
+						new Forms9Patch.Segment {
+							Text = "B",
+							IsSelected = true,
+							ImageSource = infoIcon,
+							Orientation = StackOrientation.Vertical,
+						},
+
+						new Forms9Patch.Segment {
+							Text = "C",
+							ImageSource = arrowIcon,
+						},
+						new Forms9Patch.Segment {
+							Text = "D",
+							IsEnabled = false,
+							ImageSource = infoIcon,
+							Orientation = StackOrientation.Vertical,
+						},
+
+					},
+				};
+				sc4.SegmentSelected += OnSegmentSelected;
+				sc4.SegmentTapped += OnSegmentTapped;
+
+				var sc5 = new Forms9Patch.MaterialSegmentedControl {
+					BackgroundColor = Color.FromHex("#E0E0E0"),
+					HasShadow = true,
+					//OutlineRadius = 0,
+					//OutlineWidth = 0,
+					Orientation = StackOrientation.Vertical,
+					StickyBehavior = Forms9Patch.SegmentControlStickyBehavior.Multiselect,
+					Segments = {
+
+						new Forms9Patch.Segment {
+							Text = "A",
+							ImageSource = arrowIcon,
+						},
+
+						new Forms9Patch.Segment {
+							Text = "B",
+							IsSelected = true,
+						},
+						new Forms9Patch.Segment {
+							Text = "C",
+						},
+						new Forms9Patch.Segment {
+							Text = "D",
+							IsEnabled = false,
+						},
+
+					},
+				};
+				sc5.SegmentSelected += OnSegmentSelected;
+				sc5.SegmentTapped += OnSegmentTapped;
+
+				var sc6 = new Forms9Patch.MaterialSegmentedControl {
+					BackgroundColor = Color.FromHex("#E0E0E0"),
+					HasShadow = true,
+					//OutlineRadius = 0,
+					OutlineWidth = 0,
+					SeparatorWidth = 1,
+					Orientation = StackOrientation.Vertical,
+					StickyBehavior = Forms9Patch.SegmentControlStickyBehavior.Multiselect,
+					Segments = {
+
+						new Forms9Patch.Segment {
+							Text = "A",
+						},
+
+						new Forms9Patch.Segment {
+							Text = "B",
+							IsSelected = true,
+							ImageSource = arrowIcon,
+							//Orientation = StackOrientation.Vertical,
+						},
+						new Forms9Patch.Segment {
+							Text = "C",
+						},
+						new Forms9Patch.Segment {
+							Text = "D",
+							IsEnabled = false,
+						},
+
+					},
+				};
+				sc6.SegmentSelected += OnSegmentSelected;
+				sc6.SegmentTapped += OnSegmentTapped;
 
 				#endregion
+
 
 				#region RelativeLayout
 				var heading = new Xamarin.Forms.Label {
@@ -730,6 +1022,216 @@ namespace Forms9PatchDemo
 								b2,b3,b4,
 
 								grid,
+
+
+								#region MaterialSegmentControl
+
+								new Xamarin.Forms.StackLayout {
+									Orientation = StackOrientation.Horizontal,
+									Children = {
+
+										#region Light
+										new Xamarin.Forms.StackLayout {
+											BackgroundColor = Color.Lime,
+											HorizontalOptions = LayoutOptions.FillAndExpand,
+											Padding = new Thickness(10),
+											Children = {
+												new Xamarin.Forms.Label {
+													Text = "Default, Light",
+													TextColor = Color.Black,
+												},
+
+												sc1, sc2, sc3, sc4, sc5, sc6,
+
+											},
+										},
+										#endregion
+
+
+										#region Dark
+										new Xamarin.Forms.StackLayout {
+											BackgroundColor = Color.FromHex("#003"),
+											HorizontalOptions = LayoutOptions.FillAndExpand,
+											Padding = new Thickness(10),
+											Children = {
+												new Xamarin.Forms.Label {
+													Text = "Default, Dark",
+													TextColor = Color.White,
+												},
+
+												new Forms9Patch.MaterialSegmentedControl {
+													//OutlineColor = Color.Transparent,
+													DarkTheme = true,
+													Segments = {
+
+														new Forms9Patch.Segment {
+															Text = "A",
+														},
+														new Forms9Patch.Segment {
+															//Text = "B",
+															IsSelected = true,
+															ImageSource = arrowIcon,
+														},
+														new Forms9Patch.Segment {
+															Text = "C",
+														},
+
+														new Forms9Patch.Segment {
+															Text = "D",
+															IsEnabled = false,
+														},
+													},
+												},
+
+												new Forms9Patch.MaterialSegmentedControl {
+													DarkTheme = true,
+													OutlineWidth = 0,
+													Segments = {
+
+														new Forms9Patch.Segment {
+															//Text = "A",
+															ImageSource = arrowIcon,
+														},
+														new Forms9Patch.Segment {
+															Text = "B",
+															IsSelected = true,
+														},
+														new Forms9Patch.Segment {
+															Text = "C",
+														},
+
+														new Forms9Patch.Segment {
+															Text = "D",
+															IsEnabled = false,
+														},
+													},
+												},
+
+												new Forms9Patch.MaterialSegmentedControl {
+													DarkTheme = true,
+													BackgroundColor = Color.FromHex("#1194F6"),
+													Segments = {
+														new Forms9Patch.Segment {
+															Text = "A",
+														},
+														new Forms9Patch.Segment {
+															Text = "B",
+															IsSelected = true,
+														},
+														new Forms9Patch.Segment {
+															Text = "C",
+														},
+														new Forms9Patch.Segment {
+															//Text = "D",
+															IsEnabled = false,
+															ImageSource = arrowIcon,
+														},
+													},
+												},
+
+												new Forms9Patch.MaterialSegmentedControl {
+													DarkTheme = true,
+													BackgroundColor = Color.FromHex("#1194F6"),
+													OutlineWidth = 0,
+													Segments = {
+														new Forms9Patch.Segment {
+															Text = "A",
+															ImageSource = arrowIcon,
+															Orientation = StackOrientation.Vertical,
+														},
+														new Forms9Patch.Segment {
+															Text = "B",
+															IsSelected = true,
+															ImageSource = infoIcon,
+															Orientation = StackOrientation.Vertical,
+														},
+
+														new Forms9Patch.Segment {
+															Text = "C",
+															ImageSource = arrowIcon,
+														},
+														new Forms9Patch.Segment {
+															Text = "D",
+															IsEnabled = false,
+															ImageSource = infoIcon,
+															Orientation = StackOrientation.Vertical,
+														},
+
+													},
+												},
+
+												new Forms9Patch.MaterialSegmentedControl {
+													DarkTheme = true,
+													BackgroundColor = Color.FromHex("#1194F6"),
+													HasShadow = true,
+													//OutlineRadius = 0,
+													//OutlineWidth = 0,
+													Orientation = StackOrientation.Vertical,
+													StickyBehavior = Forms9Patch.SegmentControlStickyBehavior.Multiselect,
+													Segments = {
+
+														new Forms9Patch.Segment {
+															Text = "A",
+															ImageSource = arrowIcon,
+														},
+
+														new Forms9Patch.Segment {
+															Text = "B",
+															IsSelected = true,
+														},
+														new Forms9Patch.Segment {
+															Text = "C",
+														},
+														new Forms9Patch.Segment {
+															Text = "D",
+															IsEnabled = false,
+														},
+
+													},
+												},
+
+												new Forms9Patch.MaterialSegmentedControl {
+													DarkTheme = true,
+													BackgroundColor = Color.FromHex("#1194F6"),
+													HasShadow = true,
+													//OutlineRadius = 0,
+													OutlineWidth = 0,
+													SeparatorWidth = 1,
+													Orientation = StackOrientation.Vertical,
+													StickyBehavior = Forms9Patch.SegmentControlStickyBehavior.Multiselect,
+													Segments = {
+
+														new Forms9Patch.Segment {
+															Text = "A",
+														},
+
+														new Forms9Patch.Segment {
+															Text = "B",
+															IsSelected = true,
+															ImageSource = arrowIcon,
+														},
+														new Forms9Patch.Segment {
+															Text = "C",
+														},
+														new Forms9Patch.Segment {
+															Text = "D",
+															IsEnabled = false,
+														},
+
+													},
+												},
+											},
+										},
+										#endregion
+
+									},
+								},
+
+								#endregion
+
+								grid,
+
+
 							}
 						}
 					}

@@ -92,10 +92,10 @@
       <HintPath>..\packages\Xamarin.Forms.2.0.1.6505\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch">
-      <HintPath>..\packages\Forms9Patch.0.9.7.1\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.8.1\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch.iOS">
-      <HintPath>..\packages\Forms9Patch.0.9.7.1\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.8.1\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

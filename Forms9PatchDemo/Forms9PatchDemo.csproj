@@ -39,6 +39,9 @@
     <Compile Include="FrameDemoPage.xaml.cs">
       <DependentUpon>FrameDemoPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MaterialSegmentControlPage.xaml.cs">
+      <DependentUpon>MaterialSegmentControlPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.0.1.6505\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -56,7 +59,7 @@
       <HintPath>..\packages\Xamarin.Forms.2.0.1.6505\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch">
-      <HintPath>..\packages\Forms9Patch.0.9.7.1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.8.1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -105,5 +108,12 @@
     <EmbeddedResource Include="Resources\Info%402x.png" />
     <EmbeddedResource Include="Resources\Info%403x.png" />
     <EmbeddedResource Include="Resources\ghosts.png" />
+    <EmbeddedResource Include="Resources\ArrowR%401½x.png" />
+    <EmbeddedResource Include="Resources\ArrowR%40¾x.png" />
+    <EmbeddedResource Include="Resources\Info%401½x.png" />
+    <EmbeddedResource Include="Resources\Info%40¾x.png" />
+    <EmbeddedResource Include="MaterialSegmentControlPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
