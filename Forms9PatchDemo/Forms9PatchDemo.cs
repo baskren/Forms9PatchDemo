@@ -36,7 +36,8 @@ namespace Forms9PatchDemo
 				//MainPage = new MyPage ();
 				//MainPage = new ContentViewDemoPage ();
 				//MainPage = new FrameDemoPage ();
-				MainPage = new MaterialSegmentControlPage();
+				//MainPage = new MaterialSegmentControlPage();
+				MainPage = new ImageButtonPage();
 			} else {
 
 
