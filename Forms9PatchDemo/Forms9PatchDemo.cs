@@ -19,17 +19,49 @@ namespace Forms9PatchDemo
 			System.Diagnostics.Debug.WriteLine ("Selected Segment[" + e.Index + "] Text=["+e.Segment.Text+"]");
 		}
 
-		void OnButtonTapped(object sender, EventArgs e) {
+		void OnSegmentLongPressing(object sender, Forms9Patch.SegmentedControlEventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("LongPressing Segment[" + e.Index + "] Text=["+e.Segment.Text+"]");
+		}
+
+		void OnSegmentLongPressed(object sender, Forms9Patch.SegmentedControlEventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("LongPressed Segment[" + e.Index + "] Text=["+e.Segment.Text+"]");
+		}
+
+		void OnMaterialButtonTapped(object sender, EventArgs e) {
 			System.Diagnostics.Debug.WriteLine ("Tapped Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
 		}
 
-		void OnButtonSelected(object sender, EventArgs e) {
+		void OnMaterialButtonSelected(object sender, EventArgs e) {
 			System.Diagnostics.Debug.WriteLine ("Selected Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+		}
+
+		void OnMaterialButtonLongPressing(object sender, EventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("LongPressing Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+		}
+
+		void OnMaterialButtonLongPressed(object sender, EventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("LongPressed Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+		}
+
+		void OnImageButtonTapped(object sender, EventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("Tapped Button Text=["+((Forms9Patch.ImageButton)sender).Text+"]");
+		}
+
+		void OnImageButtonSelected(object sender, EventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("Selected Button Text=["+((Forms9Patch.ImageButton)sender).Text+"]");
+		}
+
+		void OnImageButtonLongPressing(object sender, EventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("LongPressing Button Text=["+((Forms9Patch.ImageButton)sender).Text+"]");
+		}
+
+		void OnImageButtonLongPressed(object sender, EventArgs e) {
+			System.Diagnostics.Debug.WriteLine ("LongPressed Button Text=["+((Forms9Patch.ImageButton)sender).Text+"]");
 		}
 
 		public App ()
 		{
-			const bool XAML = true;
+			const bool XAML = false;
 
 
 			if (XAML) {
@@ -61,31 +93,56 @@ namespace Forms9PatchDemo
 					Text = "",
 					ImageSource = arrowIcon,
 				};
-				mb1.Tapped += OnButtonTapped;
-				mb1.Selected += OnButtonSelected;
+				mb1.Tapped += OnMaterialButtonTapped;
+				mb1.Selected += OnMaterialButtonSelected;
+				mb1.LongPressing += OnMaterialButtonLongPressing;
+				mb1.LongPressed += OnMaterialButtonLongPressed;
 				var mb2 = new Forms9Patch.MaterialButton {
 					//Text = "sticky",
 					StickyBehavior = true,
 					ImageSource = infoIcon,
 				};
-				mb2.Tapped += OnButtonTapped;
-				mb2.Selected += OnButtonSelected;
+				mb2.Tapped += OnMaterialButtonTapped;
+				mb2.Selected += OnMaterialButtonSelected;
+				mb2.LongPressing += OnMaterialButtonLongPressing;
+				mb2.LongPressed += OnMaterialButtonLongPressed;
 				var mb3 = new Forms9Patch.MaterialButton {
 					//Text = "disabled",
 					StickyBehavior = true,
 					IsEnabled = false,
 					ImageSource = arrowIcon,
 				};
-				mb3.Tapped += OnButtonTapped;
-				mb3.Selected += OnButtonSelected;
+				mb3.Tapped += OnMaterialButtonTapped;
+				mb3.Selected += OnMaterialButtonSelected;
+				mb3.LongPressing += OnMaterialButtonLongPressing;
+				mb3.LongPressed += OnMaterialButtonLongPressed;
 				var mb4 = new Forms9Patch.MaterialButton {
 					//Text = "selected disabled",
 					IsEnabled = false,
 					IsSelected = true,
 					ImageSource = infoIcon,
 				};
-				mb4.Tapped += OnButtonTapped;
-				mb4.Selected += OnButtonSelected;
+				mb4.Tapped += OnMaterialButtonTapped;
+				mb4.Selected += OnMaterialButtonSelected;
+				mb4.LongPressing += OnMaterialButtonLongPressing;
+				mb4.LongPressed += OnMaterialButtonLongPressed;
+
+
+				var label1 = new Xamarin.Forms.Label {
+					Text = "Gesture Label",
+					BackgroundColor = Color.Blue,
+					HeightRequest = 50,
+				};
+
+				var label1Listener = new FormsGestures.Listener (label1);
+				label1Listener.Tapped += (sender, e) => System.Diagnostics.Debug.WriteLine($"Tapped:{((Xamarin.Forms.Label)sender).Text}");
+				label1Listener.DoubleTapped += (sender, e) => System.Diagnostics.Debug.WriteLine($"DoubleTapped:{((Xamarin.Forms.Label)sender).Text}");
+				label1Listener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine($"LongPressing:{((Xamarin.Forms.Label)sender).Text}");
+				// How to remove a listener!
+				label1Listener.LongPressed += (sender, e) => {
+					label1Listener.Dispose();
+					System.Diagnostics.Debug.WriteLine("Removed FormsGestures.Listener");
+				};
 
 
 				grid.Children.Add (new Xamarin.Forms.StackLayout {
@@ -424,30 +481,40 @@ namespace Forms9PatchDemo
 				};
 				sc1.SegmentSelected += OnSegmentSelected;
 				sc1.SegmentTapped += OnSegmentTapped;
+				sc1.SegmentLongPressing += OnSegmentLongPressing;
+				sc1.SegmentLongPressed += OnSegmentLongPressed;
 
 				var seg1 = new Forms9Patch.Segment {
 					//Text = "A",
 					ImageSource = arrowIcon,
 				};
-				seg1.Tapped += OnButtonTapped;
-				seg1.Selected += OnButtonTapped;
+				seg1.Tapped += OnMaterialButtonTapped;
+				seg1.Selected += OnMaterialButtonTapped;
+				seg1.LongPressing += OnMaterialButtonLongPressing;
+				seg1.LongPressed += OnMaterialButtonLongPressed;
 				var seg2 = new Forms9Patch.Segment {
 					Text = "B",
 					IsSelected = true,
 				};
-				seg2.Tapped += OnButtonTapped;
-				seg2.Selected += OnButtonTapped;
+				seg2.Tapped += OnMaterialButtonTapped;
+				seg2.Selected += OnMaterialButtonTapped;
+				seg2.LongPressing += OnMaterialButtonLongPressing;
+				seg2.LongPressed += OnMaterialButtonLongPressed;
 				var seg3 = new Forms9Patch.Segment {
 					Text = "C",
 				};
-				seg3.Tapped += OnButtonTapped;
-				seg3.Selected += OnButtonTapped;
+				seg3.Tapped += OnMaterialButtonTapped;
+				seg3.Selected += OnMaterialButtonTapped;
+				seg3.LongPressing += OnMaterialButtonLongPressing;
+				seg3.LongPressed += OnMaterialButtonLongPressed;
 				var seg4 = new Forms9Patch.Segment {
 					Text = "D",
 					IsEnabled = false,
 				};
-				seg4.Tapped += OnButtonTapped;
-				seg4.Selected += OnButtonTapped;
+				seg4.Tapped += OnMaterialButtonTapped;
+				seg4.Selected += OnMaterialButtonTapped;
+				seg4.LongPressing += OnMaterialButtonLongPressing;
+				seg4.LongPressed += OnMaterialButtonLongPressed;
 
 
 				var sc2 = new Forms9Patch.MaterialSegmentedControl {
@@ -456,8 +523,10 @@ namespace Forms9PatchDemo
 						seg1, seg2, seg3, seg4,
 					},
 				};
-				//sc2.SegmentSelected += OnSegmentSelected;
-				//sc2.SegmentTapped += OnSegmentTapped;
+				sc2.SegmentSelected += OnSegmentSelected;
+				sc2.SegmentTapped += OnSegmentTapped;
+				sc2.SegmentLongPressing += OnSegmentLongPressing;
+				sc2.SegmentLongPressed += OnSegmentLongPressed;
 
 				var sc3 = new Forms9Patch.MaterialSegmentedControl {
 					//OutlineColor = Color.Transparent,
@@ -482,6 +551,8 @@ namespace Forms9PatchDemo
 				};
 				sc3.SegmentSelected += OnSegmentSelected;
 				sc3.SegmentTapped += OnSegmentTapped;
+				sc3.SegmentLongPressing += OnSegmentLongPressing;
+				sc3.SegmentLongPressed += OnSegmentLongPressed;
 
 				var sc4 = new Forms9Patch.MaterialSegmentedControl {
 					BackgroundColor = Color.FromHex("#E0E0E0"),
@@ -516,6 +587,8 @@ namespace Forms9PatchDemo
 				};
 				sc4.SegmentSelected += OnSegmentSelected;
 				sc4.SegmentTapped += OnSegmentTapped;
+				sc4.SegmentLongPressing += OnSegmentLongPressing;
+				sc4.SegmentLongPressed += OnSegmentLongPressed;
 
 				var sc5 = new Forms9Patch.MaterialSegmentedControl {
 					BackgroundColor = Color.FromHex("#E0E0E0"),
@@ -547,6 +620,8 @@ namespace Forms9PatchDemo
 				};
 				sc5.SegmentSelected += OnSegmentSelected;
 				sc5.SegmentTapped += OnSegmentTapped;
+				sc5.SegmentLongPressing += OnSegmentLongPressing;
+				sc5.SegmentLongPressed += OnSegmentLongPressed;
 
 				var sc6 = new Forms9Patch.MaterialSegmentedControl {
 					BackgroundColor = Color.FromHex("#E0E0E0"),
@@ -580,6 +655,8 @@ namespace Forms9PatchDemo
 				};
 				sc6.SegmentSelected += OnSegmentSelected;
 				sc6.SegmentTapped += OnSegmentTapped;
+				sc6.SegmentLongPressing += OnSegmentLongPressing;
+				sc6.SegmentLongPressed += OnSegmentLongPressed;
 
 				#endregion
 
@@ -638,6 +715,11 @@ namespace Forms9PatchDemo
 					HeightRequest = 50,
 					Alignment = TextAlignment.Start,
 				};
+				b2.Tapped += OnImageButtonTapped;
+				b2.Selected += OnImageButtonSelected;
+				b2.LongPressing += OnImageButtonLongPressing;
+				b2.LongPressed += OnImageButtonLongPressed;
+
 
 				var b3 = new Forms9Patch.ImageButton {
 					DefaultState = new Forms9Patch.ImageButtonState {
@@ -650,10 +732,19 @@ namespace Forms9PatchDemo
 						FontColor = Color.FromRgb(0.0, 0.0, 0.8),
 						Text = "Sticky w/o SelectedState",
 					},
+					PressingState = new Forms9Patch.ImageButtonState {
+						BackgroundImage = new Forms9Patch.Image {
+							Source = Forms9Patch.ImageSource.FromMultiResource ("Forms9PatchDemo.Resources.redButton"),
+						},
+					},
 					StickyBehavior = true,
 					HeightRequest = 50,
 					Alignment = TextAlignment.Center,
 				};
+				b3.Tapped += OnImageButtonTapped;
+				b3.Selected += OnImageButtonSelected;
+				b3.LongPressing += OnImageButtonLongPressing;
+				b3.LongPressed += OnImageButtonLongPressed;
 
 				var b4 = new Forms9Patch.ImageButton {
 					DefaultState = new Forms9Patch.ImageButtonState {
@@ -670,6 +761,11 @@ namespace Forms9PatchDemo
 					HeightRequest = 50,
 					Alignment = TextAlignment.End,
 				};
+				b4.Tapped += OnImageButtonTapped;
+				b4.Selected += OnImageButtonSelected;
+				b4.LongPressing += OnImageButtonLongPressing;
+				b4.LongPressed += OnImageButtonLongPressed;
+
 				#endregion
 
 

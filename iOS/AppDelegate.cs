@@ -16,7 +16,7 @@ namespace Forms9PatchDemo.iOS
 			global::Xamarin.Forms.Forms.Init ();
 
 			Forms9Patch.iOS.Settings.LicenseKey = "NZPK-RMP4-PJVV-Z7LP-78JF-GNXB-CDJZ-SRYA-BLR2-WBZC-G64K-QJZW-65DB";
-
+			FormsGestures.iOS.Settings.Init ();
 			LoadApplication (new App ());
 
 			return base.FinishedLaunching (app, options);
