@@ -47,6 +47,8 @@ namespace Forms9PatchDemo
 
 		public MaterialButtonsPage ()
 		{
+			var infoIcon =  Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info");
+			var arrowIcon = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.ArrowR");
 
 			#region Material Buttons
 			var grid = new Grid {
@@ -60,8 +62,6 @@ namespace Forms9PatchDemo
 
 			};
 
-			var infoIcon =  Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info");
-			var arrowIcon = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.ArrowR");
 
 
 			var mb1 = new Forms9Patch.MaterialButton {
