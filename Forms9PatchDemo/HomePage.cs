@@ -52,6 +52,12 @@ namespace Forms9PatchDemo
 
 					new TableSection("Code") {
 						new TextCell {
+							Text = "Chat using ListView",
+							Command = navigateCommand,
+							CommandParameter = typeof(ChatListPage)
+						},
+
+						new TextCell {
 							Text = "ImageButton",
 							Command = navigateCommand,
 							CommandParameter = typeof(ImageButtonCodePage)

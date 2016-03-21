@@ -26,7 +26,6 @@ namespace Forms9PatchDemo.Droid
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Forms9PatchDemo.Droid.Resource.Attribute.actionBarSize;
 			global::Forms9Patch.Droid.Resource.Animation.abc_fade_in = global::Forms9PatchDemo.Droid.Resource.Animation.abc_fade_in;
 			global::Forms9Patch.Droid.Resource.Animation.abc_fade_out = global::Forms9PatchDemo.Droid.Resource.Animation.abc_fade_out;
 			global::Forms9Patch.Droid.Resource.Animation.abc_grow_fade_in_from_bottom = global::Forms9PatchDemo.Droid.Resource.Animation.abc_grow_fade_in_from_bottom;
@@ -3101,6 +3100,7 @@ namespace Forms9PatchDemo.Droid
 			global::FormsGestures.Droid.Resource.Styleable.ViewStubCompat_android_id = global::Forms9PatchDemo.Droid.Resource.Styleable.ViewStubCompat_android_id;
 			global::FormsGestures.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId = global::Forms9PatchDemo.Droid.Resource.Styleable.ViewStubCompat_android_inflatedId;
 			global::FormsGestures.Droid.Resource.Styleable.ViewStubCompat_android_layout = global::Forms9PatchDemo.Droid.Resource.Styleable.ViewStubCompat_android_layout;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::Forms9PatchDemo.Droid.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation
