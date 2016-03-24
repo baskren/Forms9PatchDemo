@@ -141,15 +141,8 @@ namespace Forms9PatchDemo
 	#region Content
 	public class ChatListPage : ContentPage
 	{
-		#region Properties
-		public ObservableCollection<Quote> Items {
-			get;
-			internal set;
-		}
-		#endregion
-
 		#region Model
-		ObservableCollection<Quote> thread = new ObservableCollection<Quote> {
+		readonly ObservableCollection<Quote> thread = new ObservableCollection<Quote> {
 			new InternalQuote { QuoteText = "I walk slowly, but I never walk backward." },
 			new ExternalQuote { QuoteText = "I have never seen a thin person drinking Diet Coke." },
 			new InternalQuote { QuoteText = "Whatever you are, be a good one." },
@@ -178,7 +171,7 @@ namespace Forms9PatchDemo
 
 		public void SimulateLoadPrevious(int count)
 		{
-			var previousTopItem = Items[0];
+			var previousTopItem = thread[0];
 
 			for (var z = 0; z < count; z++)
 			{
@@ -199,7 +192,7 @@ namespace Forms9PatchDemo
 					quote = new ExternalQuote { QuoteText = result.ToString () };
 				else
 					quote = new InternalQuote { QuoteText = result.ToString () };
-				Items.Insert(0, quote);
+				thread.Insert(0, quote);
 				// counter act listview auto scrolling, ugly!
 				_listView.ScrollTo(previousTopItem,ScrollToPosition.Start,false);
 			}
@@ -216,9 +209,7 @@ namespace Forms9PatchDemo
 
 		public ChatListPage ()
 		{
-			Items = thread;
-			_listView.ItemsSource = Items;
-			//_listView.ItemTemplate = new DataTemplate (typeof(DynamicCell2));
+			_listView.ItemsSource = thread;
 			_listView.ItemTemplate = new QuoteCellDataTemplateSelector();
 			_listView.ItemAppearing += listView_ItemAppearing;
 
@@ -238,11 +229,11 @@ namespace Forms9PatchDemo
 		bool _init = true;
 		void listView_ItemAppearing (object sender, ItemVisibilityEventArgs e)
 		{
-			if (e.Item == Items [0] && _init) {
+			if (e.Item == thread [0] && _init) {
 				_init = false;
 				return;
 			}	
-			if (e.Item == Items [0]) {
+			if (e.Item == thread [0]) {
 				_init = true;
 				SimulateLoadPrevious (20);
 			}
@@ -251,7 +242,7 @@ namespace Forms9PatchDemo
 		protected override void OnAppearing ()
 		{
 			base.OnAppearing ();
-			_listView.ScrollTo (Items.Last (), ScrollToPosition.End, false);
+			_listView.ScrollTo (thread.Last (), ScrollToPosition.End, false);
 		}
 	}
 	#endregion
