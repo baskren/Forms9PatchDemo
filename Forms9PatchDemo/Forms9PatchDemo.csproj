@@ -54,6 +54,7 @@
     <Compile Include="ModalPopupTestPage.cs" />
     <Compile Include="ImageCircle.cs" />
     <Compile Include="ChatListPage.cs" />
+    <Compile Include="GesturesTestPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.1.0.6529\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -71,13 +72,13 @@
       <HintPath>..\packages\Xamarin.Forms.2.1.0.6529\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch">
-      <HintPath>..\packages\Forms9Patch.0.9.10.3\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.10.5\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
     </Reference>
     <Reference Include="FormsGestures">
-      <HintPath>..\packages\Forms9Patch.0.9.10.3\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.10.5\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
     </Reference>
     <Reference Include="NumericalMethods">
-      <HintPath>..\packages\Forms9Patch.0.9.10.3\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NumericalMethods.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.10.5\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NumericalMethods.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

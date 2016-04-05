@@ -51,6 +51,13 @@ namespace Forms9PatchDemo
 					}, 
 
 					new TableSection("Code") {
+
+						new TextCell {
+							Text = "Gestures Test",
+							Command = navigateCommand,
+							CommandParameter = typeof(GesturesTestPage)
+						},
+
 						new TextCell {
 							Text = "Chat using ListView",
 							Command = navigateCommand,
