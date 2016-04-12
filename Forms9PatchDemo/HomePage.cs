@@ -53,12 +53,6 @@ namespace Forms9PatchDemo
 					new TableSection("Code") {
 
 						new TextCell {
-							Text = "Gestures Test",
-							Command = navigateCommand,
-							CommandParameter = typeof(GesturesTestPage)
-						},
-
-						new TextCell {
 							Text = "Chat using ListView",
 							Command = navigateCommand,
 							CommandParameter = typeof(ChatListPage)
@@ -98,6 +92,18 @@ namespace Forms9PatchDemo
 							Text = "Bubble Popup",
 							Command = navigateCommand,
 							CommandParameter = typeof(BubblePopupTestPage),
+						},
+
+						new TextCell {
+							Text = "BubblePopup w/ Nested NavigationPages",
+							Command = navigateCommand,
+							CommandParameter = typeof(ModalPopupWithNavigationPages),
+						},
+
+						new TextCell {
+							Text = "Gestures Test",
+							Command = navigateCommand,
+							CommandParameter = typeof(GesturesTestPage)
 						},
 
 					}
