@@ -47,10 +47,29 @@ namespace Forms9PatchDemo
 							Text = "Image",
 							Command = navigateCommand,
 							CommandParameter = typeof(MyPage)
-						}
+						},
+
+						new TextCell {
+							Text = "HTML Labels and Buttons",
+							Command = navigateCommand,
+							CommandParameter = typeof(HtmlLabelsAndButtons)
+						},
+
 					}, 
 
 					new TableSection("Code") {
+
+						new TextCell {
+							Text = "HTML Formatted Labels",
+							Command = navigateCommand,
+							CommandParameter = typeof(HtmlLabelPage)
+						},
+
+						new TextCell {
+							Text = "HTML Formatted Buttons",
+							Command = navigateCommand,
+							CommandParameter = typeof(HtmlButtonsPage)
+						},
 
 						new TextCell {
 							Text = "Chat using ListView",

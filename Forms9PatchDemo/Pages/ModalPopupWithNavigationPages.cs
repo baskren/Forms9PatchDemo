@@ -27,7 +27,7 @@ namespace Forms9PatchDemo
 				{
 					VerticalOptions = LayoutOptions.Center,
 					Children = {
-						new Label {
+						new Xamarin.Forms.Label {
 							HorizontalTextAlignment = TextAlignment.Center,
 							Text = "Welcome to Xamarin Forms!"
 						},
@@ -72,7 +72,7 @@ namespace Forms9PatchDemo
 				Content = new Xamarin.Forms.StackLayout
 				{
 					Children = {
-						new Label { Text = "This is a test bubble" }
+						new Xamarin.Forms.Label { Text = "This is a test bubble" }
 					}
 				}
 			};
