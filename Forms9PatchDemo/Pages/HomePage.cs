@@ -55,6 +55,12 @@ namespace Forms9PatchDemo
 							CommandParameter = typeof(HtmlLabelsAndButtons)
 						},
 
+						new TextCell {
+							Text = "Unrequested Size, CapsInset Test",
+							Command = navigateCommand,
+							CommandParameter = typeof(UnRequestedSizeCapsInsetPage)
+						}
+
 					}, 
 
 					new TableSection("Code") {
