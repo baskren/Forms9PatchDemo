@@ -66,6 +66,18 @@ namespace Forms9PatchDemo
 					new TableSection("Code") {
 
 						new TextCell {
+							Text = "Label Fit",
+							Command = navigateCommand,
+							CommandParameter = typeof(LabelFitPage)
+						},
+
+						new TextCell {
+							Text = "Unimposed Height Label Fit",
+							Command = navigateCommand,
+							CommandParameter = typeof(UnconstrainedLabelFitPage)
+						},
+
+						new TextCell {
 							Text = "HTML Formatted Labels",
 							Command = navigateCommand,
 							CommandParameter = typeof(HtmlLabelPage)
