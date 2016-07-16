@@ -644,9 +644,9 @@ namespace Forms9PatchDemo
 
 						#region MaterialSegmentControl
 
-						new StackLayout {
-							Orientation = StackOrientation.Horizontal,
-							Children = {
+						//new StackLayout {
+						//	Orientation = StackOrientation.Horizontal,
+						//	Children = {
 
 								#region Light
 								new StackLayout {
@@ -842,8 +842,8 @@ namespace Forms9PatchDemo
 								},
 								#endregion
 
-							},
-						},
+						//	},
+						//},
 
 						#endregion
 

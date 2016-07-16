@@ -14,7 +14,7 @@ namespace Forms9PatchDemo
 						await this.Navigation.PushAsync(page);
 					});
 
-			this.Title = "Forms Gallery";
+			this.Title = "Forms9Patch Gallery";
 			this.Content = new TableView {
 				Intent = TableIntent.Menu,
 				Root = new TableRoot {
@@ -66,7 +66,7 @@ namespace Forms9PatchDemo
 					new TableSection("Code") {
 
 						new TextCell {
-							Text = "Label Fit",
+							Text = "Imposed Height Label Fit",
 							Command = navigateCommand,
 							CommandParameter = typeof(LabelFitPage)
 						},
@@ -129,12 +129,6 @@ namespace Forms9PatchDemo
 							Text = "Bubble Popup",
 							Command = navigateCommand,
 							CommandParameter = typeof(BubblePopupTestPage),
-						},
-
-						new TextCell {
-							Text = "BubblePopup w/ Nested NavigationPages",
-							Command = navigateCommand,
-							CommandParameter = typeof(ModalPopupWithNavigationPages),
 						},
 
 						new TextCell {

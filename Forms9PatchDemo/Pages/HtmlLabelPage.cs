@@ -55,6 +55,18 @@ namespace Forms9PatchDemo
 						new Forms9Patch.Label { HtmlText =  "&lt;font face=(resource)&gt;: <font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\"></font> plain"},
 						new Forms9Patch.Label { HtmlText =  "&lt;pre&gt;: <pre>preformatted  text</pre> plain  \ttext"},
 						new Forms9Patch.Label { HtmlText =  "&lt;tt&gt;: <tt>teletype</tt> plain"},
+
+						new Forms9Patch.Label {
+							HtmlText = @"<font color=""red""><u><tt>This is a <i>very</i> <b>long block</b> of text which should wrap to the next line.</tt></b></font>",
+							BackgroundColor = Color.FromRgba(128,128,128,50),
+						},
+
+						new Forms9Patch.Label {
+							HtmlText = @"<font color=""red""><u><i><tt>AG Lynch refuses to answer questions over 74 times...</tt></i></u></font>",
+							BackgroundColor = Color.FromRgba(128,128,128,50),
+						},
+
+
 						new Forms9Patch.Label { HtmlText =  "&lt;strike&gt;: <strike>strikethrough</strike> plain"},
 						new Forms9Patch.Label { HtmlText =  "&lt;s&gt;: <s>strikethrough</s> plain"},
 						new Forms9Patch.Label { HtmlText =  "&lt;del&gt;: <del>deleted text</del> plain"},

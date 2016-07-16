@@ -79,21 +79,6 @@
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="Xamarin.iOS" />
-    <Reference Include="Forms9Patch">
-      <HintPath>..\packages\Forms9Patch.0.9.11.10\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
-    </Reference>
-    <Reference Include="Forms9Patch.iOS">
-      <HintPath>..\packages\Forms9Patch.0.9.11.10\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="FormsGestures">
-      <HintPath>..\packages\Forms9Patch.0.9.11.10\lib\Xamarin.iOS10\FormsGestures.dll</HintPath>
-    </Reference>
-    <Reference Include="FormsGestures.iOS">
-      <HintPath>..\packages\Forms9Patch.0.9.11.10\lib\Xamarin.iOS10\FormsGestures.iOS.dll</HintPath>
-    </Reference>
-    <Reference Include="NumericalMethods">
-      <HintPath>..\packages\Forms9Patch.0.9.11.10\lib\Xamarin.iOS10\NumericalMethods.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Platform.iOS">
       <HintPath>..\packages\Xamarin.Forms.2.3.0.107\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
     </Reference>
@@ -105,6 +90,21 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Platform">
       <HintPath>..\packages\Xamarin.Forms.2.3.0.107\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="Forms9Patch">
+      <HintPath>..\packages\Forms9Patch.0.9.12.2\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
+    </Reference>
+    <Reference Include="Forms9Patch.iOS">
+      <HintPath>..\packages\Forms9Patch.0.9.12.2\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsGestures">
+      <HintPath>..\packages\Forms9Patch.0.9.12.2\lib\Xamarin.iOS10\FormsGestures.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsGestures.iOS">
+      <HintPath>..\packages\Forms9Patch.0.9.12.2\lib\Xamarin.iOS10\FormsGestures.iOS.dll</HintPath>
+    </Reference>
+    <Reference Include="NumericalMethods">
+      <HintPath>..\packages\Forms9Patch.0.9.12.2\lib\Xamarin.iOS10\NumericalMethods.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -156,6 +156,8 @@
     <BundleResource Include="Resources\fivePlus%402x..png" />
     <BundleResource Include="Resources\fivePlus%403x..png" />
     <BundleResource Include="Resources\fivePlus%40¾x.png" />
+    <BundleResource Include="Resources\button.9.png" />
+    <BundleResource Include="Resources\bubble.9.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\redribbon.png" />

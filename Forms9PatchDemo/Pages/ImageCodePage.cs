@@ -14,6 +14,13 @@ namespace Forms9PatchDemo
 				Content = new StackLayout{
 					Children = {
 
+						#region Forms9Patch from file
+						new Forms9Patch.Image {
+							Source = Xamarin.Forms.ImageSource.FromFile("button.9.png"),
+						},
+						#endregion
+
+
 						#region Original Image
 						new Forms9Patch.Image {
 							Source = ImageSource.FromResource("Forms9PatchDemo.Resources.bubble.9.png"),
@@ -154,6 +161,7 @@ namespace Forms9PatchDemo
 							CapInsets = new Thickness(10),
 						},
 						#endregion
+
 					},
 				},
 			};
