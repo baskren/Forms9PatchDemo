@@ -179,7 +179,7 @@ namespace Forms9PatchDemo
 			{
 				Text = "Width",
 				Command = new Command(x => { f9pLabel.Fit = Forms9Patch.LabelFit.Width; }),
-				IsEnabled = f9pLabel.HasImposedSize,
+				//IsEnabled = f9pLabel.HasImposedSize,
 				BindingContext = f9pLabel
 			};
 			widthSegment.SetBinding(Forms9Patch.Segment.IsEnabledProperty, "HasImposedSize");
@@ -188,7 +188,7 @@ namespace Forms9PatchDemo
 			{
 				Text = "Lines",
 				Command = new Command(x => { f9pLabel.Fit = Forms9Patch.LabelFit.Lines; }),
-				IsEnabled = f9pLabel.HasImposedSize,
+				//IsEnabled = f9pLabel.HasImposedSize,
 				BindingContext = f9pLabel
 			};
 			linesSegment.SetBinding(Forms9Patch.Segment.IsEnabledProperty, "HasImposedSize");

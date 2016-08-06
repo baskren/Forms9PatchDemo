@@ -78,6 +78,19 @@ namespace Forms9PatchDemo
 						},
 
 						new TextCell {
+							Text = "External EmbeddedResource Image",
+							Command = navigateCommand,
+							CommandParameter = typeof(ExternalEmbeddedResourceImage)
+						},
+
+						new TextCell {
+							Text = "Label in Layout",
+							Command = navigateCommand,
+							CommandParameter = typeof(LabelInHorizontalStackLayout)
+						},
+
+
+						new TextCell {
 							Text = "HTML Formatted Labels",
 							Command = navigateCommand,
 							CommandParameter = typeof(HtmlLabelPage)
