@@ -89,6 +89,23 @@ namespace Forms9PatchDemo
 				HorizontalOptions = LayoutOptions.Center,
 			};
 
+			var blackSegment = new Forms9Patch.Segment { HtmlText = "<font color=\"#000000\">Black</font>" };
+			var redSegment = new Forms9Patch.Segment { HtmlText = "<font color=\"#FF0000\">Red</font>" };
+			var greenSegment = new Forms9Patch.Segment { HtmlText = "<font color=\"#00FF00\">Green</font>" };
+			var blueSegment = new Forms9Patch.Segment { HtmlText = "<font color=\"#0000FF\">Blue</font>" };
+
+			var overlayColorSelector = new Forms9Patch.MaterialSegmentedControl
+			{
+				Segments = {
+					blackSegment,
+					redSegment,
+					greenSegment,
+					blueSegment,
+				},
+				BackgroundColor = Color.White
+			};
+
+
 			var modal = new Forms9Patch.ModalPopup {
 				Content = new StackLayout {
 					Children = {
@@ -100,6 +117,8 @@ namespace Forms9PatchDemo
 						new Label { Text = "Corner Radius:" , FontSize=10, },
 						cornerRadiusSlider,
 						hidePopupButton,
+						new Label { Text = "PageOverlayColor:" , FontSize=10, },
+						overlayColorSelector
 					},
 					//BackgroundColor = Color.FromRgb(100,100,100),
 					//Padding = 20,
@@ -125,6 +144,13 @@ namespace Forms9PatchDemo
 				modal.IsVisible = false;
 				System.Diagnostics.Debug.WriteLine("button "+showPopupButton.Text);
 			};
+
+			blackSegment.Selected += (sender, e) => { modal.PageOverlayColor = Color.FromRgba(0, 0, 0, 128); };
+			redSegment.Selected += (sender, e) => { modal.PageOverlayColor = Color.FromRgba(255, 0, 0, 128); };
+			greenSegment.Selected += (sender, e) => { modal.PageOverlayColor = Color.FromRgba(0, 255, 0, 128); };
+			blueSegment.Selected += (sender, e) => { modal.PageOverlayColor = Color.FromRgba(0, 0, 255, 128); };
+
+
 
 			Detail = new ContentPage {
 				BackgroundColor = Color.White,
