@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+//using FormsMod;
 
 namespace Forms9PatchDemo
 {
@@ -148,6 +149,12 @@ namespace Forms9PatchDemo
 							Text = "Gestures Test",
 							Command = navigateCommand,
 							CommandParameter = typeof(GesturesTestPage)
+						},
+
+						new TextCell {
+							Text = "ImageButton in ContentView Test",
+							Command = navigateCommand,
+							CommandParameter = typeof(ZenmekPage)
 						},
 
 					}

@@ -113,6 +113,12 @@
 				</f9p:ImageButtonState>
 			</f9p:ImageButton.DefaultState>
 
+			<f9p:ImageButton.SelectedState>
+				<f9p:ImageButtonState FontColor="Red" Text="Selected" >
+					This is a &lt;em&gt;special&lt;/em&gt; selected text!
+				</f9p:ImageButtonState>
+			</f9p:ImageButton.SelectedState>
+
 		</f9p:ImageButton>
 
 
