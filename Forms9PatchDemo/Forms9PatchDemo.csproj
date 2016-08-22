@@ -76,6 +76,7 @@
     <Compile Include="Pages\ExternalEmbeddedResourceImage.cs" />
     <Compile Include="Pages\LabelInHorizontalStackLayout.cs" />
     <Compile Include="Pages\ZenmekPage.cs" />
+    <Compile Include="Pages\CustomFontEffectPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.2.0.31\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -105,16 +106,16 @@
       <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch">
-      <HintPath>..\packages\Forms9Patch.0.9.12.5\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.13.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
     </Reference>
     <Reference Include="FormsGestures">
-      <HintPath>..\packages\Forms9Patch.0.9.12.5\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.13.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
     </Reference>
     <Reference Include="NumericalMethods">
-      <HintPath>..\packages\Forms9Patch.0.9.12.5\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NumericalMethods.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.13.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NumericalMethods.dll</HintPath>
     </Reference>
     <Reference Include="PCL.Utils">
-      <HintPath>..\packages\Forms9Patch.0.9.12.5\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PCL.Utils.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.9.13.0\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PCL.Utils.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -196,5 +197,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\button_01_default.png" />
     <EmbeddedResource Include="Resources\button_01_pressing.png" />
+    <EmbeddedResource Include="Resources\Fonts\Pacifico.ttf" />
   </ItemGroup>
 </Project>

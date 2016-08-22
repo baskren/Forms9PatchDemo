@@ -42,6 +42,8 @@ namespace Forms9PatchDemo
 				HeightRequest = 130,
 				FontSize = 15,
 			};
+			editor.Effects.Add(Effect.Resolve("Forms9Patch.CustomFontEffect"));
+
 			#endregion
 
 
@@ -415,6 +417,7 @@ namespace Forms9PatchDemo
 				{
 					f9pLabel.FontFamily = fontFamilies[fontPicker.SelectedIndex];
 					xfLabel.FontFamily = fontFamilies[fontPicker.SelectedIndex];
+					editor.FontFamily = fontFamilies[fontPicker.SelectedIndex];
 				}
 			};
 			#endregion
@@ -448,18 +451,11 @@ namespace Forms9PatchDemo
 						//label,
 						frameForF9P,
 
-						//fontSelector,
-						new StackLayout
-						{
-							Orientation = StackOrientation.Horizontal,
-							Children = {
-								new Label { 
-									Text = "Font Family:",
-									HorizontalOptions = LayoutOptions.Start
-								},
-							fontPicker
-							}
+						new Label {
+							Text = "Font Family:",
+							HorizontalOptions = LayoutOptions.Start
 						},
+						fontPicker,
 
 						fontSizeLabel,
 						fontSizeSlider,

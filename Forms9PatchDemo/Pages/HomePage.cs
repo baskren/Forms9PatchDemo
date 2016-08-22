@@ -67,6 +67,12 @@ namespace Forms9PatchDemo
 					new TableSection("Code") {
 
 						new TextCell {
+							Text = "Custom Font Effect",
+							Command = navigateCommand,
+							CommandParameter = typeof(CustomFontEffectPage)
+						},
+
+						new TextCell {
 							Text = "Imposed Height Label Fit",
 							Command = navigateCommand,
 							CommandParameter = typeof(LabelFitPage)
