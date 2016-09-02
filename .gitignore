@@ -13,7 +13,7 @@ bld/
 [Oo]bj/
 [Bb]in/
 Components
-[Pp]ackages
+# [Pp]ackages
 TestResults/
 *.userprefs
 Resource.designer.cs
@@ -140,7 +140,7 @@ publish/
 *.pubxml
 
 # NuGet Packages Directory
-packages/
+# packages/
 ## TODO: If the tool you use requires repositories.config uncomment the next line
 #!packages/repositories.config
 
