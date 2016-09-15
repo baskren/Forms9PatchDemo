@@ -1,4 +1,4 @@
-﻿
+
 
 using Xamarin.Forms;
 
@@ -91,7 +91,7 @@ Padding = new Thickness (5, 20, 5, 5);
 						new Forms9Patch.Label { HtmlText =  "font-family (resource): <div style=\"font-family:Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\"></div> plain"},
 
 						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:50%\">50% Text</div> plain"},
-						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:9.0px\">8.5px Text</div> plain"}, // With Xamarin.iOS 10.0.0.6, this crashes on iOS 9.0, 
+						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:9.0px\">8.5px Text</div> plain"}, 
 						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:100%\">100% Text</div> plain"},
 						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:17px\">17px Text</div> plain"},
 						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:200%\">200% Text</div> plain"},
