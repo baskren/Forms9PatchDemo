@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Xamarin.Forms;
 
@@ -44,7 +44,7 @@ namespace Forms9PatchDemo
 					FontColor = Color.Red,
 					Text = "Selected",
 				},
-				StickyBehavior = true,
+				ToggleBehavior = true,
 				HeightRequest = 50,
 				Alignment = TextAlignment.Start,
 			};
@@ -70,7 +70,7 @@ namespace Forms9PatchDemo
 						Source = Forms9Patch.ImageSource.FromMultiResource ("Forms9PatchDemo.Resources.redButton"),
 					},
 				},
-				StickyBehavior = true,
+				ToggleBehavior = true,
 				HeightRequest = 50,
 				Alignment = TextAlignment.Center,
 			};
@@ -88,9 +88,9 @@ namespace Forms9PatchDemo
 						Source = ImageSource.FromFile("five.png"),
 					},
 					FontColor = Color.White,
-					Text = "Not sticky",
+					Text = "Not toggle",
 				},
-				//StickyBehavior = true,
+				//ToggleBehavior = true,
 				HeightRequest = 50,
 				Alignment = TextAlignment.End,
 			};

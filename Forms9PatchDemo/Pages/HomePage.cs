@@ -140,6 +140,12 @@ namespace Forms9PatchDemo
 						},
 
 						new TextCell {
+							Text = "Elliptical Material Buttons",
+							Command = navigateCommand,
+							CommandParameter = typeof(EllipticalMaterialButtonsPage)
+						},
+
+						new TextCell {
 							Text = "Modal Popup",
 							Command = navigateCommand,
 							CommandParameter = typeof(ModalPopupTestPage),
@@ -163,6 +169,11 @@ namespace Forms9PatchDemo
 							CommandParameter = typeof(ZenmekPage)
 						},
 
+						new TextCell {
+							Text = "BackgroundImage opacity",
+							Command = navigateCommand,
+							CommandParameter = typeof(BackgroundImageOpacityPage),
+						},
 					}
 				}
 			};

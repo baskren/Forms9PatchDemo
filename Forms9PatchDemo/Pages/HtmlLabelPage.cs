@@ -8,14 +8,24 @@ namespace Forms9PatchDemo
 	{
 		public HtmlLabelPage ()
 		{
-			Padding = new Thickness (5, 20, 5, 5);
-			Content = new ScrollView {
-				Content = new StackLayout {
+			double result;
+			string input = "9.5px";
+			if (double.TryParse(input, out result))
+				System.Diagnostics.Debug.WriteLine("result = ["+result+"]");
+			else
+				System.Diagnostics.Debug.WriteLine("fail");
+
+
+Padding = new Thickness (5, 20, 5, 5);
+			Content = new ScrollView
+			{
+				Content = new StackLayout
+				{
 					Children = {
 						new Label { Text = "Hello HtmlLabelPage" },
 
 						new Forms9Patch.Label { HtmlText =  "<b>\nEMBEDDED (resource) CUSTOM FONT:</b>"},
-						new Forms9Patch.Label { 
+						new Forms9Patch.Label {
 							Text = "",
 							FontFamily = "Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf",
 						},
@@ -24,7 +34,7 @@ namespace Forms9PatchDemo
 						new Forms9Patch.Label { HtmlText =  "plain: no tags"},
 						new Forms9Patch.Label { HtmlText =  "&lt;b&gt;: <b>Bold</b> plain"},
 
-						new Forms9Patch.Label { 
+						new Forms9Patch.Label {
 							HtmlText =  "&lt;Bold&gt;: <b>Bold</b> w/ serif italic serif base font",
 							FontFamily = "Serif",
 							FontAttributes = FontAttributes.Italic,
@@ -67,6 +77,7 @@ namespace Forms9PatchDemo
 						},
 
 
+
 						new Forms9Patch.Label { HtmlText =  "&lt;strike&gt;: <strike>strikethrough</strike> plain"},
 						new Forms9Patch.Label { HtmlText =  "&lt;s&gt;: <s>strikethrough</s> plain"},
 						new Forms9Patch.Label { HtmlText =  "&lt;del&gt;: <del>deleted text</del> plain"},
@@ -80,7 +91,7 @@ namespace Forms9PatchDemo
 						new Forms9Patch.Label { HtmlText =  "font-family (resource): <div style=\"font-family:Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\"></div> plain"},
 
 						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:50%\">50% Text</div> plain"},
-						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:8.5px\">8.5px Text</div> plain"},
+						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:9.0px\">8.5px Text</div> plain"}, // With Xamarin.iOS 10.0.0.6, this crashes on iOS 9.0, 
 						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:100%\">100% Text</div> plain"},
 						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:17px\">17px Text</div> plain"},
 						new Forms9Patch.Label { HtmlText =  "font-size: <div style=\"font-size:200%\">200% Text</div> plain"},
