@@ -148,6 +148,16 @@ namespace Forms9PatchDemo
 				}
 				lastFontSize = fontSizeSlider.Value;
 			};
+			var actualFontSizeLabel = new Label
+			{
+				Text = "Actual Font Size: 15"
+			};
+
+			f9pLabel.PropertyChanged += (sender, e) =>
+			{
+				if (e.PropertyName == Forms9Patch.Label.ActualFontSizeProperty.PropertyName)
+					actualFontSizeLabel.Text = "ActualFontSize: " + f9pLabel.ActualFontSize;
+			};
 			#endregion
 
 
@@ -459,6 +469,7 @@ namespace Forms9PatchDemo
 
 						fontSizeLabel,
 						fontSizeSlider,
+						actualFontSizeLabel,
 						new Label { Text = "Fit:" },
 						fitSelector,
 						linesLabel,

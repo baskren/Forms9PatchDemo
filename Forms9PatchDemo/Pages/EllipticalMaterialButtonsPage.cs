@@ -76,7 +76,8 @@ namespace Forms9PatchDemo
 				//Text = "toggle",
 				ToggleBehavior = true,
 				ImageSource = infoIcon,
-				IsElliptical = true
+				IsElliptical = true,
+
 			};
 			mb2.Tapped += OnMaterialButtonTapped;
 			mb2.Selected += OnMaterialButtonSelected;
