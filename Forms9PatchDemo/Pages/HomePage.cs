@@ -174,6 +174,12 @@ namespace Forms9PatchDemo
 							Command = navigateCommand,
 							CommandParameter = typeof(BackgroundImageOpacityPage),
 						},
+						new TextCell {
+							Text = "Segmented Control Navigation",
+							Command = navigateCommand,
+							CommandParameter = typeof(SegmentNavPage1)
+						},
+
 					}
 				}
 			};

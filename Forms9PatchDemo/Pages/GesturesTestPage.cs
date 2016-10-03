@@ -60,9 +60,11 @@ namespace Forms9PatchDemo
 				box.TranslationY += e.DeltaDistance.Y;
 			};
 			boxListener.Pinching += (sender, e) =>  {
+				System.Diagnostics.Debug.WriteLine("\tBOX PINCHEING [" + e.DeltaScale + "]");
 				box.Scale *= e.DeltaScale;
 			};
 			boxListener.Rotating += (sender, e) => {
+				System.Diagnostics.Debug.WriteLine("\tBOX ROTATING ["+e.DeltaAngle+"]");
 				box.Rotation += e.DeltaAngle;
 			};
 
