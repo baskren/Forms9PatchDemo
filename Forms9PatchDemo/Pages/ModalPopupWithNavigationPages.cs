@@ -64,7 +64,7 @@ namespace Forms9PatchDemo
 				}
 			};
 
-			bubble = new BubblePopup
+			bubble = new BubblePopup(null)
 			{
 				Padding =25,
 				BackgroundColor = Color.Blue,

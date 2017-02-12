@@ -9,7 +9,7 @@ namespace Forms9PatchDemo
 
 		public App ()
 		{
-			MainPage = new NavigationPage(new HomePage ());
+			MainPage = new Forms9Patch.RootPage(new NavigationPage(new HomePage ()));
 			//MainPage = new xPage();
 			//MainPage = new ImageCodePage();
 		}
