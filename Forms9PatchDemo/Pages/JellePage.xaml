@@ -5,17 +5,18 @@
 	x:Class="Forms9PatchDemo.JellePage"
     xmlns:f9p="clr-namespace:Forms9Patch;assembly=Forms9Patch"
     xmlns:local="clr-namespace:Forms9PatchDemo;assembly=Forms9PatchDemo"
-    Padding="5, 20, 5, 5">
+    Padding="5, 20, 5, 5"
+	BackgroundColor="Lime">
 
-    <StackLayout HorizontalOptions="Start">
-        <f9p:ContentView Padding="10">
+    <StackLayout>
+        <f9p:ContentView Padding="50,30" BackgroundColor="Blue">
             <f9p:ContentView.BackgroundImage>
-                <f9p:Image Source="{local:ImageMultiResource Forms9PatchDemo.Resources.bluebuttontrimmedtransp}" />
+                <f9p:Image Source="{local:ImageMultiResource Forms9PatchDemo.Resources.bluebutton}" />
             </f9p:ContentView.BackgroundImage>
             <Label Text="test met een veel langere tekst die hopelijk mooi mee zal schalen maar blijkbaar niet wil werken" 
-                   TextColor="White"
-                   HorizontalOptions="Center" 
-                   VerticalOptions="Center" 
+                   TextColor="Pink"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center" 
                    FontSize="14" />
         </f9p:ContentView>
     </StackLayout>
