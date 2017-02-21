@@ -14,10 +14,12 @@
                 <f9p:Image Source="{local:ImageMultiResource Forms9PatchDemo.Resources.bluebutton}" />
             </f9p:ContentView.BackgroundImage>
             <Label Text="test met een veel langere tekst die hopelijk mooi mee zal schalen maar blijkbaar niet wil werken" 
-                   TextColor="Pink"
-                   HorizontalTextAlignment="Center"
-                   VerticalTextAlignment="Center" 
-                   FontSize="14" />
+                    TextColor="Pink"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center" 
+                    FontSize="14"
+					BackgroundColor="Olive"
+				/>
         </f9p:ContentView>
     </StackLayout>
 </ContentPage>		
