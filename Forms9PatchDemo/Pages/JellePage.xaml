@@ -21,5 +21,17 @@
 					BackgroundColor="Olive"
 				/>
         </f9p:ContentView>
+        <f9p:ContentView Padding="5" BackgroundColor="Blue">
+            <f9p:ContentView.BackgroundImage>
+                <f9p:Image Source="{local:ImageMultiResource Forms9PatchDemo.Resources.bluebuttontrimmedtransp}" />
+            </f9p:ContentView.BackgroundImage>
+            <Label Text="test met een veel langere tekst die hopelijk mooi mee zal schalen maar blijkbaar niet wil werken" 
+                    TextColor="Pink"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center" 
+                    FontSize="14"
+					BackgroundColor="Olive"
+				/>
+        </f9p:ContentView>
     </StackLayout>
 </ContentPage>		
