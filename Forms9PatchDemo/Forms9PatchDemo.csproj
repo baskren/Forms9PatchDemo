@@ -82,6 +82,9 @@
     <Compile Include="Pages\SegmentNavPage1.cs" />
     <Compile Include="Pages\SegmentNavPage2.cs" />
     <Compile Include="Pages\SegmentNavPage3.cs" />
+    <Compile Include="Pages\JellePage.xaml.cs">
+      <DependentUpon>JellePage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -205,6 +208,10 @@
     <EmbeddedResource Include="Resources\button_01_default.png" />
     <EmbeddedResource Include="Resources\button_01_pressing.png" />
     <EmbeddedResource Include="Resources\Fonts\Pacifico.ttf" />
+    <EmbeddedResource Include="Pages\JellePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\bluebuttontrimmedtransp.9.png" />
   </ItemGroup>
   <Import Project="..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.3.193\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
 </Project>

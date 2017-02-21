@@ -21,6 +21,12 @@ namespace Forms9PatchDemo
 				Root = new TableRoot {
 					new TableSection("XAML") {
 						new TextCell {
+							Text = "Jelle Page",
+							Command = navigateCommand,
+							CommandParameter = typeof(JellePage)
+						},
+
+						new TextCell {
 							Text = "ContentView",
 							Command = navigateCommand,
 							CommandParameter = typeof(ContentViewDemoPage)
