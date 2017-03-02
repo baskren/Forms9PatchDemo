@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xamarin.Forms;
 
 namespace Forms9PatchDemo
@@ -21,7 +21,7 @@ namespace Forms9PatchDemo
 			button.Clicked += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tBUTTON CLICKED!!!!");
 
 
-			var buttonListener = new FormsGestures.Listener(button);
+			var buttonListener = FormsGestures.Listener.For(button);
 			buttonListener.Down += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tLISTENER DOWN"); // does not work with UIControl derived elements
 
 			buttonListener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tLISTENER LONG PRESSING");
@@ -51,7 +51,7 @@ namespace Forms9PatchDemo
 			var box = new BoxView {
 				BackgroundColor = Color.Green,
 			};
-			var boxListener = new FormsGestures.Listener (box);
+			var boxListener = FormsGestures.Listener.For (box);
 			boxListener.Down += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tBOX DOWN"); 
 
 			boxListener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tBOX LONG PRESSING");

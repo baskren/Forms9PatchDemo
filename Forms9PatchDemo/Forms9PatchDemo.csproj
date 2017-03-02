@@ -112,19 +112,19 @@
       <HintPath>..\packages\Xamarin.Forms.2.3.3.193\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch">
-      <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
+      <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.2\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="FormsGestures">
-      <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
+      <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.2\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="NumericalMethods">
-      <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NumericalMethods.dll</HintPath>
+      <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.2\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NumericalMethods.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="PCL.Utils">
-      <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.1\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PCL.Utils.dll</HintPath>
+      <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.2\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PCL.Utils.dll</HintPath>
       <Private>False</Private>
     </Reference>
   </ItemGroup>

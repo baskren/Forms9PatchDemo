@@ -109,7 +109,7 @@ namespace Forms9PatchDemo
 				HeightRequest = 50,
 			};
 
-			var label1Listener = new FormsGestures.Listener (label1);
+			var label1Listener = FormsGestures.Listener.For (label1);
 			label1Listener.Tapped += (sender, e) => System.Diagnostics.Debug.WriteLine($"Tapped:{((Label)sender).Text}");
 			label1Listener.DoubleTapped += (sender, e) => System.Diagnostics.Debug.WriteLine($"DoubleTapped:{((Label)sender).Text}");
 			label1Listener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine($"LongPressing:{((Label)sender).Text}");
