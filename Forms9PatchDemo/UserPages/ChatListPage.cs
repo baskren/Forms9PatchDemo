@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Xamarin.Forms;
 using System.Text;
 using System.Collections.ObjectModel;
@@ -93,7 +93,7 @@ namespace Forms9PatchDemo
 
 	#region Cell Classes
 	class InternalQuoteViewCell : ViewCell {
-		
+
 		public InternalQuoteViewCell() {
 			View  = new InternalQuoteView();
 		}
@@ -205,6 +205,7 @@ namespace Forms9PatchDemo
 			SeparatorColor = Color.Transparent,
 			SeparatorVisibility = SeparatorVisibility.None,
 			HasUnevenRows = true,
+
 		};
 
 		public ChatListPage ()

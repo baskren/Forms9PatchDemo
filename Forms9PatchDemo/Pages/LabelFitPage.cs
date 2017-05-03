@@ -106,6 +106,7 @@ namespace Forms9PatchDemo
 				Content = f9pLabel
 			};
 
+			/*
 			var frameForXF = new Frame
 			{
 				HeightRequest = 100,
@@ -113,6 +114,7 @@ namespace Forms9PatchDemo
 				Padding = 0,
 				Content = xfLabel
 			};
+			*/
 			#endregion
 
 
@@ -128,7 +130,8 @@ namespace Forms9PatchDemo
 			{
 				Text = "Font Size: 15"
 			};
-			fontSizeSlider.ValueChanged += (sender, e) => { 
+			fontSizeSlider.ValueChanged += (sender, e) =>
+			{
 				fontSizeLabel.Text = "Font Size: " + fontSizeSlider.Value;
 				f9pLabel.FontSize = fontSizeSlider.Value;
 				if (!rendering)
@@ -137,7 +140,7 @@ namespace Forms9PatchDemo
 					xfLabel.FontSize = fontSizeSlider.Value;
 					Device.StartTimer(TimeSpan.FromMilliseconds(50), () =>
 					{
-						if (Math.Abs(xfLabel.FontSize - lastFontSize) > double.Epsilon*5)
+						if (Math.Abs(xfLabel.FontSize - lastFontSize) > double.Epsilon * 5)
 						{
 							xfLabel.FontSize = lastFontSize;
 							return true;
@@ -172,8 +175,9 @@ namespace Forms9PatchDemo
 				Maximum = 8,
 				Value = 5
 			};
-			linesSlider.ValueChanged += (sender, e) => { 
-				linesLabel.Text = "Lines: " +((int)Math.Round(linesSlider.Value));
+			linesSlider.ValueChanged += (sender, e) =>
+			{
+				linesLabel.Text = "Lines: " + ((int)Math.Round(linesSlider.Value));
 				f9pLabel.Lines = ((int)Math.Round(linesSlider.Value));
 			};
 			#endregion
@@ -181,12 +185,14 @@ namespace Forms9PatchDemo
 
 			#region Fit Selection
 			var fitSelector = new Forms9Patch.MaterialSegmentedControl();
-			fitSelector.Segments.Add(new Forms9Patch.Segment {
+			fitSelector.Segments.Add(new Forms9Patch.Segment
+			{
 				Text = "None",
-				Command = new Command(x=>{ 
-					f9pLabel.Fit = Forms9Patch.LabelFit.None; 
-				}) 
-			} );
+				Command = new Command(x =>
+				{
+					f9pLabel.Fit = Forms9Patch.LabelFit.None;
+				})
+			});
 			var widthSegment = new Forms9Patch.Segment
 			{
 				Text = "Width",
@@ -215,20 +221,22 @@ namespace Forms9PatchDemo
 			hzAlignmentSelector.Segments.Add(
 				new Forms9Patch.Segment
 				{
-				Text = "Start",
-				Command = new Command(x=> { 
-					f9pLabel.HorizontalTextAlignment = TextAlignment.Start;
-					xfLabel.HorizontalTextAlignment = TextAlignment.Start;
-				})
+					Text = "Start",
+					Command = new Command(x =>
+					{
+						f9pLabel.HorizontalTextAlignment = TextAlignment.Start;
+						xfLabel.HorizontalTextAlignment = TextAlignment.Start;
+					})
 				}
 			);
 			hzAlignmentSelector.Segments.Add(
 				new Forms9Patch.Segment
 				{
 					Text = "Center",
-					Command = new Command(x => { 
-					f9pLabel.HorizontalTextAlignment = TextAlignment.Center;
-					xfLabel.HorizontalTextAlignment = TextAlignment.Center;
+					Command = new Command(x =>
+					{
+						f9pLabel.HorizontalTextAlignment = TextAlignment.Center;
+						xfLabel.HorizontalTextAlignment = TextAlignment.Center;
 					})
 				}
 			);
@@ -236,9 +244,10 @@ namespace Forms9PatchDemo
 				new Forms9Patch.Segment
 				{
 					Text = "End",
-					Command = new Command(x => { 
-					f9pLabel.HorizontalTextAlignment = TextAlignment.End;
-					xfLabel.HorizontalTextAlignment = TextAlignment.End;
+					Command = new Command(x =>
+					{
+						f9pLabel.HorizontalTextAlignment = TextAlignment.End;
+						xfLabel.HorizontalTextAlignment = TextAlignment.End;
 					})
 				}
 			);
@@ -246,9 +255,10 @@ namespace Forms9PatchDemo
 				new Forms9Patch.Segment
 				{
 					Text = "Start",
-					Command = new Command(x => { 
-					f9pLabel.VerticalTextAlignment = TextAlignment.Start;
-					xfLabel.VerticalTextAlignment = TextAlignment.Start;
+					Command = new Command(x =>
+					{
+						f9pLabel.VerticalTextAlignment = TextAlignment.Start;
+						xfLabel.VerticalTextAlignment = TextAlignment.Start;
 					})
 				}
 			);
@@ -256,9 +266,10 @@ namespace Forms9PatchDemo
 				new Forms9Patch.Segment
 				{
 					Text = "Center",
-					Command = new Command(x => { 
-					f9pLabel.VerticalTextAlignment = TextAlignment.Center;
-					xfLabel.VerticalTextAlignment = TextAlignment.Center;
+					Command = new Command(x =>
+					{
+						f9pLabel.VerticalTextAlignment = TextAlignment.Center;
+						xfLabel.VerticalTextAlignment = TextAlignment.Center;
 					})
 				}
 			);
@@ -266,9 +277,10 @@ namespace Forms9PatchDemo
 				new Forms9Patch.Segment
 				{
 					Text = "End",
-					Command = new Command(x => { 
-					f9pLabel.VerticalTextAlignment = TextAlignment.End;
-					xfLabel.VerticalTextAlignment = TextAlignment.End;
+					Command = new Command(x =>
+					{
+						f9pLabel.VerticalTextAlignment = TextAlignment.End;
+						xfLabel.VerticalTextAlignment = TextAlignment.End;
 					})
 				}
 			);
@@ -282,19 +294,20 @@ namespace Forms9PatchDemo
 			breakModeSelector.Segments.Add(
 				new Forms9Patch.Segment
 				{
-				Text = "NoWrap",
-				Command = new Command(x=>
-				{
-					f9pLabel.LineBreakMode = LineBreakMode.NoWrap;
-					xfLabel.LineBreakMode = LineBreakMode.NoWrap;
-				})
+					Text = "NoWrap",
+					Command = new Command(x =>
+					{
+						f9pLabel.LineBreakMode = LineBreakMode.NoWrap;
+						xfLabel.LineBreakMode = LineBreakMode.NoWrap;
+					})
 				}
 			);
 			breakModeSelector.Segments.Add(
 				new Forms9Patch.Segment
 				{
 					Text = "Char",
-					Command = new Command(x =>{
+					Command = new Command(x =>
+					{
 						f9pLabel.LineBreakMode = LineBreakMode.CharacterWrap;
 						xfLabel.LineBreakMode = LineBreakMode.CharacterWrap;
 					})
@@ -339,7 +352,7 @@ namespace Forms9PatchDemo
 					Text = "Tail",
 					Command = new Command(x =>
 					{
-					f9pLabel.LineBreakMode = LineBreakMode.TailTruncation;
+						f9pLabel.LineBreakMode = LineBreakMode.TailTruncation;
 						xfLabel.LineBreakMode = LineBreakMode.TailTruncation
 						;
 					})
@@ -422,7 +435,7 @@ namespace Forms9PatchDemo
 				fontPicker.Items.Add(fontFamily);
 			fontPicker.SelectedIndexChanged += (sender, e) =>
 			{
-				string family = null;
+				//string family = null;
 				if (fontPicker.SelectedIndex > -1 && fontPicker.SelectedIndex < fontFamilies.Count)
 				{
 					f9pLabel.FontFamily = fontFamilies[fontPicker.SelectedIndex];

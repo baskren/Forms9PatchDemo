@@ -349,7 +349,7 @@ namespace Forms9PatchDemo
 				fontPicker.Items.Add(fontFamily);
 			fontPicker.SelectedIndexChanged += (sender, e) =>
 			{
-				string family = null;
+				//string family = null;
 				if (fontPicker.SelectedIndex > -1 && fontPicker.SelectedIndex < fontFamilies.Count)
 				{
 					f9pLabel.FontFamily = fontFamilies[fontPicker.SelectedIndex];

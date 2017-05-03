@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 
 using Xamarin.Forms;
 using Forms9Patch;
@@ -12,13 +12,7 @@ namespace Forms9PatchDemo
 			var button = new Button {
 				Text = "Show Test Page",
 			};
-			button.Clicked += (sender, e) => {
-				var page = new BubbonPushModalAsyncPage ();
-				page.Cancelled += (s, args) => {
-					this.Navigation.PopModalAsync();
-				};
-				this.Navigation.PushModalAsync (page);
-			};
+			button.Clicked += (sender, e) => this.Navigation.PushModalAsync (new BubbonPushModalAsyncPage ());
 			// The root page of your application
 			var content = new Xamarin.Forms.ContentView
 			{
@@ -43,16 +37,12 @@ namespace Forms9PatchDemo
 	{
 		Button button1;
 		Button button2;
-		Button button3;
 		BubblePopup bubble;
-
-		public event EventHandler Cancelled;
 
 		public BubbonPushModalAsyncPage()
 		{
 			button1 = new Button { Text = "No Target" };
 			button2 = new Button { Text = "Target" };
-			button3 = new Button { Text = "Cancel" };
 
 			Content = new Xamarin.Forms.StackLayout
 			{
@@ -60,11 +50,10 @@ namespace Forms9PatchDemo
 				Children = {
 					button1,
 					button2,
-					button3,
 				}
 			};
 
-			bubble = new BubblePopup(null)
+			bubble = new BubblePopup(this)
 			{
 				Padding =25,
 				BackgroundColor = Color.Blue,
@@ -85,11 +74,6 @@ namespace Forms9PatchDemo
 			button2.Clicked += (sender, e) => {
 				bubble.Target = button1;
 				bubble.IsVisible = true;
-			};
-
-			button3.Clicked += (sender, e) => {
-				//Cancelled?.Invoke(this,new EventArgs());
-				Navigation.PopModalAsync();
 			};
 		}
 
