@@ -85,44 +85,44 @@
 			<HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
 		</Reference>
 		<Reference Include="Xamarin.Forms.Core">
-			<HintPath>..\packages\Xamarin.Forms.2.3.4.231\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+			<HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
 		</Reference>
 		<Reference Include="Xamarin.Forms.Platform">
-			<HintPath>..\packages\Xamarin.Forms.2.3.4.231\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+			<HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
 		</Reference>
 		<Reference Include="Xamarin.Forms.Platform.iOS">
-			<HintPath>..\packages\Xamarin.Forms.2.3.4.231\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
+			<HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\Xamarin.iOS10\Xamarin.Forms.Platform.iOS.dll</HintPath>
 		</Reference>
 		<Reference Include="Xamarin.Forms.Xaml">
-			<HintPath>..\packages\Xamarin.Forms.2.3.4.231\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+			<HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
 		</Reference>
 		<Reference Include="Forms9Patch">
-		  <HintPath>..\packages\Forms9Patch.0.10.2.11\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
-		  <Private>False</Private>
+			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="Forms9Patch.iOS">
-		  <HintPath>..\packages\Forms9Patch.0.10.2.11\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
-		  <Private>False</Private>
+			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="FormsGestures">
-		  <HintPath>..\packages\Forms9Patch.0.10.2.11\lib\Xamarin.iOS10\FormsGestures.dll</HintPath>
-		  <Private>False</Private>
+			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\Xamarin.iOS10\FormsGestures.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="FormsGestures.iOS">
-		  <HintPath>..\packages\Forms9Patch.0.10.2.11\lib\Xamarin.iOS10\FormsGestures.iOS.dll</HintPath>
-		  <Private>False</Private>
+			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\Xamarin.iOS10\FormsGestures.iOS.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="NumericalMethods">
-		  <HintPath>..\packages\Forms9Patch.0.10.2.11\lib\Xamarin.iOS10\NumericalMethods.dll</HintPath>
-		  <Private>False</Private>
+			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\Xamarin.iOS10\NumericalMethods.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="PCL.Utils">
-		  <HintPath>..\packages\Forms9Patch.0.10.2.11\lib\Xamarin.iOS10\PCL.Utils.dll</HintPath>
-		  <Private>False</Private>
+			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\Xamarin.iOS10\PCL.Utils.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 		<Reference Include="PCL.Utils.iOS">
-		  <HintPath>..\packages\Forms9Patch.0.10.2.11\lib\Xamarin.iOS10\PCL.Utils.iOS.dll</HintPath>
-		  <Private>False</Private>
+			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\Xamarin.iOS10\PCL.Utils.iOS.dll</HintPath>
+			<Private>False</Private>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
@@ -179,5 +179,5 @@
 	<ItemGroup>
 		<EmbeddedResource Include="Resources\redribbon.png" />
 	</ItemGroup>
-	<Import Project="..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.231\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
+	<Import Project="..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.2.3.4.247\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.targets')" />
 </Project>
