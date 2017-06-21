@@ -121,15 +121,6 @@
 		<Folder Include="Pages\" />
 	</ItemGroup>
 	<ItemGroup>
-		<Reference Include="PCLStorage">
-			<HintPath>..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
-		</Reference>
-		<Reference Include="PCLStorage.Abstractions">
-			<HintPath>..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
-		</Reference>
-		<Reference Include="Newtonsoft.Json">
-			<HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\portable-net45+win8+wpa81+wp8\Newtonsoft.Json.dll</HintPath>
-		</Reference>
 		<Reference Include="Xamarin.Forms.Core">
 			<HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Core.dll</HintPath>
 		</Reference>
@@ -139,21 +130,30 @@
 		<Reference Include="Xamarin.Forms.Xaml">
 			<HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+Xamarin.iOS10+xamarinmac20\Xamarin.Forms.Xaml.dll</HintPath>
 		</Reference>
+		<Reference Include="Newtonsoft.Json">
+		  <HintPath>..\..\..\..\.nuget\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
+		</Reference>
+		<Reference Include="PCLStorage.Abstractions">
+		  <HintPath>..\..\..\..\.nuget\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.Abstractions.dll</HintPath>
+		</Reference>
+		<Reference Include="PCLStorage">
+		  <HintPath>..\..\..\..\.nuget\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
+		</Reference>
 		<Reference Include="Forms9Patch">
-			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.16\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="FormsGestures">
-			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.16\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="NumericalMethods">
-			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NumericalMethods.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.16\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NumericalMethods.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="PCL.Utils">
-			<HintPath>..\packages\Forms9Patch.0.10.2.13\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PCL.Utils.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\..\..\..\.nuget\packages\Forms9Patch.0.10.2.16\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PCL.Utils.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>

@@ -39,6 +39,6 @@
 	<key>XSAppIconAssets</key>
 	<string>Resources/Images.xcassets/AppIcons.appiconset</string>
 	<key>CFBundleName</key>
-	<string>Forms9PatchDemo</string>
+	<string>Forms9Patch Demo</string>
 </dict>
 </plist>
