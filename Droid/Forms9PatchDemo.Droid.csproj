@@ -93,32 +93,32 @@
 			<HintPath>..\packages\Xamarin.Forms.2.3.4.247\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
 		</Reference>
 		<Reference Include="Forms9Patch">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="Forms9Patch.Droid">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="FormsGestures">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\MonoAndroid10\FormsGestures.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\MonoAndroid10\FormsGestures.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="FormsGestures.Droid">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\MonoAndroid10\FormsGestures.Droid.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\MonoAndroid10\FormsGestures.Droid.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="Newtonsoft.Json">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\MonoAndroid10\Newtonsoft.Json.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\MonoAndroid10\Newtonsoft.Json.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="NumericalMethods">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\MonoAndroid10\NumericalMethods.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\MonoAndroid10\NumericalMethods.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="PCL.Utils">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\MonoAndroid10\PCL.Utils.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\MonoAndroid10\PCL.Utils.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>

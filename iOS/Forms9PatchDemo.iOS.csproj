@@ -97,28 +97,28 @@
 			<HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
 		</Reference>
 		<Reference Include="Forms9Patch">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="Forms9Patch.iOS">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="FormsGestures">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\Xamarin.iOS10\FormsGestures.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\Xamarin.iOS10\FormsGestures.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="FormsGestures.iOS">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\Xamarin.iOS10\FormsGestures.iOS.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\Xamarin.iOS10\FormsGestures.iOS.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="NumericalMethods">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\Xamarin.iOS10\NumericalMethods.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\Xamarin.iOS10\NumericalMethods.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 		<Reference Include="PCL.Utils">
-			<HintPath>..\packages\Forms9Patch.0.10.2.16\lib\Xamarin.iOS10\PCL.Utils.dll</HintPath>
-			<Private>False</Private>
+		  <HintPath>..\packages\Forms9Patch.0.10.3.0\lib\Xamarin.iOS10\PCL.Utils.dll</HintPath>
+		  <Private>False</Private>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
