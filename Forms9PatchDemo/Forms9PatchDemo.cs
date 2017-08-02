@@ -4,32 +4,55 @@ using System;
 
 namespace Forms9PatchDemo
 {
-	public class App : Application
-	{
+    public class App : Application
+    {
 
-		public App()
-		{
-			MainPage = new Forms9Patch.RootPage(new NavigationPage(new HomePage()));
-			//MainPage = Forms9Patch.RootPage.Create(new NavigationPage(new HomePage()));
-			//MainPage = new xPage();
-			//MainPage = new ImageCodePage();
-		}
+        public App()
+        {
+            //MainPage = new Forms9Patch.RootPage(new NavigationPage(new HomePage()));
 
 
-		protected override void OnStart()
-		{
-			// Handle when your app starts
-		}
+            var contentPage = new ContentPage { Title = "Test", BackgroundColor = Color.Red };
+            NavigationPage.SetHasNavigationBar(contentPage, false);
 
-		protected override void OnSleep()
-		{
-			// Handle when your app sleeps
-		}
+            var bubblePopupTestPage = new BubblePopupTestPage();
+            NavigationPage.SetHasNavigationBar(bubblePopupTestPage, false);
+            var masterDetailPage = new MasterDetailPage
+            {
+                Master = contentPage,
+                Detail = bubblePopupTestPage
+            };
+            NavigationPage.SetHasNavigationBar(masterDetailPage, false);
 
-		protected override void OnResume()
-		{
-			// Handle when your app resumes
-		}
-	}
+            /*
+            MainPage = new Forms9Patch.RootPage(masterDetailPage)
+            {
+                BackgroundColor = Color.Brown
+            };
+            */
+            //NavigationPage.SetHasNavigationBar(MainPage, false);
+            // masterDetailPage.
+
+            MainPage = Forms9Patch.RootPage.Create(new NavigationPage(new HomePage()));
+            //MainPage = new xPage();
+            //MainPage = new ImageCodePage();
+        }
+
+
+        protected override void OnStart()
+        {
+            // Handle when your app starts
+        }
+
+        protected override void OnSleep()
+        {
+            // Handle when your app sleeps
+        }
+
+        protected override void OnResume()
+        {
+            // Handle when your app resumes
+        }
+    }
 }
 

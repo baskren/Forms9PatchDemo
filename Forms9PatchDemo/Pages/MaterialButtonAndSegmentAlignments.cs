@@ -125,22 +125,23 @@ namespace Forms9PatchDemo
             RowDefinitions = { new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto } }
         };
 
-        Forms9Patch.Label _labelElement = new Forms9Patch.Label { Text = "Text" };
+        Forms9Patch.Label _labelElement = new Forms9Patch.Label { Text = "Text", TextColor = Color.Black };
         public MaterialButtonAndSegmentAlignments()
         {
+            BackgroundColor = Color.White;
 
-            _grid1.Children.Add(new Xamarin.Forms.Label { Text = "HZ", VerticalTextAlignment = TextAlignment.Center, FontSize = 9 }, 0, 0);
+            _grid1.Children.Add(new Xamarin.Forms.Label { Text = "HZ", VerticalTextAlignment = TextAlignment.Center, FontSize = 9, TextColor = Color.Black }, 0, 0);
             _grid1.Children.Add(_hzAlignmentElement, 1, 0);
-            _grid1.Children.Add(new Xamarin.Forms.Label { Text = "VT", VerticalTextAlignment = TextAlignment.Center, FontSize = 9 }, 0, 1);
+            _grid1.Children.Add(new Xamarin.Forms.Label { Text = "VT", VerticalTextAlignment = TextAlignment.Center, FontSize = 9, TextColor = Color.Black }, 0, 1);
             _grid1.Children.Add(_vtAlignmentElement, 1, 1);
-            _grid1.Children.Add(new Xamarin.Forms.Label { Text = "Opt", VerticalTextAlignment = TextAlignment.Center, FontSize = 9 }, 0, 2);
+            _grid1.Children.Add(new Xamarin.Forms.Label { Text = "Opt", VerticalTextAlignment = TextAlignment.Center, FontSize = 9, TextColor = Color.Black }, 0, 2);
             _grid1.Children.Add(_optionsElement, 1, 2);
-            _grid1.Children.Add(new Xamarin.Forms.Label { Text = "Icon", VerticalTextAlignment = TextAlignment.Center, FontSize = 9 }, 0, 3);
+            _grid1.Children.Add(new Xamarin.Forms.Label { Text = "Icon", VerticalTextAlignment = TextAlignment.Center, FontSize = 9, TextColor = Color.Black }, 0, 3);
             _grid1.Children.Add(_iconElement, 1, 3);
 
-            _grid2.Children.Add(new Xamarin.Forms.Label { Text = "Spacing:" }, 0, 0);
+            _grid2.Children.Add(new Xamarin.Forms.Label { Text = "Spacing:", TextColor = Color.Black }, 0, 0);
             _grid2.Children.Add(_spacingSlider, 0, 1);
-            _grid2.Children.Add(new Xamarin.Forms.Label { Text = "Imposed Ht:" }, 1, 0);
+            _grid2.Children.Add(new Xamarin.Forms.Label { Text = "Imposed Ht:", TextColor = Color.Black }, 1, 0);
             _grid2.Children.Add(_imposedHeightSwitch, 1, 1);
 
 
