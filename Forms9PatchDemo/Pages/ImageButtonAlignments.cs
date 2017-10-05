@@ -69,6 +69,13 @@ namespace Forms9PatchDemo
 
         };
 
+        Slider _iconImageSize = new Slider
+        {
+            Maximum = 50,
+            Minimum = 0,
+            Value = 25
+        };
+
         ImageButton _iconTextAndTextButton = new ImageButton
         {
             DefaultState = new ImageButtonState
@@ -80,6 +87,8 @@ namespace Forms9PatchDemo
                 Image = new Forms9Patch.Image
                 {
                     Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info"),
+                    WidthRequest = 25,
+                    HeightRequest = 25,
                 },
                 FontColor = Color.White,
                 Text = "Unselected",
@@ -144,6 +153,7 @@ namespace Forms9PatchDemo
                         _grid1,
                         _grid2,
 
+                        _iconImageSize,
 
                         new BoxView { HeightRequest = 1, Color = Color.Black },
 
@@ -199,6 +209,15 @@ namespace Forms9PatchDemo
             _spacingSlider.ValueChanged += (sender, e) =>
             {
                 _iconTextAndTextButton.Spacing = _spacingSlider.Value;
+            };
+
+            _iconImageSize.ValueChanged += (sender, e) =>
+            {
+                if (_iconTextAndTextButton.DefaultState?.Image != null)
+                {
+                    _iconTextAndTextButton.DefaultState.Image.WidthRequest = _iconImageSize.Value;
+                    _iconTextAndTextButton.DefaultState.Image.HeightRequest = _iconImageSize.Value;
+                }
             };
 
             _imposedHeightSwitch.Toggled += (sender, e) =>
