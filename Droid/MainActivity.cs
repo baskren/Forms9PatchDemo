@@ -19,7 +19,7 @@ namespace Forms9PatchDemo.Droid
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
 
-            Forms9Patch.Droid.Settings.Initialize("NZPK-RMP4-PJVV-Z7LP-78JF-GNXB-CDJZ-SRYA-BLR2-WBZC-G64K-QJZW-65DB");  // for "Forms9Patch Demo"
+            Forms9Patch.Droid.Settings.Initialize(this, "NZPK-RMP4-PJVV-Z7LP-78JF-GNXB-CDJZ-SRYA-BLR2-WBZC-G64K-QJZW-65DB");  // for "Forms9Patch Demo"
 
             LoadApplication(new App());
         }
