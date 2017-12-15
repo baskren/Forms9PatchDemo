@@ -9,10 +9,10 @@ namespace Forms9PatchDemo
 
         public ButtonTapped()
         {
-            var materialButton = new MaterialButton
+            var materialButton = new Forms9Patch.Button
             {
-                Text = "MaterialButton",
-                FontColor = Color.Pink,
+                Text = "Button",
+                TextColor = Color.Pink,
                 FontSize = 20,
                 HeightRequest = 30,
                 WidthRequest = 200,
@@ -24,10 +24,10 @@ namespace Forms9PatchDemo
             };
             materialButton.Tapped += OnTapped;
 
-            var imageButton = new ImageButton
+            var imageButton = new StateButton
             {
-                Text = "ImageButton",
-                FontColor = Color.Green,
+                Text = "StateButton",
+                TextColor = Color.Green,
                 FontSize = 20,
                 HeightRequest = 30,
                 WidthRequest = 200,
@@ -46,7 +46,7 @@ namespace Forms9PatchDemo
             };
         }
 
-        private async void OnTapped(object sender, EventArgs e)
+        void OnTapped(object sender, EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Tapped");
         }

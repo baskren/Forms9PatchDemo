@@ -10,7 +10,7 @@
 	<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
 		<Label Text="Welcome to Xamarin Forms!" VerticalOptions="Center" HorizontalOptions="Center" TextColor="Black" />
 		<Grid WidthRequest="530">
-			<Forms9Patch:Image Source="{local:ImageMultiResource Forms9PatchDemo.Resources.button}" CapInsets="12,12,12,12"/>
+			<!--Forms9Patch:Image Source="{local:ImageMultiResource Forms9PatchDemo.Resources.button}" CapInsets="12,12,12,12"/-->
 			<!--BoxView BackgroundColor="Aqua"/-->
 		</Grid>
 	</StackLayout>

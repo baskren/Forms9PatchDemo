@@ -21,7 +21,7 @@ namespace Forms9PatchDemo
 
 
 
-        //readonly Forms9Patch.MaterialSegmentedControl fitSelector = new Forms9Patch.MaterialSegmentedControl();
+        //readonly Forms9Patch.SegmentedControl fitSelector = new Forms9Patch.SegmentedControl();
 
         double lastFontSize = -1;
         bool rendering;
@@ -66,7 +66,7 @@ namespace Forms9PatchDemo
                 Lines = 5,
                 FontSize = 15,
                 TextColor = Color.White,
-                Fit = Forms9Patch.LabelFit.None,
+                AutoFit = Forms9Patch.AutoFit.None,
                 BackgroundColor = Color.Black,
                 Text = editor.Text
             };
@@ -166,8 +166,8 @@ namespace Forms9PatchDemo
             };
             f9pLabel.PropertyChanged += (sender, e) =>
             {
-                if (e.PropertyName == Forms9Patch.Label.ActualFontSizeProperty.PropertyName)
-                    actualFontSizeLabel.Text = "ActualFontSize: " + f9pLabel.ActualFontSize;
+                if (e.PropertyName == Forms9Patch.Label.FittedFontSizeProperty.PropertyName)
+                    actualFontSizeLabel.Text = "ActualFontSize: " + f9pLabel.FittedFontSize;
             };
             #endregion
 
@@ -191,17 +191,17 @@ namespace Forms9PatchDemo
             #endregion
 
 
-            #region Fit Selection
-            var fitSelector = new Forms9Patch.MaterialSegmentedControl();
+            #region AutoFit Selection
+            var fitSelector = new Forms9Patch.SegmentedControl();
             fitSelector.Segments.Add(new Forms9Patch.Segment
             {
                 Text = "None",
-                Command = new Command(x => { f9pLabel.Fit = Forms9Patch.LabelFit.None; })
+                Command = new Command(x => { f9pLabel.AutoFit = Forms9Patch.AutoFit.None; })
             });
             var widthSegment = new Forms9Patch.Segment
             {
                 Text = "Width",
-                Command = new Command(x => { f9pLabel.Fit = Forms9Patch.LabelFit.Width; }),
+                Command = new Command(x => { f9pLabel.AutoFit = Forms9Patch.AutoFit.Width; }),
                 //IsEnabled = f9pLabel.HasImposedSize,
                 //BindingContext = f9pLabel
             };
@@ -210,7 +210,7 @@ namespace Forms9PatchDemo
             var linesSegment = new Forms9Patch.Segment
             {
                 Text = "Lines",
-                Command = new Command(x => { f9pLabel.Fit = Forms9Patch.LabelFit.Lines; }),
+                Command = new Command(x => { f9pLabel.AutoFit = Forms9Patch.AutoFit.Lines; }),
                 //IsEnabled = f9pLabel.HasImposedSize,
                 //BindingContext = f9pLabel
             };
@@ -221,8 +221,8 @@ namespace Forms9PatchDemo
 
 
             #region Alignment Selection
-            var hzAlignmentSelector = new Forms9Patch.MaterialSegmentedControl();
-            var vtAlignmentSelector = new Forms9Patch.MaterialSegmentedControl();
+            var hzAlignmentSelector = new Forms9Patch.SegmentedControl();
+            var vtAlignmentSelector = new Forms9Patch.SegmentedControl();
             hzAlignmentSelector.Segments.Add(
                 new Forms9Patch.Segment
                 {
@@ -295,7 +295,7 @@ namespace Forms9PatchDemo
 
 
             #region BreakMode selection
-            var breakModeSelector = new Forms9Patch.MaterialSegmentedControl();
+            var breakModeSelector = new Forms9Patch.SegmentedControl();
             breakModeSelector.Segments.Add(
                 new Forms9Patch.Segment
                 {
@@ -425,7 +425,7 @@ namespace Forms9PatchDemo
                         fontSizeLabel,
                         fontSizeSlider,
                         actualFontSizeLabel,
-                        new Label { Text = "Fit:" },
+                        new Label { Text = "AutoFit:" },
                         fitSelector,
                         linesLabel,
                         linesSlider,

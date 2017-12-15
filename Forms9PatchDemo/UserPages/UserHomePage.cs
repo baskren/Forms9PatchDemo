@@ -1,5 +1,6 @@
 using System;
 using Xamarin.Forms;
+using Forms9PatchDemo;
 
 namespace Forms9PatchDemo
 {
@@ -55,12 +56,16 @@ namespace Forms9PatchDemo
                     new TableSection("XAML") {
                         new TextCell
                         {
+                            Text = "Stretch Issue Page",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(StretchIssuePage)
+                        },
+                        new TextCell
+                        {
                             Text = "SegmentBindingPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(SegmentBindingPage)
                         },
-
-
                         new TextCell {
                             Text = "Burkhart Test",
                             Command = navigateCommand,
@@ -76,7 +81,14 @@ namespace Forms9PatchDemo
                     new TableSection("Code") {
 
                         new TextCell {
-                            Text = "Using MaterialButton SelectedBackground",
+                            Text = "ButtonTapped",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(ButtonTapped)
+                        },
+
+
+                        new TextCell {
+                            Text = "Using Button SelectedBackground",
                             Command = navigateCommand,
                             CommandParameter = typeof(SegmentSelectedBackgroundPage)
                         },
@@ -96,7 +108,7 @@ namespace Forms9PatchDemo
                         new TextCell {
                             Text = "Custom Font Effect",
                             Command = navigateCommand,
-                            CommandParameter = typeof(ChrisCustomFontEffectPage)
+                            CommandParameter = typeof(ChrisEmbeddedResourceFontEffectPage)
                         },
 
 
@@ -120,7 +132,7 @@ namespace Forms9PatchDemo
                         },
 
                         new TextCell {
-                            Text = "ImageButton in ContentView test",
+                            Text = "StateButton in ContentView test",
                             Command = navigateCommand,
                             CommandParameter = typeof(ZenmekPage)
                         },
@@ -138,11 +150,10 @@ namespace Forms9PatchDemo
                         },
 
                         new TextCell {
-                            Text = "Button Tapped",
+                            Text = "Absolute Layout Exploration Code",
                             Command = navigateCommand,
-                            CommandParameter = typeof(ButtonTapped)
+                            CommandParameter = typeof(AbsoluteLayoutExplorationCode)
                         },
-
                     }
                 }
             };

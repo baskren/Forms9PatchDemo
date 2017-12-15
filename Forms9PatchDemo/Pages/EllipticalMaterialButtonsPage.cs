@@ -29,19 +29,19 @@ namespace Forms9PatchDemo
 		}
 
 		static void OnMaterialButtonTapped(object sender, EventArgs e) {
-			System.Diagnostics.Debug.WriteLine ("Tapped Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+			System.Diagnostics.Debug.WriteLine ("Tapped Button Text=["+((Forms9Patch.Button)sender).Text+"]");
 		}
 
 		static void OnMaterialButtonSelected(object sender, EventArgs e) {
-			System.Diagnostics.Debug.WriteLine ("Selected Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+			System.Diagnostics.Debug.WriteLine ("Selected Button Text=["+((Forms9Patch.Button)sender).Text+"]");
 		}
 
 		static void OnMaterialButtonLongPressing(object sender, EventArgs e) {
-			System.Diagnostics.Debug.WriteLine ("LongPressing Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+			System.Diagnostics.Debug.WriteLine ("LongPressing Button Text=["+((Forms9Patch.Button)sender).Text+"]");
 		}
 
 		static void OnMaterialButtonLongPressed(object sender, EventArgs e) {
-			System.Diagnostics.Debug.WriteLine ("LongPressed Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+			System.Diagnostics.Debug.WriteLine ("LongPressed Button Text=["+((Forms9Patch.Button)sender).Text+"]");
 		}
 
 
@@ -63,43 +63,43 @@ namespace Forms9PatchDemo
 
 
 
-			var mb1 = new Forms9Patch.MaterialButton {
+			var mb1 = new Forms9Patch.Button {
 				Text = "",
-				ImageSource = arrowIcon,
-				IsElliptical = true
+				IconImage = new Forms9Patch.Image(arrowIcon),
+				ElementShape = Forms9Patch.ElementShape.Obround
 			};
 			mb1.Tapped += OnMaterialButtonTapped;
 			mb1.Selected += OnMaterialButtonSelected;
 			mb1.LongPressing += OnMaterialButtonLongPressing;
 			mb1.LongPressed += OnMaterialButtonLongPressed;
-			var mb2 = new Forms9Patch.MaterialButton {
+			var mb2 = new Forms9Patch.Button {
 				//Text = "toggle",
 				ToggleBehavior = true,
-				ImageSource = infoIcon,
-				IsElliptical = true,
+                IconImage = new Forms9Patch.Image(infoIcon),
+				ElementShape = Forms9Patch.ElementShape.Obround,
 
 			};
 			mb2.Tapped += OnMaterialButtonTapped;
 			mb2.Selected += OnMaterialButtonSelected;
 			mb2.LongPressing += OnMaterialButtonLongPressing;
 			mb2.LongPressed += OnMaterialButtonLongPressed;
-			var mb3 = new Forms9Patch.MaterialButton {
+			var mb3 = new Forms9Patch.Button {
 				//Text = "disabled",
 				ToggleBehavior = true,
 				IsEnabled = false,
-				ImageSource = arrowIcon,
-				IsElliptical = true
+                IconImage = new Forms9Patch.Image(arrowIcon),
+				ElementShape = Forms9Patch.ElementShape.Obround
 			};
 			mb3.Tapped += OnMaterialButtonTapped;
 			mb3.Selected += OnMaterialButtonSelected;
 			mb3.LongPressing += OnMaterialButtonLongPressing;
 			mb3.LongPressed += OnMaterialButtonLongPressed;
-			var mb4 = new Forms9Patch.MaterialButton {
+			var mb4 = new Forms9Patch.Button {
 				//Text = "selected disabled",
 				IsEnabled = false,
 				IsSelected = true,
-				ImageSource = infoIcon,
-				IsElliptical = true
+				IconImage = new Forms9Patch.Image(infoIcon),
+				ElementShape = Forms9Patch.ElementShape.Obround
 			};
 			mb4.Tapped += OnMaterialButtonTapped;
 			mb4.Selected += OnMaterialButtonSelected;
@@ -139,141 +139,141 @@ namespace Forms9PatchDemo
 						Text = "Outline, Light",
 						TextColor = Color.Black
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "",
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						OutlineWidth = 0,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						//Text = "toggle",
 						ToggleBehavior = true,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 						OutlineWidth = 0,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						//Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						OutlineWidth = 0,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						//Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 						OutlineWidth = 0,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 
 					new Label {
 						Text = "Background Color, Light Theme",
 						TextColor = Color.Black
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						BackgroundColor = Color.FromHex("#E0E0E0"),
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						Orientation = StackOrientation.Vertical,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
-						ImageSource = infoIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(infoIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
-						ImageSource = arrowIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(arrowIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
-						ImageSource = infoIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(infoIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},	
 
 					new Label {
 						Text = "Shadow, Light Theme",
 						TextColor = Color.Black
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						HasShadow = true,
-						ImageSource = infoIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(infoIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						HasShadow = true,
-						ImageSource = arrowIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(arrowIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						HasShadow = true,
-						ImageSource = infoIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(infoIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						HasShadow = true,
-						ImageSource = arrowIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(arrowIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 
 					new Label {
 						Text = "Shadow Background Color, Light Theme",
 						TextColor = Color.Black
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						BackgroundColor = Color.FromHex("#E0E0E0"),
 						HasShadow = true,
-						ImageSource = infoIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(infoIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
 						HasShadow = true,
-						ImageSource = arrowIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(arrowIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
 						HasShadow = true,
-						ImageSource = infoIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(infoIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
 						HasShadow = true,
-						ImageSource = arrowIcon,
-						IsElliptical = true
+						IconImage = new Forms9Patch.Image(arrowIcon),
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},	
 
 				},
@@ -288,174 +288,174 @@ namespace Forms9PatchDemo
 						Text = "Default, Dark Theme",
 						TextColor = Color.White
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						DarkTheme = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						DarkTheme = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						DarkTheme = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						DarkTheme = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 
 					new Label {
 						Text = "Outline, Dark Theme",
 						TextColor = Color.White
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						DarkTheme = true,
 						OutlineWidth = 0,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						DarkTheme = true,
 						OutlineWidth = 0,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						DarkTheme = true,
 						OutlineWidth = 0,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						DarkTheme = true,
 						OutlineWidth = 0,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 
 					new Label {
 						Text = "Background Color, Dark Theme",
 						TextColor = Color.White
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						Orientation = StackOrientation.Vertical,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 					new Label {
 						Text = "Shadow, Dark Theme",
 						TextColor = Color.White
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						DarkTheme = true,
 						HasShadow = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						DarkTheme = true,
 						HasShadow = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						DarkTheme = true,
 						HasShadow = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						DarkTheme = true,
 						HasShadow = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 					new Label {
 						Text = "Shadow Background Color, Dark Theme",
 						TextColor = Color.White
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
 						HasShadow = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
 						HasShadow = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
 						HasShadow = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
 						HasShadow = true,
-						IsElliptical = true
+						ElementShape = Forms9Patch.ElementShape.Obround
 					},
 				},
 			},1,0);

@@ -29,19 +29,19 @@ namespace Forms9PatchDemo
 		}
 
 		static void OnMaterialButtonTapped(object sender, EventArgs e) {
-			System.Diagnostics.Debug.WriteLine ("Tapped Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+			System.Diagnostics.Debug.WriteLine ("Tapped Button Text=["+((Forms9Patch.Button)sender).Text+"]");
 		}
 
 		static void OnMaterialButtonSelected(object sender, EventArgs e) {
-			System.Diagnostics.Debug.WriteLine ("Selected Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+			System.Diagnostics.Debug.WriteLine ("Selected Button Text=["+((Forms9Patch.Button)sender).Text+"]");
 		}
 
 		static void OnMaterialButtonLongPressing(object sender, EventArgs e) {
-			System.Diagnostics.Debug.WriteLine ("LongPressing Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+			System.Diagnostics.Debug.WriteLine ("LongPressing Button Text=["+((Forms9Patch.Button)sender).Text+"]");
 		}
 
 		static void OnMaterialButtonLongPressed(object sender, EventArgs e) {
-			System.Diagnostics.Debug.WriteLine ("LongPressed Button Text=["+((Forms9Patch.MaterialButton)sender).Text+"]");
+			System.Diagnostics.Debug.WriteLine ("LongPressed Button Text=["+((Forms9Patch.Button)sender).Text+"]");
 		}
 
 
@@ -64,38 +64,38 @@ namespace Forms9PatchDemo
 
 
 
-			var mb1 = new Forms9Patch.MaterialButton {
+			var mb1 = new Forms9Patch.Button {
 				Text = "",
-				ImageSource = arrowIcon,
+				IconImage = new Forms9Patch.Image(arrowIcon),
 			};
 			mb1.Tapped += OnMaterialButtonTapped;
 			mb1.Selected += OnMaterialButtonSelected;
 			mb1.LongPressing += OnMaterialButtonLongPressing;
 			mb1.LongPressed += OnMaterialButtonLongPressed;
-			var mb2 = new Forms9Patch.MaterialButton {
+			var mb2 = new Forms9Patch.Button {
 				//Text = "toggle",
 				ToggleBehavior = true,
-				ImageSource = infoIcon,
+				IconImage = new Forms9Patch.Image(infoIcon),
 			};
 			mb2.Tapped += OnMaterialButtonTapped;
 			mb2.Selected += OnMaterialButtonSelected;
 			mb2.LongPressing += OnMaterialButtonLongPressing;
 			mb2.LongPressed += OnMaterialButtonLongPressed;
-			var mb3 = new Forms9Patch.MaterialButton {
+			var mb3 = new Forms9Patch.Button {
 				//Text = "disabled",
 				ToggleBehavior = true,
 				IsEnabled = false,
-				ImageSource = arrowIcon,
+				IconImage = new Forms9Patch.Image(arrowIcon),
 			};
 			mb3.Tapped += OnMaterialButtonTapped;
 			mb3.Selected += OnMaterialButtonSelected;
 			mb3.LongPressing += OnMaterialButtonLongPressing;
 			mb3.LongPressed += OnMaterialButtonLongPressed;
-			var mb4 = new Forms9Patch.MaterialButton {
+			var mb4 = new Forms9Patch.Button {
 				//Text = "selected disabled",
 				IsEnabled = false,
 				IsSelected = true,
-				ImageSource = infoIcon,
+				IconImage = new Forms9Patch.Image(infoIcon),
 			};
 			mb4.Tapped += OnMaterialButtonTapped;
 			mb4.Selected += OnMaterialButtonSelected;
@@ -135,29 +135,29 @@ namespace Forms9PatchDemo
 						Text = "Outline, Light",
 						TextColor = Color.Black,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "",
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						OutlineWidth = 0,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						//Text = "toggle",
 						ToggleBehavior = true,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 						OutlineWidth = 0,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						//Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						OutlineWidth = 0,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						//Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 						OutlineWidth = 0,
 					},
 
@@ -165,95 +165,95 @@ namespace Forms9PatchDemo
 						Text = "Background Color, Light Theme",
 						TextColor = Color.Black,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						BackgroundColor = Color.FromHex("#E0E0E0"),
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						Orientation = StackOrientation.Vertical,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 					},	
 
 					new Label {
 						Text = "Shadow, Light Theme",
 						TextColor = Color.Black,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						HasShadow = true,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						HasShadow = true,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						HasShadow = true,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						HasShadow = true,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 					},
 
 					new Label {
 						Text = "Shadow Background Color, Light Theme",
 						TextColor = Color.Black,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						BackgroundColor = Color.FromHex("#E0E0E0"),
 						HasShadow = true,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
 						HasShadow = true,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
 						HasShadow = true,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
 						BackgroundColor = Color.FromHex("#E0E0E0"),
 						HasShadow = true,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 					},	
 
 				},
@@ -268,22 +268,22 @@ namespace Forms9PatchDemo
 						Text = "Default, Dark Theme",
 						TextColor = Color.White,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						DarkTheme = true,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						DarkTheme = true,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						DarkTheme = true,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
@@ -294,25 +294,25 @@ namespace Forms9PatchDemo
 						Text = "Outline, Dark Theme",
 						TextColor = Color.White,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						DarkTheme = true,
 						OutlineWidth = 0,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						DarkTheme = true,
 						OutlineWidth = 0,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						DarkTheme = true,
 						OutlineWidth = 0,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
@@ -324,21 +324,21 @@ namespace Forms9PatchDemo
 						Text = "Background Color, Dark Theme",
 						TextColor = Color.White,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						Orientation = StackOrientation.Vertical,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
 					},
 
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
@@ -346,7 +346,7 @@ namespace Forms9PatchDemo
 						DarkTheme = true,
 					},
 
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
@@ -357,25 +357,25 @@ namespace Forms9PatchDemo
 						Text = "Shadow, Dark Theme",
 						TextColor = Color.White,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						DarkTheme = true,
 						HasShadow = true,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						DarkTheme = true,
 						HasShadow = true,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
 						DarkTheme = true,
 						HasShadow = true,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
@@ -386,13 +386,13 @@ namespace Forms9PatchDemo
 						Text = "Shadow Background Color, Dark Theme",
 						TextColor = Color.White,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "default",
 						BackgroundColor = Color.FromHex("#1194F6"),
 						DarkTheme = true,
 						HasShadow = true,
 					},
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "toggle",
 						ToggleBehavior = true,
 						BackgroundColor = Color.FromHex("#1194F6"),
@@ -400,7 +400,7 @@ namespace Forms9PatchDemo
 						HasShadow = true,
 					},
 
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "disabled",
 						ToggleBehavior = true,
 						IsEnabled = false,
@@ -409,7 +409,7 @@ namespace Forms9PatchDemo
 						HasShadow = true,
 					},
 
-					new Forms9Patch.MaterialButton {
+					new Forms9Patch.Button {
 						Text = "selected disabled",
 						IsEnabled = false,
 						IsSelected = true,
@@ -424,19 +424,19 @@ namespace Forms9PatchDemo
 
 			#region Light SegmentedControl
 
-			var sc1 = new Forms9Patch.MaterialSegmentedControl {
+			var sc1 = new Forms9Patch.SegmentedControl {
 				Segments = {
 
 					new Forms9Patch.Segment {
 						Text = "A",
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						Command = _trueCommand,
 						CommandParameter = "sc1 A",
 					},
 					new Forms9Patch.Segment {
 						//Text = "B",
 						IsSelected = true,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						Command = _trueCommand,
 						CommandParameter = "sc1 B",
 					},
@@ -461,7 +461,7 @@ namespace Forms9PatchDemo
 
 			var seg1 = new Forms9Patch.Segment {
 				//Text = "A",
-				ImageSource = arrowIcon,
+				IconImage = new Forms9Patch.Image(arrowIcon),
 			};
 			seg1.Tapped += OnMaterialButtonTapped;
 			seg1.Selected += OnMaterialButtonTapped;
@@ -492,7 +492,7 @@ namespace Forms9PatchDemo
 			seg4.LongPressed += OnMaterialButtonLongPressed;
 
 
-			var sc2 = new Forms9Patch.MaterialSegmentedControl {
+			var sc2 = new Forms9Patch.SegmentedControl {
 				OutlineWidth = 0,
 				Segments = {
 					seg1, seg2, seg3, seg4,
@@ -503,7 +503,7 @@ namespace Forms9PatchDemo
 			sc2.SegmentLongPressing += OnSegmentLongPressing;
 			sc2.SegmentLongPressed += OnSegmentLongPressed;
 
-			var sc3 = new Forms9Patch.MaterialSegmentedControl {
+			var sc3 = new Forms9Patch.SegmentedControl {
 				//OutlineColor = Color.Transparent,
 				BackgroundColor = Color.FromHex("#E0E0E0"),
 				Segments = {
@@ -520,7 +520,7 @@ namespace Forms9PatchDemo
 					new Forms9Patch.Segment {
 						//Text = "D",
 						IsEnabled = false,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 					},
 				},
 			};
@@ -529,7 +529,7 @@ namespace Forms9PatchDemo
 			sc3.SegmentLongPressing += OnSegmentLongPressing;
 			sc3.SegmentLongPressed += OnSegmentLongPressed;
 
-			var sc4 = new Forms9Patch.MaterialSegmentedControl {
+			var sc4 = new Forms9Patch.SegmentedControl {
 				BackgroundColor = Color.FromHex("#E0E0E0"),
 				OutlineWidth = 0,
 				SeparatorWidth = 1,
@@ -537,24 +537,24 @@ namespace Forms9PatchDemo
 				Segments = {
 					new Forms9Patch.Segment {
 						Text = "A",
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						Orientation = StackOrientation.Vertical,
 					},
 					new Forms9Patch.Segment {
 						Text = "B",
 						IsSelected = true,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 						Orientation = StackOrientation.Vertical,
 					},
 
 					new Forms9Patch.Segment {
 						Text = "C",
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 					},
 					new Forms9Patch.Segment {
 						Text = "D",
 						IsEnabled = false,
-						ImageSource = infoIcon,
+						IconImage = new Forms9Patch.Image(infoIcon),
 						Orientation = StackOrientation.Vertical,
 					},
 
@@ -565,7 +565,7 @@ namespace Forms9PatchDemo
 			sc4.SegmentLongPressing += OnSegmentLongPressing;
 			sc4.SegmentLongPressed += OnSegmentLongPressed;
 
-			var sc5 = new Forms9Patch.MaterialSegmentedControl {
+			var sc5 = new Forms9Patch.SegmentedControl {
 				BackgroundColor = Color.FromHex("#E0E0E0"),
 				HasShadow = true,
 				//OutlineRadius = 0,
@@ -576,7 +576,7 @@ namespace Forms9PatchDemo
 
 					new Forms9Patch.Segment {
 						Text = "A",
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 					},
 
 					new Forms9Patch.Segment {
@@ -598,7 +598,7 @@ namespace Forms9PatchDemo
 			sc5.SegmentLongPressing += OnSegmentLongPressing;
 			sc5.SegmentLongPressed += OnSegmentLongPressed;
 
-			var sc6 = new Forms9Patch.MaterialSegmentedControl {
+			var sc6 = new Forms9Patch.SegmentedControl {
 				BackgroundColor = Color.FromHex("#E0E0E0"),
 				HasShadow = true,
 				//OutlineRadius = 0,
@@ -615,7 +615,7 @@ namespace Forms9PatchDemo
 					new Forms9Patch.Segment {
 						Text = "B",
 						IsSelected = true,
-						ImageSource = arrowIcon,
+						IconImage = new Forms9Patch.Image(arrowIcon),
 						//Orientation = StackOrientation.Vertical,
 					},
 					new Forms9Patch.Segment {
@@ -677,7 +677,7 @@ namespace Forms9PatchDemo
 											TextColor = Color.White,
 										},
 
-										new Forms9Patch.MaterialSegmentedControl {
+										new Forms9Patch.SegmentedControl {
 											//OutlineColor = Color.Transparent,
 											DarkTheme = true,
 											Segments = {
@@ -688,7 +688,7 @@ namespace Forms9PatchDemo
 												new Forms9Patch.Segment {
 													//Text = "B",
 													IsSelected = true,
-													ImageSource = arrowIcon,
+													IconImage = new Forms9Patch.Image(arrowIcon),
 												},
 												new Forms9Patch.Segment {
 													Text = "C",
@@ -701,14 +701,14 @@ namespace Forms9PatchDemo
 											},
 										},
 
-										new Forms9Patch.MaterialSegmentedControl {
+										new Forms9Patch.SegmentedControl {
 											DarkTheme = true,
 											OutlineWidth = 0,
 											Segments = {
 
 												new Forms9Patch.Segment {
 													//Text = "A",
-													ImageSource = arrowIcon,
+													IconImage = new Forms9Patch.Image(arrowIcon),
 												},
 												new Forms9Patch.Segment {
 													Text = "B",
@@ -725,7 +725,7 @@ namespace Forms9PatchDemo
 											},
 										},
 
-										new Forms9Patch.MaterialSegmentedControl {
+										new Forms9Patch.SegmentedControl {
 											DarkTheme = true,
 											BackgroundColor = Color.FromHex("#1194F6"),
 											Segments = {
@@ -742,43 +742,43 @@ namespace Forms9PatchDemo
 												new Forms9Patch.Segment {
 													//Text = "D",
 													IsEnabled = false,
-													ImageSource = arrowIcon,
+													IconImage = new Forms9Patch.Image(arrowIcon),
 												},
 											},
 										},
 
-										new Forms9Patch.MaterialSegmentedControl {
+										new Forms9Patch.SegmentedControl {
 											DarkTheme = true,
 											BackgroundColor = Color.FromHex("#1194F6"),
 											OutlineWidth = 0,
 											Segments = {
 												new Forms9Patch.Segment {
 													Text = "A",
-													ImageSource = arrowIcon,
+													IconImage = new Forms9Patch.Image(arrowIcon),
 													Orientation = StackOrientation.Vertical,
 												},
 												new Forms9Patch.Segment {
 													Text = "B",
 													IsSelected = true,
-													ImageSource = infoIcon,
+													IconImage = new Forms9Patch.Image(infoIcon),
 													Orientation = StackOrientation.Vertical,
 												},
 
 												new Forms9Patch.Segment {
 													Text = "C",
-													ImageSource = arrowIcon,
+													IconImage = new Forms9Patch.Image(arrowIcon),
 												},
 												new Forms9Patch.Segment {
 													Text = "D",
 													IsEnabled = false,
-													ImageSource = infoIcon,
+													IconImage = new Forms9Patch.Image(infoIcon),
 													Orientation = StackOrientation.Vertical,
 												},
 
 											},
 										},
 
-										new Forms9Patch.MaterialSegmentedControl {
+										new Forms9Patch.SegmentedControl {
 											DarkTheme = true,
 											BackgroundColor = Color.FromHex("#1194F6"),
 											HasShadow = true,
@@ -790,7 +790,7 @@ namespace Forms9PatchDemo
 
 												new Forms9Patch.Segment {
 													Text = "A",
-													ImageSource = arrowIcon,
+													IconImage = new Forms9Patch.Image(arrowIcon),
 												},
 
 												new Forms9Patch.Segment {
@@ -808,7 +808,7 @@ namespace Forms9PatchDemo
 											},
 										},
 
-										new Forms9Patch.MaterialSegmentedControl {
+										new Forms9Patch.SegmentedControl {
 											DarkTheme = true,
 											BackgroundColor = Color.FromHex("#1194F6"),
 											HasShadow = true,
@@ -826,7 +826,7 @@ namespace Forms9PatchDemo
 												new Forms9Patch.Segment {
 													Text = "B",
 													IsSelected = true,
-													ImageSource = arrowIcon,
+													IconImage = new Forms9Patch.Image(arrowIcon),
 												},
 												new Forms9Patch.Segment {
 													Text = "C",

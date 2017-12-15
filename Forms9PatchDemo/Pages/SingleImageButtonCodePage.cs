@@ -8,48 +8,48 @@ namespace Forms9PatchDemo
     {
         static void OnImageButtonTapped(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Tapped Button Text=[" + ((Forms9Patch.ImageButton)sender).Text + "]");
+            System.Diagnostics.Debug.WriteLine("Tapped Button Text=[" + ((Forms9Patch.StateButton)sender).Text + "]");
         }
 
         static void OnImageButtonSelected(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Selected Button Text=[" + ((Forms9Patch.ImageButton)sender).Text + "]");
+            System.Diagnostics.Debug.WriteLine("Selected Button Text=[" + ((Forms9Patch.StateButton)sender).Text + "]");
         }
 
         static void OnImageButtonLongPressing(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("LongPressing Button Text=[" + ((Forms9Patch.ImageButton)sender).Text + "]");
+            System.Diagnostics.Debug.WriteLine("LongPressing Button Text=[" + ((Forms9Patch.StateButton)sender).Text + "]");
         }
 
         static void OnImageButtonLongPressed(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("LongPressed Button Text=[" + ((Forms9Patch.ImageButton)sender).Text + "]");
+            System.Diagnostics.Debug.WriteLine("LongPressed Button Text=[" + ((Forms9Patch.StateButton)sender).Text + "]");
         }
 
 
         #region ImageButtons
-        Forms9Patch.ImageButton b2 = new Forms9Patch.ImageButton
+        Forms9Patch.StateButton b2 = new Forms9Patch.StateButton
         {
-            DefaultState = new Forms9Patch.ImageButtonState
+            DefaultState = new Forms9Patch.ButtonState
             {
                 BackgroundImage = new Forms9Patch.Image
                 {
                     Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.button"),
                 },
-                Image = new Forms9Patch.Image
+                IconImage = new Forms9Patch.Image
                 {
                     Source = ImageSource.FromFile("five.png"),
                 },
-                FontColor = Color.White,
+                TextColor = Color.White,
                 Text = "Sticky w/ SelectedState",
             },
-            SelectedState = new Forms9Patch.ImageButtonState
+            SelectedState = new Forms9Patch.ButtonState
             {
                 BackgroundImage = new Forms9Patch.Image
                 {
                     Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.image"),
                 },
-                FontColor = Color.Red,
+                TextColor = Color.Red,
                 Text = "Selected",
             },
             ToggleBehavior = true,
@@ -58,22 +58,22 @@ namespace Forms9PatchDemo
         };
 
 
-        Forms9Patch.ImageButton b3 = new Forms9Patch.ImageButton
+        Forms9Patch.StateButton b3 = new Forms9Patch.StateButton
         {
-            DefaultState = new Forms9Patch.ImageButtonState
+            DefaultState = new Forms9Patch.ButtonState
             {
                 BackgroundImage = new Forms9Patch.Image
                 {
                     Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.button"),
                 },
-                Image = new Forms9Patch.Image
+                IconImage = new Forms9Patch.Image
                 {
                     Source = ImageSource.FromFile("five.png"),
                 },
-                FontColor = Color.FromRgb(0.0, 0.0, 0.8),
+                TextColor = Color.FromRgb(0.0, 0.0, 0.8),
                 Text = "Sticky w/o SelectedState",
             },
-            PressingState = new Forms9Patch.ImageButtonState
+            PressingState = new Forms9Patch.ButtonState
             {
                 BackgroundImage = new Forms9Patch.Image
                 {
@@ -85,19 +85,19 @@ namespace Forms9PatchDemo
             HorizontalTextAlignment = TextAlignment.Center,
         };
 
-        Forms9Patch.ImageButton b4 = new Forms9Patch.ImageButton
+        Forms9Patch.StateButton b4 = new Forms9Patch.StateButton
         {
-            DefaultState = new Forms9Patch.ImageButtonState
+            DefaultState = new Forms9Patch.ButtonState
             {
                 BackgroundImage = new Forms9Patch.Image
                 {
                     Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.button"),
                 },
-                Image = new Forms9Patch.Image
+                IconImage = new Forms9Patch.Image
                 {
                     Source = ImageSource.FromFile("five.png"),
                 },
-                FontColor = Color.White,
+                TextColor = Color.White,
                 Text = "Not toggle",
             },
             //ToggleBehavior = true,

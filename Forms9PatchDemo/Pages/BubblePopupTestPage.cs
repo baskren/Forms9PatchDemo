@@ -172,7 +172,7 @@ namespace Forms9PatchDemo
             downSeg.Tapped += (sender, e) => _lastChanged = downSeg.VisualElement;
 
             PointerDirection = Forms9Patch.PointerDirection.Left;
-            var directionSegmentControl = new Forms9Patch.MaterialSegmentedControl
+            var directionSegmentControl = new Forms9Patch.SegmentedControl
             {
                 Segments = { leftSeg, upSeg, rightSeg, downSeg, },
                 GroupToggleBehavior = Forms9Patch.GroupToggleBehavior.Multiselect,
@@ -194,12 +194,12 @@ namespace Forms9PatchDemo
                 TextColor = Color.Black,
                 //BackgroundColor = Color.Green,
             };
-            var bubbleButton = new Forms9Patch.MaterialButton
+            var bubbleButton = new Forms9Patch.Button
             {
                 Text = "Close",
                 //BackgroundColor = Color.Blue,
                 OutlineColor = Color.Blue,
-                FontColor = Color.Blue,
+                TextColor = Color.Blue,
             };
             //bubbleLabel.SetBinding (Label.TextProperty, "CornerRadius");
             bubbleLabel.BindingContext = this;
@@ -239,11 +239,11 @@ namespace Forms9PatchDemo
 
             bubbleButton.Tapped += (sender, e) => bubble.IsVisible = false;
 
-            var showButton = new Forms9Patch.MaterialButton
+            var showButton = new Forms9Patch.Button
             {
                 Text = "Show BubblePopup",
                 OutlineColor = Color.Blue,
-                FontColor = Color.Blue,
+                TextColor = Color.Blue,
             };
             showButton.Tapped += (object sender, EventArgs e) =>
             {

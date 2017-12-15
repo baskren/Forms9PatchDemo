@@ -12,12 +12,12 @@ namespace Forms9PatchDemo
             BackgroundColor = Color.White;
 
             #region Material Button
-            var mb1 = new Forms9Patch.MaterialButton
+            var mb1 = new Forms9Patch.Button
             {
                 HtmlText = "<i>Markup</i> button <font size=\"4\" face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\"></font>",
                 //Text = "Pizza",
                 BackgroundColor = Color.FromRgb(200, 200, 200),
-                FontColor = Color.Blue,
+                TextColor = Color.Blue,
                 HasShadow = true,
                 ToggleBehavior = true,
             };
@@ -28,11 +28,11 @@ namespace Forms9PatchDemo
             #endregion
 
             #region Segmented Button
-            var sc1 = new Forms9Patch.MaterialSegmentedControl
+            var sc1 = new Forms9Patch.SegmentedControl
             {
                 HasShadow = true,
                 BackgroundColor = Color.FromRgb(200, 200, 200),
-                //FontColor = Color.Blue,
+                //TextColor = Color.Blue,
                 Segments = {
 
                     new Forms9Patch.Segment {
@@ -56,29 +56,29 @@ namespace Forms9PatchDemo
             #endregion
 
             #region Image Button
-            var ib1 = new Forms9Patch.ImageButton
+            var ib1 = new Forms9Patch.StateButton
             {
-                DefaultState = new Forms9Patch.ImageButtonState
+                DefaultState = new Forms9Patch.ButtonState
                 {
                     BackgroundImage = new Forms9Patch.Image
                     {
                         Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.button"),
                     },
-                    Image = new Forms9Patch.Image
+                    IconImage = new Forms9Patch.Image
                     {
                         Source = ImageSource.FromFile("five.png"),
                     },
-                    FontColor = Color.White,
+                    TextColor = Color.White,
                     //Text = "Sticky w/ SelectedState",
                     HtmlText = "<b>Sticky</b> with <i>SelectedState</i>",
                 },
-                SelectedState = new Forms9Patch.ImageButtonState
+                SelectedState = new Forms9Patch.ButtonState
                 {
                     BackgroundImage = new Forms9Patch.Image
                     {
                         Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.image"),
                     },
-                    FontColor = Color.Red,
+                    TextColor = Color.Red,
                     //Text = "Selected",
                     HtmlText = "<b><i>Selected</i></b>",
 
@@ -127,22 +127,22 @@ namespace Forms9PatchDemo
 
         static void OnImageButtonTapped(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Tapped Button Text=[" + ((Forms9Patch.ImageButton)sender).Text + "]");
+            System.Diagnostics.Debug.WriteLine("Tapped Button Text=[" + ((Forms9Patch.StateButton)sender).Text + "]");
         }
 
         static void OnImageButtonSelected(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("Selected Button Text=[" + ((Forms9Patch.ImageButton)sender).Text + "]");
+            System.Diagnostics.Debug.WriteLine("Selected Button Text=[" + ((Forms9Patch.StateButton)sender).Text + "]");
         }
 
         static void OnImageButtonLongPressing(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("LongPressing Button Text=[" + ((Forms9Patch.ImageButton)sender).Text + "]");
+            System.Diagnostics.Debug.WriteLine("LongPressing Button Text=[" + ((Forms9Patch.StateButton)sender).Text + "]");
         }
 
         static void OnImageButtonLongPressed(object sender, EventArgs e)
         {
-            System.Diagnostics.Debug.WriteLine("LongPressed Button Text=[" + ((Forms9Patch.ImageButton)sender).Text + "]");
+            System.Diagnostics.Debug.WriteLine("LongPressed Button Text=[" + ((Forms9Patch.StateButton)sender).Text + "]");
         }
         #endregion
 

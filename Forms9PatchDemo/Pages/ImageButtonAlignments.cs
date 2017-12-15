@@ -11,7 +11,7 @@ namespace Forms9PatchDemo
     {
 
 
-        MaterialSegmentedControl _hzAlignmentElement = new MaterialSegmentedControl
+        SegmentedControl _hzAlignmentElement = new SegmentedControl
         {
             Segments =
             {
@@ -21,7 +21,7 @@ namespace Forms9PatchDemo
             }
         };
 
-        MaterialSegmentedControl _vtAlignmentElement = new MaterialSegmentedControl
+        SegmentedControl _vtAlignmentElement = new SegmentedControl
         {
             Segments =
             {
@@ -31,7 +31,7 @@ namespace Forms9PatchDemo
             }
         };
 
-        MaterialSegmentedControl _optionsElement = new MaterialSegmentedControl
+        SegmentedControl _optionsElement = new SegmentedControl
         {
             GroupToggleBehavior = GroupToggleBehavior.Multiselect,
             Segments =
@@ -43,7 +43,7 @@ namespace Forms9PatchDemo
         };
 
 
-        MaterialSegmentedControl _iconElement = new MaterialSegmentedControl
+        SegmentedControl _iconElement = new SegmentedControl
         {
             HasTightSpacing = true,
             //FontSize = 10,
@@ -52,8 +52,8 @@ namespace Forms9PatchDemo
                 new Segment { HtmlText = "NONE" },
                 new Segment { HtmlText = "x"},
                 new Segment { HtmlText = "©" },
-                new Segment { HtmlText = "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\"></font>" },
-                new Segment { ImageSource = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info") }
+                new Segment("<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\"></font>"),
+                new Segment(null,"Forms9PatchDemo.Resources.Info") 
             }
         };
 
@@ -76,30 +76,30 @@ namespace Forms9PatchDemo
             Value = 25
         };
 
-        ImageButton _iconTextAndTextButton = new ImageButton
+        StateButton _iconTextAndTextButton = new StateButton
         {
-            DefaultState = new ImageButtonState
+            DefaultState = new ButtonState
             {
                 BackgroundImage = new Forms9Patch.Image
                 {
                     Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.button"),
                 },
-                Image = new Forms9Patch.Image
+                IconImage = new Forms9Patch.Image
                 {
                     Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info"),
                     WidthRequest = 25,
                     HeightRequest = 25,
                 },
-                FontColor = Color.White,
+                TextColor = Color.White,
                 Text = "Unselected",
             },
-            SelectedState = new Forms9Patch.ImageButtonState
+            SelectedState = new Forms9Patch.ButtonState
             {
                 BackgroundImage = new Forms9Patch.Image
                 {
                     Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.image"),
                 },
-                FontColor = Color.Red,
+                TextColor = Color.Red,
                 Text = "Selected",
             },
             ToggleBehavior = true,
@@ -193,15 +193,15 @@ namespace Forms9PatchDemo
 
 
                 _iconTextAndTextButton.HasTightSpacing = hasTightSpacing;
-                _iconTextAndTextButton.TrailingImage = trailingImage;
+                _iconTextAndTextButton.TrailingIcon = trailingImage;
                 _iconTextAndTextButton.Orientation = orientation;
 
             };
 
             _iconElement.SegmentTapped += (sender, e) =>
             {
-                if (e.Segment.ImageSource != null)
-                    _iconTextAndTextButton.ImageSource = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.Info");
+                if (e.Segment.IconImage != null)
+                    _iconTextAndTextButton.IconImage = new Forms9Patch.Image("Forms9PatchDemo.Resources.Info");
                 else
                     SetIconText(e.Segment.HtmlText);
             };
@@ -213,10 +213,10 @@ namespace Forms9PatchDemo
 
             _iconImageSize.ValueChanged += (sender, e) =>
             {
-                if (_iconTextAndTextButton.DefaultState?.Image != null)
+                if (_iconTextAndTextButton.DefaultState?.IconImage != null)
                 {
-                    _iconTextAndTextButton.DefaultState.Image.WidthRequest = _iconImageSize.Value;
-                    _iconTextAndTextButton.DefaultState.Image.HeightRequest = _iconImageSize.Value;
+                    _iconTextAndTextButton.DefaultState.IconImage.WidthRequest = _iconImageSize.Value;
+                    _iconTextAndTextButton.DefaultState.IconImage.HeightRequest = _iconImageSize.Value;
                 }
             };
 
@@ -246,7 +246,7 @@ namespace Forms9PatchDemo
 
         void SetIconText(string iconTextSetting)
         {
-            _iconTextAndTextButton.ImageSource = null;
+            _iconTextAndTextButton.IconImage = null;
             if (iconTextSetting == "NONE")
                 _iconTextAndTextButton.IconText = null;
             else

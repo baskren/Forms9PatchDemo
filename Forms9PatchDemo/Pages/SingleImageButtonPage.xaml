@@ -9,28 +9,28 @@
 	<StackLayout>
 
 
-		<f9p:ImageButton ToggleBehavior="true" HeightRequest="80" Alignment="Start">
+		<f9p:StateButton ToggleBehavior="true" HeightRequest="80" Alignment="Start">
 
-			<f9p:ImageButton.DefaultState>
-				<f9p:ImageButtonState Text="Sticky Default State" FontColor="White">
-					<f9p:ImageButtonState.BackgroundImage>
+			<f9p:StateButton.DefaultState>
+				<f9p:ButtonState Text="Sticky Default State" FontColor="White">
+					<f9p:ButtonState.BackgroundImage>
 						<f9p:Image Source="{local:ImageMultiResource Forms9PatchDemo.Resources.button}"/>
-					</f9p:ImageButtonState.BackgroundImage> 
-					<f9p:ImageButtonState.Image>
+					</f9p:ButtonState.BackgroundImage> 
+					<f9p:ButtonState.Image>
 						<f9p:Image Source="{local:ImageMultiResource Forms9PatchDemo.Resources.ArrowR}"/>
-					</f9p:ImageButtonState.Image>
-				</f9p:ImageButtonState>
-			</f9p:ImageButton.DefaultState>
+					</f9p:ButtonState.Image>
+				</f9p:ButtonState>
+			</f9p:StateButton.DefaultState>
 
-			<f9p:ImageButton.SelectedState>
-				<f9p:ImageButtonState FontColor="Red" Text="Selected" >
-					<f9p:ImageButtonState.BackgroundImage>
+			<f9p:StateButton.SelectedState>
+				<f9p:ButtonState FontColor="Red" Text="Selected" >
+					<f9p:ButtonState.BackgroundImage>
 						<f9p:Image Source="{local:ImageMultiResource Forms9PatchDemo.Resources.image}"/>
-					</f9p:ImageButtonState.BackgroundImage> 
-				</f9p:ImageButtonState>
-			</f9p:ImageButton.SelectedState>
+					</f9p:ButtonState.BackgroundImage> 
+				</f9p:ButtonState>
+			</f9p:StateButton.SelectedState>
 
-		</f9p:ImageButton>
+		</f9p:StateButton>
 
 
 

@@ -10,19 +10,19 @@ Padding = "40"
 >
 	<ContentPage.Content>
 		<StackLayout>
-			<Label Text="MaterialSegmentedControl Example" TextColor="Black"/>
-			<f9p:MaterialSegmentedControl BackgroundColor="White" FontSize="16" FontColor="#0076FF" Orientation="Vertical" OutlineColor="#CCC" OutlineWidth="0" SeparatorWidth="1" OutlineRadius="6" Padding="5">
+			<Label Text="SegmentedControl Example" TextColor="Black"/>
+			<f9p:SegmentedControl BackgroundColor="White" FontSize="16" FontColor="#0076FF" Orientation="Vertical" OutlineColor="#CCC" OutlineWidth="0" SeparatorWidth="1" OutlineRadius="6" Padding="5">
 				<f9p:Segment Text="Pause 5"/>
 				<f9p:Segment Text="Pause 10"/>
 				<f9p:Segment Text="Pause 15"/>
 				<f9p:Segment Text="Cancel" FontColor="Red"/>
 				<f9p:Segment Text="Launch" FontAttributes="Bold"/>
-			</f9p:MaterialSegmentedControl>
-			<f9p:MaterialSegmentedControl BackgroundColor="White" Padding="5"	FontSize="16" FontColor="#0076FF" OutlineColor="#CCC" OutlineWidth="0" SeparatorWidth="1" OutlineRadius="6" >
+			</f9p:SegmentedControl>
+			<f9p:SegmentedControl BackgroundColor="White" Padding="5"	FontSize="16" FontColor="#0076FF" OutlineColor="#CCC" OutlineWidth="0" SeparatorWidth="1" OutlineRadius="6" >
 				<f9p:Segment Text="A" ImageSource="{local:ImageMultiResource Forms9PatchDemo.Resources.ArrowR}" Orientation="Vertical"/>
 				<f9p:Segment Text="B" ImageSource="{local:ImageMultiResource Forms9PatchDemo.Resources.Info}"  Orientation="Vertical"/>
 				<f9p:Segment Text="PIZZA"/>
-			</f9p:MaterialSegmentedControl>
+			</f9p:SegmentedControl>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
