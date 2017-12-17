@@ -154,6 +154,9 @@
     <Content Include="Assets\Wide310x150Logo.scale-125.png" />
     <Content Include="Assets\Wide310x150Logo.scale-150.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="fivePlus%401½x.png" />
+    <Content Include="fivePlus%402x.png" />
+    <Content Include="fivePlus%403x.png" />
     <Content Include="image.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -171,9 +174,6 @@
     <Content Include="five%403x.png" />
     <Content Include="fivePlus.png" />
     <Content Include="fivePlus%40¾x.png" />
-    <Content Include="fivePlus%401½x..png" />
-    <Content Include="fivePlus%402x..png" />
-    <Content Include="fivePlus%403x..png" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
