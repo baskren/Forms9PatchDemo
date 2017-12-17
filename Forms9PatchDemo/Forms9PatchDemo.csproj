@@ -10,7 +10,6 @@
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AssemblyName>Forms9PatchDemo</AssemblyName>
-    <ReleaseVersion>0.9.13.3</ReleaseVersion>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
   </PropertyGroup>
@@ -36,7 +35,6 @@
     <Optimize>false</Optimize>
     <OutputPath>bin\Test</OutputPath>
     <WarningLevel>4</WarningLevel>
-    <AssemblyName>Forms9PatchDemo</AssemblyName>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ObsoletePages\ImageOnPage.cs" />
