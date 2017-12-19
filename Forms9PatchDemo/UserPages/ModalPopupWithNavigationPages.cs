@@ -9,6 +9,8 @@ namespace Forms9PatchDemo
     {
         public ModalPopupWithNavigationPages()
         {
+            Padding = 20;
+
             var button = new Forms9Patch.Button("Show Test Page");
             button.Clicked += (sender, e) => this.Navigation.PushModalAsync(new BubbonPushModalAsyncPage());
             // The root page of your application
@@ -40,6 +42,8 @@ namespace Forms9PatchDemo
 
         public BubbonPushModalAsyncPage()
         {
+            Padding = 20;
+
             button1 = new Forms9Patch.Button("No Target");
             button2 = new Forms9Patch.Button("Target");
 
@@ -54,7 +58,7 @@ namespace Forms9PatchDemo
                 }
             };
 
-            bubble = new BubblePopup(this)
+            bubble = new BubblePopup(button1)
             {
                 Padding = 25,
                 BackgroundColor = Color.Blue,

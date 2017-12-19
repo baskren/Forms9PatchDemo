@@ -13,6 +13,7 @@ namespace Forms9PatchDemo
 	{
 		public br()
 		{
+            Padding = 20;
 			Content = new StackLayout
 			{
 				Children = {

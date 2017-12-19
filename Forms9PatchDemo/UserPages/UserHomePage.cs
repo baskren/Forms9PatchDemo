@@ -88,7 +88,7 @@ namespace Forms9PatchDemo
 
 
                         new TextCell {
-                            Text = "Using Button SelectedBackground",
+                            Text = "SegmentSelectedBackgroundPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(SegmentSelectedBackgroundPage)
                         },
@@ -100,57 +100,57 @@ namespace Forms9PatchDemo
                         },
 
                         new TextCell {
-                            Text = "Popup on MasterDetail",
+                            Text = "ModalPopupOnMasterDetailPagel",
                             Command = navigateCommand,
                             CommandParameter = typeof(ModalPopupOnMasterDetailPage)
                         },
 
                         new TextCell {
-                            Text = "Custom Font Effect",
+                            Text = "ChrisEmbeddedResourceFontEffectPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(ChrisEmbeddedResourceFontEffectPage)
                         },
 
 
                         new TextCell {
-                            Text = "Chat using ListView",
+                            Text = "ChatListPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(ChatListPage)
                         },
 
 
                         new TextCell {
-                            Text = "Popup + PushModalAsync++",
+                            Text = "ModalPopupWithNavigationPages",
                             Command = navigateCommand,
                             CommandParameter = typeof(ModalPopupWithNavigationPages)
                         },
 
                         new TextCell {
-                            Text = "Nested Bubble Popup",
+                            Text = "NestedBubblePopupPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(NestedBubblePopupPage)
                         },
 
                         new TextCell {
-                            Text = "StateButton in ContentView test",
+                            Text = "ZenmekPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(ZenmekPage)
                         },
 
                         new TextCell {
-                            Text = "BackgroundImage opacity",
+                            Text = "BackgroundImageOpacityPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(BackgroundImageOpacityPage)
                         },
 
                         new TextCell {
-                            Text = "Segmented Control Navigation",
+                            Text = "SegmentNavPage1",
                             Command = navigateCommand,
                             CommandParameter = typeof(SegmentNavPage1)
                         },
 
                         new TextCell {
-                            Text = "Absolute Layout Exploration Code",
+                            Text = "AbsoluteLayoutExplorationCode",
                             Command = navigateCommand,
                             CommandParameter = typeof(AbsoluteLayoutExplorationCode)
                         },

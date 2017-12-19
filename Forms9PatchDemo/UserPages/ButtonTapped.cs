@@ -6,10 +6,12 @@ namespace Forms9PatchDemo
 {
     public class ButtonTapped : ContentPage
     {
-
+        
         public ButtonTapped()
         {
-            var materialButton = new Forms9Patch.Button
+            Padding = 40;
+
+            var button = new Forms9Patch.Button
             {
                 Text = "Button",
                 TextColor = Color.Pink,
@@ -22,9 +24,9 @@ namespace Forms9PatchDemo
                 IsVisible = true,
                 BackgroundColor = Color.White,
             };
-            materialButton.Tapped += OnTapped;
+            button.Tapped += OnTapped;
 
-            var imageButton = new StateButton
+            var stateButton = new StateButton
             {
                 Text = "StateButton",
                 TextColor = Color.Green,
@@ -37,11 +39,12 @@ namespace Forms9PatchDemo
                 IsVisible = true,
                 BackgroundColor = Color.White
             };
+            stateButton.Tapped += OnTapped;
 
             Content = new Xamarin.Forms.StackLayout
             {
                 Children = {
-                    materialButton, imageButton
+                    button, stateButton
                 }
             };
         }
