@@ -7,6 +7,8 @@ namespace Forms9PatchDemo.Pages.Code
     {
         public PopupsPage()
         {
+            Padding = 20;
+
             var showModalButton = new Forms9Patch.Button("ModalPopup");
             var cancelModalButton = new Forms9Patch.Button("CANCEL");
             var modal = new ModalPopup
