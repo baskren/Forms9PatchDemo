@@ -51,30 +51,30 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Forms9Patch, Version=0.9.11.17307, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.32\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
+    <Reference Include="Forms9Patch, Version=0.9.11.21135, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.32\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
     </Reference>
-    <Reference Include="FormsGestures, Version=1.0.6558.17239, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.32\lib\MonoAndroid10\FormsGestures.dll</HintPath>
+    <Reference Include="FormsGestures, Version=1.0.6562.21134, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\MonoAndroid10\FormsGestures.dll</HintPath>
     </Reference>
     <Reference Include="FormsGestures.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.32\lib\MonoAndroid10\FormsGestures.Droid.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\MonoAndroid10\FormsGestures.Droid.dll</HintPath>
     </Reference>
     <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Xamarin.Forms.2.4.0.280\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\MonoAndroid10\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NumericalMethods, Version=1.0.6558.17237, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.32\lib\MonoAndroid10\NumericalMethods.dll</HintPath>
+    <Reference Include="NumericalMethods, Version=1.0.6562.21132, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\MonoAndroid10\NumericalMethods.dll</HintPath>
     </Reference>
-    <Reference Include="PCL.Utils, Version=1.0.6558.17238, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.32\lib\MonoAndroid10\PCL.Utils.dll</HintPath>
+    <Reference Include="PCL.Utils, Version=1.0.6562.21133, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\MonoAndroid10\PCL.Utils.dll</HintPath>
     </Reference>
     <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCLStorage.1.0.2\lib\monoandroid\PCLStorage.dll</HintPath>
@@ -137,6 +137,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Properties\AndroidManifest.xml" />

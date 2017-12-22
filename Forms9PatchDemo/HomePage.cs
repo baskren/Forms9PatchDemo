@@ -65,6 +65,13 @@ namespace Forms9PatchDemo
                         },
                     },
                     new TableSection("XAML") {
+
+                        new TextCell {
+                            Text = "CDATA",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(CDATA)
+                        },
+
                         new TextCell {
                             Text = "XamlContentViewDemoPage",
                             Command = navigateCommand,

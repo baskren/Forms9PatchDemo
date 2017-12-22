@@ -187,7 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Forms9Patch">
-      <Version>0.10.3.32</Version>
+      <Version>0.10.3.34</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.4.0</Version>

@@ -6,7 +6,7 @@
 using System;
 
 using Xamarin.Forms;
-using Microsoft.VisualBasic.CompilerServices;
+//using Microsoft.VisualBasic.CompilerServices;
 
 namespace Forms9PatchDemo
 {
