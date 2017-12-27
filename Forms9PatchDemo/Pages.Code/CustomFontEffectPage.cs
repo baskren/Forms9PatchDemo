@@ -16,7 +16,8 @@ namespace Forms9PatchDemo
                 Text = "Xamarin.Forms.Label",
                 FontFamily = "Forms9PatchDemo.Resources.Fonts.Pacifico.ttf"
 			};
-			label.Effects.Add(new Forms9Patch.EmbeddedResourceFontEffect());
+            //label.Effects.Add(new Forms9Patch.EmbeddedResourceFontEffect());
+            Forms9Patch.EmbeddedResourceFontEffect.ApplyTo(label);
 
 			var editor = new Xamarin.Forms.Editor
 			{
