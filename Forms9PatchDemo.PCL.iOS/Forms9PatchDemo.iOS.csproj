@@ -84,27 +84,27 @@
     <MtouchTlsProvider>Default</MtouchTlsProvider>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Forms9Patch, Version=0.9.11.21135, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
+    <Reference Include="Forms9Patch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\Xamarin.iOS10\Forms9Patch.dll</HintPath>
     </Reference>
-    <Reference Include="Forms9Patch.iOS, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
+    <Reference Include="Forms9Patch.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\Xamarin.iOS10\Forms9Patch.iOS.dll</HintPath>
     </Reference>
-    <Reference Include="FormsGestures, Version=1.0.6562.21134, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\Xamarin.iOS10\FormsGestures.dll</HintPath>
+    <Reference Include="FormsGestures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\Xamarin.iOS10\FormsGestures.dll</HintPath>
     </Reference>
-    <Reference Include="FormsGestures.iOS, Version=1.0.6562.21147, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\Xamarin.iOS10\FormsGestures.iOS.dll</HintPath>
+    <Reference Include="FormsGestures.iOS, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\Xamarin.iOS10\FormsGestures.iOS.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\Xamarin.iOS10\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\Xamarin.iOS10\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NumericalMethods, Version=1.0.6562.21132, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\Xamarin.iOS10\NumericalMethods.dll</HintPath>
+    <Reference Include="NumericalMethods, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\Xamarin.iOS10\NumericalMethods.dll</HintPath>
     </Reference>
-    <Reference Include="PCL.Utils, Version=1.0.6562.21133, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.34\lib\Xamarin.iOS10\PCL.Utils.dll</HintPath>
+    <Reference Include="PCL.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\Xamarin.iOS10\PCL.Utils.dll</HintPath>
     </Reference>
     <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
@@ -211,7 +211,7 @@
     <Folder Include="Renderers\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Forms9PatchDemo\Forms9PatchDemo.csproj">
+    <ProjectReference Include="..\Forms9PatchDemo.PCL\Forms9PatchDemo.csproj">
       <Project>{5F026DB4-CAAE-4DE0-8105-FF133A3655B7}</Project>
       <Name>Forms9PatchDemo</Name>
     </ProjectReference>
