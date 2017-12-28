@@ -28,6 +28,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AndroidLinkMode>None</AndroidLinkMode>
+<AndroidSupportedAbis>x86</AndroidSupportedAbis>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -188,12 +189,6 @@
     </AndroidResource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{6586CC31-9343-4E1C-BE44-F09D2356C578}</Project>
-      <Name>Forms9PatchDemo.NetStandard</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Resources\drawable-hdpi\" />
     <Folder Include="Resources\drawable-xhdpi\" />
     <Folder Include="Resources\drawable-ldpi\" />
@@ -201,6 +196,12 @@
     <Folder Include="Resources\layout\" />
     <Folder Include="Resources\values\" />
     <Folder Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
+      <Project>{6586CC31-9343-4E1C-BE44-F09D2356C578}</Project>
+      <Name>Forms9PatchDemo.NetStandard</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
