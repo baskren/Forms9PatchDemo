@@ -129,11 +129,11 @@
       <Version>1.0.0</Version>
     </PackageReference>
   </ItemGroup>
-  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{6586CC31-9343-4E1C-BE44-F09D2356C578}</Project>
+    <ProjectReference Include="..\Forms9PatchDemo\Forms9PatchDemo.NetStandard.csproj">
+      <Project>{6586cc31-9343-4e1c-be44-f09d2356c578}</Project>
       <Name>Forms9PatchDemo.NetStandard</Name>
     </ProjectReference>
   </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

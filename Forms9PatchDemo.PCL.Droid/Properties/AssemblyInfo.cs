@@ -9,7 +9,7 @@ using Android.App;
 [assembly: AssemblyTitle("Forms9PatchDemo.Droid")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("42nd Paralle, 2017")]
+[assembly: AssemblyCompany("42nd Parallel, 2017")]
 [assembly: AssemblyProduct("Forms9PatchDemo.Droid")]
 [assembly: AssemblyCopyright("Copyright ©  2017")]
 [assembly: AssemblyTrademark("")]

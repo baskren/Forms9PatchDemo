@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NetStandard
 EndProject
 
 
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NetStandard.Android", "Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.Android\Forms9PatchDemo.NetStandard.Android.csproj", "{CFA91476-BECE-4F45-9F60-334610335117}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NetStandard.Android", "Forms9PatchDemo.NetStandard\MacBuiltF9P.NetStandard.Android\Forms9PatchDemo.NetStandard.Android.csproj", "{CFA91476-BECE-4F45-9F60-334610335117}"
 EndProject
 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NetStandard.UWP", "Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.UWP\Forms9PatchDemo.NetStandard.UWP.csproj", "{C2C9B778-07F5-4955-B413-299A66D14FEA}"
