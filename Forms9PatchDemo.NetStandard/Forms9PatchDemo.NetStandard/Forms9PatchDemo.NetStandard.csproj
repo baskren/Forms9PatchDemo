@@ -243,10 +243,6 @@
 		<EmbeddedResource Include="..\..\Forms9PatchDemo.PCL\Resources\water.gif" Link="Resources\water.gif" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
-		<PackageReference Include="Forms9Patch.NetStandard" Version="1.0.0" />
-	</ItemGroup>
-	<ItemGroup>
 		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
 			<DependentUpon>*.xaml</DependentUpon>
 		</Compile>
@@ -307,5 +303,9 @@
 		<EmbeddedResource Update="..\..\Forms9PatchDemo.PCL\Resources\redribbon%403x.png" Link="Resources\redribbon%403x.png" />
 		<EmbeddedResource Update="..\..\Forms9PatchDemo.PCL\Resources\tick%402x.png" Link="Resources\tick%402x.png" />
 		<EmbeddedResource Update="..\..\Forms9PatchDemo.PCL\Resources\tick%403x.png" Link="Resources\tick%403x.png" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
+	  <PackageReference Include="Forms9Patch.NetStandard" Version="1.0.0" />
 	</ItemGroup>
 </Project>
