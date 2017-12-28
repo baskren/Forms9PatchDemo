@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
@@ -243,8 +243,8 @@
 		<EmbeddedResource Include="..\..\Forms9PatchDemo.PCL\Resources\water.gif" Link="Resources\water.gif" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="Forms9Patch.NetStandard" Version="0.10.3.46" />
 		<PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
+		<PackageReference Include="Forms9Patch.NetStandard" Version="1.0.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
