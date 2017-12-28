@@ -52,6 +52,16 @@ namespace Forms9PatchDemo
                 },
             };
 
+            var showPopupButton = new Button
+            {
+                Text = "Show popup"
+            };
+            showPopupButton.Clicked += (s, e) =>
+            {
+                Forms9Patch.Toast.Create("Page1 Popup", "Test of Forms9Patch in nested, modal pages.");
+            };
+                
+
             var layout = new StackLayout
             {
                 Children = {
@@ -62,7 +72,8 @@ namespace Forms9PatchDemo
                         Text = "1",
                         HorizontalOptions = LayoutOptions.Center,
                         FontSize = 50,
-                    }
+                    },
+                    showPopupButton
                 }
             };
 

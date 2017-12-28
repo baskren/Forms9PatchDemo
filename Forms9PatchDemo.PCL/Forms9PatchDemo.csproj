@@ -259,17 +259,17 @@
     <EmbeddedResource Include="Resources\cat.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Forms9Patch, Version=0.9.11.14305, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\portable-win+net45+wp80+win81+wpa81\Forms9Patch.dll</HintPath>
+    <Reference Include="Forms9Patch, Version=0.9.11.18285, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.46\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
     </Reference>
-    <Reference Include="FormsGestures, Version=1.0.6570.14304, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\portable-win+net45+wp80+win81+wpa81\FormsGestures.dll</HintPath>
+    <Reference Include="FormsGestures, Version=1.0.6571.18283, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.46\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
     </Reference>
-    <Reference Include="NumericalMethods, Version=1.0.6569.38952, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\portable-win+net45+wp80+win81+wpa81\NumericalMethods.dll</HintPath>
+    <Reference Include="NumericalMethods, Version=1.0.6571.18282, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.46\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\NumericalMethods.dll</HintPath>
     </Reference>
-    <Reference Include="PCL.Utils, Version=1.0.6570.14295, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.0.10.3.35\lib\portable-win+net45+wp80+win81+wpa81\PCL.Utils.dll</HintPath>
+    <Reference Include="PCL.Utils, Version=1.0.6571.18283, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.0.10.3.46\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\PCL.Utils.dll</HintPath>
     </Reference>
     <Reference Include="PCLStorage">
       <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-net45+wp8+wpa81+win8+monoandroid+monotouch+Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
