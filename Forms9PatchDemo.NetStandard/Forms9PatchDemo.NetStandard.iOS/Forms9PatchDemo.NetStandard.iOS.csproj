@@ -92,10 +92,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />
-    <Compile Include="AppDelegate.cs" />
     <None Include="Entitlements.plist" />
-    <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="..\..\Forms9PatchDemo.PCL.iOS\AppDelegate.cs">
+      <Link>AppDelegate.cs</Link>
+    </Compile>
+    <None Include="Info.plist" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
@@ -130,7 +132,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{0CE78758-F33A-4488-A97C-976DBADF17EC}</Project>
+      <Project>{6586CC31-9343-4E1C-BE44-F09D2356C578}</Project>
       <Name>Forms9PatchDemo.NetStandard</Name>
     </ProjectReference>
   </ItemGroup>

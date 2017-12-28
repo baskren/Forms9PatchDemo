@@ -138,19 +138,34 @@
     <None Include="Assets\AboutAssets.txt" />
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
+    <AndroidResource Include="Resources\drawable-hdpi\ArrowR.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\Info.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\five.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\fivePlus.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-hdpi\image.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\ArrowR.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\Info.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\five.png" />
+    <AndroidResource Include="Resources\drawable-ldpi\fivePlus.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\ArrowR.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\Info.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\five.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\fivePlus.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xhdpi\image.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\ArrowR.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\Info.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\five.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\fivePlus.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
+    <AndroidResource Include="Resources\drawable-xxhdpi\image.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
     <AndroidResource Include="Resources\values\Strings.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\mipmap-hdpi\" />
-    <Folder Include="Resources\mipmap-mdpi\" />
-    <Folder Include="Resources\mipmap-xhdpi\" />
-    <Folder Include="Resources\mipmap-xxhdpi\" />
-    <Folder Include="Resources\mipmap-xxxhdpi\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.PCL\Forms9PatchDemo.csproj">
