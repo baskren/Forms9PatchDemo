@@ -1,24 +1,18 @@
-// /*******************************************************************
-//  *
-//  * XamlPageWithListViewWithF9PLabelInCells.xaml.cs copyright 2017 ben, 42nd Parallel - ALL RIGHTS RESERVED.
-//  *
-//  *******************************************************************/
-using System;
+﻿using System;
 using System.Collections.Generic;
-
 using Xamarin.Forms;
-using Forms9Patch;
 
 namespace Forms9PatchDemo
 {
-    public partial class XamlPageWithListViewWithF9PLabelInCells : ContentPage
+    public class ListViewWithF9PLabelInCells : ContentPage
     {
-        public XamlPageWithListViewWithF9PLabelInCells()
-        {
-            InitializeComponent();
 
-            //listView.ItemSelected += (sender, e) => Forms9Patch.Toast.Create(null, "ListView item selected");
+        public ListViewWithF9PLabelInCells()
+        {
+            var listView = new ListView();
+
             listView.ItemTapped += (sender, e) => Forms9Patch.Toast.Create("ListView item tapped", "Content is [" + ((TestClass)e.Item).Content + "]");
+            listView.ItemTemplate = new DataTemplate(typeof(TestClassCell));
             listView.ItemsSource = new List<TestClass>
             {
                 new TestClass { BackgroundColor = Color.Aqua, TextColor=Color.Blue, Content="1 There are <a href=\"Apples 1\">Apples 1</a> for all." },
@@ -41,6 +35,8 @@ namespace Forms9PatchDemo
                 new TestClass { BackgroundColor = Color.Yellow, TextColor=Color.Black, Content="17 Be <a href=\"Apples 9\">Apples 9</a> for all." },
                 new TestClass { BackgroundColor = Color.Black, TextColor=Color.White, Content="18 Salsa" },
             };
+
+            Content = listView;
         }
 
         public class TestClass
@@ -52,10 +48,50 @@ namespace Forms9PatchDemo
 
         }
 
-        void Handle_ActionTagTapped(object sender, Forms9Patch.ActionTagEventArgs e)
+        public class TestClassCell : ViewCell
         {
-            Forms9Patch.Toast.Create(null, e.Href);
+
+            readonly Xamarin.Forms.Image _statusIcon = new Xamarin.Forms.Image
+            {
+                VerticalOptions = LayoutOptions.Start,
+                Margin = new Thickness(0, 3, 0, 0)
+            };
+
+            readonly Forms9Patch.Label _label = new Forms9Patch.Label
+            {
+                HorizontalOptions = LayoutOptions.Start
+            };
+
+            Xamarin.Forms.StackLayout _stackLayout = new Xamarin.Forms.StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+            };
+
+            Forms9Patch.Frame _frame = new Forms9Patch.Frame
+            {
+                OutlineColor = Color.Gray,
+                OutlineWidth = 1,
+                OutlineRadius = 4,
+                Padding = new Thickness(8, 12, 8, 0),
+                Margin = new Thickness(5, 3, 5, 6),
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+            };
+
+            public TestClassCell()
+            {
+
+                _label.ActionTagTapped += (sender, e) => Forms9Patch.Toast.Create(null, e.Href);
+                _stackLayout.Children.Add(_statusIcon);
+                _stackLayout.Children.Add(_label);
+                _frame.Content = _stackLayout;
+                View = _frame;
+
+                _label.SetBinding(Forms9Patch.Label.HtmlTextProperty, "Content");
+                _label.SetBinding(Forms9Patch.Label.TextColorProperty, "TextColor");
+                _statusIcon.SetBinding(Xamarin.Forms.Image.SourceProperty, "StatusIcon");
+                _frame.SetBinding(Forms9Patch.Frame.BackgroundColorProperty, "BackgroundColor");
+            }
         }
     }
-
 }
+

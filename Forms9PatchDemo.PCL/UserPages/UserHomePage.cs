@@ -72,13 +72,19 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(Burkhart)
                         },
                         new TextCell {
-                            Text = "F9P Label in Xamarin.ListView",
+                            Text = "XAML: F9P Label in Xamarin.ListView",
                             Command = navigateCommand,
                             CommandParameter = typeof(XamlPageWithListViewWithF9PLabelInCells)
                         },
                     },
 
                     new TableSection("Code") {
+
+                        new TextCell {
+                            Text = "CODE: F9P Label in Xamarin.ListView",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(ListViewWithF9PLabelInCells)
+                        },
 
                         new TextCell {
                             Text = "ButtonTapped",

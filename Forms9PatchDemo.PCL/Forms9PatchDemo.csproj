@@ -131,6 +131,7 @@
     <Compile Include="Pages.Xaml\XamlStateButtonsPage.xaml.cs">
       <DependentUpon>XamlStateButtonsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserPages\ListViewWithF9PLabelInCells.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
