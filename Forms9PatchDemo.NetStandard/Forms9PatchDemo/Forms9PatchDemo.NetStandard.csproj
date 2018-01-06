@@ -34,6 +34,7 @@
 		<Compile Include="..\..\Forms9PatchDemo.PCL\UserPages\CustomFontEffectPage.cs" Link="UserPages\CustomFontEffectPage.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\UserPages\DataForBinding.cs" Link="UserPages\DataForBinding.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\UserPages\HeapDemoPage.cs" Link="UserPages\HeapDemoPage.cs" />
+		<Compile Include="..\..\Forms9PatchDemo.PCL\UserPages\ListViewWithF9PLabelInCells.cs" Link="UserPages\ListViewWithF9PLabelInCells.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\UserPages\ModalPopupOnMasterDetailPage.cs" Link="UserPages\ModalPopupOnMasterDetailPage.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\UserPages\ModalPopupWithNavigationPages.cs" Link="UserPages\ModalPopupWithNavigationPages.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\UserPages\NestedBubblePopupPage.cs" Link="UserPages\NestedBubblePopupPage.cs" />
@@ -305,12 +306,12 @@
 		<EmbeddedResource Update="..\..\Forms9PatchDemo.PCL\Resources\tick%403x.png" Link="Resources\tick%403x.png" />
 	</ItemGroup>
 	<ItemGroup>
+	  <PackageReference Include="Forms9Patch.NetStandard" Version="1.1.0" />
 	  <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
-	  <PackageReference Include="Forms9Patch.NetStandard" Version="1.0.0" />
 	</ItemGroup>
 	<ItemGroup>
-	  <None Include="..\..\Forms9PatchDemo.PCL\Resources\SvgSample.svg">
+	  <EmbeddedResource Include="..\..\Forms9PatchDemo.PCL\Resources\SvgSample.svg">
 	    <Link>Resources\SvgSample.svg</Link>
-	  </None>
+	  </EmbeddedResource>
 	</ItemGroup>
 </Project>

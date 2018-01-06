@@ -114,6 +114,9 @@
     <None Include="Forms9PatchDemo.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\Forms9PatchDemo.PCL\Resources\SvgSample2.svg">
+      <Link>SvgSample2.svg</Link>
+    </Content>
     <Content Include="Assets\LargeTile.scale-100.png" />
     <Content Include="Assets\LargeTile.scale-125.png" />
     <Content Include="Assets\LargeTile.scale-150.png" />
@@ -187,7 +190,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Forms9Patch">
-      <Version>1.0.0</Version>
+      <Version>1.1.0</Version>
     </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>5.4.0</Version>
