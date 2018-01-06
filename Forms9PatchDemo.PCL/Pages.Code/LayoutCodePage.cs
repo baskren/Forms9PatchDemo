@@ -111,7 +111,8 @@ namespace Forms9PatchDemo
                     new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.image"),
                     new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.redribbon"),
                     new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.bubble"),
-                    new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.bluebutton")
+                    new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.bluebutton"),
+                    new Forms9Patch.Segment(null, new Forms9Patch.Image { Source=ImageSource.FromFile("SvgSample2.svg"), Fill=Forms9Patch.Fill.AspectFit }),
                 }
         };
 

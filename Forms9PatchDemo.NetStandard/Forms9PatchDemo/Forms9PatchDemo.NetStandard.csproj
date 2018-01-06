@@ -308,4 +308,9 @@
 	  <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
 	  <PackageReference Include="Forms9Patch.NetStandard" Version="1.0.0" />
 	</ItemGroup>
+	<ItemGroup>
+	  <None Include="..\..\Forms9PatchDemo.PCL\Resources\SvgSample.svg">
+	    <Link>Resources\SvgSample.svg</Link>
+	  </None>
+	</ItemGroup>
 </Project>

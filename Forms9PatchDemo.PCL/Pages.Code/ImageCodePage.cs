@@ -162,7 +162,7 @@ namespace Forms9PatchDemo
             var seg6 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.image");
             var seg7 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.redribbon");
             var seg8 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.bubble");
-            var seg9 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.bluebutton");
+            var seg9 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.SvgSample.svg");
 
             var backgroundImageSelector = new Forms9Patch.SegmentedControl
             {

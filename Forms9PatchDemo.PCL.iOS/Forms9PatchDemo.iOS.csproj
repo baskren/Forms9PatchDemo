@@ -188,6 +188,9 @@
     <BundleResource Include="Resources\sampleFile.png" />
     <BundleResource Include="Resources\bubble.9.png" />
     <BundleResource Include="Resources\button.9.png" />
+    <BundleResource Include="..\Forms9PatchDemo.PCL\Resources\SvgSample2.svg">
+      <Link>Resources\SvgSample2.svg</Link>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

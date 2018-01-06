@@ -299,6 +299,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Resources\SvgSample.svg" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Pages.Xaml\" />
