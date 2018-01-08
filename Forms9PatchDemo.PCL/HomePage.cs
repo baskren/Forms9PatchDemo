@@ -227,6 +227,12 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(PanGesturePage)
                         },
 
+                        new TextCell {
+                            Text = "SVG ButtonBackgroundImage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(SVG_ButtonBackgroundImage)
+                        },
+
                     },
 
                     new TableSection("Single Examples")

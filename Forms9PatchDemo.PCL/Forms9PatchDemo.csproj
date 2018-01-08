@@ -132,6 +132,7 @@
       <DependentUpon>XamlStateButtonsPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserPages\ListViewWithF9PLabelInCells.cs" />
+    <Compile Include="Pages.Code\SVG_ButtonBackgroundImage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <ItemGroup>
@@ -255,6 +256,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages.Xaml\XamlSingleStateButtonPage.xaml" />
     <EmbeddedResource Include="Pages.Xaml\XamlStateButtonsPage.xaml" />
+    <EmbeddedResource Include="Resources\blueWhiteGradient.svg" />
+    <EmbeddedResource Include="Resources\greenWhiteGradient.svg" />
+    <EmbeddedResource Include="Resources\redWhiteGradient.svg" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\redGridBox9.9.png" />
