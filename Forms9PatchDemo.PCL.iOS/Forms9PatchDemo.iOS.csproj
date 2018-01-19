@@ -99,11 +99,11 @@
     <Reference Include="NumericalMethods, Version=1.0.6580.19238, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Forms9Patch.1.1.0.0\lib\Xamarin.iOS10\NumericalMethods.dll</HintPath>
     </Reference>
-    <Reference Include="PCL.Utils, Version=1.0.6580.19238, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.1.1.0.0\lib\Xamarin.iOS10\PCL.Utils.dll</HintPath>
+    <Reference Include="P42.Utils, Version=1.0.6580.19238, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.1.1.0.0\lib\Xamarin.iOS10\P42.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="PCL.Utils.iOS, Version=1.0.6580.19239, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Forms9Patch.1.1.0.0\lib\Xamarin.iOS10\PCL.Utils.iOS.dll</HintPath>
+    <Reference Include="P42.Utils.iOS, Version=1.0.6580.19239, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Forms9Patch.1.1.0.0\lib\Xamarin.iOS10\P42.Utils.iOS.dll</HintPath>
     </Reference>
     <Reference Include="PCLStorage, Version=1.0.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\PCLStorage.1.0.2\lib\portable-Xamarin.iOS+Xamarin.Mac\PCLStorage.dll</HintPath>
