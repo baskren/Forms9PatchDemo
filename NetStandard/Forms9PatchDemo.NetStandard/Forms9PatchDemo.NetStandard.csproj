@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<AssemblyName>Forms9PatchDemo</AssemblyName>
+		<RootNamespace>Forms9PatchDemo</RootNamespace>
+	</PropertyGroup>
+	<ItemGroup>
+		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
+			<DependentUpon>*.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+
+    <Choose>
+    	<When Condition="Exists('$(SolutionDir)\Forms9Patch\Forms9PatchDemo\Source')">
+    		<PropertyGroup>
+	    		<Forms9PatchDemoSourceDir>$(SolutionDir)\Forms9Patch\Forms9PatchDemo\Source</Forms9PatchDemoSourceDir>
+	    	</PropertyGroup>
+	    </When>
+    	<When Condition="Exists('$(SolutionDir)\Forms9PatchDemo\Source')">
+    		<PropertyGroup>
+	    		<Forms9PatchDemoSourceDir>$(SolutionDir)\Forms9PatchDemo\Source</Forms9PatchDemoSourceDir>
+	    	</PropertyGroup>
+	    </When>
+    	<When Condition="Exists('$(SolutionDir)\Source')">
+    		<PropertyGroup>
+	    		<Forms9PatchDemoSourceDir>$(SolutionDir)\Source</Forms9PatchDemoSourceDir>
+	    	</PropertyGroup>
+	    </When>
+    </Choose>
+	<Import Project="$(Forms9PatchDemoSourceDir)\Forms9PatchDemo.targets" />
+
+	<ItemGroup>
+	  <PackageReference Include="Forms9Patch.NetStandard" Version="1.1.0" />
+	  <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
+	</ItemGroup>
+</Project>
