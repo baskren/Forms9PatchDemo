@@ -113,9 +113,6 @@
     <None Include="Forms9PatchDemo.UWP_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\Forms9PatchDemo.PCL\Resources\SvgSample2.svg">
-      <Link>SvgSample2.svg</Link>
-    </Content>
     <Content Include="balloons.jpg" />
     <Content Include="cat.jpg" />
     <Content Include="five.png" />
@@ -192,6 +189,7 @@
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Assets\Wide310x150Logo.scale-400.png" />
 
+    <Content Include="SvgSample2.svg" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">

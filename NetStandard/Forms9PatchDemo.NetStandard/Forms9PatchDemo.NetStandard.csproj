@@ -5,12 +5,21 @@
 		<AssemblyName>Forms9PatchDemo</AssemblyName>
 		<RootNamespace>Forms9PatchDemo</RootNamespace>
 	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <DefineConstants>TRACE;DEBUG;NETSTANDARD2_0</DefineConstants>
+	</PropertyGroup>
 	<ItemGroup>
 		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
 			<DependentUpon>*.xaml</DependentUpon>
 		</Compile>
 	</ItemGroup>
 
+	<ItemGroup>
+	  <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
+	  <PackageReference Include="Forms9Patch.NetStandard" Version="1.1.0" />
+	</ItemGroup>
+
+	<!-- LOAD PROJECT CONTENT -->
     <Choose>
     	<When Condition="Exists('$(SolutionDir)\Forms9Patch\Forms9PatchDemo\Source')">
     		<PropertyGroup>
@@ -29,9 +38,7 @@
 	    </When>
     </Choose>
 	<Import Project="$(Forms9PatchDemoSourceDir)\Forms9PatchDemo.targets" />
+	<Import Project="$(Forms9PatchDemoSourceDir)\Forms9PatchDemoXaml.targets" />
 
-	<ItemGroup>
-	  <PackageReference Include="Forms9Patch.NetStandard" Version="1.1.0" />
-	  <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
-	</ItemGroup>
+
 </Project>

@@ -53,6 +53,9 @@ namespace Forms9PatchDemo
             {
                 Intent = TableIntent.Menu,
                 Root = new TableRoot {
+
+                    #if FROM_SOURCE
+                    #else
                     new TableSection("XAML") {
                         new TextCell
                         {
@@ -77,6 +80,7 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(XamlPageWithListViewWithF9PLabelInCells)
                         },
                     },
+                    #endif
 
                     new TableSection("Code") {
 

@@ -64,6 +64,9 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(UserPagesHomePage)
                         },
                     },
+
+                    #if FROM_SOURCE
+                    #else
                     new TableSection("XAML") {
 
                         new TextCell {
@@ -121,7 +124,7 @@ namespace Forms9PatchDemo
                         },
 
                     },
-
+                    #endif
 
                     new TableSection("Code") {
 

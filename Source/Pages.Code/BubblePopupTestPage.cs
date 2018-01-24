@@ -1,7 +1,11 @@
 using System;
 
 using Xamarin.Forms;
+#if FROM_SOURCE
+using P42.Utils;
+#else
 using PCL.Utils;
+#endif
 using System.Linq;
 
 namespace Forms9PatchDemo

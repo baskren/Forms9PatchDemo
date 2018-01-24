@@ -163,12 +163,6 @@
     <ITunesArtwork Include="ITunesArtwork%402x" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{60C1AF69-C514-4588-85D5-EEE37AEFCAE3}</Project>
-      <Name>Forms9PatchDemo.NetStandard</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Forms9Patch.NetStandard">
       <Version>1.1.0</Version>
     </PackageReference>

@@ -123,11 +123,5 @@
     <AndroidAsset Include="Assets\SvgSample2.svg" />
   </ItemGroup>
   
-  <ItemGroup>
-    <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{60C1AF69-C514-4588-85D5-EEE37AEFCAE3}</Project>
-      <Name>Forms9PatchDemo.NetStandard</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>
