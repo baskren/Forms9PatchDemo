@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CFA91476-BECE-4F45-9F60-334610335117}</ProjectGuid>
+    <ProjectGuid>{12A221C5-135C-4148-B348-323735D10C55}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <RootNamespace>Forms9PatchDemo.Droid</RootNamespace>
@@ -65,21 +65,16 @@
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-
   <ItemGroup>
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
-
   <ItemGroup>
-
     <None Include="packages.config" />
-
     <AndroidResource Include="Resources\values\strings.xml" />
     <AndroidResource Include="Resources\values\styles.xml" />
     <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\layout\Tabbar.axml" />
     <AndroidResource Include="Resources\layout\Toolbar.axml" />
-
     <AndroidResource Include="Resources\drawable\ArrowR.png" />
     <AndroidResource Include="Resources\drawable\balloons.jpg" />
     <AndroidResource Include="Resources\drawable\bubble.9.png" />
@@ -91,26 +86,22 @@
     <AndroidResource Include="Resources\drawable\redGridBox.png" />
     <AndroidResource Include="Resources\drawable\sampleFile.png" />
     <AndroidResource Include="Resources\drawable\icon.png" />
-
     <AndroidResource Include="Resources\drawable-hdpi\ArrowR.png" />
     <AndroidResource Include="Resources\drawable-hdpi\five.png" />
     <AndroidResource Include="Resources\drawable-hdpi\fivePlus.png" />
     <AndroidResource Include="Resources\drawable-hdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-hdpi\image.png" />
     <AndroidResource Include="Resources\drawable-hdpi\Info.png" />
-
     <AndroidResource Include="Resources\drawable-xhdpi\ArrowR.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\five.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\fivePlus.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\image.png" />
     <AndroidResource Include="Resources\drawable-xhdpi\Info.png" />
-
     <AndroidResource Include="Resources\drawable-ldpi\ArrowR.png" />
     <AndroidResource Include="Resources\drawable-ldpi\five.png" />
     <AndroidResource Include="Resources\drawable-ldpi\fivePlus.png" />
     <AndroidResource Include="Resources\drawable-ldpi\Info.png" />
-
     <AndroidResource Include="Resources\drawable-xxhdpi\ArrowR.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\Info.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\five.png" />
@@ -118,11 +109,9 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\image.png" />
   </ItemGroup>
-
   <ItemGroup>
     <AndroidAsset Include="Assets\SvgSample2.svg" />
   </ItemGroup>
-  
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
       <Project>{0DF60C1F-EE1B-4112-9E7F-0E098D356C98}</Project>
