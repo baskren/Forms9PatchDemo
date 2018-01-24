@@ -5,7 +5,7 @@ using System.Linq;
 using Foundation;
 using UIKit;
 
-namespace Forms9PatchDemo.NetStandard.iOS
+namespace Forms9PatchDemo.iOS
 {
     public class Application
     {
