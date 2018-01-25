@@ -2,32 +2,9 @@
     xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
     <!-- SUPPORT FOR USE AS A GIT SUBMODULE -->
-    <Choose>
-    	<When Condition="Exists('$(SolutionDir)\Forms9Patch\Forms9PatchDemo\Source')">
-    		<PropertyGroup>
-	    		<Forms9PatchDemoSourceDir>$(SolutionDir)\Forms9Patch\Forms9PatchDemo\Source</Forms9PatchDemoSourceDir>
-	    	</PropertyGroup>
-	    </When>
-    	<When Condition="Exists('$(SolutionDir)\Forms9PatchDemo\Source')">
-    		<PropertyGroup>
-	    		<Forms9PatchDemoSourceDir>$(SolutionDir)\Forms9PatchDemo\Source</Forms9PatchDemoSourceDir>
-	    	</PropertyGroup>
-	    </When>
-    	<When Condition="Exists('$(SolutionDir)\Source')">
-    		<PropertyGroup>
-	    		<Forms9PatchDemoSourceDir>$(SolutionDir)\Source</Forms9PatchDemoSourceDir>
-	    	</PropertyGroup>
-	    </When>
-	    <Otherwise>
-		    <PropertyGroup>
-		    	<Forms9PatchDemoError>TRUE</Forms9PatchDemoError>
-		    </PropertyGroup> 	    	
-	    </Otherwise>
-    </Choose>
-
-    <Target Name="BeforeBuild">  
-	    <Error Condition="$(Forms9PatchDemoError)=='TRUE'" Text="Forms9PatchDemo.targets cannot find Forms9PatchDemo\Source directory"/>
-    </Target>  
+    <PropertyGroup>
+    	<Forms9PatchDemoSourceDir Condition=" '$(Forms9PatchDemoSourceDir)' == '' ">..\Source</Forms9PatchDemoSourceDir>
+    </PropertyGroup>
 
 
     <!-- NAVIGATION -->
@@ -194,6 +171,8 @@
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\greenWhiteGradient.svg" Link="Resources\greenWhiteGradient.svg" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redWhiteGradient.svg" Link="Resources\redWhiteGradient.svg" />
 	</ItemGroup>
+
+	<Import Condition=" '$(UseXaml)'=='USE_XAML' " Project="..\Source\Forms9PatchDemoXaml.targets" />
 
 
 </Project>

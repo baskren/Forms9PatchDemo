@@ -65,6 +65,66 @@ namespace Forms9PatchDemo
                         },
                     },
 
+                    #if USE_XAML
+                    new TableSection("XAML") {
+
+                        new TextCell {
+                            Text = "XamlCDATA",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(XamlCDATA)
+                        },
+
+                        new TextCell {
+                            Text = "XamlContentViewDemoPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(XamlContentViewDemoPage)
+                        },
+
+                        new TextCell {
+                            Text = "XamlFrameDemoPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(XamlFrameDemoPage)
+                        },
+
+                        new TextCell {
+                            Text = "XamlSingleStateButton",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(XamlSingleStateButtonPage)
+                        },
+
+                        new TextCell {
+                            Text = "XamlStateButtonsPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(XamlStateButtonsPage)
+                        },
+
+                        new TextCell {
+                            Text = "XamlSegmentedControlPage ",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(XamlSegmentedControlPage)
+                        },
+
+                        new TextCell {
+                            Text = "XamlImagesPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(XamlImagesPage)
+                        },
+
+                        new TextCell {
+                            Text = "XamlHtmlLabelsAndButtonsPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(XamlHtmlLabelsAndButtonsPage)
+                        },
+
+                        new TextCell {
+                            Text = "XamlCapsInsetPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(XamlCapsInsetPage)
+                        },
+
+                    },
+                    #endif
+
                     new TableSection("Code") {
 
 

@@ -182,7 +182,7 @@
     <AndroidAsset Include="Assets\SvgSample2.svg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\NetStandard\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
+    <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
       <Project>{0df60c1f-ee1b-4112-9e7f-0e098d356c98}</Project>
       <Name>Forms9PatchDemo.NetStandard</Name>
     </ProjectReference>

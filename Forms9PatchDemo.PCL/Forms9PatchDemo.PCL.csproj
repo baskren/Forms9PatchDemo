@@ -10,15 +10,14 @@
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AssemblyName>Forms9PatchDemo</AssemblyName>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp></NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug</OutputPath>
-    <DefineConstants>DEBUG;</DefineConstants>
+    <DefineConstants>DEBUG;$(CompileConstants)</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
@@ -36,28 +35,9 @@
     <OutputPath>bin\Test</OutputPath>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-
   <!-- LOAD PROJECT CONTENT -->
-  <Choose>
-    <When Condition="Exists('$(SolutionDir)\Forms9Patch\Forms9PatchDemo\Source')">
-      <PropertyGroup>
-        <Forms9PatchDemoSourceDir>$(SolutionDir)\Forms9Patch\Forms9PatchDemo\Source</Forms9PatchDemoSourceDir>
-      </PropertyGroup>
-    </When>
-    <When Condition="Exists('$(SolutionDir)\Forms9PatchDemo\Source')">
-      <PropertyGroup>
-        <Forms9PatchDemoSourceDir>$(SolutionDir)\Forms9PatchDemo\Source</Forms9PatchDemoSourceDir>
-      </PropertyGroup>
-    </When>
-    <When Condition="Exists('$(SolutionDir)\Source')">
-      <PropertyGroup>
-        <Forms9PatchDemoSourceDir>$(SolutionDir)\Source</Forms9PatchDemoSourceDir>
-      </PropertyGroup>
-    </When>
-  </Choose>
-  <Import Project="$(Forms9PatchDemoSourceDir)\Forms9PatchDemo.targets" />
-  <Import Project="$(Forms9PatchDemoSourceDir)\Forms9PatchDemoXaml.targets" />
-
+  <Import Project="..\Source\Forms9PatchDemo.targets" />
+  <!--Import Project="..\Source\Forms9PatchDemoXaml.targets" /-->
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

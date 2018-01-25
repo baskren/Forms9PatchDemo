@@ -54,8 +54,7 @@ namespace Forms9PatchDemo
                 Intent = TableIntent.Menu,
                 Root = new TableRoot {
 
-                    #if FROM_SOURCE
-                    #else
+                    #if USE_XAML
                     new TableSection("XAML") {
                         new TextCell
                         {

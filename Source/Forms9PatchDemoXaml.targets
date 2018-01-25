@@ -2,38 +2,15 @@
     xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
 
 
-    <Choose>
-    	<When Condition="Exists('$(SolutionDir)\Forms9Patch\Forms9PatchDemo\Source')">
-    		<PropertyGroup>
-	    		<Forms9PatchDemoSourceDir>$(SolutionDir)\Forms9Patch\Forms9PatchDemo\Source</Forms9PatchDemoSourceDir>
-	    	</PropertyGroup>
-	    </When>
-    	<When Condition="Exists('$(SolutionDir)\Forms9PatchDemo\Source')">
-    		<PropertyGroup>
-	    		<Forms9PatchDemoSourceDir>$(SolutionDir)\Forms9PatchDemo\Source</Forms9PatchDemoSourceDir>
-	    	</PropertyGroup>
-	    </When>
-    	<When Condition="Exists('$(SolutionDir)\Source')">
-    		<PropertyGroup>
-	    		<Forms9PatchDemoSourceDir>$(SolutionDir)\Source</Forms9PatchDemoSourceDir>
-	    	</PropertyGroup>
-	    </When>
-	    <Otherwise>
-		    <PropertyGroup>
-		    	<Forms9PatchDemoError>TRUE</Forms9PatchDemoError>
-		    </PropertyGroup> 	    	
-	    </Otherwise>
-    </Choose>
-
-    <Target Name="BeforeBuild">  
-	    <Error Condition="$(Forms9PatchDemoError)=='TRUE'" Text="Forms9PatchDemo.targets cannot find Forms9PatchDemo\Source directory"/>
-    </Target>  
+    <!-- SUPPORT FOR USE AS A GIT SUBMODULE -->
+    <PropertyGroup>
+    	<Forms9PatchDemoSourceDir Condition=" '$(Forms9PatchDemoSourceDir)' == '' ">..\Source</Forms9PatchDemoSourceDir>
+    </PropertyGroup>
 
 
 	<!-- IMAGE RESOURCE EXTENSION (Required to use Forms9Patch.ImageSource from Xaml) -->
 	<ItemGroup>
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Extensions\ImageResourceExtension.cs" Link="Extensions\ImageResourceExtension.cs" />
-
 	</ItemGroup>
 
 
@@ -179,6 +156,11 @@
 	    </Compile>
 
 	</ItemGroup>
+
+	<Target Name="Compile">
+		<Message Text="Completed Forms9PatchDemoXaml.targets"/>
+    	<Message Text="CompileConstants=[$(CompileConstants)]"/>
+	</Target>
 
 
 
