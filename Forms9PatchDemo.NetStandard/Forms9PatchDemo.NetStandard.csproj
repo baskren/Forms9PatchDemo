@@ -18,9 +18,12 @@
 			<DependentUpon>*.xaml</DependentUpon>
 		</Compile>
 	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Properties\" />
+	</ItemGroup>
 
 	<!-- LOAD PROJECT CONTENT -->
-	<Import Project="..\Source\Forms9PatchDemo.targets" />
+	<!--Import Project="..\Source\Forms9PatchDemo.targets" /-->
 
 
 </Project>
