@@ -2,10 +2,12 @@ using System;
 using System.Collections.Generic;
 
 using Xamarin.Forms;
+using Xamarin.Forms.Xaml;
 
 namespace Forms9PatchDemo
 {
-	public partial class XamlSingleStateButtonPage : ContentPage
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class XamlSingleStateButtonPage : ContentPage
 	{
 		public XamlSingleStateButtonPage ()
 		{

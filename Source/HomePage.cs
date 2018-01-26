@@ -160,6 +160,40 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(ButtonCodePage)
                         },
 
+                        new TextCell {
+                            Text = "HTML Formatted Labels",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(HtmlLabelPage)
+                        },
+
+                        new TextCell {
+                            Text = "HTML Formatted Buttons",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(HtmlButtonsPage)
+                        },
+
+                        new TextCell {
+                            Text = "PopupsPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(PopupsPage)
+                        },
+
+                        new TextCell {
+                            Text = "Pan Gesture test",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(PanGesturePage)
+                        },
+
+                        new TextCell {
+                            Text = "SVG ButtonBackgroundImage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(SVG_ButtonBackgroundImage)
+                        },
+
+                    },
+
+                    new TableSection("Single Examples")
+                    {
                         new TextCell
                         {
                             Text = "Single Button",
@@ -194,18 +228,6 @@ namespace Forms9PatchDemo
                         },
 
                         new TextCell {
-                            Text = "HTML Formatted Labels",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(HtmlLabelPage)
-                        },
-
-                        new TextCell {
-                            Text = "HTML Formatted Buttons",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(HtmlButtonsPage)
-                        },
-
-                        new TextCell {
                             Text = "Modal Popup",
                             Command = navigateCommand,
                             CommandParameter = typeof(ModalPopupTestPage)
@@ -217,28 +239,6 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(BubblePopupTestPage)
                         },
 
-                        new TextCell {
-                            Text = "PopupsPage",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(PopupsPage)
-                        },
-
-                        new TextCell {
-                            Text = "Pan Gesture test",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(PanGesturePage)
-                        },
-
-                        new TextCell {
-                            Text = "SVG ButtonBackgroundImage",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(SVG_ButtonBackgroundImage)
-                        },
-
-                    },
-
-                    new TableSection("Single Examples")
-                    {
 
                     }
                 }

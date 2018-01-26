@@ -9,7 +9,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Forms9PatchDemo
 {
-    //[XamlCompilation(XamlCompilationOptions.Compile)]
+    [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class XamlCDATA : ContentPage
     {
         public XamlCDATA()
