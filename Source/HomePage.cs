@@ -239,6 +239,12 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(BubblePopupTestPage)
                         },
 
+                        new TextCell {
+                            Text = "FontSizeTest",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(FontSizeTest)
+                        },
+
 
                     }
                 }
