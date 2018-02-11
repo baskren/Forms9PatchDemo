@@ -10,12 +10,12 @@
             Example of Forms9Patch markup text.
         </Forms9Patch:Label>
         <BoxView HeightRequest="1" Color="Black"></BoxView>
-        <Forms9Patch:Label>
-            <![CDATA[This is a phone number link: <a id="link1" href="tel:+353015546889">015546889</a> ]]>
+        <Forms9Patch:Label x:Name="PhoneLabel" >
+            <![CDATA[This is a phone number link: <a id="link1" href="callto:+353015546889">015546889</a> ]]>
         </Forms9Patch:Label>
         <BoxView HeightRequest="1" Color="Black"></BoxView>
-        <Forms9Patch:Label>
-            <![CDATA[This is an email link: <a id="link2" href="email:email@hotmail.com">email@hotmail.com</a> ]]>
+        <Forms9Patch:Label x:Name="EmailLabel">
+            <![CDATA[This is an email link: <a id="link2" href="mailto:email@hotmail.com">email@hotmail.com</a> ]]>
         </Forms9Patch:Label>
     </StackLayout>
 </ContentPage>

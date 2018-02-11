@@ -15,6 +15,17 @@ namespace Forms9PatchDemo
         public XamlCDATA()
         {
             InitializeComponent();
+
+            PhoneLabel.ActionTagTapped += ActionTagTapped;
+            EmailLabel.ActionTagTapped += ActionTagTapped;
+
+
+        }
+
+        private void ActionTagTapped(object sender, Forms9Patch.ActionTagEventArgs e)
+        {
+            var uri = new Uri(e.Href);
+            Device.OpenUri(uri);
         }
     }
 }
