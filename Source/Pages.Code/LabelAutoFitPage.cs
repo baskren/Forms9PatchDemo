@@ -44,9 +44,9 @@ namespace Forms9PatchDemo
         {
             Text = "Font Size: 15"
         };
-        Label actualFontSizeLabel = new Label
+        Label fittedFontSizeLabel = new Label
         {
-            Text = "Actual Font Size: 15"
+            Text = "FittedFontSize: 15"
         };
         Slider fontSizeSlider = new Slider
         {
@@ -196,10 +196,9 @@ namespace Forms9PatchDemo
             #region Font Size selection
             fontSizeSlider.ValueChanged += OnFontSizeSliderValueChanged;
 
-            f9pLabel.PropertyChanged += (sender, e) =>
+            f9pLabel.FittedFontSizeChanged += (object sender, double e) =>
             {
-                if (e.PropertyName == Forms9Patch.Label.FittedFontSizeProperty.PropertyName)
-                    actualFontSizeLabel.Text = "FittedFontSize: " + f9pLabel.FittedFontSize;
+                fittedFontSizeLabel.Text = "FittedFontSize: " + e;
             };
             #endregion
 
@@ -449,7 +448,7 @@ namespace Forms9PatchDemo
 
                         fontSizeLabel,
                         fontSizeSlider,
-                        actualFontSizeLabel,
+                        fittedFontSizeLabel,
 
                         new Label { Text = "AutoFit:" },
                         fitSelector,
