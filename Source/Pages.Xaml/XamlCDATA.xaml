@@ -17,5 +17,8 @@
         <Forms9Patch:Label x:Name="EmailLabel">
             <![CDATA[This is an email link: <a id="link2" href="mailto:email@hotmail.com">email@hotmail.com</a> ]]>
         </Forms9Patch:Label>
+        <Forms9Patch:Label VerticalOptions="EndAndExpand" VerticalTextAlignment="End" HorizontalTextAlignment="Center">
+            <![CDATA[<b>NOTE:</b> Will <i>not</i> work in iOS Simulator.]]>
+        </Forms9Patch:Label>
     </StackLayout>
 </ContentPage>
