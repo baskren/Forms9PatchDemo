@@ -163,8 +163,8 @@
     <ITunesArtwork Include="ITunesArtwork%402x" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Forms9Patch.NetStandard">
-      <Version>1.1.0</Version>
+    <PackageReference Include="Forms9Patch">
+      <Version>1.1.0.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
       <Version>2.4.0.280</Version>

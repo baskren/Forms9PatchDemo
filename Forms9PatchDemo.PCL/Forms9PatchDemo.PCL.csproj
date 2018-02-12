@@ -10,7 +10,8 @@
     <TargetFrameworkProfile>Profile111</TargetFrameworkProfile>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <AssemblyName>Forms9PatchDemo</AssemblyName>
-    <NuGetPackageImportStamp></NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +47,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Forms9Patch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.1.0.4\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Forms9Patch.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsGestures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.1.0.4\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\FormsGestures.dll</HintPath>
+    </Reference>
+    <Reference Include="P42.NumericalMethods, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.1.0.4\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\P42.NumericalMethods.dll</HintPath>
+    </Reference>
+    <Reference Include="P42.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.1.0.4\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\P42.Utils.dll</HintPath>
+    </Reference>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\..\packages\Xamarin.Forms.2.4.0.280\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -54,18 +67,6 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\..\packages\Xamarin.Forms.2.4.0.280\lib\portable-win+net45+wp80+win81+wpa81\Xamarin.Forms.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="Forms9Patch">
-      <HintPath>..\..\packages\Forms9Patch.NetStandard.1.1.0.0\lib\netstandard1.0\Forms9Patch.dll</HintPath>
-    </Reference>
-    <Reference Include="FormsGestures">
-      <HintPath>..\..\packages\Forms9Patch.NetStandard.1.1.0.0\lib\netstandard1.0\FormsGestures.dll</HintPath>
-    </Reference>
-    <Reference Include="NumericalMethods">
-      <HintPath>..\..\packages\Forms9Patch.NetStandard.1.1.0.0\lib\netstandard1.0\NumericalMethods.dll</HintPath>
-    </Reference>
-    <Reference Include="PCL.Utils">
-      <HintPath>..\..\packages\Forms9Patch.NetStandard.1.1.0.0\lib\netstandard1.0\PCL.Utils.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\portable-net45+win8+wp8+wpa81\Newtonsoft.Json.dll</HintPath>
