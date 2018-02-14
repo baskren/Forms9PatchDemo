@@ -73,11 +73,11 @@
     <Reference Include="NumericalMethods, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\packages\Forms9Patch.NetStandard.1.1.0.0\lib\MonoAndroid10\NumericalMethods.dll</HintPath>
     </Reference>
-    <Reference Include="P42.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Forms9Patch.NetStandard.1.1.0.0\lib\MonoAndroid10\P42.Utils.dll</HintPath>
+    <Reference Include="PCL.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.NetStandard.1.1.0.0\lib\MonoAndroid10\PCL.Utils.dll</HintPath>
     </Reference>
-    <Reference Include="P42.Utils.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Forms9Patch.NetStandard.1.1.0.0\lib\MonoAndroid10\P42.Utils.Droid.dll</HintPath>
+    <Reference Include="PCL.Utils.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.NetStandard.1.1.0.0\lib\MonoAndroid10\PCL.Utils.Droid.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\..\packages\SkiaSharp.1.59.2\lib\MonoAndroid\SkiaSharp.dll</HintPath>
