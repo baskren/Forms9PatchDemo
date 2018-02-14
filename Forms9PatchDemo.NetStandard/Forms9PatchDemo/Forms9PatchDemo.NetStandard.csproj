@@ -25,6 +25,7 @@
 		<Compile Include="..\..\Forms9PatchDemo.PCL\Pages.Code\PopupsPage.cs" Link="Pages.Code\PopupsPage.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\Pages.Code\SingleButton.cs" Link="Pages.Code\SingleButton.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\Pages.Code\SingleSegmentedControl.cs" Link="Pages.Code\SingleSegmentedControl.cs" />
+		<Compile Include="..\..\Forms9PatchDemo.PCL\Pages.Code\SVG_ButtonBackgroundImage.cs" Link="Pages.Code\SVG_ButtonBackgroundImage.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\Pages.Code\UnconstrainedLabelAutoFitPage.cs" Link="Pages.Code\UnconstrainedLabelAutoFitPage.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\UserPages\AbsoluteLayoutExplorationCode.cs" Link="UserPages\AbsoluteLayoutExplorationCode.cs" />
 		<Compile Include="..\..\Forms9PatchDemo.PCL\UserPages\BackgroundImageOpacityPage.cs" Link="UserPages\BackgroundImageOpacityPage.cs" />
