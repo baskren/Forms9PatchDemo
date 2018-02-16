@@ -56,6 +56,13 @@ namespace Forms9PatchDemo
 
                     #if USE_XAML
                     new TableSection("XAML") {
+
+                        new TextCell
+                        {
+                            Text = "Font size test page",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(fontsizetestPage)
+                        },
                         new TextCell
                         {
                             Text = "Stretch Issue Page",

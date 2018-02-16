@@ -190,6 +190,13 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(SVG_ButtonBackgroundImage)
                         },
 
+
+                        new TextCell {
+                            Text = "Simple Label Autofit test",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(SimpleLabelFitting)
+                        },
+
                     },
 
                     new TableSection("Single Examples")

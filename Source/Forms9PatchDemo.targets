@@ -31,6 +31,7 @@
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\PanGesturePage.cs" Link="Pages.Code\PanGesturePage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\PopupsPage.cs" Link="Pages.Code\PopupsPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SingleButton.cs" Link="Pages.Code\SingleButton.cs" />
+		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SimpleLabelFitting.cs" Link="Pages.Code\SimpleLabelFitting.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SingleSegmentedControl.cs" Link="Pages.Code\SingleSegmentedControl.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SVG_ButtonBackgroundImage.cs" Link="Pages.Code\SVG_ButtonBackgroundImage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\UnconstrainedLabelAutoFitPage.cs" Link="Pages.Code\UnconstrainedLabelAutoFitPage.cs" />
