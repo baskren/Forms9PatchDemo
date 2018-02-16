@@ -57,6 +57,16 @@ namespace Forms9PatchDemo
                     #if USE_XAML
                     new TableSection("XAML") {
 
+#if FROM_SOURCE
+                        new TextCell
+                        {
+                            Text = "App3.MainPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(App3.MainPage)
+                        },
+#endif
+
+
                         new TextCell
                         {
                             Text = "Font size test page",
