@@ -20,8 +20,8 @@
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ButtonCodePage.cs" Link="Pages.Code\ButtonCodePage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\CustomFontEffectPage.cs" Link="Pages.Code\CustomFontEffectPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ExternalEmbeddedResourceImage.cs" Link="Pages.Code\ExternalEmbeddedResourceImage.cs" />
-    <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\FontSizeTest.cs" Link="Pages.Code\FontSizeTest.cs" />
-    <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlButtonsPage.cs" Link="Pages.Code\HtmlButtonsPage.cs" />
+    	<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\FontSizeTest.cs" Link="Pages.Code\FontSizeTest.cs" />
+    	<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlButtonsPage.cs" Link="Pages.Code\HtmlButtonsPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlLabelPage.cs" Link="Pages.Code\HtmlLabelPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlLink.cs" Link="Pages.Code\HtmlLink.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ImageCodePage.cs" Link="Pages.Code\ImageCodePage.cs" />
@@ -146,6 +146,7 @@
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Info%40¾x.png" Link="Resources\Info%40¾x.png" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ltblueUp.png" Link="Resources\ltblueUp.png" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ltblueUp%402x.png" Link="Resources\ltblueUp%402x.png" />
+		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\printerIcon.png" Link="Resources\printerIcon.png" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\PopupDM.png" Link="Resources\PopupDM.png" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redButton.9.png" Link="Resources\redButton.9.png" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redGridBox.png" Link="Resources\redGridBox.png" />

@@ -1,6 +1,7 @@
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using System.Reflection;
 
 namespace Forms9PatchDemo
 {
@@ -11,7 +12,7 @@ namespace Forms9PatchDemo
 
 		public object ProvideValue (IServiceProvider serviceProvider)
 		{
-			return Source == null ? null : Forms9Patch.ImageSource.FromMultiResource (Source);
+			return Source == null ? null : Forms9Patch.ImageSource.FromMultiResource (Source, GetType().GetTypeInfo().Assembly);
 		}
 	}
 
@@ -22,7 +23,7 @@ namespace Forms9PatchDemo
 
 		public object ProvideValue (IServiceProvider serviceProvider)
 		{
-			return Source == null ? null : Xamarin.Forms.ImageSource.FromResource (Source);
+			return Source == null ? null : Xamarin.Forms.ImageSource.FromResource (Source, GetType().GetTypeInfo().Assembly);
 		}
 	}
 }

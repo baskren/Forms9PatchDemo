@@ -149,7 +149,8 @@ namespace Forms9PatchDemo
                     new Forms9Patch.Segment("BACKGROUND"),
                     new Forms9Patch.Segment("OUTLINE"),
                     new Forms9Patch.Segment("SHADOW"),
-                    new Forms9Patch.Segment("INVERTED")
+                    new Forms9Patch.Segment("INVERTED"),
+                    new Forms9Patch.Segment("TINT")
                 }
             };
             shapeAttributesSelector.SegmentTapped += ShapeAttributesSelector_SegmentTapped;
@@ -160,7 +161,7 @@ namespace Forms9PatchDemo
             var seg4 = new Forms9Patch.Segment(null, new Forms9Patch.Image { Source = ImageSource.FromFile("cat.jpg"), Fill = Forms9Patch.Fill.AspectFit });
             var seg5 = new Forms9Patch.Segment(null, new Forms9Patch.Image { Source = ImageSource.FromFile("balloons.jpg"), Fill = Forms9Patch.Fill.AspectFit });
             var seg6 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.image");
-            var seg7 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.redribbon");
+            var seg7 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.printerIcon");
             var seg8 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.bubble");
             var seg9 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.SvgSample.svg");
 
@@ -223,9 +224,9 @@ namespace Forms9PatchDemo
                     new ColumnDefinition() { Width = new GridLength(1, GridUnitType.Star)},
                 },
             };
-            outlineGrid.Children.Add(new Forms9Patch.Label("Forms9Patch.Image.OutlineWidth:"), 0, 0);
+            outlineGrid.Children.Add(new Forms9Patch.Label("OutlineWidth:"), 0, 0);
             outlineGrid.Children.Add(outlineWidthSlider, 0, 1);
-            outlineGrid.Children.Add(new Forms9Patch.Label("Forms9Patch.Image.OutlineRadius:"), 1, 0);
+            outlineGrid.Children.Add(new Forms9Patch.Label("OutlineRadius:"), 1, 0);
             outlineGrid.Children.Add(outlineRadiusSlider, 1, 1);
 
             //pixelCapsSwitch.Toggled += PixelCapsSwitch_Toggled;
@@ -529,6 +530,9 @@ namespace Forms9PatchDemo
                     break;
                 case "INVERTED":
                     f9pImage.ShadowInverted = e.Segment.IsSelected;
+                    break;
+                case "TINT":
+                    f9pImage.TintColor = e.Segment.IsSelected ? Color.Blue : Color.Default;
                     break;
             }
         }
