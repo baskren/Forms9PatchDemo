@@ -2,6 +2,7 @@ using System;
 using Xamarin.Forms;
 using Forms9PatchDemo.Pages;
 using Forms9PatchDemo.Pages.Code;
+using Forms9Patch;
 
 namespace Forms9PatchDemo
 {
@@ -127,12 +128,12 @@ namespace Forms9PatchDemo
 
                     new TableSection("Code") {
 
-
                         new TextCell {
-                            Text = "LabelAutoFitPage",
+                            Text = "ClipboardTest",
                             Command = navigateCommand,
-                            CommandParameter = typeof(LabelAutoFitPage)
+                            CommandParameter = typeof(ClipboardTest)
                         },
+
 
 
                         new TextCell {

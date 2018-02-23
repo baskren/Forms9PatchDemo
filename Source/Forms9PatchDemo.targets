@@ -18,6 +18,7 @@
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\BubblePopupTestPage.cs" Link="Pages.Code\BubblePopupTestPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ButtonAndSegmentAlignments.cs" Link="Pages.Code\ButtonAndSegmentAlignments.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ButtonCodePage.cs" Link="Pages.Code\ButtonCodePage.cs" />
+		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ClipboardTest.cs" Link="Pages.Code\ClipboardTest.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\CustomFontEffectPage.cs" Link="Pages.Code\CustomFontEffectPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ExternalEmbeddedResourceImage.cs" Link="Pages.Code\ExternalEmbeddedResourceImage.cs" />
     	<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\FontSizeTest.cs" Link="Pages.Code\FontSizeTest.cs" />
