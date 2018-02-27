@@ -5,6 +5,7 @@ using P42.Utils;
 using System.Linq;
 using System.Collections.Generic;
 using Forms9Patch;
+using System.Reflection;
 
 namespace Forms9PatchDemo
 {
@@ -32,8 +33,14 @@ namespace Forms9PatchDemo
             var testChar = (char)_rand.Next(255);
             entry.AddValue("application/x-forms9patchdemo-char", testChar);
 
+            var testShort = (short)_rand.Next(255);
+            entry.AddValue("application/x-forms9patchdemo-short", testShort);
+
             var testInt = _rand.Next();
             entry.AddValue("application/x-forms9patchdemo-int", testInt);
+
+            var testLong = (long)_rand.Next() + (long)int.MaxValue;
+            entry.AddValue("application/x-forms9patchdemo-long", testLong);
 
             var testDouble = _rand.NextDouble();
             entry.AddValue("application/x-forms9patchdemo-double", testDouble);
@@ -67,17 +74,25 @@ namespace Forms9PatchDemo
                 if (resultByteArray[i] != testByteArray[i])
                     throw new Exception("byte arrays don't match at index [" + i + "]");
 
-            var resultByte = (byte)Clipboard.Entry.GetItem("application/x-forms9patchdemo-byte").Value;
-            if (resultByte != testByteArray[0])
+            var resultByte = Clipboard.Entry.GetItem("application/x-forms9patchdemo-byte").Value;
+            if ((byte)resultByte != testByteArray[0])
                 throw new Exception("bytes don't match");
 
             var resultChar = (char)Clipboard.Entry.GetItem("application/x-forms9patchdemo-char").Value;
             if (resultChar != testChar)
                 throw new Exception("chars don't match");
 
+            var resultShort = (short)Clipboard.Entry.GetItem("application/x-forms9patchdemo-short").Value;
+            if (resultShort != testShort)
+                throw new Exception("shorts don't match");
+
             var resultInt = (int)Clipboard.Entry.GetItem("application/x-forms9patchdemo-int").Value;
             if (resultInt != testInt)
                 throw new Exception("ints don't match");
+
+            var resultLong = (long)Clipboard.Entry.GetItem("application/x-forms9patchdemo-long").Value;
+            if (resultLong != testLong)
+                throw new Exception("longs don't match");
 
             var resultDouble = (double)Clipboard.Entry.GetItem("application/x-forms9patchdemo-double").Value;
             if (resultDouble != testDouble)
