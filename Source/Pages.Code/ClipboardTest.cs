@@ -53,7 +53,7 @@ namespace Forms9PatchDemo
             CopyPaste();
             stopWatch.Stop();
 
-            _layout.Children.Add(new Forms9Patch.Label("<br/>ElapsedTime: " + stopWatch.ElapsedMilliseconds + "ms"));            
+            _layout.Children.Add(new Forms9Patch.Label("<br/>ElapsedTime: "+stopWatch.ElapsedMilliseconds + "ms"));            
         }
 
 
