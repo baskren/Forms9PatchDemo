@@ -134,7 +134,11 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(ClipboardTest)
                         },
 
-
+                        new TextCell {
+                            Text = "LabelAutoFitPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(LabelAutoFitPage)
+                        },
 
                         new TextCell {
                             Text = "ImageCodePage",

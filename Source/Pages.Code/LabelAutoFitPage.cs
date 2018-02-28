@@ -423,6 +423,8 @@ namespace Forms9PatchDemo
                         /*
                         new Label { Text = "Text:" },
                         editor,
+                        */
+
                         new StackLayout
                         {
                             Orientation = StackOrientation.Horizontal,
@@ -435,6 +437,7 @@ namespace Forms9PatchDemo
                             },
                         },
 
+                        /*
                         new Label { Text = "Xamarin.Forms.Label:" },
                         frameForXF,
                         */
