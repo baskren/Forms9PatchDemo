@@ -23,11 +23,11 @@ namespace Forms9PatchDemo
         StatusLabel _longTest = new StatusLabel("long test ");
         StatusLabel _doubleTest = new StatusLabel("double test ");
         StatusLabel _stringTest = new StatusLabel("string test ");
-        StatusLabel _intListTest = new StatusLabel("List&lt;int&gt; test ");
-        StatusLabel _doubleListTest = new StatusLabel("List&lt;double&gt; test ");
-        StatusLabel _stringListTest = new StatusLabel("List&lt;string&gt; test ");
-        StatusLabel _dictionaryTest = new StatusLabel("Dictionary&lt;string,double&gt; test ");
-        StatusLabel _dictionaryListTest = new StatusLabel("List&lt;Dictionary&lt;string,double&gt;&gt; test ");
+        StatusLabel _intListTest = new StatusLabel("List<int> test ");
+        StatusLabel _doubleListTest = new StatusLabel("List<double> test ");
+        StatusLabel _stringListTest = new StatusLabel("List<string> test ");
+        StatusLabel _dictionaryTest = new StatusLabel("Dictionary<string,double> test ");
+        StatusLabel _dictionaryListTest = new StatusLabel("List<Dictionary<string,double>> test ");
 
         Xamarin.Forms.Label _elapsedTimeLabel = new Xamarin.Forms.Label();
 
@@ -363,7 +363,8 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultDictionaryList = (List<Dictionary<string, string>>)Clipboard.Entry.GetItem("application/x-forms9patchdemo-dictionaryList").Value;
+            var entryItem = Clipboard.Entry.GetItem("application/x-forms9patchdemo-dictionaryList");
+            var resultDictionaryList = (List<Dictionary<string, string>>)entryItem.Value;
             if (resultDictionaryList.Count != testDictionaryList.Count)
                 success = false;
             if (success)
