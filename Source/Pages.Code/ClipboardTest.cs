@@ -210,7 +210,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             bool success = true;
-            var resultByteArray = (byte[])Clipboard.Entry.GetItem("application/x-forms9patchdemo-bytebuffer").Value;
+            var resultByteArray = Clipboard.Entry.GetItem<byte[]>("application/x-forms9patchdemo-bytebuffer").Value;
             if (resultByteArray.Count() != testByteArray.Count())
                 throw new Exception("byte array counts don't match");
             for (int i = 0; i < resultByteArray.Count(); i++)
@@ -228,8 +228,8 @@ namespace Forms9PatchDemo
 
 
             success = true;
-            var resultByte = Clipboard.Entry.GetItem("application/x-forms9patchdemo-byte").Value;
-            if ((byte)resultByte != testByteArray[0])
+            var resultByte = Clipboard.Entry.GetItem<byte>("application/x-forms9patchdemo-byte").Value;
+            if (resultByte != testByteArray[0])
                 success = false;
             _byteTest.Success = success;
             t = stopWatch.ElapsedMilliseconds;
@@ -237,7 +237,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultChar = (char)Clipboard.Entry.GetItem("application/x-forms9patchdemo-char").Value;
+            var resultChar = Clipboard.Entry.GetItem<char>("application/x-forms9patchdemo-char").Value;
             if (resultChar != testChar)
                 success = false;
             _charTest.Success = success;
@@ -246,7 +246,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultShort = (short)Clipboard.Entry.GetItem("application/x-forms9patchdemo-short").Value;
+            var resultShort = Clipboard.Entry.GetItem<short>("application/x-forms9patchdemo-short").Value;
             if (resultShort != testShort)
                 success = false;
             _shortTest.Success = success;
@@ -255,7 +255,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultInt = (int)Clipboard.Entry.GetItem("application/x-forms9patchdemo-int").Value;
+            var resultInt = Clipboard.Entry.GetItem<int>("application/x-forms9patchdemo-int").Value;
             if (resultInt != testInt)
                 success = false;
             _intTest.Success = success;
@@ -264,7 +264,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultLong = (long)Clipboard.Entry.GetItem("application/x-forms9patchdemo-long").Value;
+            var resultLong = Clipboard.Entry.GetItem<long>("application/x-forms9patchdemo-long").Value;
             if (resultLong != testLong)
                 success = false;
             _longTest.Success = success;
@@ -273,7 +273,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultDouble = (double)Clipboard.Entry.GetItem("application/x-forms9patchdemo-double").Value;
+            var resultDouble = Clipboard.Entry.GetItem<double>("application/x-forms9patchdemo-double").Value;
             if (resultDouble != testDouble)
                 success = false;
             _doubleTest.Success = success;
@@ -282,7 +282,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultString = (string)Clipboard.Entry.GetItem("application/x-forms9patchdemo-string").Value;
+            var resultString = Clipboard.Entry.GetItem<string>("application/x-forms9patchdemo-string").Value;
             if (resultString != testString)
                 success = false;
             _stringTest.Success = success;
@@ -291,7 +291,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultIntList = (List<int>)Clipboard.Entry.GetItem("application/x-forms9patchdemo-int-list").Value;
+            var resultIntList = Clipboard.Entry.GetItem<List<int>>("application/x-forms9patchdemo-int-list").Value;
             if (resultIntList.Count != testIntList.Count)
                 success = false;
             if (success)
@@ -307,7 +307,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resulDoubleList = (List<double>)Clipboard.Entry.GetItem("application/x-forms9patchdemo-double-list").Value;
+            var resulDoubleList = Clipboard.Entry.GetItem<List<double>>("application/x-forms9patchdemo-double-list").Value;
             if (resulDoubleList.Count != testDoubleList.Count)
                 success = false;
             if (success)
@@ -323,7 +323,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultStringList = (List<string>)Clipboard.Entry.GetItem("application/x-forms9patchdemo-string-list").Value;
+            var resultStringList = Clipboard.Entry.GetItem<List<string>>("application/x-forms9patchdemo-string-list").Value;
             if (resultStringList.Count != testStringList.Count)
                 success = false;
             if (success)
@@ -339,7 +339,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultDictionary = (Dictionary<string, double>)Clipboard.Entry.GetItem("application/x-forms9patchdemo-dictionary").Value;
+            var resultDictionary = Clipboard.Entry.GetItem<Dictionary<string, double>>("application/x-forms9patchdemo-dictionary").Value;
             if (resultDictionary.Keys.Count != testDictionary.Keys.Count)
                 success = false;
             if (success)
@@ -363,8 +363,8 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var entryItem = Clipboard.Entry.GetItem("application/x-forms9patchdemo-dictionaryList");
-            var resultDictionaryList = (List<Dictionary<string, string>>)entryItem.Value;
+            var entryItem = Clipboard.Entry.GetItem<List<Dictionary<string, string>>>("application/x-forms9patchdemo-dictionaryList");
+            var resultDictionaryList = entryItem.Value;
             if (resultDictionaryList.Count != testDictionaryList.Count)
                 success = false;
             if (success)
