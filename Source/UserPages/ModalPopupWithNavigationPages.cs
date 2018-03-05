@@ -5,7 +5,7 @@ using Forms9Patch;
 
 namespace Forms9PatchDemo
 {
-    public class ModalPopupWithNavigationPages : ContentPage
+    public class ModalPopupWithNavigationPages : Xamarin.Forms.ContentPage
     {
         public ModalPopupWithNavigationPages()
         {
@@ -33,7 +33,7 @@ namespace Forms9PatchDemo
         }
     }
 
-    public class BubbonPushModalAsyncPage : ContentPage
+    public class BubbonPushModalAsyncPage : Xamarin.Forms.ContentPage
     {
         Forms9Patch.Button button1;
         Forms9Patch.Button button2;

@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Forms9PatchDemo
 {
-    public class ButtonAndSegmentAlignments : ContentPage
+    public class ButtonAndSegmentAlignments : Xamarin.Forms.ContentPage
     {
 
         const float radius = 4;

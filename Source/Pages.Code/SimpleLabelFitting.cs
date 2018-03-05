@@ -5,7 +5,7 @@ using Forms9Patch;
 
 namespace Forms9PatchDemo.Pages.Code
 {
-    public class SimpleLabelFitting : ContentPage
+    public class SimpleLabelFitting : Xamarin.Forms.ContentPage
     {
         public SimpleLabelFitting()
         {

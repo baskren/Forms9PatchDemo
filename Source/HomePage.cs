@@ -6,7 +6,7 @@ using Forms9Patch;
 
 namespace Forms9PatchDemo
 {
-    class HomePage : ContentPage
+    class HomePage : Xamarin.Forms.ContentPage
     {
         protected override void OnAppearing()
         {

@@ -5,7 +5,7 @@ using Forms9Patch;
 
 namespace Forms9PatchDemo
 {
-    public class SegmentSelectedBackgroundPage : ContentPage
+    public class SegmentSelectedBackgroundPage : Xamarin.Forms.ContentPage
     {
 
         public SegmentSelectedBackgroundPage()

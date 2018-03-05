@@ -10,7 +10,7 @@ using System.Diagnostics;
 
 namespace Forms9PatchDemo
 {
-    public class ClipboardTest : ContentPage
+    public class ClipboardTest : Xamarin.Forms.ContentPage
     {
         static int seed = 3452;
         readonly static Random _rand = new Random(seed);

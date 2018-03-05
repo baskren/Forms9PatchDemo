@@ -1,28 +1,26 @@
-<Project DefaultTargets = "Build"
-    xmlns="http://schemas.microsoft.com/developer/msbuild/2003" >
-
-    <!-- SUPPORT FOR USE AS A GIT SUBMODULE -->
-    <PropertyGroup>
-    	<Forms9PatchDemoSourceDir Condition=" '$(Forms9PatchDemoSourceDir)' == '' ">..\Source</Forms9PatchDemoSourceDir>
-    </PropertyGroup>
-
-
-    <!-- NAVIGATION -->
+<?xml version="1.0" encoding="UTF-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<!-- SUPPORT FOR USE AS A GIT SUBMODULE -->
+	<PropertyGroup>
+		<Forms9PatchDemoSourceDir Condition=" '$(Forms9PatchDemoSourceDir)' == '' ">..\Source</Forms9PatchDemoSourceDir>
+	</PropertyGroup>
+	<!-- NAVIGATION -->
 	<ItemGroup>
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Forms9PatchDemo.cs" Link="Forms9PatchDemo.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\HomePage.cs" Link="HomePage.cs" />
 	</ItemGroup>
-
 	<!-- CODE PAGES -->
 	<ItemGroup>
+		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\RootPage.cs" Link="Pages.Code\RootPage.cs" />
+		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\Page1.cs" Link="Pages.Code\Page1.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\BubblePopupTestPage.cs" Link="Pages.Code\BubblePopupTestPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ButtonAndSegmentAlignments.cs" Link="Pages.Code\ButtonAndSegmentAlignments.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ButtonCodePage.cs" Link="Pages.Code\ButtonCodePage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ClipboardTest.cs" Link="Pages.Code\ClipboardTest.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\CustomFontEffectPage.cs" Link="Pages.Code\CustomFontEffectPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ExternalEmbeddedResourceImage.cs" Link="Pages.Code\ExternalEmbeddedResourceImage.cs" />
-    	<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\FontSizeTest.cs" Link="Pages.Code\FontSizeTest.cs" />
-    	<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlButtonsPage.cs" Link="Pages.Code\HtmlButtonsPage.cs" />
+		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\FontSizeTest.cs" Link="Pages.Code\FontSizeTest.cs" />
+		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlButtonsPage.cs" Link="Pages.Code\HtmlButtonsPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlLabelPage.cs" Link="Pages.Code\HtmlLabelPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlLink.cs" Link="Pages.Code\HtmlLink.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ImageCodePage.cs" Link="Pages.Code\ImageCodePage.cs" />
@@ -55,8 +53,6 @@
 		<Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\UserHomePage.cs" Link="UserPages\UserHomePage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\ZenmekPage.cs" Link="UserPages\ZenmekPage.cs" />
 	</ItemGroup>
-
-
 	<!-- EMBEDDED RESOURCE FONTS -->
 	<ItemGroup>
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Fonts\CPMono_v07_Bold.otf" Link="Resources\Fonts\CPMono_v07_Bold.otf" />
@@ -64,21 +60,15 @@
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Fonts\MaterialIcons-Regular.ttf" Link="Resources\Fonts\MaterialIcons-Regular.ttf" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Fonts\Pacifico.ttf" Link="Resources\Fonts\Pacifico.ttf" />
 	</ItemGroup>
-
-
 	<!-- EMBEDDED RESOURCE GIFs -->
 	<ItemGroup>
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\water.gif" Link="Resources\water.gif" />
 	</ItemGroup>
-
-
 	<!-- EMBEDDED RESOURCE JPEGSs -->
 	<ItemGroup>
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons.jpg" Link="Resources\balloons.jpg" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\cat.jpg" Link="Resources\cat.jpg" />
 	</ItemGroup>
-
-
 	<!-- EMBEDDED RESOURCE PNGs -->
 	<ItemGroup>
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\100x100.png" Link="Resources\100x100.png" />
@@ -166,8 +156,6 @@
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\tick%403x.png" Link="Resources\tick%403x.png" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\tree.png" Link="Resources\tree.png" />
 	</ItemGroup>
-
-
 	<!-- EMBEDDED RESOURCE SVGs -->
 	<ItemGroup>
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\SvgSample.svg" Link="Resources\SvgSample.svg" />
@@ -175,8 +163,5 @@
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\greenWhiteGradient.svg" Link="Resources\greenWhiteGradient.svg" />
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redWhiteGradient.svg" Link="Resources\redWhiteGradient.svg" />
 	</ItemGroup>
-
 	<Import Condition=" '$(UseXaml)'=='USE_XAML' " Project="..\Source\Forms9PatchDemoXaml.targets" />
-
-
 </Project>

@@ -3,7 +3,7 @@ using Xamarin.Forms;
 using Forms9Patch;
 namespace Forms9PatchDemo.Pages.Code
 {
-    public class PopupsPage : ContentPage
+    public class PopupsPage : Xamarin.Forms.ContentPage
     {
         public PopupsPage()
         {

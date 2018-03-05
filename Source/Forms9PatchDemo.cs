@@ -134,7 +134,7 @@ namespace Forms9PatchDemo
 
             if (true)
             {
-                //MainPage = new XamlSegmentedControlPage();
+                //MainPage = Forms9Patch.RootPage.Create(new XamlSegmentedControlPage());
                 //MainPage = new NinePatchButtonPage();
                 //MainPage = new ModalPopupTestPage();
                 //MainPage = new BubbleLayoutTestPage();
@@ -156,8 +156,11 @@ namespace Forms9PatchDemo
                 };
                 */
                 //MainPage = new MasterDetailPage { Master = new ContentPage { Title = "Test", BackgroundColor = Color.Green }, Detail = new BubblePopupTestPage() };
+                //MainPage = Forms9Patch.RootPage.Create(new MasterDetailPage { Master = new ContentPage { Title = "Test", BackgroundColor = Color.Green }, Detail = new BubblePopupTestPage() });
 
                 MainPage = Forms9Patch.RootPage.Create(navPage);
+
+                //MainPage = Forms9Patch.RootPage.Create(new NavigationPage(new UiKeyCommandApp.RootPage()));
 
             }
         }

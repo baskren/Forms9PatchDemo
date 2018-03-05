@@ -4,9 +4,9 @@ using Forms9Patch;
 
 namespace Forms9PatchDemo
 {
-    public class ButtonTapped : ContentPage
+    public class ButtonTapped : Xamarin.Forms.ContentPage
     {
-        
+
         public ButtonTapped()
         {
             Padding = 40;
