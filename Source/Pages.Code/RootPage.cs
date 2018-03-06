@@ -25,8 +25,8 @@ namespace UiKeyCommandApp
             _button.Clicked += async (object sender, EventArgs e) =>
             {
                 var page1 = new Page1();
-                //await Navigation.PushModalAsync(page1);
-                await Navigation.PushAsync(page1);
+                await Navigation.PushModalAsync(page1);
+                //await Navigation.PushAsync(page1);
             };
             //Content = new Label { Text = "ROOT PAGE" };
         }

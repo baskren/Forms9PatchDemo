@@ -20,8 +20,8 @@ namespace UiKeyCommandApp
             _button.Clicked += async (object sender, EventArgs e) =>
             {
                 var page1 = new Page1();
-                //await Navigation.PopModalAsync();
-                await Navigation.PopAsync();
+                await Navigation.PopModalAsync();
+                //await Navigation.PopAsync();
             };
         }
     }
