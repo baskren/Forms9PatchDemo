@@ -7,7 +7,7 @@ using System;
 using Xamarin.Forms;
 namespace Forms9PatchDemo
 {
-    public class EmbeddedResourceFontEffectPage : ContentPage
+    public class EmbeddedResourceFontEffectPage : Forms9Patch.ContentPage
     {
         public EmbeddedResourceFontEffectPage()
         {
@@ -72,7 +72,7 @@ namespace Forms9PatchDemo
                 label.Focus();
             };
 
-            Forms9Patch.FocusableEffect.ApplyTo(label);
+            //Forms9Patch.FocusableEffect.ApplyTo(label);
         }
     }
 }

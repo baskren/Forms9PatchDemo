@@ -11,7 +11,7 @@ using Forms9Patch;
 
 namespace Forms9PatchDemo
 {
-    public partial class XamlPageWithListViewWithF9PLabelInCells : ContentPage
+    public partial class XamlPageWithListViewWithF9PLabelInCells : Xamarin.Forms.ContentPage
     {
         public XamlPageWithListViewWithF9PLabelInCells()
         {
