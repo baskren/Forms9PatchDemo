@@ -11,8 +11,8 @@
 	</ItemGroup>
 	<!-- CODE PAGES -->
 	<ItemGroup>
-		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\RootPage.cs" Link="Pages.Code\RootPage.cs" />
-		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\Page1.cs" Link="Pages.Code\Page1.cs" />
+		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HardwareKeyPage.cs" Link="Pages.Code\HardwareKeyPage.cs" />
+		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ModalHardwareKeyPage.cs" Link="Pages.Code\ModalHardwareKeyPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\BubblePopupTestPage.cs" Link="Pages.Code\BubblePopupTestPage.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ButtonAndSegmentAlignments.cs" Link="Pages.Code\ButtonAndSegmentAlignments.cs" />
 		<Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ButtonCodePage.cs" Link="Pages.Code\ButtonCodePage.cs" />

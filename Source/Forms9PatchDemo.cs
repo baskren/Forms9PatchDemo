@@ -158,9 +158,9 @@ namespace Forms9PatchDemo
                 //MainPage = new MasterDetailPage { Master = new ContentPage { Title = "Test", BackgroundColor = Color.Green }, Detail = new BubblePopupTestPage() };
                 //MainPage = Forms9Patch.RootPage.Create(new MasterDetailPage { Master = new ContentPage { Title = "Test", BackgroundColor = Color.Green }, Detail = new BubblePopupTestPage() });
 
-                //MainPage = Forms9Patch.RootPage.Create(navPage);
+                MainPage = Forms9Patch.RootPage.Create(navPage);
 
-                MainPage = Forms9Patch.RootPage.Create(new NavigationPage(new UiKeyCommandApp.RootPage()));
+                //MainPage = Forms9Patch.RootPage.Create(new NavigationPage(new UiKeyCommandApp.RootPage()));
 
             }
         }

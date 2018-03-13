@@ -228,7 +228,14 @@ namespace Forms9PatchDemo
                         },
 
                         new TextCell {
-                            Text = "EmbeddedResource Font Effect",
+                            Text = "Modal HardwareKeyPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(Forms9PatchDemo.HardwareKeyPage)
+                        },
+
+
+                        new TextCell {
+                            Text = "EmbeddedResource Font Effect + HardwareKeyPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(EmbeddedResourceFontEffectPage)
                         },
