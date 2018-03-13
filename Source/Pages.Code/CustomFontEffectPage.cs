@@ -5,9 +5,10 @@
 //  *******************************************************************/
 using System;
 using Xamarin.Forms;
+using Forms9Patch;
 namespace Forms9PatchDemo
 {
-    public class EmbeddedResourceFontEffectPage : Forms9Patch.ContentPage
+    public class EmbeddedResourceFontEffectPage : Xamarin.Forms.ContentPage
     {
         public EmbeddedResourceFontEffectPage()
         {
@@ -40,7 +41,7 @@ namespace Forms9PatchDemo
             };
             button.Effects.Add(new Forms9Patch.EmbeddedResourceFontEffect());
 
-            Content = new StackLayout
+            Content = new Xamarin.Forms.StackLayout
             {
                 Children =
                 {
@@ -73,6 +74,72 @@ namespace Forms9PatchDemo
             };
 
             //Forms9Patch.FocusableEffect.ApplyTo(label);
+
+            var keylistener_a = this.AddHardwareKeyListener("A");
+            keylistener_a.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_cmd_a = this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.PlatformKey);
+            keylistener_cmd_a.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+
+            var keylistener_div = this.AddHardwareKeyListener("/");
+            keylistener_div.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_option_div = this.AddHardwareKeyListener("/", HardwareKeyModifierKeys.Alternate);
+            keylistener_option_div.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+
+
+            var keylistener_up = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.UpArrowInput);
+            keylistener_up.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_down = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.DownArrowInput);
+            keylistener_down.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_left = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.LeftArrowInput);
+            keylistener_left.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_right = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.RightArrowInput);
+            keylistener_right.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_esc = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.EscapeInput);
+            keylistener_esc.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+
+            var keylistener_back_delete = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.BackspaceDeleteInput);
+            keylistener_back_delete.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_forward_delete = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.ForwardDeleteInput);
+            keylistener_forward_delete.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_insert = this.AddHardwareKeyListener(HardwareKey.InsertInput);
+            keylistener_insert.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_tab = this.AddHardwareKeyListener(HardwareKey.TabInput);
+            keylistener_tab.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_enter = this.AddHardwareKeyListener(HardwareKey.EnterReturnInput);
+            keylistener_enter.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_PageUp = this.AddHardwareKeyListener(HardwareKey.PageUpInput);
+            keylistener_PageUp.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_PageDown = this.AddHardwareKeyListener(HardwareKey.PageDownInput);
+            keylistener_PageDown.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_Home = this.AddHardwareKeyListener(HardwareKey.HomeInput);
+            keylistener_Home.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+            var keylistener_End = this.AddHardwareKeyListener(HardwareKey.EndInput);
+            keylistener_End.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("Key=" + e.HardwareKey.Input);
+
+
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            HardwareKeyFocus.Element = this;
         }
     }
 }
