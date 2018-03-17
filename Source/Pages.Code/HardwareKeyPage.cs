@@ -30,86 +30,77 @@ namespace Forms9PatchDemo
 
         public HardwareKeyPage()
         {
-            var pageKeyListener_a = this.AddHardwareKeyListener("A");
-            pageKeyListener_a.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_cmd_a = this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.PlatformKey);
-            pageKeyListener_cmd_a.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_div = this.AddHardwareKeyListener("/");
-            pageKeyListener_div.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_option_div = this.AddHardwareKeyListener("/", HardwareKeyModifierKeys.Alternate);
-            pageKeyListener_option_div.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_up = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.UpArrowInput);
-            pageKeyListener_up.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_down = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.DownArrowInput);
-            pageKeyListener_down.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_left = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.LeftArrowInput);
-            pageKeyListener_left.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_right = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.RightArrowInput);
-            pageKeyListener_right.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_esc = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.EscapeInput);
-            pageKeyListener_esc.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_back_delete = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.BackspaceDeleteInput);
-            pageKeyListener_back_delete.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_forward_delete = this.AddHardwareKeyListener(Forms9Patch.HardwareKey.ForwardDeleteInput);
-            pageKeyListener_forward_delete.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_insert = this.AddHardwareKeyListener(HardwareKey.InsertInput);
-            pageKeyListener_insert.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_tab = this.AddHardwareKeyListener(HardwareKey.TabInput);
-            pageKeyListener_tab.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_enter = this.AddHardwareKeyListener(HardwareKey.EnterReturnInput);
-            pageKeyListener_enter.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_PageUp = this.AddHardwareKeyListener(HardwareKey.PageUpInput);
-            pageKeyListener_PageUp.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_PageDown = this.AddHardwareKeyListener(HardwareKey.PageDownInput);
-            pageKeyListener_PageDown.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_Home = this.AddHardwareKeyListener(HardwareKey.HomeInput);
-            pageKeyListener_Home.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
-            var pageKeyListener_End = this.AddHardwareKeyListener(HardwareKey.EndInput);
-            pageKeyListener_End.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Page key=" + e.HardwareKey.Input);
+            this.AddHardwareKeyListener("ç", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("é", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("ф", OnHardwareKeyPressed);
 
-            var entryKeyListener_up = _entry.AddHardwareKeyListener(Forms9Patch.HardwareKey.UpArrowInput);
-            entryKeyListener_up.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Entry key=" + e.HardwareKey.Input);
-            var entryKeyListener_down = _entry.AddHardwareKeyListener(Forms9Patch.HardwareKey.DownArrowInput);
-            entryKeyListener_down.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Entry key=" + e.HardwareKey.Input);
-            var entryKeyListener_left = _entry.AddHardwareKeyListener(Forms9Patch.HardwareKey.LeftArrowInput);
-            entryKeyListener_left.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Entry key=" + e.HardwareKey.Input);
-            var entryKeyListener_right = _entry.AddHardwareKeyListener(Forms9Patch.HardwareKey.RightArrowInput);
-            entryKeyListener_right.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Entry key=" + e.HardwareKey.Input);
-            var entryKeyListener_esc = _entry.AddHardwareKeyListener(Forms9Patch.HardwareKey.EscapeInput);
-            entryKeyListener_esc.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Entry key=" + e.HardwareKey.Input);
+            this.AddHardwareKeyListener("A", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.PlatformKey, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Control, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.CapsLock, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.FunctionKey, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Shift, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Shift | HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Shift | HardwareKeyModifierKeys.Control, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Shift | HardwareKeyModifierKeys.PlatformKey, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Control | HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Control | HardwareKeyModifierKeys.PlatformKey, OnHardwareKeyPressed);
 
-            var editorKeyListener_up = _editor.AddHardwareKeyListener(Forms9Patch.HardwareKey.UpArrowInput);
-            editorKeyListener_up.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Editor key=" + e.HardwareKey.Input);
-            var editorKeyListener_down = _editor.AddHardwareKeyListener(Forms9Patch.HardwareKey.DownArrowInput);
-            editorKeyListener_down.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Editor key=" + e.HardwareKey.Input);
-            var editorKeyListener_left = _editor.AddHardwareKeyListener(Forms9Patch.HardwareKey.LeftArrowInput);
-            editorKeyListener_left.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Editor key=" + e.HardwareKey.Input);
-            var editorKeyListener_right = _editor.AddHardwareKeyListener(Forms9Patch.HardwareKey.RightArrowInput);
-            editorKeyListener_right.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Editor key=" + e.HardwareKey.Input);
-            var editorKeyListener_esc = _editor.AddHardwareKeyListener(Forms9Patch.HardwareKey.EscapeInput);
-            editorKeyListener_esc.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Editor key=" + e.HardwareKey.Input);
 
-            var labelKeyListener_up = _label.AddHardwareKeyListener(Forms9Patch.HardwareKey.UpArrowInput);
-            labelKeyListener_up.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Label key=" + e.HardwareKey.Input);
-            var labelKeyListener_down = _label.AddHardwareKeyListener(Forms9Patch.HardwareKey.DownArrowInput);
-            labelKeyListener_down.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Label key=" + e.HardwareKey.Input);
-            var labelKeyListener_left = _label.AddHardwareKeyListener(Forms9Patch.HardwareKey.LeftArrowInput);
-            labelKeyListener_left.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Label key=" + e.HardwareKey.Input);
-            var labelKeyListener_right = _label.AddHardwareKeyListener(Forms9Patch.HardwareKey.RightArrowInput);
-            labelKeyListener_right.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Label key=" + e.HardwareKey.Input);
-            var labelKeyListener_esc = _label.AddHardwareKeyListener(Forms9Patch.HardwareKey.EscapeInput);
-            labelKeyListener_esc.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Label key=" + e.HardwareKey.Input);
+            this.AddHardwareKeyListener("5", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.NumericPadKey, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.PlatformKey, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.Control, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.CapsLock, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.FunctionKey, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.Shift, OnHardwareKeyPressed);
 
-            var buttonKeyListener_up = _button.AddHardwareKeyListener(Forms9Patch.HardwareKey.UpArrowInput);
-            buttonKeyListener_up.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Button key=" + e.HardwareKey.Input);
-            var buttonKeyListener_down = _button.AddHardwareKeyListener(Forms9Patch.HardwareKey.DownArrowInput);
-            buttonKeyListener_down.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Button key=" + e.HardwareKey.Input);
-            var buttonKeyListener_left = _button.AddHardwareKeyListener(Forms9Patch.HardwareKey.LeftArrowInput);
-            buttonKeyListener_left.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Button key=" + e.HardwareKey.Input);
-            var buttonKeyListener_right = _button.AddHardwareKeyListener(Forms9Patch.HardwareKey.RightArrowInput);
-            buttonKeyListener_right.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Button key=" + e.HardwareKey.Input);
-            var buttonKeyListener_esc = _button.AddHardwareKeyListener(Forms9Patch.HardwareKey.EscapeInput);
-            buttonKeyListener_esc.Pressed += (object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("HardwareKeyPage Button key=" + e.HardwareKey.Input);
+
+
+            this.AddHardwareKeyListener("/", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("/", HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener(HardwareKey.UpArrowKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.DownArrowKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.LeftArrowKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.RightArrowKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EscapeKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.BackspaceDeleteKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.ForwardDeleteKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.InsertKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.TabKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EnterReturnKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.PageUpKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.PageDownKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.HomeKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EndKeyLabel, OnHardwareKeyPressed);
+
+            _entry.AddHardwareKeyListener(HardwareKey.UpArrowKeyLabel, OnHardwareKeyPressed);
+            _entry.AddHardwareKeyListener(HardwareKey.DownArrowKeyLabel, OnHardwareKeyPressed);
+            _entry.AddHardwareKeyListener(HardwareKey.LeftArrowKeyLabel, OnHardwareKeyPressed);
+            _entry.AddHardwareKeyListener(HardwareKey.RightArrowKeyLabel, OnHardwareKeyPressed);
+            _entry.AddHardwareKeyListener(HardwareKey.EscapeKeyLabel, OnHardwareKeyPressed);
+
+            _editor.AddHardwareKeyListener(HardwareKey.UpArrowKeyLabel, OnHardwareKeyPressed);
+            _editor.AddHardwareKeyListener(HardwareKey.DownArrowKeyLabel, OnHardwareKeyPressed);
+            _editor.AddHardwareKeyListener(HardwareKey.LeftArrowKeyLabel, OnHardwareKeyPressed);
+            _editor.AddHardwareKeyListener(HardwareKey.RightArrowKeyLabel, OnHardwareKeyPressed);
+            _editor.AddHardwareKeyListener(HardwareKey.EscapeKeyLabel, OnHardwareKeyPressed);
+
+            _label.AddHardwareKeyListener(HardwareKey.UpArrowKeyLabel, OnHardwareKeyPressed);
+            _label.AddHardwareKeyListener(HardwareKey.DownArrowKeyLabel, OnHardwareKeyPressed);
+            _label.AddHardwareKeyListener(HardwareKey.LeftArrowKeyLabel, OnHardwareKeyPressed);
+            _label.AddHardwareKeyListener(HardwareKey.RightArrowKeyLabel, OnHardwareKeyPressed);
+            _label.AddHardwareKeyListener(HardwareKey.EscapeKeyLabel, OnHardwareKeyPressed);
+
+            _button.AddHardwareKeyListener(HardwareKey.UpArrowKeyLabel, OnHardwareKeyPressed);
+            _button.AddHardwareKeyListener(HardwareKey.DownArrowKeyLabel, OnHardwareKeyPressed);
+            _button.AddHardwareKeyListener(HardwareKey.LeftArrowKeyLabel, OnHardwareKeyPressed);
+            _button.AddHardwareKeyListener(HardwareKey.RightArrowKeyLabel, OnHardwareKeyPressed);
+            _button.AddHardwareKeyListener(HardwareKey.EscapeKeyLabel, OnHardwareKeyPressed);
+
 
             _segmentedControl.SegmentTapped += (sender, e) =>
             {
@@ -167,5 +158,8 @@ namespace Forms9PatchDemo
             HardwareKeyPage.DefaultFocusedElement = this;
 
         }
+
+        void OnHardwareKeyPressed(object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("FocusedElement=[" + Forms9Patch.HardwareKeyPage.FocusedElement + "] KeyLabel=[" + e.HardwareKey.KeyLabel + "] ModifierKeys=[" + e.HardwareKey.ModifierKeys + "]");
+
     }
 }
