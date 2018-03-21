@@ -124,38 +124,38 @@ namespace Forms9PatchDemo
             this.AddHardwareKeyListener("/", OnHardwareKeyPressed);
             this.AddHardwareKeyListener("/", HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
 
-            this.AddHardwareKeyListener(HardwareKey.UpArrowKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.DownArrowKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.LeftArrowKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.RightArrowKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.EscapeKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.BackspaceDeleteKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.ForwardDeleteKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.InsertKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.TabKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.EnterReturnKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.PageUpKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.PageDownKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.HomeKeyLabel, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.EndKeyLabel, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.BackspaceDeleteKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.ForwardDeleteKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.InsertKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.TabKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EnterReturnKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.PageUpKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.PageDownKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.HomeKeyInput, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EndKeyInput, OnHardwareKeyPressed);
 
-            _entry.AddHardwareKeyListener(HardwareKey.UpArrowKeyLabel, OnHardwareKeyPressed);
-            _entry.AddHardwareKeyListener(HardwareKey.DownArrowKeyLabel, OnHardwareKeyPressed);
-            _entry.AddHardwareKeyListener(HardwareKey.LeftArrowKeyLabel, OnHardwareKeyPressed);
-            _entry.AddHardwareKeyListener(HardwareKey.RightArrowKeyLabel, OnHardwareKeyPressed);
-            _entry.AddHardwareKeyListener(HardwareKey.EscapeKeyLabel, OnHardwareKeyPressed);
+            _entry.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
+            _entry.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
+            _entry.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
+            _entry.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
+            _entry.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
 
-            _editor.AddHardwareKeyListener(HardwareKey.UpArrowKeyLabel, OnHardwareKeyPressed);
-            _editor.AddHardwareKeyListener(HardwareKey.DownArrowKeyLabel, OnHardwareKeyPressed);
-            _editor.AddHardwareKeyListener(HardwareKey.LeftArrowKeyLabel, OnHardwareKeyPressed);
-            _editor.AddHardwareKeyListener(HardwareKey.RightArrowKeyLabel, OnHardwareKeyPressed);
-            _editor.AddHardwareKeyListener(HardwareKey.EscapeKeyLabel, OnHardwareKeyPressed);
+            _editor.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
+            _editor.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
+            _editor.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
+            _editor.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
+            _editor.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
 
-            _label.AddHardwareKeyListener(HardwareKey.UpArrowKeyLabel, OnHardwareKeyPressed);
-            _label.AddHardwareKeyListener(HardwareKey.DownArrowKeyLabel, OnHardwareKeyPressed);
-            _label.AddHardwareKeyListener(HardwareKey.LeftArrowKeyLabel, OnHardwareKeyPressed);
-            _label.AddHardwareKeyListener(HardwareKey.RightArrowKeyLabel, OnHardwareKeyPressed);
-            _label.AddHardwareKeyListener(HardwareKey.EscapeKeyLabel, OnHardwareKeyPressed);
+            _label.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
+            _label.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
+            _label.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
+            _label.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
+            _label.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
 
         }
 
@@ -165,7 +165,7 @@ namespace Forms9PatchDemo
             HardwareKeyPage.DefaultFocusedElement = this;
         }
 
-        void OnHardwareKeyPressed(object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("FocusedElement=[" + Forms9Patch.HardwareKeyPage.FocusedElement + "] KeyLabel=[" + e.HardwareKey.KeyLabel + "] ModifierKeys=[" + e.HardwareKey.ModifierKeys + "]");
+        void OnHardwareKeyPressed(object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("FocusedElement=[" + Forms9Patch.HardwareKeyPage.FocusedElement + "] KeyInput=[" + e.HardwareKey.KeyInput + "] ModifierKeys=[" + e.HardwareKey.ModifierKeys + "]");
 
     }
 }
