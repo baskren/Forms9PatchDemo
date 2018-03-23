@@ -10,7 +10,7 @@
 	  <DefineConstants>TRACE;DEBUG;NETSTANDARD1_3;$(UseXaml)</DefineConstants>
 	</PropertyGroup>
 	<ItemGroup>
-	  <PackageReference Include="Forms9Patch" Version="1.1.0.7" />
+	  <PackageReference Include="Forms9Patch" Version="1.2.0" />
 	  <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
 	</ItemGroup>
 	<ItemGroup>

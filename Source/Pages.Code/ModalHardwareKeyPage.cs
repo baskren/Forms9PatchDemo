@@ -15,6 +15,10 @@ namespace Forms9PatchDemo
 
         readonly Xamarin.Forms.Entry _entry = new Xamarin.Forms.Entry { Text = "Xamarin.Forms.Entry: Page1" };
 
+        readonly Xamarin.Forms.Label _inputLabel = new Xamarin.Forms.Label { Text = "Hardware Keyboard Input" };
+        readonly Xamarin.Forms.Label _modifiersLabel = new Xamarin.Forms.Label { Text = "Hardware Keyboard Modifiers" };
+        readonly Xamarin.Forms.Label _keyboardType = new Xamarin.Forms.Label { Text = "Hardware Keyboard Type" };
+
         Forms9Patch.SegmentedControl _segmentedControl = new SegmentedControl
         {
             Margin = new Thickness(10, 0),
@@ -139,7 +143,12 @@ namespace Forms9PatchDemo
                     _entry,
                     _button,
                     new Xamarin.Forms.Label { Text="Focus:"},
-                    _segmentedControl
+                    _segmentedControl,
+                    new BoxView { Color = Color.Black, HeightRequest = 2 },
+                    _inputLabel,
+                    _modifiersLabel,
+                    _keyboardType
+
                 }
             };
 
@@ -162,7 +171,13 @@ namespace Forms9PatchDemo
             Forms9Patch.HardwareKeyPage.DefaultFocusedElement = this;
         }
 
-        void OnHardwareKeyPressed(object sender, HardwareKeyEventArgs e) => System.Diagnostics.Debug.WriteLine("FocusedElement=[" + Forms9Patch.HardwareKeyPage.FocusedElement + "] KeyInput=[" + e.HardwareKey.KeyInput + "] ModifierKeys=[" + e.HardwareKey.ModifierKeys + "]");
+        void OnHardwareKeyPressed(object sender, HardwareKeyEventArgs e)
+        {
+            _inputLabel.Text = e.HardwareKey.KeyInput;
+            _modifiersLabel.Text = e.HardwareKey.ModifierKeys.ToString();
+            _keyboardType.Text = Forms9Patch.KeyboardService.LanguageRegion;
+            System.Diagnostics.Debug.WriteLine("FocusedElement=[" + Forms9Patch.HardwareKeyPage.FocusedElement + "] KeyInput=[" + e.HardwareKey.KeyInput + "] ModifierKeys=[" + e.HardwareKey.ModifierKeys + "] Layout=[" + Forms9Patch.KeyboardService.LanguageRegion + "]");
+        }
 
     }
 
