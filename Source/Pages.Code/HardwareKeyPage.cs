@@ -46,20 +46,21 @@ namespace Forms9PatchDemo
             this.AddHardwareKeyListener("(", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
             this.AddHardwareKeyListener(")", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
 
-            this.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.BackspaceDeleteKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.ForwardDeleteKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.InsertKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.TabKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.EnterReturnKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.PageUpKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.PageDownKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.HomeKeyInput, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(HardwareKey.EndKeyInput, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.BackspaceDeleteKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.ForwardDeleteKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.InsertKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.TabKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EnterReturnKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.PageUpKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.PageDownKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.HomeKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EndKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
 
             _entry.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
             _entry.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
@@ -136,10 +137,10 @@ namespace Forms9PatchDemo
 
             };
 
-        _modalButton.Clicked += async (object sender, EventArgs e) =>
-            {
-                var page1 = new HardwareKeyPage1(true);
-                await Navigation.PushModalAsync(page1);
+            _modalButton.Clicked += async (object sender, EventArgs e) =>
+                {
+                    var page1 = new HardwareKeyPage1(true);
+                    await Navigation.PushModalAsync(page1);
                 //await Navigation.PushAsync(page1);
             };
 

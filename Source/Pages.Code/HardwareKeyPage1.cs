@@ -38,33 +38,28 @@ namespace Forms9PatchDemo
             this.AddHardwareKeyListener("é", OnHardwareKeyPressed);
             this.AddHardwareKeyListener("ф", OnHardwareKeyPressed);
 
-            this.AddHardwareKeyListener("A", OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("A", HardwareKeyModifierKeys.PlatformKey, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("A", HardwareKeyModifierKeys.Control, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("A", HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("A", HardwareKeyModifierKeys.CapsLock, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("A", HardwareKeyModifierKeys.FunctionKey, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("A", HardwareKeyModifierKeys.Shift, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Shift | HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Shift | HardwareKeyModifierKeys.Control, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Shift | HardwareKeyModifierKeys.PlatformKey, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Control | HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("a", HardwareKeyModifierKeys.Control | HardwareKeyModifierKeys.PlatformKey, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("A", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("+", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("/", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("(", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(")", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
 
 
-            this.AddHardwareKeyListener("5", OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.NumericPadKey, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.PlatformKey, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.Control, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.CapsLock, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.FunctionKey, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.Shift, OnHardwareKeyPressed);
-
-
-
-            this.AddHardwareKeyListener("/", OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("/", HardwareKeyModifierKeys.Alternate, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.BackspaceDeleteKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.ForwardDeleteKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.InsertKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.TabKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EnterReturnKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.PageUpKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.PageDownKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.HomeKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(HardwareKey.EndKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
 
             this.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
             this.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
@@ -134,12 +129,12 @@ namespace Forms9PatchDemo
 
 
             Padding = new Thickness(5, 25, 5, 5);
-            
+
             Content = new Xamarin.Forms.ScrollView
-            { 
-            Content = new Xamarin.Forms.StackLayout
             {
-                Children = {
+                Content = new Xamarin.Forms.StackLayout
+                {
+                    Children = {
                     _label,
                     _editor,
                     _entry,
