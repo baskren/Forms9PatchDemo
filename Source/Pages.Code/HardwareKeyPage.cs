@@ -114,9 +114,12 @@ namespace Forms9PatchDemo
 
             Padding = new Thickness(5, 25, 5, 5);
 
-            Content = new Xamarin.Forms.StackLayout
+            Content = new Xamarin.Forms.ScrollView
             {
-                Children = {
+                Content = new Xamarin.Forms.StackLayout
+                {
+                    Children =
+                    {
                     _label,
                     _editor,
                     _entry,
@@ -128,10 +131,12 @@ namespace Forms9PatchDemo
                     _inputLabel,
                     _modifiersLabel,
                     _keyboardType
+                    }
                 }
+
             };
 
-            _modalButton.Clicked += async (object sender, EventArgs e) =>
+        _modalButton.Clicked += async (object sender, EventArgs e) =>
             {
                 var page1 = new HardwareKeyPage1(true);
                 await Navigation.PushModalAsync(page1);

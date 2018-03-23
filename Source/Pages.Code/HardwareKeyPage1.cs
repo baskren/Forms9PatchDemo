@@ -134,7 +134,9 @@ namespace Forms9PatchDemo
 
 
             Padding = new Thickness(5, 25, 5, 5);
-
+            
+            Content = new Xamarin.Forms.ScrollView
+            { 
             Content = new Xamarin.Forms.StackLayout
             {
                 Children = {
@@ -148,7 +150,7 @@ namespace Forms9PatchDemo
                     _inputLabel,
                     _modifiersLabel,
                     _keyboardType
-
+                    }
                 }
             };
 
