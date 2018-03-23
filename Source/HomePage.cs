@@ -228,7 +228,7 @@ namespace Forms9PatchDemo
                         },
 
                         new TextCell {
-                            Text = "Modal HardwareKeyPage",
+                            Text = "HardwareKeyPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(Forms9PatchDemo.HardwareKeyPage)
                         },

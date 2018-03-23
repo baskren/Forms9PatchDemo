@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Forms9PatchDemo
 {
-    public class ModalHardwareKeyPage : Forms9Patch.HardwareKeyPage
+    public class HardwareKeyPage1 : Forms9Patch.HardwareKeyPage
     {
         readonly Xamarin.Forms.Label _label = new Xamarin.Forms.Label { Text = "Xamarin.Forms.Label: ModalHardwareKeyPage" };
 
@@ -32,7 +32,7 @@ namespace Forms9PatchDemo
                 }
         };
 
-        public ModalHardwareKeyPage()
+        public HardwareKeyPage1(bool modal)
         {
             this.AddHardwareKeyListener("ç", OnHardwareKeyPressed);
             this.AddHardwareKeyListener("é", OnHardwareKeyPressed);
@@ -154,9 +154,10 @@ namespace Forms9PatchDemo
 
             _button.Clicked += async (object sender, EventArgs e) =>
             {
-                var page1 = new ModalHardwareKeyPage();
-                await Navigation.PopModalAsync();
-                //await Navigation.PopAsync();
+                if (modal)
+                    await Navigation.PopModalAsync();
+                else
+                    await Navigation.PopAsync();
             };
 
 

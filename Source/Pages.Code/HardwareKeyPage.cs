@@ -9,7 +9,8 @@ namespace Forms9PatchDemo
 
         readonly Xamarin.Forms.Label _label = new Xamarin.Forms.Label { Text = "Xamarin.Forms.Label: HardwareKeyPage" };
 
-        readonly Xamarin.Forms.Button _button = new Xamarin.Forms.Button { Text = "Push Page1" };
+        readonly Xamarin.Forms.Button _modalButton = new Xamarin.Forms.Button { Text = "Modal Push Page1" };
+        readonly Xamarin.Forms.Button _navButton = new Xamarin.Forms.Button { Text = "Navigate Push Page1" };
 
         readonly Xamarin.Forms.Editor _editor = new Xamarin.Forms.Editor { Text = "Xamarin.Forms.Editor: RootPage" };
 
@@ -78,11 +79,11 @@ namespace Forms9PatchDemo
             _label.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
             _label.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
 
-            _button.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
-            _button.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
-            _button.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
-            _button.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
-            _button.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
+            _modalButton.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
+            _modalButton.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
+            _modalButton.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
+            _modalButton.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
+            _modalButton.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
 
 
             _segmentedControl.SegmentTapped += (sender, e) =>
@@ -92,7 +93,7 @@ namespace Forms9PatchDemo
                     case "label": _label.HardwareKeyFocus(); break;
                     case "editor": _editor.HardwareKeyFocus(); break;
                     case "entry": _entry.HardwareKeyFocus(); break;
-                    case "button": _button.HardwareKeyFocus(); break;
+                    case "button": _modalButton.HardwareKeyFocus(); break;
                 }
             };
 
@@ -104,7 +105,7 @@ namespace Forms9PatchDemo
                     _segmentedControl.SelectIndex(1);
                 else if (sender == _entry)
                     _segmentedControl.SelectIndex(2);
-                else if (sender == _button)
+                else if (sender == _modalButton)
                     _segmentedControl.SelectIndex(3);
                 else
                     _segmentedControl.DeselectAll();
@@ -119,7 +120,8 @@ namespace Forms9PatchDemo
                     _label,
                     _editor,
                     _entry,
-                    _button,
+                    _modalButton,
+                    _navButton,
                     new Xamarin.Forms.Label { Text="Focus:"},
                     _segmentedControl,
                     new BoxView { Color = Color.Black, HeightRequest = 2 },
@@ -129,21 +131,26 @@ namespace Forms9PatchDemo
                 }
             };
 
-            _button.Clicked += async (object sender, EventArgs e) =>
+            _modalButton.Clicked += async (object sender, EventArgs e) =>
             {
-                var page1 = new ModalHardwareKeyPage();
+                var page1 = new HardwareKeyPage1(true);
                 await Navigation.PushModalAsync(page1);
                 //await Navigation.PushAsync(page1);
             };
 
-        }
+            _navButton.Clicked += async (object sender, EventArgs e) =>
+            {
+                var page1 = new HardwareKeyPage1(false);
+                //await Navigation.PushModalAsync(page1);
+                await Navigation.PushAsync(page1);
+            };
 
+        }
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             HardwareKeyPage.DefaultFocusedElement = this;
-
         }
 
         void OnHardwareKeyPressed(object sender, HardwareKeyEventArgs e)
