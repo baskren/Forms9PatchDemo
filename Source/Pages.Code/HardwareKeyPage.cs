@@ -40,12 +40,75 @@ namespace Forms9PatchDemo
             this.AddHardwareKeyListener("ф", OnHardwareKeyPressed);
 
             this.AddHardwareKeyListener("A", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("+", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("/", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("(", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener(")", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
 
+            this.AddHardwareKeyListener("Q", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("`", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("~", OnHardwareKeyPressed);
+
+
+            this.AddHardwareKeyListener("1", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("!", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("2", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("@", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("3", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("#", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("4", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("$", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("5", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("%", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("6", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("^", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("7", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("&", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("8", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("*", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("9", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("(", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("0", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(")", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("-", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("_", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("+", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("=", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("0", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(")", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("[", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("{", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("]", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("}", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("\\", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("|", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener(";", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(":", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("'", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("\"", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener(",", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("<", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener(".", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(">", OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("/", OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("?", OnHardwareKeyPressed);
 
             this.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
             this.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
@@ -141,8 +204,8 @@ namespace Forms9PatchDemo
                 {
                     var page1 = new HardwareKeyPage1(true);
                     await Navigation.PushModalAsync(page1);
-                //await Navigation.PushAsync(page1);
-            };
+                    //await Navigation.PushAsync(page1);
+                };
 
             _navButton.Clicked += async (object sender, EventArgs e) =>
             {

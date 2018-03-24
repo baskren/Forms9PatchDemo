@@ -39,11 +39,73 @@ namespace Forms9PatchDemo
             this.AddHardwareKeyListener("ф", OnHardwareKeyPressed);
 
             this.AddHardwareKeyListener("A", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("`", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("~", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+
+            this.AddHardwareKeyListener("1", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("!", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("2", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("@", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("3", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("#", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("4", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("$", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
             this.AddHardwareKeyListener("5", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("+", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
-            this.AddHardwareKeyListener("/", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("%", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("6", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("^", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("7", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("&", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("8", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("*", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("9", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
             this.AddHardwareKeyListener("(", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("0", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
             this.AddHardwareKeyListener(")", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("-", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("_", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("+", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("=", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("0", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(")", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("[", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("{", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("]", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("}", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("\\", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("|", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener(";", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(":", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("'", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("\"", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener(",", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("<", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener(".", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener(">", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+
+            this.AddHardwareKeyListener("/", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            this.AddHardwareKeyListener("?", HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
 
 
             this.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
