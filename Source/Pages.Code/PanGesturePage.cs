@@ -26,8 +26,9 @@ namespace Forms9PatchDemo
 
 			var buttonListener = FormsGestures.Listener.For(button);
 			buttonListener.Down += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tBUTTON DOWN [" + e.Center + "][" + e.Touches[0]+ "][" + e.ViewPosition + "]"); // does not work with UIControl derived elements
+            buttonListener.RightClicked += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBUTTON RIGHT CLICK[" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
 
-			buttonListener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tBUTTON LONG PRESSING [" + e.Center + "][" + e.Touches[0]+ "][" + e.ViewPosition + "]");
+            buttonListener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tBUTTON LONG PRESSING [" + e.Center + "][" + e.Touches[0]+ "][" + e.ViewPosition + "]");
 			buttonListener.Panning += (sender, e) => {
 				System.Diagnostics.Debug.WriteLine("\tBUTTON PANNING [" + e.Center + "][" + e.Touches[0]+ "][" + e.ViewPosition + "]");
 				button.TranslationX += e.DeltaDistance.X;
@@ -61,8 +62,8 @@ namespace Forms9PatchDemo
 
 			//boxListener.Down += OnDown;
 			boxListener.Down += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tBOX DOWN [" + e.Center + "][" + e.Touches[0]+"]["+e.ViewPosition+"]"); 
-
 			boxListener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine ("\tBOX LONG PRESSING [" + e.Center + "][" + e.Touches[0]+ "][" + e.ViewPosition + "]");
+            boxListener.RightClicked += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX RIGHT CLICK[" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
 
 			boxListener.Panning += (sender, e) => {
 				System.Diagnostics.Debug.WriteLine("\tBOX PANNING [" + e.Center + "][" + e.Touches[0]+ "][" + e.ViewPosition + "]");
