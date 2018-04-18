@@ -26,6 +26,7 @@
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ImageCodePage.cs" Link="Pages.Code\ImageCodePage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\LabelAutoFitPage.cs" Link="Pages.Code\LabelAutoFitPage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\LayoutCodePage.cs" Link="Pages.Code\LayoutCodePage.cs" />
+    <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ListViewSandbox.cs" Link="Pages.Code\ListViewSandbox.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ModalPopupTestPage.cs" Link="Pages.Code\ModalPopupTestPage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\PanGesturePage.cs" Link="Pages.Code\PanGesturePage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\PopupsPage.cs" Link="Pages.Code\PopupsPage.cs" />
@@ -78,6 +79,9 @@
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\236-lincoln.png" Link="Resources\236-lincoln.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\50x50.png" Link="Resources\50x50.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\adsBttn29.png" Link="Resources\adsBttn29.png" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\adult1.jpeg" Link="Resources\adult1.jpeg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\adult2.jpeg" Link="Resources\adult2.jpeg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\adult3.jpeg" Link="Resources\adult3.jpeg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ArrowR.png" Link="Resources\ArrowR.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ArrowR%401½x.png" Link="Resources\ArrowR%401½x.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ArrowR%402x.png" Link="Resources\ArrowR%402x.png" />
@@ -135,6 +139,9 @@
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Info%402x.png" Link="Resources\Info%402x.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Info%403x.png" Link="Resources\Info%403x.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Info%40¾x.png" Link="Resources\Info%40¾x.png" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\kid1.jpeg" Link="Resources\kid1.jpeg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\kid2.jpeg" Link="Resources\kid2.jpeg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\kid3.jpeg" Link="Resources\kid3.jpeg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ltblueUp.png" Link="Resources\ltblueUp.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ltblueUp%402x.png" Link="Resources\ltblueUp%402x.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\printerIcon.png" Link="Resources\printerIcon.png" />

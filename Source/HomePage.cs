@@ -129,6 +129,12 @@ namespace Forms9PatchDemo
                     new TableSection("Code") {
 
                         new TextCell {
+                            Text = "ListView Sandbox",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(ListViewSandbox)
+                        },
+
+                        new TextCell {
                             Text = "ClipboardTest",
                             Command = navigateCommand,
                             CommandParameter = typeof(ClipboardTest)
