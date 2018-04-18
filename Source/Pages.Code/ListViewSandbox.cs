@@ -10,6 +10,9 @@ namespace Forms9PatchDemo
     {
         public ListViewSandbox()
         {
+            var entry = Forms9Patch.Clipboard.Entry;
+            var plain = entry.PlainText;
+
             var kids = new People
             {
                 new Person("Jones","Abe", 10, "Forms9PatchDemo.Resources.kid1.jpeg"),
@@ -28,7 +31,7 @@ namespace Forms9PatchDemo
 
             var listsOfPeople = new ObservableCollection<object>
             {
-                new PeopleViewModel(kids), new PeopleViewModel(parents)
+                kids, parents
             };
 
             var listView = new Forms9Patch.ListView
@@ -36,11 +39,20 @@ namespace Forms9PatchDemo
                 ItemsSource = listsOfPeople,
                 GroupHeaderTemplate = new Forms9Patch.GroupHeaderTemplate(typeof(PeopleGroupCell)),
                 IsGroupingEnabled = true,
-                GroupToggleBehavior = Forms9Patch.GroupToggleBehavior.None
+                GroupToggleBehavior = Forms9Patch.GroupToggleBehavior.None,
+                VisibilityTest = (object obj) =>
+                {
+                    if (obj == null)
+                        return false;
+                    if (obj is Person person)
+                        return person.IsVisible;
+                    return true;
+                },
+                SeparatorColor = Color.Brown
             };
             listView.ItemTemplates.Add(typeof(Person), typeof(PersonViewCell));
 
-            Title = "ListView";
+            Title = plain;
             Content = new StackLayout
             {
                 VerticalOptions = LayoutOptions.Center,
@@ -60,6 +72,7 @@ namespace Forms9PatchDemo
                 Console.WriteLine("Item [" + e.SelectedItem + "] was selected");
                 listView.SelectedItem = null;
                 kids.Remove(e.SelectedItem as Person);
+
             };
         }
 
@@ -70,6 +83,14 @@ namespace Forms9PatchDemo
     #region Person
     public class Person : BindableObject
     {
+        public static readonly BindableProperty IsVisibleProperty = BindableProperty.Create("IsVisible", typeof(bool), typeof(Person), true);
+        public bool IsVisible
+        {
+            get { return (bool)GetValue(IsVisibleProperty); }
+            set { SetValue(IsVisibleProperty, value); }
+        }
+
+
         public string LastName
         {
             get;
@@ -140,10 +161,24 @@ namespace Forms9PatchDemo
     #region People
     public class People : ObservableCollection<Person>, System.ComponentModel.INotifyPropertyChanged
     {
+        bool _isVisible;
+        public bool IsVisible
+        {
+            get => _isVisible;
+            set
+            {
+                _isVisible = value;
+                foreach (var person in this)
+                    if (person != null)
+                        person.IsVisible = value;
+            }
+        }
+
         public string Title { get; set; }
 
         public People()
         {
+            IsVisible = true;
         }
 
         public override string ToString()
@@ -154,6 +189,7 @@ namespace Forms9PatchDemo
     #endregion
 
     #region PeopleViewModel
+    /*
     public class PeopleViewModel : People
     {
         bool _isVisible;
@@ -201,6 +237,7 @@ namespace Forms9PatchDemo
             }
         }
     }
+    */
     #endregion
 
     #region PersonViewCell
@@ -311,7 +348,7 @@ namespace Forms9PatchDemo
             Children.Add(_showHideButton);
             _showHideButton.Clicked += (s, e) =>
             {
-                if (BindingContext is PeopleViewModel viewModel)
+                if (BindingContext is People viewModel)
                 {
                     viewModel.IsVisible = !viewModel.IsVisible;
                     _showHideButton.Text = viewModel.IsVisible ? "Hide" : "Show";
@@ -326,7 +363,7 @@ namespace Forms9PatchDemo
         {
             base.OnBindingContextChanged();
 
-            if (BindingContext is PeopleViewModel viewModel)
+            if (BindingContext is People viewModel)
             {
                 _titleLabel.Text = viewModel.Title;
                 _showHideButton.Text = viewModel.IsVisible ? "Hide" : "Show";
