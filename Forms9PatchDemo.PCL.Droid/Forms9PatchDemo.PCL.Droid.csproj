@@ -52,35 +52,41 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Forms9Patch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Forms9Patch.1.2.0\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
+      <HintPath>..\..\packages\Forms9Patch.1.2.0.2\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
     </Reference>
     <Reference Include="Forms9Patch.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Forms9Patch.1.2.0\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
+      <HintPath>..\..\packages\Forms9Patch.1.2.0.2\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
     </Reference>
     <Reference Include="FormsGestures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Forms9Patch.1.2.0\lib\MonoAndroid10\FormsGestures.dll</HintPath>
+      <HintPath>..\..\packages\Forms9Patch.1.2.0.2\lib\MonoAndroid10\FormsGestures.dll</HintPath>
     </Reference>
     <Reference Include="FormsGestures.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Forms9Patch.1.2.0\lib\MonoAndroid10\FormsGestures.Droid.dll</HintPath>
+      <HintPath>..\..\packages\Forms9Patch.1.2.0.2\lib\MonoAndroid10\FormsGestures.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.2.0.2\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="P42.NumericalMethods, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Forms9Patch.1.2.0\lib\MonoAndroid10\P42.NumericalMethods.dll</HintPath>
+      <HintPath>..\..\packages\Forms9Patch.1.2.0.2\lib\MonoAndroid10\P42.NumericalMethods.dll</HintPath>
     </Reference>
     <Reference Include="P42.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Forms9Patch.1.2.0\lib\MonoAndroid10\P42.Utils.dll</HintPath>
+      <HintPath>..\..\packages\Forms9Patch.1.2.0.2\lib\MonoAndroid10\P42.Utils.dll</HintPath>
     </Reference>
     <Reference Include="P42.Utils.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\Forms9Patch.1.2.0\lib\MonoAndroid10\P42.Utils.Droid.dll</HintPath>
+      <HintPath>..\..\packages\Forms9Patch.1.2.0.2\lib\MonoAndroid10\P42.Utils.Droid.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.1.59.2\lib\MonoAndroid\SkiaSharp.dll</HintPath>
+    <Reference Include="SkiaSharp, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.1.60.0\lib\MonoAndroid\SkiaSharp.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp.Svg, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.Svg.1.59.1\lib\netstandard1.3\SkiaSharp.Svg.dll</HintPath>
+    <Reference Include="SkiaSharp.Extended.Svg, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Svg.1.60.0\lib\netstandard2.0\SkiaSharp.Extended.Svg.dll</HintPath>
     </Reference>
-    <Reference Include="SkiaSharp.Views.Android, Version=1.59.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <HintPath>..\..\packages\SkiaSharp.Views.1.59.2\lib\MonoAndroid\SkiaSharp.Views.Android.dll</HintPath>
+    <Reference Include="SkiaSharp.Views.Android, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SkiaSharp.Views.1.60.0\lib\MonoAndroid\SkiaSharp.Views.Android.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.IO.Compression" />
@@ -112,9 +118,6 @@
     <Reference Include="Xamarin.Android.Support.v7.MediaRouter">
       <HintPath>..\..\packages\Xamarin.Android.Support.v7.MediaRouter.23.3.0\lib\MonoAndroid403\Xamarin.Android.Support.v7.MediaRouter.dll</HintPath>
     </Reference>
-    <Reference Include="FormsViewGroup">
-      <HintPath>..\..\packages\Xamarin.Forms.2.4.0.280\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
-    </Reference>
     <Reference Include="Xamarin.Forms.Core">
       <HintPath>..\..\packages\Xamarin.Forms.2.4.0.280\lib\MonoAndroid10\Xamarin.Forms.Core.dll</HintPath>
     </Reference>
@@ -126,9 +129,6 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\..\packages\Xamarin.Forms.2.4.0.280\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\packages\Newtonsoft.Json.10.0.3\lib\netstandard1.3\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
