@@ -17,18 +17,23 @@
             HeightRequest="50"
             VerticalOptions="Fill"
             Aspect="AspectFit"/>
-
+        <Label Text="Xamarin"/>
+        <BoxView Color="Black" HeightRequest="1"/>
+        
         <f9p:Image
             Source="{local:ImageMultiResource Forms9PatchDemo.Resources.icon_home_active}"
             HeightRequest="50"
             VerticalOptions="Fill"
             Fill="AspectFit" />
+        <Label Text="Forms9Patch"/>
+        <BoxView Color="Black" HeightRequest="1"/>
 
         <Grid 
             ColumnSpacing="5">
         
             <Grid.RowDefinitions>
                 <RowDefinition Height="50" />
+                <RowDefinition Height="20" />
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
@@ -43,24 +48,28 @@
                 BackgroundColor="Red"
                 Source="{local:ImageMultiResource Forms9PatchDemo.Resources.icon_home_active}"
                 Fill="AspectFit" />
-                        
+            <Label Text="Forms9Patch" Grid.Column="0" Grid.Row="1"/>
+
             <Image
                 Grid.Column="1"
                 BackgroundColor="Lime"
                 Source="{local:ImageMultiResource Forms9PatchDemo.Resources.icon_home_active}"
                 Aspect="AspectFit"/>
+            <Label Text="Xamarin" Grid.Column="1" Grid.Row="1"/>
 
             <f9p:Image
                 Grid.Column="2"
                 BackgroundColor="Yellow"
                 Source="{local:ImageMultiResource Forms9PatchDemo.Resources.icon_home_active}"
                 Fill="AspectFit"/>
+            <Label Text="Forms9Patch" Grid.Column="2" Grid.Row="1"/>
 
             <Image
                 Grid.Column="3"
                 BackgroundColor="Aqua"
                 Source="{local:ImageMultiResource Forms9PatchDemo.Resources.icon_home_active}"
                 Aspect="AspectFit"/>
+            <Label Text="Xamarin" Grid.Column="3" Grid.Row="1"/>
 
         </Grid>
 

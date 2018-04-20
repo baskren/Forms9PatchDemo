@@ -58,9 +58,21 @@ namespace Forms9PatchDemo.Pages.Code
             var showTargetedToash = new Forms9Patch.Button("TargetedToast");
             showTargetedToash.Clicked += (sender, e) => TargetedToast.Create(showTargetedToash, "TargetedToast", "... has the far getted most!");
 
+            var showTargetedMenu = new Forms9Patch.Button("TargetedMenu");
+            var targetedMenu = new Forms9Patch.TargetedMenu(showTargetedMenu)
+            {
+                Segments =
+                {
+                    new Segment("Copy", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14D;</font>"),
+                    new Segment("Cut", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14E;</font>"),
+                    new Segment("Paste", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14F;</font>"),
+                }
+            };
+            showTargetedMenu.Clicked += (s,e)=> targetedMenu.IsVisible = true;
+
             Content = new Xamarin.Forms.StackLayout
             {
-                Children = { showModalButton, showBubbleButton, showActivityButton, showPermissionButton, showToastButton, showTargetedToash }
+                Children = { showModalButton, showBubbleButton, showActivityButton, showPermissionButton, showToastButton, showTargetedToash, showTargetedMenu }
             };
         }
     }
