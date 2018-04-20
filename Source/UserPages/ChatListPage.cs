@@ -76,7 +76,7 @@ namespace Forms9PatchDemo
             Bubble.Padding = new Thickness(10, 10, 17, 10);
             Bubble.HorizontalOptions = LayoutOptions.End;
 
-            HeadShot.Source = ImageSource.FromResource("Forms9PatchDemo.Resources.236-lincoln.png");
+            HeadShot.Source = Forms9Patch.ImageSource.FromResource("Forms9PatchDemo.Resources.236-lincoln.png");
 
             ColumnDefinitions = new ColumnDefinitionCollection {
                 new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star)  },
@@ -98,7 +98,7 @@ namespace Forms9PatchDemo
             Bubble.Padding = new Thickness(17, 10, 10, 10);
             Bubble.HorizontalOptions = LayoutOptions.Start;
 
-            HeadShot.Source = ImageSource.FromResource("Forms9PatchDemo.Resources.236-baby.png");
+            HeadShot.Source = Forms9Patch.ImageSource.FromResource("Forms9PatchDemo.Resources.236-baby.png");
 
             ColumnDefinitions = new ColumnDefinitionCollection {
                 new ColumnDefinition { Width = 40 },

@@ -116,7 +116,7 @@ namespace Forms9PatchDemo
 
         public string ResourceId
         {
-            get;
+            get; set;
         }
 
         public static BindableProperty IsActiveProperty = BindableProperty.Create("IsActive", typeof(bool), typeof(Person), default(bool), BindingMode.OneWay);
@@ -140,7 +140,10 @@ namespace Forms9PatchDemo
             }
         }
 
-        public Xamarin.Forms.ImageSource ImageSource => Xamarin.Forms.ImageSource.FromResource(ResourceId);
+        public Xamarin.Forms.ImageSource ImageSource
+        {
+            get => Forms9Patch.ImageSource.FromResource(ResourceId);
+        }
 
         protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
