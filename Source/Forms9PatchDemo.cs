@@ -5,6 +5,7 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using System.Windows.Input;
 
+[assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace Forms9PatchDemo
 {
     public class App : Application

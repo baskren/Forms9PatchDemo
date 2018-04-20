@@ -17,7 +17,7 @@
             HeightRequest="50"
             VerticalOptions="Fill"
             Aspect="AspectFit"/>
-        <Label Text="Xamarin"/>
+        <Label Text="Xamarin" HorizontalOptions="Center" />
         <BoxView Color="Black" HeightRequest="1"/>
         
         <f9p:Image
@@ -25,8 +25,9 @@
             HeightRequest="50"
             VerticalOptions="Fill"
             Fill="AspectFit" />
-        <Label Text="Forms9Patch"/>
+        <Label Text="Forms9Patch" HorizontalOptions="Center" />
         <BoxView Color="Black" HeightRequest="1"/>
+        <BoxView Color="Transparent" HeightRequest="40"/>
 
         <Grid 
             ColumnSpacing="5">
@@ -48,28 +49,28 @@
                 BackgroundColor="Red"
                 Source="{local:ImageMultiResource Forms9PatchDemo.Resources.icon_home_active}"
                 Fill="AspectFit" />
-            <Label Text="Forms9Patch" Grid.Column="0" Grid.Row="1"/>
+            <Label Text="Forms9Patch" HorizontalOptions="Center"  Grid.Column="0" Grid.Row="1"/>
 
             <Image
                 Grid.Column="1"
                 BackgroundColor="Lime"
                 Source="{local:ImageMultiResource Forms9PatchDemo.Resources.icon_home_active}"
                 Aspect="AspectFit"/>
-            <Label Text="Xamarin" Grid.Column="1" Grid.Row="1"/>
+            <Label Text="Xamarin" HorizontalOptions="Center" Grid.Column="1" Grid.Row="1"/>
 
             <f9p:Image
                 Grid.Column="2"
                 BackgroundColor="Yellow"
                 Source="{local:ImageMultiResource Forms9PatchDemo.Resources.icon_home_active}"
                 Fill="AspectFit"/>
-            <Label Text="Forms9Patch" Grid.Column="2" Grid.Row="1"/>
+            <Label Text="Forms9Patch" HorizontalOptions="Center" Grid.Column="2" Grid.Row="1"/>
 
             <Image
                 Grid.Column="3"
                 BackgroundColor="Aqua"
                 Source="{local:ImageMultiResource Forms9PatchDemo.Resources.icon_home_active}"
                 Aspect="AspectFit"/>
-            <Label Text="Xamarin" Grid.Column="3" Grid.Row="1"/>
+            <Label Text="Xamarin" HorizontalOptions="Center" Grid.Column="3" Grid.Row="1"/>
 
         </Grid>
 
