@@ -2,7 +2,6 @@ using System;
 using Xamarin.Forms;
 using Forms9PatchDemo.Pages;
 using Forms9PatchDemo.Pages.Code;
-using Forms9Patch;
 
 namespace Forms9PatchDemo
 {
@@ -127,6 +126,12 @@ namespace Forms9PatchDemo
                     #endif
 
                     new TableSection("Code") {
+
+                        new TextCell {
+                            Text = "Picker in Popup",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(PickerInPopup)
+                        },
 
                         new TextCell {
                             Text = "ListView Sandbox",
