@@ -66,9 +66,18 @@ namespace Forms9PatchDemo.Pages.Code
                     new Segment("Copy", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14D;</font>"),
                     new Segment("Cut", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14E;</font>"),
                     new Segment("Paste", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14F;</font>"),
+                    new Segment("Segment A"),
+                    new Segment("Segment B"),
+                    new Segment("Segment C"),
+                    new Segment("Segment D"),
+                    new Segment("Segment E"),
+                    new Segment("Segment F"),
+                    new Segment("Segment G"),
+                    new Segment("Segment H"),
                 }
             };
-            showTargetedMenu.Clicked += (s,e)=> targetedMenu.IsVisible = true;
+            showTargetedMenu.Clicked += (s, e) => targetedMenu.IsVisible = true;
+            targetedMenu.SegmentTapped += (s, e) => System.Diagnostics.Debug.WriteLine("TargetedMenu.SegmentTapped: " + e.Segment.Text);
 
             Content = new Xamarin.Forms.StackLayout
             {
