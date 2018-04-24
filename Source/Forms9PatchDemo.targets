@@ -28,7 +28,7 @@
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\LayoutCodePage.cs" Link="Pages.Code\LayoutCodePage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ListViewSandbox.cs" Link="Pages.Code\ListViewSandbox.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ModalPopupTestPage.cs" Link="Pages.Code\ModalPopupTestPage.cs" />
-    <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\PanGesturePage.cs" Link="Pages.Code\PanGesturePage.cs" />
+    <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\GestureTestPage.cs" Link="Pages.Code\GestureTestPage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\PopupsPage.cs" Link="Pages.Code\PopupsPage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\PickerInPopup.cs" Link="Pages.Code\PickerInPopup.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SingleButton.cs" Link="Pages.Code\SingleButton.cs" />

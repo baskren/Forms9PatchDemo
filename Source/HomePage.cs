@@ -195,9 +195,9 @@ namespace Forms9PatchDemo
                         },
 
                         new TextCell {
-                            Text = "Pan Gesture test",
+                            Text = "Gestures Test Page",
                             Command = navigateCommand,
-                            CommandParameter = typeof(PanGesturePage)
+                            CommandParameter = typeof(GestureTestPage)
                         },
 
                         new TextCell {

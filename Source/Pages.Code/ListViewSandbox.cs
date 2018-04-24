@@ -48,14 +48,15 @@ namespace Forms9PatchDemo
                         return person.IsVisible;
                     return true;
                 },
-                SeparatorColor = Color.Brown
+                SeparatorColor = Color.Brown,
+
             };
             listView.ItemTemplates.Add(typeof(Person), typeof(PersonViewCell));
 
             Title = plain;
             Content = new StackLayout
             {
-                VerticalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.FillAndExpand,
                 Children =
                 {
                     new Label
