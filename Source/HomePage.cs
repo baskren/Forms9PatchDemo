@@ -246,7 +246,7 @@ namespace Forms9PatchDemo
 
 
                         new TextCell {
-                            Text = "EmbeddedResource Font Effect + HardwareKeyPage",
+                            Text = "EmbeddedResource Font Effect",
                             Command = navigateCommand,
                             CommandParameter = typeof(EmbeddedResourceFontEffectPage)
                         },
