@@ -336,15 +336,19 @@ namespace Forms9PatchDemo
             HorizontalOptions = LayoutOptions.StartAndExpand,
             VerticalOptions = LayoutOptions.CenterAndExpand
         };
-        Button _showHideButton = new Button
+        Forms9Patch.Button _showHideButton = new Forms9Patch.Button
         {
             HorizontalOptions = LayoutOptions.End,
-            VerticalOptions = LayoutOptions.CenterAndExpand
+            VerticalOptions = LayoutOptions.CenterAndExpand,
+            BorderRadius = 4,
+            BackgroundColor = Color.DarkGray,
+            TextColor = Color.White,
         };
         #endregion
 
         public PeopleGroupCell()
         {
+            Padding = new Thickness(10, 0);
             BackgroundColor = Color.BurlyWood;
             VerticalOptions = LayoutOptions.CenterAndExpand;
             Orientation = StackOrientation.Horizontal;
