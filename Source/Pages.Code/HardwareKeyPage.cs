@@ -6,7 +6,7 @@ namespace Forms9PatchDemo
 {
     public class HardwareKeyPage : Forms9Patch.HardwareKeyPage
     {
-
+        #region Visual Elements
         readonly Xamarin.Forms.Label _label = new Xamarin.Forms.Label { Text = "Xamarin.Forms.Label: HardwareKeyPage" };
 
         readonly Xamarin.Forms.Button _modalButton = new Xamarin.Forms.Button { Text = "Modal Push Page1" };
@@ -33,8 +33,74 @@ namespace Forms9PatchDemo
                 }
         };
 
+        readonly Xamarin.Forms.Label _focusLabel = new Xamarin.Forms.Label { Text = "HardwareKeyPage.FocusedElement:" };
+
+        readonly Xamarin.Forms.Label _defaultFocusLabel = new Xamarin.Forms.Label { Text = "HardwareKeyPage.DefaultFocusedElement:" };
+
+        #endregion
+
         public HardwareKeyPage()
         {
+
+            /* IMPORTANT NOTE TO DEVELOPERS USING HARDWARE KEY LISTENING
+             In order to make Hardware Key Listening to work, Forms9Patch needs
+             to keep up with when a Xamarin.Forms.VisualElement has been focused
+             or unfocused.  
+
+             Unfortunately, Xamarin.Forms does not provide a global way 
+             to monitor this so Forms9Patch uses the HardwareKeyPage element as
+             a way to initiate the monitoring of focus changes on all of it's
+             descendents in the visual tree.   To do this, Forms9Patch adds a Focused
+             and Unfocused event handler to all these descendents.  For iOS and UWP, 
+             this is no big deal.  For Android, like almost everything, this is a big 
+             deal in that it can have a negative impact on performance.  If this is
+             important to you, please read on.
+
+             To address this performance issue, you will need to tweek the 
+             Xmarin.Forms source code just a teeny-tiny bit adn then use your
+             now customied code instead of the off-the-shelf NuGet packages.
+             In particular, below are additions to the Xamarin.Forms.VisualElement class
+             in the Xamarin.Forms.Core.VisualElement.cs file: 
+
+                public static event EventHandler<VisualElement> FocusChanged;
+
+                static VisualElement _currentlyFocused;
+                public static VisualElement CurrentlyFocused
+                {
+                    get => _currentlyFocused;
+                    set
+                    {
+                        if (_currentlyFocused != value)
+                        {
+                            var wasFocused = _currentlyFocused;
+                            _currentlyFocused = value;
+                            FocusChanged?.Invoke(wasFocused, _currentlyFocused);
+                        }
+                    }
+                }
+
+                protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
+                {
+                    base.OnPropertyChanged(propertyName);
+                    if (propertyName == IsFocusedProperty.PropertyName)
+                    {
+                        if (IsFocused)
+                            CurrentlyFocused = this;
+                        else if (CurrentlyFocused == this)
+                            CurrentlyFocused = null;
+                    }
+                }
+
+            Upon instantiation, Forms9Patch.HardwareKeyListener will use reflection
+            to look for the above changes.  If it finds them, it will use the above
+            code to monitor the focus, rather than adding a bunch of event listeneres.
+
+                    */
+
+
+            #region Hardware Key Listeners
+
+            #region ... for this HardwareKeyPage
             this.AddHardwareKeyListener("ç", OnHardwareKeyPressed);
             this.AddHardwareKeyListener("é", OnHardwareKeyPressed);
             this.AddHardwareKeyListener("ф", OnHardwareKeyPressed);
@@ -124,57 +190,44 @@ namespace Forms9PatchDemo
             this.AddHardwareKeyListener(HardwareKey.PageDownKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
             this.AddHardwareKeyListener(HardwareKey.HomeKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
             this.AddHardwareKeyListener(HardwareKey.EndKeyInput, HardwareKeyModifierKeys.Any, OnHardwareKeyPressed);
+            #endregion
 
+            #region ... for _entry
             _entry.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
             _entry.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
             _entry.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
             _entry.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
             _entry.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
+            #endregion
 
+            #region ... for _editor
             _editor.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
             _editor.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
             _editor.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
             _editor.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
             _editor.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
+            #endregion
 
+            #region ... for _label
             _label.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
             _label.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
             _label.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
             _label.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
             _label.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
+            #endregion
 
+            #region ... for _modal
             _modalButton.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
             _modalButton.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
             _modalButton.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
             _modalButton.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
             _modalButton.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
+            #endregion
+
+            #endregion
 
 
-            _segmentedControl.SegmentTapped += (sender, e) =>
-            {
-                switch (e.Segment.Text)
-                {
-                    case "label": _label.HardwareKeyFocus(); break;
-                    case "editor": _editor.HardwareKeyFocus(); break;
-                    case "entry": _entry.HardwareKeyFocus(); break;
-                    case "button": _modalButton.HardwareKeyFocus(); break;
-                }
-            };
-
-            HardwareKeyPage.FocusedElementChanged += (sender, e) =>
-            {
-                if (sender == _label)
-                    _segmentedControl.SelectIndex(0);
-                else if (sender == _editor)
-                    _segmentedControl.SelectIndex(1);
-                else if (sender == _entry)
-                    _segmentedControl.SelectIndex(2);
-                else if (sender == _modalButton)
-                    _segmentedControl.SelectIndex(3);
-                else
-                    _segmentedControl.DeselectAll();
-            };
-
+            #region Layout
 
             Padding = new Thickness(5, 25, 5, 5);
 
@@ -192,12 +245,50 @@ namespace Forms9PatchDemo
                     new Xamarin.Forms.Label { Text="Focus:"},
                     _segmentedControl,
                     new BoxView { Color = Color.Black, HeightRequest = 2 },
+                        _focusLabel,
+                        new BoxView { Color = Color.Black, HeightRequest = 2 },
+                        _defaultFocusLabel,
+                        new BoxView { Color = Color.Black, HeightRequest = 2 },
                     _inputLabel,
                     _modifiersLabel,
                     _keyboardType
                     }
                 }
 
+            };
+
+            _defaultFocusLabel.Text = "HardwareKeyPage.DefaultFocusedElement: " + Forms9Patch.HardwareKeyPage.DefaultFocusedElement;
+
+            #endregion
+
+
+            #region event handlers
+            // NOTE: The only elements that change the focus are Entry and Editor.  As such, if we want to change focus when a user takes an action other then selecting an Editor or Entry, we have change the focus ourselves.
+            _segmentedControl.SegmentTapped += (sender, e) =>
+            {
+                switch (e.Segment.Text)
+                {
+                    case "label": _label.HardwareKeyFocus(); break;
+                    case "editor": _editor.HardwareKeyFocus(); break;
+                    case "entry": _entry.HardwareKeyFocus(); break;
+                    case "button": _modalButton.HardwareKeyFocus(); break;
+                }
+            };
+
+            Forms9Patch.HardwareKeyPage.FocusedElementChanged += (sender, e) =>
+            {
+                _defaultFocusLabel.Text = "HardwareKeyPage.DefaultFocusedElement: " + Forms9Patch.HardwareKeyPage.DefaultFocusedElement;
+                _focusLabel.Text = "HardwareKeyPage.FocusedElement: " + sender;
+                if (sender == _label)
+                    _segmentedControl.SelectIndex(0);
+                else if (sender == _editor)
+                    _segmentedControl.SelectIndex(1);
+                else if (sender == _entry)
+                    _segmentedControl.SelectIndex(2);
+                else if (sender == _modalButton)
+                    _segmentedControl.SelectIndex(3);
+                else
+                    _segmentedControl.DeselectAll();
             };
 
             _modalButton.Clicked += async (object sender, EventArgs e) =>
@@ -214,12 +305,22 @@ namespace Forms9PatchDemo
                 await Navigation.PushAsync(page1);
             };
 
+            // NOTE: The only elements that change the focus are Entry and Editor.  As such, if we want to change focus when a user takes an action other then selecting an Editor or Entry, we have change the focus ourselves.
+            var labelGestureListener = FormsGestures.Listener.For(_label);
+            labelGestureListener.Tapped += (s, e) => _label.HardwareKeyFocus();
+
+            // NOTE: The only elements that change the focus are Entry and Editor.  As such, if we want to change focus when a user takes an action other then selecting an Editor or Entry, we have change the focus ourselves.
+            var pageGestureListener = FormsGestures.Listener.For(this);
+            pageGestureListener.Tapped += (s, e) => Forms9Patch.HardwareKeyPage.FocusedElement = null;
+            #endregion
+
         }
 
+        #region Handlers
         protected override void OnAppearing()
         {
             base.OnAppearing();
-            HardwareKeyPage.DefaultFocusedElement = this;
+            Forms9Patch.HardwareKeyPage.DefaultFocusedElement = this;
         }
 
         void OnHardwareKeyPressed(object sender, HardwareKeyEventArgs e)
@@ -229,6 +330,7 @@ namespace Forms9PatchDemo
             _keyboardType.Text = Forms9Patch.KeyboardService.LanguageRegion;
             System.Diagnostics.Debug.WriteLine("FocusedElement=[" + Forms9Patch.HardwareKeyPage.FocusedElement + "] KeyInput=[" + e.HardwareKey.KeyInput + "] ModifierKeys=[" + e.HardwareKey.ModifierKeys + "] Layout=[" + Forms9Patch.KeyboardService.LanguageRegion + "]");
         }
+        #endregion
 
     }
 }
