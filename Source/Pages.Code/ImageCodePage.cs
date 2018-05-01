@@ -158,8 +158,8 @@ namespace Forms9PatchDemo
             var seg1 = new Forms9Patch.Segment("");
             var seg2 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.redGridBox");
             var seg3 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.button");
-            var seg4 = new Forms9Patch.Segment(null, new Forms9Patch.Image { Source = ImageSource.FromFile("cat.jpg"), Fill = Forms9Patch.Fill.AspectFit });
-            var seg5 = new Forms9Patch.Segment(null, new Forms9Patch.Image { Source = ImageSource.FromFile("balloons.jpg"), Fill = Forms9Patch.Fill.AspectFit });
+            var seg4 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.cat.jpg");
+            var seg5 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.balloons.jpg");
             var seg6 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.image");
             var seg7 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.printerIcon");
             var seg8 = new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.bubble");

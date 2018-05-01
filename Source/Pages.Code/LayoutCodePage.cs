@@ -106,13 +106,11 @@ namespace Forms9PatchDemo
                     new Forms9Patch.Segment(""),
                     new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.redGridBox"),
                     new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.button"),
-                    new Forms9Patch.Segment(null, new Forms9Patch.Image { Source=ImageSource.FromFile("cat.jpg"), Fill=Forms9Patch.Fill.AspectFit }),
-                    new Forms9Patch.Segment(null, new Forms9Patch.Image { Source=ImageSource.FromFile("balloons.jpg"), Fill=Forms9Patch.Fill.AspectFit }),
                     new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.image"),
                     new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.redribbon"),
                     new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.bubble"),
                     new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.bluebutton"),
-                    new Forms9Patch.Segment(null, new Forms9Patch.Image { Source=ImageSource.FromFile("SvgSample2.svg"), Fill=Forms9Patch.Fill.AspectFit }),
+                    new Forms9Patch.Segment(null, "Forms9PatchDemo.Resources.SvgSample2.svg"),
                 }
         };
 
