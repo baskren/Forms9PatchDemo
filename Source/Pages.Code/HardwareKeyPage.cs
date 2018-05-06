@@ -68,7 +68,7 @@ namespace Forms9PatchDemo
                 public static VisualElement CurrentlyFocused
                 {
                     get => _currentlyFocused;
-                    set
+                    private set
                     {
                         if (_currentlyFocused != value)
                         {
@@ -233,9 +233,9 @@ namespace Forms9PatchDemo
 
             Content = new Xamarin.Forms.ScrollView
             {
-                Content = new Xamarin.Forms.StackLayout
-                {
-                    Children =
+            Content = new Xamarin.Forms.StackLayout
+            {
+                Children =
                     {
                     _label,
                     _editor,
@@ -253,7 +253,7 @@ namespace Forms9PatchDemo
                     _modifiersLabel,
                     _keyboardType
                     }
-                }
+            }
 
             };
 
@@ -307,7 +307,11 @@ namespace Forms9PatchDemo
 
             // NOTE: The only elements that change the focus are Entry and Editor.  As such, if we want to change focus when a user takes an action other then selecting an Editor or Entry, we have change the focus ourselves.
             var labelGestureListener = FormsGestures.Listener.For(_label);
-            labelGestureListener.Tapped += (s, e) => _label.HardwareKeyFocus();
+            labelGestureListener.Tapped += (s, e) =>
+            {
+                _label.HardwareKeyFocus();
+                e.Handled = true;
+            };
 
             // NOTE: The only elements that change the focus are Entry and Editor.  As such, if we want to change focus when a user takes an action other then selecting an Editor or Entry, we have change the focus ourselves.
             var pageGestureListener = FormsGestures.Listener.For(this);
