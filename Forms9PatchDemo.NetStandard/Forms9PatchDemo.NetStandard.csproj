@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>netstandard1.3</TargetFramework>
+		<AssemblyName>Forms9PatchDemo</AssemblyName>
+		<RootNamespace>Forms9PatchDemo</RootNamespace>
+		<UseXaml>USE_XAML</UseXaml>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+	  <DefineConstants>TRACE;DEBUG;NETSTANDARD1_3;$(UseXaml)</DefineConstants>
+	</PropertyGroup>
+	<ItemGroup>
+	  <PackageReference Include="Forms9Patch" Version="1.2.0.3" />
+	  <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
+	</ItemGroup>
+	<ItemGroup>
+		<Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
+			<DependentUpon>*.xaml</DependentUpon>
+		</Compile>
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Properties\" />
+	</ItemGroup>
+
+	<!-- LOAD PROJECT CONTENT -->
+	<Import Project="..\Source\Forms9PatchDemo.targets" />
+
+
+</Project>
