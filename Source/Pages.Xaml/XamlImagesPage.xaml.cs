@@ -6,7 +6,7 @@ using Xamarin.Forms.Xaml;
 
 namespace Forms9PatchDemo
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
+    //[XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class XamlImagesPage : ContentPage
 	{
 		public XamlImagesPage ()
