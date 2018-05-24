@@ -44,6 +44,7 @@
     <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\CustomFontEffectPage.cs" Link="UserPages\CustomFontEffectPage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\DataForBinding.cs" Link="UserPages\DataForBinding.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\HeapDemoPage.cs" Link="UserPages\HeapDemoPage.cs" />
+    <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\LabelGetSize.cs" Link="UserPages\LabelGetSize.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\ListViewWithF9PLabelInCells.cs" Link="UserPages\ListViewWithF9PLabelInCells.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\ModalPopupOnMasterDetailPage.cs" Link="UserPages\ModalPopupOnMasterDetailPage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\ModalPopupWithNavigationPages.cs" Link="UserPages\ModalPopupWithNavigationPages.cs" />
