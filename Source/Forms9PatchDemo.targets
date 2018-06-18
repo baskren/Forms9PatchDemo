@@ -24,6 +24,7 @@
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlLabelPage.cs" Link="Pages.Code\HtmlLabelPage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HtmlLink.cs" Link="Pages.Code\HtmlLink.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ImageCodePage.cs" Link="Pages.Code\ImageCodePage.cs" />
+    <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\KeyboardHeight.cs" Link="Pages.Code\KeyboardHeight.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\LabelAutoFitPage.cs" Link="Pages.Code\LabelAutoFitPage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\LayoutCodePage.cs" Link="Pages.Code\LayoutCodePage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ListViewSandbox.cs" Link="Pages.Code\ListViewSandbox.cs" />

@@ -126,7 +126,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{1388DC48-9396-40B6-B948-6B56A2AA94D8}</Project>
+      <Project>{0DF60C1F-EE1B-4112-9E7F-0E098D356C98}</Project>
       <Name>Forms9PatchDemo.NetStandard</Name>
     </ProjectReference>
   </ItemGroup>

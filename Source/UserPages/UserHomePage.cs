@@ -47,6 +47,12 @@ namespace Forms9PatchDemo
 				});
 
 
+			var modalCommand =
+				new Command<Type>(async (Type pageType) =>
+			{
+				var page = (Page)Activator.CreateInstance(pageType);
+				await this.Navigation.PushModalAsync(page);
+			});
 
 			this.Title = "Forms Gallery";
 			this.Content = new TableView
@@ -126,8 +132,14 @@ namespace Forms9PatchDemo
 						},
 
 						new TextCell {
-							Text = "ModalPopupOnMasterDetailPagel",
+							Text = "ModalPopupOnMasterDetailPage PushAsync",
 							Command = navigateCommand,
+							CommandParameter = typeof(ModalPopupOnMasterDetailPage)
+						},
+
+						new TextCell {
+							Text = "ModalPopupOnMasterDetailPage PushModalAsync",
+							Command = modalCommand,
 							CommandParameter = typeof(ModalPopupOnMasterDetailPage)
 						},
 
