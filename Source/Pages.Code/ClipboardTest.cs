@@ -4,7 +4,7 @@ using Xamarin.Forms;
 using P42.Utils;
 using System.Linq;
 using System.Collections.Generic;
-using Forms9Patch;
+//using Forms9Patch;
 using System.Reflection;
 using System.Diagnostics;
 
@@ -36,7 +36,7 @@ namespace Forms9PatchDemo
             Children = { new Forms9Patch.Label("<b>Copy / Paste tests:</b>") }
         };
 
-        Switch _entryCaching = new Switch { HorizontalOptions = LayoutOptions.End };
+        Xamarin.Forms.Switch _entryCaching = new Xamarin.Forms.Switch { HorizontalOptions = LayoutOptions.End };
         //Switch _entryItemTypeCaching = new Switch { HorizontalOptions = LayoutOptions.End };
         Xamarin.Forms.Button _execute = new Xamarin.Forms.Button
         {
@@ -47,10 +47,10 @@ namespace Forms9PatchDemo
         {
             Padding = new Thickness(20, Device.RuntimePlatform == Device.iOS ? 40 : 20, 20, 0);
 
-            _entryCaching.IsToggled = Clipboard.EntryCaching;
+            _entryCaching.IsToggled = Forms9Patch.Clipboard.EntryCaching;
             //_entryItemTypeCaching.IsToggled = Clipboard.EntryItemTypeCaching;
 
-            _entryCaching.Toggled += (sender, e) => Clipboard.EntryCaching = _entryCaching.IsToggled;
+            _entryCaching.Toggled += (sender, e) => Forms9Patch.Clipboard.EntryCaching = _entryCaching.IsToggled;
             //_entryItemTypeCaching.Toggled += (sender, e) => Clipboard.EntryItemTypeCaching = _entryItemTypeCaching.IsToggled;
 
             _layout.Children.Add(_byteTest);
@@ -87,13 +87,13 @@ namespace Forms9PatchDemo
         {
             base.OnAppearing();
             // Keep in mind, event handlers can be zombies.  Think about proper disposal (or squelching) if you want to be sure it doesn't appear after you leave the page/view where you instantiated it.
-            Clipboard.ContentChanged += Clipboard_ContentChanged;
+            Forms9Patch.Clipboard.ContentChanged += Clipboard_ContentChanged;
         }
 
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            Clipboard.ContentChanged -= Clipboard_ContentChanged;
+            Forms9Patch.Clipboard.ContentChanged -= Clipboard_ContentChanged;
         }
 
         void Clipboard_ContentChanged(object sender, EventArgs e)
@@ -204,13 +204,13 @@ namespace Forms9PatchDemo
             lastT = t;
 
 
-            Clipboard.Entry = entry;
+            Forms9Patch.Clipboard.Entry = entry;
             t = stopWatch.ElapsedMilliseconds;
             System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
             lastT = t;
 
             bool success = true;
-            var resultByteArray = Clipboard.Entry.GetItem<byte[]>("application/x-forms9patchdemo-bytebuffer").Value;
+            var resultByteArray = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("application/x-forms9patchdemo-bytebuffer").Value;
             if (resultByteArray.Count() != testByteArray.Count())
                 throw new Exception("byte array counts don't match");
             for (int i = 0; i < resultByteArray.Count(); i++)
@@ -228,7 +228,7 @@ namespace Forms9PatchDemo
 
 
             success = true;
-            var resultByte = Clipboard.Entry.GetItem<byte>("application/x-forms9patchdemo-byte").Value;
+            var resultByte = Forms9Patch.Clipboard.Entry.GetItem<byte>("application/x-forms9patchdemo-byte").Value;
             if (resultByte != testByteArray[0])
                 success = false;
             _byteTest.Success = success;
@@ -237,7 +237,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultChar = Clipboard.Entry.GetItem<char>("application/x-forms9patchdemo-char").Value;
+            var resultChar = Forms9Patch.Clipboard.Entry.GetItem<char>("application/x-forms9patchdemo-char").Value;
             if (resultChar != testChar)
                 success = false;
             _charTest.Success = success;
@@ -246,7 +246,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultShort = Clipboard.Entry.GetItem<short>("application/x-forms9patchdemo-short").Value;
+            var resultShort = Forms9Patch.Clipboard.Entry.GetItem<short>("application/x-forms9patchdemo-short").Value;
             if (resultShort != testShort)
                 success = false;
             _shortTest.Success = success;
@@ -255,7 +255,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultInt = Clipboard.Entry.GetItem<int>("application/x-forms9patchdemo-int").Value;
+            var resultInt = Forms9Patch.Clipboard.Entry.GetItem<int>("application/x-forms9patchdemo-int").Value;
             if (resultInt != testInt)
                 success = false;
             _intTest.Success = success;
@@ -264,7 +264,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultLong = Clipboard.Entry.GetItem<long>("application/x-forms9patchdemo-long").Value;
+            var resultLong = Forms9Patch.Clipboard.Entry.GetItem<long>("application/x-forms9patchdemo-long").Value;
             if (resultLong != testLong)
                 success = false;
             _longTest.Success = success;
@@ -273,7 +273,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultDouble = Clipboard.Entry.GetItem<double>("application/x-forms9patchdemo-double").Value;
+            var resultDouble = Forms9Patch.Clipboard.Entry.GetItem<double>("application/x-forms9patchdemo-double").Value;
             if (resultDouble != testDouble)
                 success = false;
             _doubleTest.Success = success;
@@ -282,7 +282,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultString = Clipboard.Entry.GetItem<string>("application/x-forms9patchdemo-string").Value;
+            var resultString = Forms9Patch.Clipboard.Entry.GetItem<string>("application/x-forms9patchdemo-string").Value;
             if (resultString != testString)
                 success = false;
             _stringTest.Success = success;
@@ -291,7 +291,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultIntList = Clipboard.Entry.GetItem<List<int>>("application/x-forms9patchdemo-int-list").Value;
+            var resultIntList = Forms9Patch.Clipboard.Entry.GetItem<List<int>>("application/x-forms9patchdemo-int-list").Value;
             if (resultIntList.Count != testIntList.Count)
                 success = false;
             if (success)
@@ -307,7 +307,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resulDoubleList = Clipboard.Entry.GetItem<List<double>>("application/x-forms9patchdemo-double-list").Value;
+            var resulDoubleList = Forms9Patch.Clipboard.Entry.GetItem<List<double>>("application/x-forms9patchdemo-double-list").Value;
             if (resulDoubleList.Count != testDoubleList.Count)
                 success = false;
             if (success)
@@ -323,7 +323,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultStringList = Clipboard.Entry.GetItem<List<string>>("application/x-forms9patchdemo-string-list").Value;
+            var resultStringList = Forms9Patch.Clipboard.Entry.GetItem<List<string>>("application/x-forms9patchdemo-string-list").Value;
             if (resultStringList.Count != testStringList.Count)
                 success = false;
             if (success)
@@ -339,7 +339,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var resultDictionary = Clipboard.Entry.GetItem<Dictionary<string, double>>("application/x-forms9patchdemo-dictionary").Value;
+            var resultDictionary = Forms9Patch.Clipboard.Entry.GetItem<Dictionary<string, double>>("application/x-forms9patchdemo-dictionary").Value;
             if (resultDictionary.Keys.Count != testDictionary.Keys.Count)
                 success = false;
             if (success)
@@ -363,7 +363,7 @@ namespace Forms9PatchDemo
             lastT = t;
 
             success = true;
-            var entryItem = Clipboard.Entry.GetItem<List<Dictionary<string, string>>>("application/x-forms9patchdemo-dictionaryList");
+            var entryItem = Forms9Patch.Clipboard.Entry.GetItem<List<Dictionary<string, string>>>("application/x-forms9patchdemo-dictionaryList");
             var resultDictionaryList = entryItem.Value;
             if (resultDictionaryList.Count != testDictionaryList.Count)
                 success = false;
