@@ -4,3 +4,5 @@ Simplify multi-device image, font, text management in your .NetStandard, PCL, an
 [Documentation](https://baskren.github.io/Forms9Patch)
 
 [Special notes for Android](https://baskren.github.io/Forms9Patch/notes/Android.html)
+
+[Forms9Patch Source Code](https://github.com/baskren/Forms9Patch)
