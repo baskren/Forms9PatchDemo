@@ -341,7 +341,7 @@ namespace Forms9PatchDemo
         {
             HorizontalOptions = LayoutOptions.End,
             VerticalOptions = LayoutOptions.CenterAndExpand,
-            BorderRadius = 4,
+            OutlineRadius = 4,
             BackgroundColor = Color.DarkGray,
             TextColor = Color.White,
         };

@@ -7,27 +7,309 @@ using System.Collections.Generic;
 //using Forms9Patch;
 using System.Reflection;
 using System.Diagnostics;
+using System.IO;
 
 namespace Forms9PatchDemo
 {
     public class ClipboardTest : Xamarin.Forms.ContentPage
     {
+        #region Fields
         static int seed = 3452;
         readonly static Random _rand = new Random(seed);
+        #endregion
 
-        StatusLabel _byteTest = new StatusLabel("byte test ");
-        StatusLabel _byteArrayTest = new StatusLabel("byte[] test ");
-        StatusLabel _charTest = new StatusLabel("char test ");
-        StatusLabel _shortTest = new StatusLabel("short test ");
-        StatusLabel _intTest = new StatusLabel("int test ");
-        StatusLabel _longTest = new StatusLabel("long test ");
-        StatusLabel _doubleTest = new StatusLabel("double test ");
-        StatusLabel _stringTest = new StatusLabel("string test ");
-        StatusLabel _intListTest = new StatusLabel("List<int> test ");
-        StatusLabel _doubleListTest = new StatusLabel("List<double> test ");
-        StatusLabel _stringListTest = new StatusLabel("List<string> test ");
-        StatusLabel _dictionaryTest = new StatusLabel("Dictionary<string,double> test ");
-        StatusLabel _dictionaryListTest = new StatusLabel("List<Dictionary<string,double>> test ");
+
+        #region Tests
+        TestElement _byteTest = new TestElement("byte test ", (entry) =>
+        {
+            var testByteArray = new byte[200];
+            _rand.NextBytes(testByteArray);
+            entry.AddValue("application/x-forms9patchdemo-byte", testByteArray[0]);
+            return testByteArray[0];
+        }, (object obj) =>
+        {
+            var resultMimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte>("application/x-forms9patchdemo-byte");
+            var resultByte = resultMimeItem.Value;
+            return obj.Equals(resultByte);
+        });
+        TestElement _byteArrayTest = new TestElement("byte[] test ", (entry) =>
+        {
+            var testByteArray = new byte[200];
+            _rand.NextBytes(testByteArray);
+            entry.AddValue("application/x-forms9patchdemo-bytebuffer", testByteArray);
+            return testByteArray;
+        }, (object obj) =>
+        {
+            var resultByteArray = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("application/x-forms9patchdemo-bytebuffer").Value;
+            if (obj is byte[] testByteArray)
+            {
+                if (resultByteArray.Count() != testByteArray.Count())
+                    throw new Exception("byte array counts don't match");
+                for (int i = 0; i < resultByteArray.Count(); i++)
+                    if (resultByteArray[i] != testByteArray[i])
+                        return false;
+                return true;
+            }
+            return false;
+        });
+        TestElement _charTest = new TestElement("char test ", (entry) =>
+        {
+            var testChar = (char)_rand.Next(255);
+            entry.AddValue("application/x-forms9patchdemo-char", testChar);
+            return testChar;
+        }, (object obj) =>
+        {
+            if (obj is char testChar)
+            {
+                var resultChar = Forms9Patch.Clipboard.Entry.GetItem<char>("application/x-forms9patchdemo-char").Value;
+                return resultChar == testChar;
+            }
+            return false;
+        });
+        TestElement _shortTest = new TestElement("short test ", (entry) =>
+        {
+            var testShort = (short)_rand.Next(255);
+            entry.AddValue("application/x-forms9patchdemo-short", testShort);
+            return testShort;
+        }, (object obj) =>
+        {
+            if (obj is short testShort)
+            {
+                var resultShort = Forms9Patch.Clipboard.Entry.GetItem<short>("application/x-forms9patchdemo-short").Value;
+                return resultShort == testShort;
+            }
+            return false;
+        });
+        TestElement _intTest = new TestElement("int test ", (entry) =>
+        {
+            var testInt = _rand.Next();
+            entry.AddValue("application/x-forms9patchdemo-int", testInt);
+            return testInt;
+        }, (object obj) =>
+        {
+            if (obj is int testInt)
+            {
+                var resultInt = Forms9Patch.Clipboard.Entry.GetItem<int>("application/x-forms9patchdemo-int").Value;
+                return testInt == resultInt;
+            }
+            return false;
+        });
+        TestElement _longTest = new TestElement("long test ", (entry) =>
+        {
+            var testLong = (long)_rand.Next() + (long)int.MaxValue;
+            entry.AddValue("application/x-forms9patchdemo-long", testLong);
+            return testLong;
+        }, (object obj) =>
+        {
+            if (obj is long testLong)
+            {
+                var resultLong = Forms9Patch.Clipboard.Entry.GetItem<long>("application/x-forms9patchdemo-long").Value;
+                return resultLong == testLong;
+            }
+            return false;
+        });
+        TestElement _doubleTest = new TestElement("double test ", (entry) =>
+        {
+            var testDouble = _rand.NextDouble();
+            entry.AddValue("application/x-forms9patchdemo-double", testDouble);
+            return testDouble;
+        }, (object obj) =>
+        {
+            if (obj is double testDouble)
+            {
+                var resultDouble = Forms9Patch.Clipboard.Entry.GetItem<double>("application/x-forms9patchdemo-double").Value;
+                return Math.Abs(testDouble - resultDouble) < 0.00001;
+            }
+            return false;
+        });
+        TestElement _stringTest = new TestElement("string test ", (entry) =>
+        {
+            var testString = "This is application/x-forms9patchdemo-string: ⅓ ⅔ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳  🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🙃 😐 😑 🤔 🙄 😮 😔 😖 😕";
+            entry.AddValue("application/x-forms9patchdemo-string", testString);
+            return testString;
+        }, (object obj) =>
+        {
+            if (obj is string testString)
+            {
+                var resultString = Forms9Patch.Clipboard.Entry.GetItem<string>("application/x-forms9patchdemo-string").Value;
+                return testString == resultString;
+            }
+            return false;
+        });
+        TestElement _intListTest = new TestElement("List<int> test ", (entry) =>
+        {
+            var testIntList = new List<int>();
+            for (int i = 0; i < 20; i++)
+                testIntList.Add(i);
+            entry.AddValue("application/x-forms9patchdemo-int-list", testIntList);
+            return testIntList;
+        }, (object obj) =>
+        {
+            if (obj is List<int> testIntList)
+            {
+                var resultIntList = Forms9Patch.Clipboard.Entry.GetItem<List<int>>("application/x-forms9patchdemo-int-list").Value;
+                if (resultIntList.Count != testIntList.Count)
+                    return false;
+                for (int i = 0; i < resultIntList.Count; i++)
+                    if (resultIntList[i] != testIntList[i])
+                        return false;
+                return true;
+            }
+            return false;
+        });
+        TestElement _doubleListTest = new TestElement("List<double> test ", (entry) =>
+        {
+            var testDoubleList = new List<double>();
+            for (int i = 0; i < 20; i++)
+                testDoubleList.Add(i + i / 10.0);
+            entry.AddValue("application/x-forms9patchdemo-double-list", testDoubleList);
+            return testDoubleList;
+        }, (object obj) =>
+        {
+            if (obj is List<double> testDoubleList)
+            {
+                var resulDoubleList = Forms9Patch.Clipboard.Entry.GetItem<List<double>>("application/x-forms9patchdemo-double-list").Value;
+                if (resulDoubleList.Count != testDoubleList.Count)
+                    return false;
+                for (int i = 0; i < resulDoubleList.Count; i++)
+                    if (Math.Abs(resulDoubleList[i] - testDoubleList[i]) > 0.00001)
+                        return false;
+                return true;
+            }
+            return false;
+        });
+        TestElement _stringListTest = new TestElement("List<string> test ", (entry) =>
+        {
+            var testStringList = new List<string>();
+            for (int i = 0; i < 20; i++)
+                testStringList.Add(RandomString(10));
+            entry.AddValue("application/x-forms9patchdemo-string-list", testStringList);
+            return testStringList;
+        }, (object obj) =>
+        {
+            if (obj is List<string> testStringList)
+            {
+                var resultStringList = Forms9Patch.Clipboard.Entry.GetItem<List<string>>("application/x-forms9patchdemo-string-list").Value;
+                if (resultStringList.Count != testStringList.Count)
+                    return false;
+                for (int i = 0; i < resultStringList.Count; i++)
+                    if (resultStringList[i] != testStringList[i])
+                        return false;
+                return true;
+            }
+            return false;
+        });
+        TestElement _dictionaryTest = new TestElement("Dictionary<string,double> test ", (entry) =>
+        {
+            var testDictionary = new Dictionary<string, double>();
+            for (int i = 0; i < 20; i++)
+                testDictionary.Add(RandomString(10), i + i / 10.0);
+            entry.AddValue("application/x-forms9patchdemo-dictionary", testDictionary);
+
+            return testDictionary;
+        }, (object obj) =>
+        {
+            if (obj is Dictionary<string, double> testDictionary)
+            {
+                var resultDictionary = Forms9Patch.Clipboard.Entry.GetItem<Dictionary<string, double>>("application/x-forms9patchdemo-dictionary").Value;
+                if (resultDictionary.Keys.Count != testDictionary.Keys.Count)
+                    return false;
+                foreach (var key in testDictionary.Keys)
+                {
+                    if (!resultDictionary.Keys.Contains(key))
+                        return false;
+                    if (resultDictionary[key] != testDictionary[key])
+                        return false;
+                }
+                return true;
+            }
+            return false;
+        });
+        TestElement _dictionaryListTest = new TestElement("List<Dictionary<string,double>> test ", (entry) =>
+        {
+            var testDictionary = new Dictionary<string, double>();
+            for (int i = 0; i < 20; i++)
+                testDictionary.Add(RandomString(10), i + i / 10.0);
+            var testDictionaryList = new List<Dictionary<string, string>>();
+            var keys = testDictionary.Keys;
+            for (int i = 0; i < 20; i++)
+            {
+                var dictionary = new Dictionary<string, string>();
+                foreach (var key in keys)
+                    dictionary.Add(key, "key=[" + key + "] index=[" + i + "] rand=[" + RandomString(10) + "]");
+                testDictionaryList.Add(dictionary);
+            }
+            entry.AddValue("application/x-forms9patchdemo-dictionaryList", testDictionaryList);
+            return testDictionaryList;
+        }, (object obj) =>
+        {
+            if (obj is List<Dictionary<string, string>> testDictionaryList)
+            {
+                var entryItem = Forms9Patch.Clipboard.Entry.GetItem<List<Dictionary<string, string>>>("application/x-forms9patchdemo-dictionaryList");
+                var resultDictionaryList = entryItem.Value;
+                if (resultDictionaryList.Count != testDictionaryList.Count)
+                    return false;
+                for (int i = 0; i < testDictionaryList.Count; i++)
+                {
+                    var tDictionary = testDictionaryList[i];
+                    var rDictionary = resultDictionaryList[i];
+                    if (tDictionary.Count != rDictionary.Count)
+                        return false;
+                    var tKeys = tDictionary.Keys;
+                    foreach (var key in tKeys)
+                    {
+                        if (!rDictionary.Keys.Contains(key))
+                            return false;
+                        if (rDictionary[key] != tDictionary[key])
+                            return false;
+                    }
+                }
+                return true;
+            }
+            return false;
+        });
+        TestElement _dateTimeTest = new TestElement("DateTime", (entry) =>
+        {
+            // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
+            var dateTime = DateTime.Now;
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(dateTime);
+            entry.AddValue("application/x-forms9patchdemo-datetime-string", json);
+            return dateTime;
+        }, (obj) =>
+        {
+            if (obj is DateTime testDateTime)
+            {
+                var dateTimeResultJson = Forms9Patch.Clipboard.Entry.GetItem<string>("application/x-forms9patchdemo-datetime-string").Value;
+                var resultDateTime = Newtonsoft.Json.JsonConvert.DeserializeObject<DateTime>(dateTimeResultJson);
+                return testDateTime == resultDateTime;
+            }
+            return false;
+        });
+        TestElement _jpegTest = new TestElement("jpeg file test ", (entry) =>
+        {
+            // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
+            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons.jpg");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.balloons.jpg", path);
+            if (!File.Exists(path))
+                throw new Exception("EmbeddedResource was not extracted to file");
+            return entry.AddContentOfFile("image/jpeg", path);
+        }, (object obj) =>
+        {
+            if (obj is byte[] jpegTest)
+            {
+                var jpegMimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("image/jpeg");
+                var jpegResult = jpegMimeItem.Value;
+                if (jpegTest.Length == jpegResult.Length)
+                    return NewMemCmp(jpegTest, jpegResult, jpegTest.Length);
+                return false;
+            }
+            return false;
+        });
+        #endregion
+
+
+        #region other visual elements
+        Xamarin.Forms.Label _availableMimeTypesLabel = new Xamarin.Forms.Label();
 
         Xamarin.Forms.Label _elapsedTimeLabel = new Xamarin.Forms.Label();
 
@@ -43,16 +325,23 @@ namespace Forms9PatchDemo
             Text = "run test"
         };
 
+        Forms9Patch.Toast _clipboardChangedToast = new Forms9Patch.Toast { Title = "CLIPBOARD CHANGED", Text = "The clipboard has changed." };
+        #endregion
+
+
         public ClipboardTest()
         {
             Padding = new Thickness(20, Device.RuntimePlatform == Device.iOS ? 40 : 20, 20, 0);
 
             _entryCaching.IsToggled = Forms9Patch.Clipboard.EntryCaching;
-            //_entryItemTypeCaching.IsToggled = Clipboard.EntryItemTypeCaching;
 
             _entryCaching.Toggled += (sender, e) => Forms9Patch.Clipboard.EntryCaching = _entryCaching.IsToggled;
-            //_entryItemTypeCaching.Toggled += (sender, e) => Clipboard.EntryItemTypeCaching = _entryItemTypeCaching.IsToggled;
 
+            _availableMimeTypesLabel.Text = string.Join(", ", Forms9Patch.Clipboard.Entry.MimeTypes);
+
+            _layout.Children.Add(new Label { Text = "Available Mime Types: " });
+            _layout.Children.Add(_availableMimeTypesLabel);
+            _layout.Children.Add(new BoxView { Color = Color.Black, HeightRequest = 1 });
             _layout.Children.Add(_byteTest);
             _layout.Children.Add(_byteArrayTest);
             _layout.Children.Add(_shortTest);
@@ -65,11 +354,11 @@ namespace Forms9PatchDemo
             _layout.Children.Add(_stringListTest);
             _layout.Children.Add(_dictionaryTest);
             _layout.Children.Add(_dictionaryListTest);
+            _layout.Children.Add(_dateTimeTest);
+            _layout.Children.Add(_jpegTest);
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
             _layout.Children.Add(new Forms9Patch.Label("Entry caching:"));
             _layout.Children.Add(_entryCaching);
-            //_layout.Children.Add(new Forms9Patch.Label("EntryItem type caching:"));
-            //_layout.Children.Add(_entryItemTypeCaching);
             _layout.Children.Add(_execute);
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
             _layout.Children.Add(_elapsedTimeLabel);
@@ -98,7 +387,8 @@ namespace Forms9PatchDemo
 
         void Clipboard_ContentChanged(object sender, EventArgs e)
         {
-            Forms9Patch.Toast.Create("CHANGED!", "The clipboard has changed");
+            _clipboardChangedToast.IsVisible = true;
+            _availableMimeTypesLabel.Text = string.Join(", ", Forms9Patch.Clipboard.Entry.MimeTypes);
         }
 
 
@@ -110,295 +400,39 @@ namespace Forms9PatchDemo
             var entry = new Forms9Patch.ClipboardEntry();
 
 
-            var testByteArray = new byte[200];
-            _rand.NextBytes(testByteArray);
-            entry.AddValue("application/x-forms9patchdemo-byte", testByteArray[0]);
-            entry.AddValue("application/x-forms9patchdemo-bytebuffer", testByteArray);
-            var t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "]");
-            var lastT = t;
-
-
-            var testChar = (char)_rand.Next(255);
-            entry.AddValue("application/x-forms9patchdemo-char", testChar);
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-            var testShort = (short)_rand.Next(255);
-            entry.AddValue("application/x-forms9patchdemo-short", testShort);
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-            var testInt = _rand.Next();
-            entry.AddValue("application/x-forms9patchdemo-int", testInt);
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-            var testLong = (long)_rand.Next() + (long)int.MaxValue;
-            entry.AddValue("application/x-forms9patchdemo-long", testLong);
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-            var testDouble = _rand.NextDouble();
-            entry.AddValue("application/x-forms9patchdemo-double", testDouble);
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-            var testString = "This is application/x-forms9patchdemo-string: ⅓ ⅔ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳  🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🙃 😐 😑 🤔 🙄 😮 😔 😖 😕";
-            entry.AddValue("application/x-forms9patchdemo-string", testString);
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-            var testIntList = new List<int>();
-            for (int i = 0; i < 20; i++)
-                testIntList.Add(i);
-            entry.AddValue("application/x-forms9patchdemo-int-list", testIntList);
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-            var testDoubleList = new List<double>();
-            for (int i = 0; i < 20; i++)
-                testDoubleList.Add(i + i / 10.0);
-            entry.AddValue("application/x-forms9patchdemo-double-list", testDoubleList);
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-            var testStringList = new List<string>();
-            for (int i = 0; i < 20; i++)
-                testStringList.Add(RandomString(10));
-            entry.AddValue("application/x-forms9patchdemo-string-list", testStringList);
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-
-            var testDictionary = new Dictionary<string, double>();
-            for (int i = 0; i < 20; i++)
-                testDictionary.Add(RandomString(10), i + i / 10.0);
-            entry.AddValue("application/x-forms9patchdemo-dictionary", testDictionary);
-
-            var testDictionaryList = new List<Dictionary<string, string>>();
-            var keys = testDictionary.Keys;
-            for (int i = 0; i < 20; i++)
-            {
-                var dictionary = new Dictionary<string, string>();
-                foreach (var key in keys)
-                    dictionary.Add(key, "key=[" + key + "] index=[" + i + "] rand=[" + RandomString(10) + "]");
-                testDictionaryList.Add(dictionary);
-            }
-            entry.AddValue("application/x-forms9patchdemo-dictionaryList", testDictionaryList);
-
-
-            // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string or byte[]) and stored that way.
-            entry.AddValue("application/x-forms9patchdemo-datetime-string", DateTime.Now.ToLocalTime().ToString());
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
+            var testByte = (byte)_byteTest.CopyAction.Invoke(entry);
+            var testByteArray = (byte[])_byteArrayTest.CopyAction.Invoke(entry);
+            var testChar = (char)_charTest.CopyAction.Invoke(entry);
+            var testShort = (short)_shortTest.CopyAction.Invoke(entry);
+            var testInt = (int)_intTest.CopyAction.Invoke(entry);
+            var testLong = (long)_longTest.CopyAction.Invoke(entry);
+            var testDouble = (double)_doubleTest.CopyAction.Invoke(entry);
+            var testString = (string)_stringTest.CopyAction.Invoke(entry);
+            var testIntList = (List<int>)_intListTest.CopyAction.Invoke(entry);
+            var testDoubleList = (List<double>)_doubleListTest.CopyAction.Invoke(entry);
+            var testStringList = (List<string>)_stringListTest.CopyAction.Invoke(entry);
+            var testDictionary = (Dictionary<string, double>)_dictionaryTest.CopyAction.Invoke(entry);
+            var testDictionaryList = (List<Dictionary<string, string>>)_dictionaryListTest.CopyAction.Invoke(entry);
+            var testDateTime = (DateTime)_dateTimeTest.CopyAction.Invoke(entry);
+            var testJpegByteArray = (byte[])_jpegTest.CopyAction.Invoke(entry);
 
             Forms9Patch.Clipboard.Entry = entry;
-            t = stopWatch.ElapsedMilliseconds;
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
 
-            bool success = true;
-            var resultByteArray = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("application/x-forms9patchdemo-bytebuffer").Value;
-            if (resultByteArray.Count() != testByteArray.Count())
-                throw new Exception("byte array counts don't match");
-            for (int i = 0; i < resultByteArray.Count(); i++)
-                if (resultByteArray[i] != testByteArray[i])
-                {
-                    success = false;
-                    break;
-                }
-            _byteArrayTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _byteArrayTest.Time = (t - lastT);
-            lastT = t;
-
-
-
-
-            success = true;
-            var resultByte = Forms9Patch.Clipboard.Entry.GetItem<byte>("application/x-forms9patchdemo-byte").Value;
-            if (resultByte != testByteArray[0])
-                success = false;
-            _byteTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _byteTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resultChar = Forms9Patch.Clipboard.Entry.GetItem<char>("application/x-forms9patchdemo-char").Value;
-            if (resultChar != testChar)
-                success = false;
-            _charTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _charTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resultShort = Forms9Patch.Clipboard.Entry.GetItem<short>("application/x-forms9patchdemo-short").Value;
-            if (resultShort != testShort)
-                success = false;
-            _shortTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _shortTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resultInt = Forms9Patch.Clipboard.Entry.GetItem<int>("application/x-forms9patchdemo-int").Value;
-            if (resultInt != testInt)
-                success = false;
-            _intTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _intTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resultLong = Forms9Patch.Clipboard.Entry.GetItem<long>("application/x-forms9patchdemo-long").Value;
-            if (resultLong != testLong)
-                success = false;
-            _longTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _longTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resultDouble = Forms9Patch.Clipboard.Entry.GetItem<double>("application/x-forms9patchdemo-double").Value;
-            if (resultDouble != testDouble)
-                success = false;
-            _doubleTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _doubleTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resultString = Forms9Patch.Clipboard.Entry.GetItem<string>("application/x-forms9patchdemo-string").Value;
-            if (resultString != testString)
-                success = false;
-            _stringTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _stringTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resultIntList = Forms9Patch.Clipboard.Entry.GetItem<List<int>>("application/x-forms9patchdemo-int-list").Value;
-            if (resultIntList.Count != testIntList.Count)
-                success = false;
-            if (success)
-                for (int i = 0; i < resultIntList.Count; i++)
-                    if (resultIntList[i] != testIntList[i])
-                    {
-                        success = false;
-                        break;
-                    }
-            _intListTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _intListTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resulDoubleList = Forms9Patch.Clipboard.Entry.GetItem<List<double>>("application/x-forms9patchdemo-double-list").Value;
-            if (resulDoubleList.Count != testDoubleList.Count)
-                success = false;
-            if (success)
-                for (int i = 0; i < resulDoubleList.Count; i++)
-                    if (resulDoubleList[i] != testDoubleList[i])
-                    {
-                        success = false;
-                        break;
-                    }
-            _doubleListTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _doubleListTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resultStringList = Forms9Patch.Clipboard.Entry.GetItem<List<string>>("application/x-forms9patchdemo-string-list").Value;
-            if (resultStringList.Count != testStringList.Count)
-                success = false;
-            if (success)
-                for (int i = 0; i < resultIntList.Count; i++)
-                    if (resultStringList[i] != testStringList[i])
-                    {
-                        success = false;
-                        break;
-                    }
-            _stringListTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _stringListTest.Time = (t - lastT);
-            lastT = t;
-
-            success = true;
-            var resultDictionary = Forms9Patch.Clipboard.Entry.GetItem<Dictionary<string, double>>("application/x-forms9patchdemo-dictionary").Value;
-            if (resultDictionary.Keys.Count != testDictionary.Keys.Count)
-                success = false;
-            if (success)
-                foreach (var key in testDictionary.Keys)
-                {
-                    if (!resultDictionary.Keys.Contains(key))
-                    {
-                        success = false;
-                        break;
-                    }
-                    if (resultDictionary[key] != testDictionary[key])
-                    {
-                        success = false;
-                        break;
-                    }
-                }
-            _dictionaryTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _dictionaryTest.Time = (t - lastT);
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
-            success = true;
-            var entryItem = Forms9Patch.Clipboard.Entry.GetItem<List<Dictionary<string, string>>>("application/x-forms9patchdemo-dictionaryList");
-            var resultDictionaryList = entryItem.Value;
-            if (resultDictionaryList.Count != testDictionaryList.Count)
-                success = false;
-            if (success)
-                for (int i = 0; i < testDictionaryList.Count; i++)
-                {
-                    var tDictionary = testDictionaryList[i];
-                    var rDictionary = resultDictionaryList[i];
-                    if (tDictionary.Count != rDictionary.Count)
-                        success = false;
-                    if (success)
-                    {
-                        var tKeys = tDictionary.Keys;
-                        foreach (var key in tKeys)
-                        {
-                            if (!rDictionary.Keys.Contains(key))
-                            {
-                                success = false;
-                                break;
-                            }
-                            if (rDictionary[key] != tDictionary[key])
-                            {
-                                success = false;
-                                break;
-
-                            }
-                        }
-                    }
-                }
-            _dictionaryListTest.Success = success;
-            t = stopWatch.ElapsedMilliseconds;
-            _dictionaryListTest.Time = (t - lastT);
-            System.Diagnostics.Debug.WriteLine("t=[" + t + "] delta=[" + (t - lastT) + "]");
-            lastT = t;
-
+            _byteTest.Success = _byteTest.PasteFunction(testByte);
+            _byteArrayTest.Success = _byteArrayTest.PasteFunction(testByteArray);
+            _charTest.Success = _charTest.PasteFunction(testChar);
+            _shortTest.Success = _shortTest.PasteFunction(testShort);
+            _intTest.Success = _intTest.PasteFunction(testInt);
+            _longTest.Success = _longTest.PasteFunction(testLong);
+            _doubleTest.Success = _doubleTest.PasteFunction(testDouble);
+            _stringTest.Success = _stringTest.PasteFunction(testString);
+            _intListTest.Success = _intListTest.PasteFunction(testIntList);
+            _doubleListTest.Success = _doubleListTest.PasteFunction(testDoubleList);
+            _stringListTest.Success = _stringListTest.PasteFunction(testStringList);
+            _dictionaryTest.Success = _dictionaryTest.PasteFunction(testDictionary);
+            _dictionaryListTest.Success = _dictionaryListTest.PasteFunction(testDictionaryList);
+            _dateTimeTest.Success = _dateTimeTest.PasteFunction(testDateTime);
+            _jpegTest.Success = _jpegTest.PasteFunction(testJpegByteArray);
 
             stopWatch.Stop();
             _elapsedTimeLabel.Text = "Elapsed time: " + stopWatch.ElapsedMilliseconds + "ms";
@@ -412,37 +446,159 @@ namespace Forms9PatchDemo
               .Select(s => s[_rand.Next(s.Length)]).ToArray());
         }
 
-        class StatusLabel : Xamarin.Forms.StackLayout
+        static void ExtractEmbeddedResourceToPath(Assembly assembly, String embeddedResourceId, String path)
         {
-            public static readonly BindableProperty TextProperty = BindableProperty.Create("Text", typeof(string), typeof(StatusLabel), default(string));
+            Stream resFilestream = assembly.GetManifestResourceStream(embeddedResourceId);
+            if (resFilestream != null)
+            {
+                System.Diagnostics.Debug.WriteLine("embedded resource length: " + resFilestream.Length);
+                using (BinaryReader br = new BinaryReader(resFilestream))
+                {
+                    if (br != null)
+                    {
+                        using (FileStream fs = new FileStream(path, FileMode.Create))
+                        {
+                            if (fs != null)
+                            {
+                                using (BinaryWriter bw = new BinaryWriter(fs))
+                                {
+                                    if (bw != null)
+                                    {
+                                        byte[] ba = new byte[resFilestream.Length];
+                                        resFilestream.Read(ba, 0, ba.Length);
+                                        bw.Write(ba);
+                                        var fileInfo = new System.IO.FileInfo(path);
+                                        System.Diagnostics.Debug.WriteLine("output length: " + fileInfo.Length);
+                                        System.Diagnostics.Debug.WriteLine("output length: " + fs.Length);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        static byte[] ByteArrayFromFile(String path)
+        {
+            using (FileStream filestream = new FileStream(path, FileMode.Open, FileAccess.Read))
+            {
+                if (filestream != null)
+                {
+                    System.Diagnostics.Debug.WriteLine("embedded resource length: " + filestream.Length);
+                    using (BinaryReader br = new BinaryReader(filestream))
+                    {
+                        if (br != null)
+                        {
+                            //using (FileStream fs = new FileStream(path, FileMode.Create))
+                            using (MemoryStream ms = new MemoryStream((int)filestream.Length))
+                            {
+                                if (ms != null)
+                                {
+                                    using (BinaryWriter bw = new BinaryWriter(ms))
+                                    {
+                                        if (bw != null)
+                                        {
+                                            byte[] ba = new byte[filestream.Length];
+                                            filestream.Read(ba, 0, ba.Length);
+                                            bw.Write(ba);
+                                            var fileInfo = new System.IO.FileInfo(path);
+                                            System.Diagnostics.Debug.WriteLine("output length: " + fileInfo.Length);
+                                            System.Diagnostics.Debug.WriteLine("output length: " + ms.Length);
+                                            return ms.ToArray();
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        public static unsafe bool NewMemCmp(byte* b0, byte* b1, int length)
+        {
+            byte* lastAddr = b0 + length;
+            byte* lastAddrMinus32 = lastAddr - 32;
+            while (b0 < lastAddrMinus32) // unroll the loop so that we are comparing 32 bytes at a time.
+            {
+                if (*(ulong*)b0 != *(ulong*)b1) return false;
+                if (*(ulong*)(b0 + 8) != *(ulong*)(b1 + 8)) return false;
+                if (*(ulong*)(b0 + 16) != *(ulong*)(b1 + 16)) return false;
+                if (*(ulong*)(b0 + 24) != *(ulong*)(b1 + 24)) return false;
+                b0 += 32;
+                b1 += 32;
+            }
+            while (b0 < lastAddr)
+            {
+                if (*b0 != *b1) return false;
+                b0++;
+                b1++;
+            }
+            return true;
+        }
+
+        public static unsafe bool NewMemCmp(byte[] arr0, byte[] arr1, int length)
+        {
+            fixed (byte* b0 = arr0, b1 = arr1)
+            {
+                return b0 == b1 || NewMemCmp(b0, b1, length);
+            }
+        }
+
+        class TestElement : Xamarin.Forms.StackLayout
+        {
+            public static readonly BindableProperty TextProperty = BindableProperty.Create("Text", typeof(string), typeof(TestElement), default(string));
             public string Text
             {
                 get { return (string)GetValue(TextProperty); }
                 set { SetValue(TextProperty, value); }
             }
 
-            public static readonly BindableProperty SuccessProperty = BindableProperty.Create("Success", typeof(bool), typeof(StatusLabel), default(bool));
+            public static readonly BindableProperty SuccessProperty = BindableProperty.Create("Success", typeof(bool), typeof(TestElement), default(bool));
             public bool Success
             {
                 get { return (bool)GetValue(SuccessProperty); }
                 set { SetValue(SuccessProperty, value); }
             }
-            public static readonly BindableProperty TimeProperty = BindableProperty.Create("Time", typeof(long), typeof(StatusLabel), default(long));
+            public static readonly BindableProperty TimeProperty = BindableProperty.Create("Time", typeof(long), typeof(TestElement), default(long));
             public long Time
             {
                 get { return (long)GetValue(TimeProperty); }
                 set { SetValue(TimeProperty, value); }
             }
 
+            public Func<Forms9Patch.ClipboardEntry, object> CopyAction { get; private set; }
 
-            Xamarin.Forms.Label _textLabel = new Xamarin.Forms.Label();
-            Xamarin.Forms.Label _statusLabel = new Xamarin.Forms.Label { Text = "☐" };
-            Xamarin.Forms.Label _timeLabel = new Xamarin.Forms.Label { HorizontalOptions = LayoutOptions.FillAndExpand, HorizontalTextAlignment = TextAlignment.End };
+            public Func<object, bool> PasteFunction { get; private set; }
 
-            public StatusLabel(string text)
+            readonly Xamarin.Forms.Button _testButton = new Xamarin.Forms.Button { Text = " Test ", BorderWidth = 1, BorderColor = Color.Blue, HorizontalOptions = LayoutOptions.Start };
+            readonly Xamarin.Forms.Label _textLabel = new Xamarin.Forms.Label();
+            readonly Xamarin.Forms.Label _statusLabel = new Xamarin.Forms.Label { Text = "☐" };
+            readonly Xamarin.Forms.Label _timeLabel = new Xamarin.Forms.Label { HorizontalOptions = LayoutOptions.FillAndExpand, HorizontalTextAlignment = TextAlignment.End };
+
+            public TestElement(string text, Func<Forms9Patch.ClipboardEntry, object> copyAction = null, Func<object, bool> pasteFunction = null)
             {
                 _textLabel.Text = text;
+                CopyAction = copyAction;
+                PasteFunction = pasteFunction;
                 Orientation = StackOrientation.Horizontal;
+                if (CopyAction != null && PasteFunction != null)
+                {
+                    Children.Add(_testButton);
+                    _testButton.Clicked += (s, e) =>
+                    {
+                        var stopWatch = new Stopwatch();
+                        stopWatch.Start();
+                        var entry = new Forms9Patch.ClipboardEntry();
+                        var obj = CopyAction.Invoke(entry);
+                        Forms9Patch.Clipboard.Entry = entry;
+                        Success = PasteFunction.Invoke(obj);
+                        stopWatch.Stop();
+                        Time = stopWatch.ElapsedMilliseconds;
+                    };
+                }
                 Children.Add(_statusLabel);
                 Children.Add(_textLabel);
                 Children.Add(_timeLabel);
@@ -461,6 +617,7 @@ namespace Forms9PatchDemo
                 else if (propertyName == TimeProperty.PropertyName)
                     _timeLabel.Text = Time.ToString() + "ms";
             }
+
         }
     }
 }
