@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Diagnostics;
 using System.IO;
+//using Forms9Patch;
 
 namespace Forms9PatchDemo
 {
@@ -285,26 +286,90 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _jpegTest = new TestElement("jpeg file test ", (entry) =>
+
+        TestElement _jpegTest = new TestElement("jpeg file test", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
             var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons.jpg");
             ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.balloons.jpg", path);
             if (!File.Exists(path))
-                throw new Exception("EmbeddedResource was not extracted to file");
-            return entry.AddContentOfFile("image/jpeg", path);
+                throw new Exception("EmbeddedResource (balloons.jpg) was not extracted to file");
+            var result = entry.AddContentOfFile("image/jpeg", path);
+            _testImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(result));
+            return result;
         }, (object obj) =>
         {
-            if (obj is byte[] jpegTest)
+            if (obj is byte[] testByteArray)
             {
-                var jpegMimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("image/jpeg");
-                var jpegResult = jpegMimeItem.Value;
-                if (jpegTest.Length == jpegResult.Length)
-                    return NewMemCmp(jpegTest, jpegResult, jpegTest.Length);
+                var mimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("image/jpeg");
+                var mimeResult = mimeItem?.Value;
+                _resultImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(mimeResult));
+                if (testByteArray.Length == mimeResult.Length)
+                    return NewMemCmp(testByteArray, mimeResult, testByteArray.Length);
                 return false;
             }
             return false;
         });
+
+        TestElement _pngTest = new TestElement("png file test", (entry) =>
+        {
+            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "236-baby.png");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.236-baby.png", path);
+            if (!File.Exists(path))
+                throw new Exception("EmbeddedResource (236-baby.png) was not extracted to file");
+            var result = entry.AddContentOfFile("image/png", path);
+            _testImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(result));
+            return result;
+        }, (object obj) =>
+        {
+            if (obj is byte[] testByteArray)
+            {
+                var mimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("image/png");
+                var mimeResult = mimeItem?.Value;
+                _resultImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(mimeResult));
+                if (testByteArray.Length == mimeResult.Length)
+                    return NewMemCmp(testByteArray, mimeResult, testByteArray.Length);
+                return false;
+            }
+            return false;
+        });
+
+        TestElement _pdfTest = new TestElement("pdf file test", (entry) =>
+        {
+            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.ProjectProposal.pdf", path);
+            if (!File.Exists(path))
+                throw new Exception("EmbeddedResource (ProjectProposal.pdf) was not extracted to file");
+            return entry.AddContentOfFile("application/pdf", path);
+        }, (object obj) =>
+        {
+            if (obj is byte[] testByteArray)
+            {
+                var mimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("application/pdf");
+                var resultByteArray = mimeItem?.Value;
+                if (testByteArray.Length == resultByteArray.Length)
+                    return NewMemCmp(testByteArray, resultByteArray, testByteArray.Length);
+                return false;
+            }
+            return false;
+        });
+
+        TestElement _jpgUrlTest = new TestElement("jpeg file test", (entry) =>
+        {
+            entry.Uri = new Uri("https://i.redditmedia.com/npNromwDHMXlxFMa0CAZqw0MMSKFj-aHx5rvgQNPXyA.jpg?fit=crop&crop=faces%2Centropy&arh=2&w=640&s=04fe226f00868a3182265a9af861608e");
+            _testImage.Source = Xamarin.Forms.ImageSource.FromUri(entry.Uri);
+            return entry.Uri;
+        }, (object obj) =>
+        {
+            if (obj is Uri testUri)
+            {
+                var resultUri = Forms9Patch.Clipboard.Entry.Uri;
+                _resultImage.Source = Xamarin.Forms.ImageSource.FromUri(resultUri);
+                return testUri == resultUri;
+            }
+            return false;
+        });
+
         #endregion
 
 
@@ -326,6 +391,27 @@ namespace Forms9PatchDemo
         };
 
         Forms9Patch.Toast _clipboardChangedToast = new Forms9Patch.Toast { Title = "CLIPBOARD CHANGED", Text = "The clipboard has changed." };
+
+        static Xamarin.Forms.Image _testImage = new Xamarin.Forms.Image
+        {
+            Aspect = Aspect.AspectFit,
+        };
+
+        static Xamarin.Forms.Image _resultImage = new Xamarin.Forms.Image
+        {
+            Aspect = Aspect.AspectFit,
+        };
+
+        Xamarin.Forms.Grid _jpegComparisonGrid = new Xamarin.Forms.Grid
+        {
+            ColumnDefinitions =
+            {
+                new ColumnDefinition{ Width = GridLength.Star },
+                new ColumnDefinition{ Width = GridLength.Star },
+            },
+        };
+
+
         #endregion
 
 
@@ -339,7 +425,11 @@ namespace Forms9PatchDemo
 
             _availableMimeTypesLabel.Text = string.Join(", ", Forms9Patch.Clipboard.Entry.MimeTypes);
 
-            _layout.Children.Add(new Label { Text = "Available Mime Types: " });
+            _jpegComparisonGrid.Children.Add(_testImage);
+            _jpegComparisonGrid.Children.Add(_resultImage, 1, 0);
+
+
+            _layout.Children.Add(new Xamarin.Forms.Label { Text = "Available Mime Types: " });
             _layout.Children.Add(_availableMimeTypesLabel);
             _layout.Children.Add(new BoxView { Color = Color.Black, HeightRequest = 1 });
             _layout.Children.Add(_byteTest);
@@ -355,7 +445,16 @@ namespace Forms9PatchDemo
             _layout.Children.Add(_dictionaryTest);
             _layout.Children.Add(_dictionaryListTest);
             _layout.Children.Add(_dateTimeTest);
+            _layout.Children.Add(_pdfTest);
+
+            _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
+            _layout.Children.Add(new Label { Text = "Must visually check images because results will not be the same, byte for byte" });
+            _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
+
             _layout.Children.Add(_jpegTest);
+            _layout.Children.Add(_pngTest);
+            _layout.Children.Add(_jpgUrlTest);
+            _layout.Children.Add(_jpegComparisonGrid);
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
             _layout.Children.Add(new Forms9Patch.Label("Entry caching:"));
             _layout.Children.Add(_entryCaching);
@@ -415,6 +514,7 @@ namespace Forms9PatchDemo
             var testDictionaryList = (List<Dictionary<string, string>>)_dictionaryListTest.CopyAction.Invoke(entry);
             var testDateTime = (DateTime)_dateTimeTest.CopyAction.Invoke(entry);
             var testJpegByteArray = (byte[])_jpegTest.CopyAction.Invoke(entry);
+            var testPngByteArray = (byte[])_pngTest.CopyAction.Invoke(entry);
 
             Forms9Patch.Clipboard.Entry = entry;
 
@@ -433,6 +533,7 @@ namespace Forms9PatchDemo
             _dictionaryListTest.Success = _dictionaryListTest.PasteFunction(testDictionaryList);
             _dateTimeTest.Success = _dateTimeTest.PasteFunction(testDateTime);
             _jpegTest.Success = _jpegTest.PasteFunction(testJpegByteArray);
+            _pngTest.Success = _pngTest.PasteFunction(testPngByteArray);
 
             stopWatch.Stop();
             _elapsedTimeLabel.Text = "Elapsed time: " + stopWatch.ElapsedMilliseconds + "ms";

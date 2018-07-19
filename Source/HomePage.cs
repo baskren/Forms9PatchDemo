@@ -41,7 +41,7 @@ namespace Forms9PatchDemo
         {
             // Define command for the items in the TableView.
 
-
+            ToolbarItems.Add(new ToolbarItem("", "five.png", () => System.Diagnostics.Debug.WriteLine("Tool Bar Item clicked")));
 
             var navigateCommand =
                 new Command<Type>(async (Type pageType) =>

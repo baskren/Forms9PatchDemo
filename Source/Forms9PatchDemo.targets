@@ -150,6 +150,7 @@
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ltblueUp%402x.png" Link="Resources\ltblueUp%402x.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\printerIcon.png" Link="Resources\printerIcon.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\PopupDM.png" Link="Resources\PopupDM.png" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ProjectProposal.pdf" Link="Resources\ProjectProposal.pdf" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redButton.9.png" Link="Resources\redButton.9.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redGridBox.png" Link="Resources\redGridBox.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redGridBox9.9.png" Link="Resources\redGridBox9.9.png" />
