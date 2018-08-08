@@ -72,6 +72,15 @@
   <!-- EMBEDDED RESOURCE JPEGSs -->
   <ItemGroup>
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons.jpg" Link="Resources\balloons.jpg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons1.jpg" Link="Resources\balloons1.jpg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons2.jpg" Link="Resources\balloons2.jpg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons3.jpg" Link="Resources\balloons3.jpg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons4.jpg" Link="Resources\balloons4.jpg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons5.jpg" Link="Resources\balloons5.jpg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons6.jpg" Link="Resources\balloons6.jpg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons7.jpg" Link="Resources\balloons7.jpg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons8.jpg" Link="Resources\balloons8.jpg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\balloons9.jpg" Link="Resources\balloons9.jpg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\cat.jpg" Link="Resources\cat.jpg" />
   </ItemGroup>
   <!-- EMBEDDED RESOURCE PNGs -->

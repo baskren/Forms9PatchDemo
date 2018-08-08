@@ -29,7 +29,9 @@ namespace Forms9PatchDemo
             return testByteArray[0];
         }, (object obj) =>
         {
-            var resultMimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte>("application/x-forms9patchdemo-byte");
+            var resultMimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<byte>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-byte");
+            if (resultMimeItem == null)
+                return false;
             var resultByte = resultMimeItem.Value;
             return obj.Equals(resultByte);
         });
@@ -41,10 +43,10 @@ namespace Forms9PatchDemo
             return testByteArray;
         }, (object obj) =>
         {
-            var resultByteArray = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("application/x-forms9patchdemo-bytebuffer").Value;
+            var resultByteArray = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<byte[]>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-bytebuffer")?.Value;
             if (obj is byte[] testByteArray)
             {
-                if (resultByteArray.Count() != testByteArray.Count())
+                if (resultByteArray != null && resultByteArray.Count() != testByteArray.Count())
                     throw new Exception("byte array counts don't match");
                 for (int i = 0; i < resultByteArray.Count(); i++)
                     if (resultByteArray[i] != testByteArray[i])
@@ -62,8 +64,10 @@ namespace Forms9PatchDemo
         {
             if (obj is char testChar)
             {
-                var resultChar = Forms9Patch.Clipboard.Entry.GetItem<char>("application/x-forms9patchdemo-char").Value;
-                return resultChar == testChar;
+                var resultMimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<char>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-char");
+                if (resultMimeItem == null)
+                    return false;
+                return testChar == resultMimeItem.Value;
             }
             return false;
         });
@@ -76,8 +80,10 @@ namespace Forms9PatchDemo
         {
             if (obj is short testShort)
             {
-                var resultShort = Forms9Patch.Clipboard.Entry.GetItem<short>("application/x-forms9patchdemo-short").Value;
-                return resultShort == testShort;
+                var resultMimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<short>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-short");
+                if (resultMimeItem == null)
+                    return false;
+                return testShort == resultMimeItem.Value;
             }
             return false;
         });
@@ -90,8 +96,10 @@ namespace Forms9PatchDemo
         {
             if (obj is int testInt)
             {
-                var resultInt = Forms9Patch.Clipboard.Entry.GetItem<int>("application/x-forms9patchdemo-int").Value;
-                return testInt == resultInt;
+                var resultMimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<int>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-int");
+                if (resultMimeItem?.Value == null)
+                    return false;
+                return testInt == resultMimeItem.Value;
             }
             return false;
         });
@@ -104,8 +112,10 @@ namespace Forms9PatchDemo
         {
             if (obj is long testLong)
             {
-                var resultLong = Forms9Patch.Clipboard.Entry.GetItem<long>("application/x-forms9patchdemo-long").Value;
-                return resultLong == testLong;
+                var resultMimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<long>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-long");
+                if (resultMimeItem?.Value == null)
+                    return false;
+                return testLong == resultMimeItem.Value;
             }
             return false;
         });
@@ -118,8 +128,10 @@ namespace Forms9PatchDemo
         {
             if (obj is double testDouble)
             {
-                var resultDouble = Forms9Patch.Clipboard.Entry.GetItem<double>("application/x-forms9patchdemo-double").Value;
-                return Math.Abs(testDouble - resultDouble) < 0.00001;
+                var resultMimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<double>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-double");
+                if (resultMimeItem?.Value == null)
+                    return false;
+                return Math.Abs(testDouble - resultMimeItem.Value) < 0.00001;
             }
             return false;
         });
@@ -132,7 +144,7 @@ namespace Forms9PatchDemo
         {
             if (obj is string testString)
             {
-                var resultString = Forms9Patch.Clipboard.Entry.GetItem<string>("application/x-forms9patchdemo-string").Value;
+                var resultString = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-string")?.Value as string;
                 return testString == resultString;
             }
             return false;
@@ -148,8 +160,8 @@ namespace Forms9PatchDemo
         {
             if (obj is List<int> testIntList)
             {
-                var resultIntList = Forms9Patch.Clipboard.Entry.GetItem<List<int>>("application/x-forms9patchdemo-int-list").Value;
-                if (resultIntList.Count != testIntList.Count)
+                var resultIntList = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<List<int>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-int-list")?.Value as List<int>;
+                if (resultIntList == null || resultIntList.Count != testIntList.Count)
                     return false;
                 for (int i = 0; i < resultIntList.Count; i++)
                     if (resultIntList[i] != testIntList[i])
@@ -169,8 +181,8 @@ namespace Forms9PatchDemo
         {
             if (obj is List<double> testDoubleList)
             {
-                var resulDoubleList = Forms9Patch.Clipboard.Entry.GetItem<List<double>>("application/x-forms9patchdemo-double-list").Value;
-                if (resulDoubleList.Count != testDoubleList.Count)
+                var resulDoubleList = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<List<double>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-double-list")?.Value as List<double>;
+                if (resulDoubleList == null || resulDoubleList.Count != testDoubleList.Count)
                     return false;
                 for (int i = 0; i < resulDoubleList.Count; i++)
                     if (Math.Abs(resulDoubleList[i] - testDoubleList[i]) > 0.00001)
@@ -190,8 +202,8 @@ namespace Forms9PatchDemo
         {
             if (obj is List<string> testStringList)
             {
-                var resultStringList = Forms9Patch.Clipboard.Entry.GetItem<List<string>>("application/x-forms9patchdemo-string-list").Value;
-                if (resultStringList.Count != testStringList.Count)
+                var resultStringList = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<List<string>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-string-list")?.Value as List<string>;
+                if (resultStringList == null || resultStringList.Count != testStringList.Count)
                     return false;
                 for (int i = 0; i < resultStringList.Count; i++)
                     if (resultStringList[i] != testStringList[i])
@@ -212,14 +224,14 @@ namespace Forms9PatchDemo
         {
             if (obj is Dictionary<string, double> testDictionary)
             {
-                var resultDictionary = Forms9Patch.Clipboard.Entry.GetItem<Dictionary<string, double>>("application/x-forms9patchdemo-dictionary").Value;
-                if (resultDictionary.Keys.Count != testDictionary.Keys.Count)
+                var resultDictionary = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<Dictionary<string, double>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-dictionary")?.Value as Dictionary<string, double>;
+                if (resultDictionary == null || resultDictionary.Keys.Count != testDictionary.Keys.Count)
                     return false;
                 foreach (var key in testDictionary.Keys)
                 {
                     if (!resultDictionary.Keys.Contains(key))
                         return false;
-                    if (resultDictionary[key] != testDictionary[key])
+                    if (Math.Abs(resultDictionary[key] - testDictionary[key]) > 0.0001)
                         return false;
                 }
                 return true;
@@ -228,27 +240,25 @@ namespace Forms9PatchDemo
         });
         TestElement _dictionaryListTest = new TestElement("List<Dictionary<string,double>> test ", (entry) =>
         {
-            var testDictionary = new Dictionary<string, double>();
+            var keys = new List<string>();
             for (int i = 0; i < 20; i++)
-                testDictionary.Add(RandomString(10), i + i / 10.0);
-            var testDictionaryList = new List<Dictionary<string, string>>();
-            var keys = testDictionary.Keys;
+                keys.Add(RandomString(10));
+            var testDictionaryList = new List<Dictionary<string, double>>();
             for (int i = 0; i < 20; i++)
             {
-                var dictionary = new Dictionary<string, string>();
+                var dictionary = new Dictionary<string, double>();
                 foreach (var key in keys)
-                    dictionary.Add(key, "key=[" + key + "] index=[" + i + "] rand=[" + RandomString(10) + "]");
+                    dictionary.Add(key, _rand.NextDouble());
                 testDictionaryList.Add(dictionary);
             }
             entry.AddValue("application/x-forms9patchdemo-dictionaryList", testDictionaryList);
             return testDictionaryList;
         }, (object obj) =>
         {
-            if (obj is List<Dictionary<string, string>> testDictionaryList)
+            if (obj is List<Dictionary<string, double>> testDictionaryList)
             {
-                var entryItem = Forms9Patch.Clipboard.Entry.GetItem<List<Dictionary<string, string>>>("application/x-forms9patchdemo-dictionaryList");
-                var resultDictionaryList = entryItem.Value;
-                if (resultDictionaryList.Count != testDictionaryList.Count)
+                var resultDictionaryList = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<List<Dictionary<string, double>>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-dictionaryList")?.Value as List<Dictionary<string, double>>;
+                if (resultDictionaryList == null || resultDictionaryList.Count != testDictionaryList.Count)
                     return false;
                 for (int i = 0; i < testDictionaryList.Count; i++)
                 {
@@ -280,28 +290,29 @@ namespace Forms9PatchDemo
         {
             if (obj is DateTime testDateTime)
             {
-                var dateTimeResultJson = Forms9Patch.Clipboard.Entry.GetItem<string>("application/x-forms9patchdemo-datetime-string").Value;
+                var dateTimeResultJson = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-datetime-string")?.Value as string;
                 var resultDateTime = Newtonsoft.Json.JsonConvert.DeserializeObject<DateTime>(dateTimeResultJson);
                 return testDateTime == resultDateTime;
             }
             return false;
         });
 
-        TestElement _jpegTest = new TestElement("jpeg file test", (entry) =>
+        TestElement _jpegByteArrayTest = new TestElement("jpeg from byte[] test", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
-            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons.jpg");
-            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.balloons.jpg", path);
+            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons1.jpg");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.balloons1.jpg", path);
             if (!File.Exists(path))
                 throw new Exception("EmbeddedResource (balloons.jpg) was not extracted to file");
-            var result = entry.AddContentOfFile("image/jpeg", path);
-            _testImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(result));
-            return result;
+            var testByteArray = File.ReadAllBytes(path);
+            _testImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(testByteArray));
+            entry.AddValue("image/jpeg", testByteArray);
+            return testByteArray;
         }, (object obj) =>
         {
             if (obj is byte[] testByteArray)
             {
-                var mimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("image/jpeg");
+                var mimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<byte[]>(Forms9Patch.Clipboard.Entry, "image/jpeg");
                 var mimeResult = mimeItem?.Value;
                 _resultImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(mimeResult));
                 if (testByteArray.Length == mimeResult.Length)
@@ -311,20 +322,44 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _pngTest = new TestElement("png file test", (entry) =>
+        TestElement _jpegFilePathTest = new TestElement("jpeg from file path test", (entry) =>
+        {
+            // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
+            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons2.jpg");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.balloons2.jpg", path);
+            if (!File.Exists(path))
+                throw new Exception("EmbeddedResource (balloons.jpg) was not extracted to file");
+            entry.AddValue("image/jpeg", path);
+            _testImage.Source = Xamarin.Forms.ImageSource.FromFile(path);
+            return path;
+        }, (object obj) =>
+        {
+            if (obj is string testPath)
+            {
+                // looks like iOS convertes NSUrl to NSData
+                var mimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "image/jpeg");
+                var resultPath = mimeItem?.Value;
+                _resultImage.Source = Xamarin.Forms.ImageSource.FromFile(resultPath);
+                return testPath == resultPath;
+            }
+            return false;
+        });
+
+
+        TestElement _pngTest = new TestElement("png byte[] test", (entry) =>
         {
             var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "236-baby.png");
             ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.236-baby.png", path);
             if (!File.Exists(path))
                 throw new Exception("EmbeddedResource (236-baby.png) was not extracted to file");
-            var result = entry.AddContentOfFile("image/png", path);
+            var result = Forms9Patch.IClipboardEntryExtensions.AddBytesFromFile(entry, "image/png", path);
             _testImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(result));
             return result;
         }, (object obj) =>
         {
             if (obj is byte[] testByteArray)
             {
-                var mimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("image/png");
+                var mimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<byte[]>(Forms9Patch.Clipboard.Entry, "image/png");
                 var mimeResult = mimeItem?.Value;
                 _resultImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(mimeResult));
                 if (testByteArray.Length == mimeResult.Length)
@@ -334,18 +369,18 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _pdfTest = new TestElement("pdf file test", (entry) =>
+        TestElement _pdfTest = new TestElement("pdf byte[] test", (entry) =>
         {
             var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
             ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.ProjectProposal.pdf", path);
             if (!File.Exists(path))
                 throw new Exception("EmbeddedResource (ProjectProposal.pdf) was not extracted to file");
-            return entry.AddContentOfFile("application/pdf", path);
+            return Forms9Patch.IClipboardEntryExtensions.AddBytesFromFile(entry, "application/pdf", path);
         }, (object obj) =>
         {
             if (obj is byte[] testByteArray)
             {
-                var mimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("application/pdf");
+                var mimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<byte[]>(Forms9Patch.Clipboard.Entry, "application/pdf");
                 var resultByteArray = mimeItem?.Value;
                 if (testByteArray.Length == resultByteArray.Length)
                     return NewMemCmp(testByteArray, resultByteArray, testByteArray.Length);
@@ -354,21 +389,52 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _jpgUrlTest = new TestElement("jpeg file test", (entry) =>
+        TestElement _jpegHttpUrlTest = new TestElement("jpeg http url test", (entry) =>
         {
-            entry.Uri = new Uri("https://i.redditmedia.com/npNromwDHMXlxFMa0CAZqw0MMSKFj-aHx5rvgQNPXyA.jpg?fit=crop&crop=faces%2Centropy&arh=2&w=640&s=04fe226f00868a3182265a9af861608e");
-            _testImage.Source = Xamarin.Forms.ImageSource.FromUri(entry.Uri);
-            return entry.Uri;
+            var uri = new Uri("https://i.redditmedia.com/npNromwDHMXlxFMa0CAZqw0MMSKFj-aHx5rvgQNPXyA.jpg?fit=crop&crop=faces%2Centropy&arh=2&w=640&s=04fe226f00868a3182265a9af861608e");
+            entry.AddValue("image/jpeg", uri.AbsoluteUri);
+            _testImage.Source = Xamarin.Forms.ImageSource.FromUri(uri);
+            return uri.AbsoluteUri;
         }, (object obj) =>
         {
-            if (obj is Uri testUri)
+            if (obj is string testUri)
             {
-                var resultUri = Forms9Patch.Clipboard.Entry.Uri;
+                //var resultUri = Forms9Patch.Clipboard.Entry.Uri;
+                var result = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "image/jpeg");
+                if (result?.Value == null)
+                    return false;
+                var resultUri = new Uri(result.Value);
                 _resultImage.Source = Xamarin.Forms.ImageSource.FromUri(resultUri);
-                return testUri == resultUri;
+                return testUri == result.Value;
             }
             return false;
         });
+
+        TestElement _pdfFileTest = new TestElement("pdf file test", (entry) =>
+        {
+            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.ProjectProposal.pdf", path);
+            if (!File.Exists(path))
+                throw new Exception("EmbeddedResource (ProjectProposal.pdf) was not extracted to file");
+            var url = "file://" + path;
+            entry.AddValue("image/jpeg", path);
+            _testImage.Source = Xamarin.Forms.ImageSource.FromFile(path);
+            return url;
+        }, (object obj) =>
+        {
+            if (obj is string testUrlString)
+            {
+                /*
+                var mimeItem = Forms9Patch.Clipboard.Entry.GetItem<byte[]>("application/pdf");
+                var resultByteArray = mimeItem?.Value;
+                if (testByteArray.Length == resultByteArray.Length)
+                    return NewMemCmp(testByteArray, resultByteArray, testByteArray.Length);
+*/
+                return false;
+            }
+            return false;
+        });
+
 
         #endregion
 
@@ -423,8 +489,6 @@ namespace Forms9PatchDemo
 
             _entryCaching.Toggled += (sender, e) => Forms9Patch.Clipboard.EntryCaching = _entryCaching.IsToggled;
 
-            _availableMimeTypesLabel.Text = string.Join(", ", Forms9Patch.Clipboard.Entry.MimeTypes);
-
             _jpegComparisonGrid.Children.Add(_testImage);
             _jpegComparisonGrid.Children.Add(_resultImage, 1, 0);
 
@@ -451,9 +515,10 @@ namespace Forms9PatchDemo
             _layout.Children.Add(new Label { Text = "Must visually check images because results will not be the same, byte for byte" });
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
 
-            _layout.Children.Add(_jpegTest);
             _layout.Children.Add(_pngTest);
-            _layout.Children.Add(_jpgUrlTest);
+            _layout.Children.Add(_jpegByteArrayTest);
+            _layout.Children.Add(_jpegFilePathTest);
+            _layout.Children.Add(_jpegHttpUrlTest);
             _layout.Children.Add(_jpegComparisonGrid);
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
             _layout.Children.Add(new Forms9Patch.Label("Entry caching:"));
@@ -468,6 +533,10 @@ namespace Forms9PatchDemo
             };
 
             _execute.Clicked += (sender, e) => CopyPaste();
+
+            System.Diagnostics.Debug.WriteLine("ClipboardTest Constructor 1");
+            UpdateAvailableMimeTypesLabel();
+            System.Diagnostics.Debug.WriteLine("ClipboardTest Constructor 2");
 
         }
 
@@ -487,56 +556,106 @@ namespace Forms9PatchDemo
         void Clipboard_ContentChanged(object sender, EventArgs e)
         {
             _clipboardChangedToast.IsVisible = true;
-            _availableMimeTypesLabel.Text = string.Join(", ", Forms9Patch.Clipboard.Entry.MimeTypes);
+            UpdateAvailableMimeTypesLabel();
+        }
+
+        void UpdateAvailableMimeTypesLabel()
+        {
+            var items = Forms9Patch.Clipboard.Entry?.Items;
+            if (items != null && items.Count > 0)
+            {
+                var mimeTypes = items.Select((mimeEntry) => mimeEntry.MimeType);
+                _availableMimeTypesLabel.Text = string.Join(", ", mimeTypes);
+            }
+            else
+                _availableMimeTypesLabel.Text = null;
         }
 
 
         bool CopyPaste()
         {
-            var stopWatch = new Stopwatch();
-            stopWatch.Start();
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
 
             var entry = new Forms9Patch.ClipboardEntry();
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 1 elapsed: " + stopwatch.ElapsedMilliseconds);
 
 
             var testByte = (byte)_byteTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.01 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testByteArray = (byte[])_byteArrayTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.02 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testChar = (char)_charTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.03 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testShort = (short)_shortTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.04 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testInt = (int)_intTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.05 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testLong = (long)_longTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.06 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testDouble = (double)_doubleTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.07 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testString = (string)_stringTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.08 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testIntList = (List<int>)_intListTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.09 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testDoubleList = (List<double>)_doubleListTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.10 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testStringList = (List<string>)_stringListTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.11 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testDictionary = (Dictionary<string, double>)_dictionaryTest.CopyAction.Invoke(entry);
-            var testDictionaryList = (List<Dictionary<string, string>>)_dictionaryListTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.12 elapsed: " + stopwatch.ElapsedMilliseconds);
+            var testDictionaryList = (List<Dictionary<string, double>>)_dictionaryListTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.13 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testDateTime = (DateTime)_dateTimeTest.CopyAction.Invoke(entry);
-            var testJpegByteArray = (byte[])_jpegTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.14 elapsed: " + stopwatch.ElapsedMilliseconds);
+            var testPdf = (byte[])_pdfTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.15 elapsed: " + stopwatch.ElapsedMilliseconds);
+            var testJpegByteArray = (byte[])_jpegByteArrayTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.16 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testPngByteArray = (byte[])_pngTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.17 elapsed: " + stopwatch.ElapsedMilliseconds);
 
             Forms9Patch.Clipboard.Entry = entry;
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 3 elapsed: " + stopwatch.ElapsedMilliseconds);
 
             _byteTest.Success = _byteTest.PasteFunction(testByte);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.01 elapsed: " + stopwatch.ElapsedMilliseconds);
             _byteArrayTest.Success = _byteArrayTest.PasteFunction(testByteArray);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.02 elapsed: " + stopwatch.ElapsedMilliseconds);
             _charTest.Success = _charTest.PasteFunction(testChar);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.03 elapsed: " + stopwatch.ElapsedMilliseconds);
             _shortTest.Success = _shortTest.PasteFunction(testShort);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.04 elapsed: " + stopwatch.ElapsedMilliseconds);
             _intTest.Success = _intTest.PasteFunction(testInt);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.05 elapsed: " + stopwatch.ElapsedMilliseconds);
             _longTest.Success = _longTest.PasteFunction(testLong);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.06 elapsed: " + stopwatch.ElapsedMilliseconds);
             _doubleTest.Success = _doubleTest.PasteFunction(testDouble);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.07 elapsed: " + stopwatch.ElapsedMilliseconds);
             _stringTest.Success = _stringTest.PasteFunction(testString);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.08 elapsed: " + stopwatch.ElapsedMilliseconds);
             _intListTest.Success = _intListTest.PasteFunction(testIntList);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.09 elapsed: " + stopwatch.ElapsedMilliseconds);
             _doubleListTest.Success = _doubleListTest.PasteFunction(testDoubleList);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.10 elapsed: " + stopwatch.ElapsedMilliseconds);
             _stringListTest.Success = _stringListTest.PasteFunction(testStringList);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.11 elapsed: " + stopwatch.ElapsedMilliseconds);
             _dictionaryTest.Success = _dictionaryTest.PasteFunction(testDictionary);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.12 elapsed: " + stopwatch.ElapsedMilliseconds);
             _dictionaryListTest.Success = _dictionaryListTest.PasteFunction(testDictionaryList);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.13 elapsed: " + stopwatch.ElapsedMilliseconds);
             _dateTimeTest.Success = _dateTimeTest.PasteFunction(testDateTime);
-            _jpegTest.Success = _jpegTest.PasteFunction(testJpegByteArray);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.14 elapsed: " + stopwatch.ElapsedMilliseconds);
+            _pdfTest.Success = _pdfTest.PasteFunction(testPdf);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.15 elapsed: " + stopwatch.ElapsedMilliseconds);
+            _jpegByteArrayTest.Success = _jpegByteArrayTest.PasteFunction(testJpegByteArray);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.16 elapsed: " + stopwatch.ElapsedMilliseconds);
             _pngTest.Success = _pngTest.PasteFunction(testPngByteArray);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.17 elapsed: " + stopwatch.ElapsedMilliseconds);
 
-            stopWatch.Stop();
-            _elapsedTimeLabel.Text = "Elapsed time: " + stopWatch.ElapsedMilliseconds + "ms";
+            stopwatch.Stop();
+            _elapsedTimeLabel.Text = "Elapsed time: " + stopwatch.ElapsedMilliseconds + "ms";
             return true;
         }
 
@@ -693,9 +812,13 @@ namespace Forms9PatchDemo
                         var stopWatch = new Stopwatch();
                         stopWatch.Start();
                         var entry = new Forms9Patch.ClipboardEntry();
+                        System.Diagnostics.Debug.WriteLine("\t TestElement 1 elapsed: " + stopWatch.ElapsedMilliseconds);
                         var obj = CopyAction.Invoke(entry);
+                        System.Diagnostics.Debug.WriteLine("\t TestElement 2 elapsed: " + stopWatch.ElapsedMilliseconds);
                         Forms9Patch.Clipboard.Entry = entry;
+                        System.Diagnostics.Debug.WriteLine("\t TestElement 3 elapsed: " + stopWatch.ElapsedMilliseconds);
                         Success = PasteFunction.Invoke(obj);
+                        System.Diagnostics.Debug.WriteLine("\t TestElement 4 elapsed: " + stopWatch.ElapsedMilliseconds);
                         stopWatch.Stop();
                         Time = stopWatch.ElapsedMilliseconds;
                     };
