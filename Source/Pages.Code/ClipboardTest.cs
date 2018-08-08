@@ -139,12 +139,16 @@ namespace Forms9PatchDemo
         {
             var testString = "This is application/x-forms9patchdemo-string: ⅓ ⅔ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳  🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🙃 😐 😑 🤔 🙄 😮 😔 😖 😕";
             entry.AddValue("application/x-forms9patchdemo-string", testString);
+            entry.AddValue("text/plain", testString);
             return testString;
         }, (object obj) =>
         {
             if (obj is string testString)
             {
                 var resultString = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-string")?.Value as string;
+                if (testString != resultString)
+                    return false;
+                resultString = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "text/plain")?.Value as string;
                 return testString == resultString;
             }
             return false;
@@ -279,20 +283,20 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _dateTimeTest = new TestElement("DateTime", (entry) =>
+        TestElement _dateTimeTest = new TestElement("DateTime as JSON", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
             var dateTime = DateTime.Now;
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(dateTime);
-            entry.AddValue("application/x-forms9patchdemo-datetime-string", json);
-            return dateTime;
+            entry.AddValue("application/json", json);
+            return json;
         }, (obj) =>
         {
-            if (obj is DateTime testDateTime)
+            if (obj is string testJson)
             {
-                var dateTimeResultJson = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-datetime-string")?.Value as string;
+                var dateTimeResultJson = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "application/json")?.Value as string;
                 var resultDateTime = Newtonsoft.Json.JsonConvert.DeserializeObject<DateTime>(dateTimeResultJson);
-                return testDateTime == resultDateTime;
+                return testJson == dateTimeResultJson;
             }
             return false;
         });
@@ -607,7 +611,7 @@ namespace Forms9PatchDemo
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.12 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testDictionaryList = (List<Dictionary<string, double>>)_dictionaryListTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.13 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testDateTime = (DateTime)_dateTimeTest.CopyAction.Invoke(entry);
+            var testDateTimeJson = (string)_dateTimeTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.14 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testPdf = (byte[])_pdfTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.15 elapsed: " + stopwatch.ElapsedMilliseconds);
@@ -645,7 +649,7 @@ namespace Forms9PatchDemo
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.12 elapsed: " + stopwatch.ElapsedMilliseconds);
             _dictionaryListTest.Success = _dictionaryListTest.PasteFunction(testDictionaryList);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.13 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _dateTimeTest.Success = _dateTimeTest.PasteFunction(testDateTime);
+            _dateTimeTest.Success = _dateTimeTest.PasteFunction(testDateTimeJson);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.14 elapsed: " + stopwatch.ElapsedMilliseconds);
             _pdfTest.Success = _pdfTest.PasteFunction(testPdf);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.15 elapsed: " + stopwatch.ElapsedMilliseconds);
