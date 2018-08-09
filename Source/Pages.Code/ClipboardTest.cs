@@ -350,7 +350,7 @@ namespace Forms9PatchDemo
         });
 
 
-        TestElement _pngTest = new TestElement("png byte[] test", (entry) =>
+        TestElement _pngByteArrayTest = new TestElement("png byte[] test", (entry) =>
         {
             var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "236-baby.png");
             ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.236-baby.png", path);
@@ -440,6 +440,55 @@ namespace Forms9PatchDemo
         });
 
 
+        TestElement _multipleImagesTest = new TestElement("multiple images test", (entry) =>
+        {
+            for (int i = 1; i <= 3; i++)
+            {
+                var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons" + i + ".jpg");
+                ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.balloons" + i + ".jpg", path);
+                var byteArray = File.ReadAllBytes(path);
+                entry.AddValue("image/jpeg", byteArray);
+            }
+            return null;
+        }, (obj) =>
+        {
+            Forms9Patch.Toast.Create("Copy complete", "Verify results by performing paste into Note or email");
+            return false;
+        });
+
+        TestElement _multipleTextTest = new TestElement("multiple text test", (entry) =>
+        {
+            entry.AddValue("text/plain", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at tristique neque. Aliquam libero mauris, pulvinar non ligula quis, ultricies ullamcorper nisl. Ut varius fringilla ipsum ut accumsan. Curabitur luctus pulvinar quam eget pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi tincidunt commodo quam. Phasellus et finibus nisi, quis elementum nisl. Vivamus aliquet lectus vel diam lacinia, vel condimentum eros ultricies. Nulla molestie risus at lectus scelerisque, quis efficitur tortor pulvinar. Aenean sollicitudin justo magna, vitae molestie sapien placerat at. Sed ut mauris auctor, interdum ante ac, porttitor lectus. Morbi iaculis mi a malesuada tincidunt.");
+            entry.AddValue("text/plain", "Mauris eu sodales velit. Etiam efficitur gravida neque at mollis. Nunc pellentesque lacus id tortor fringilla consequat. Sed et leo vel urna pulvinar lacinia. Nullam a odio sed urna mollis consequat. Curabitur id tincidunt arcu. Aliquam pulvinar ipsum vehicula lacus faucibus, ut posuere neque porttitor. Etiam consectetur risus sed gravida lobortis. Quisque aliquet nisl lectus, vitae mattis diam mattis sit amet. Donec malesuada lectus leo, vitae viverra diam dictum sed. Cras velit lorem, porta in mattis in, pharetra non odio. Sed consectetur nec tortor a sagittis. Fusce dictum odio sed est commodo sagittis. Morbi accumsan, nisi quis hendrerit consectetur, dolor neque cursus ex, et egestas ipsum enim et purus. Nullam non posuere orci. Proin tincidunt iaculis elit, eu aliquam sapien scelerisque at.");
+            entry.AddValue("text/plain", "Vivamus lobortis nibh justo, id porta orci suscipit nec. Donec a purus ut ligula condimentum rutrum. Vestibulum a nisl a augue fringilla venenatis. Duis dignissim, dolor elementum faucibus pellentesque, diam ante porta sapien, in bibendum enim nibh sed magna. Mauris sed mi ac libero facilisis fermentum. Integer feugiat eros vitae nulla euismod, vitae ultricies enim porta. Nullam convallis velit vitae ligula facilisis aliquam. Nunc sagittis, ligula ac interdum laoreet, ipsum dui pellentesque leo, eu pellentesque lectus quam sed lacus. Sed commodo dui eget ultrices commodo.");
+            entry.AddValue("text/plain", "Phasellus lacus ligula, rutrum in eros cursus, tempor elementum erat. Nullam vel vehicula ante, ac porttitor ante. In non tempus ex. Maecenas eu ultrices erat, eget porta ipsum. Aenean dictum, elit sed mollis dapibus, nibh magna semper felis, vitae aliquam diam lectus tempus elit. Sed ornare velit non augue rhoncus pretium. Phasellus in justo tellus. Pellentesque molestie enim sed nibh volutpat, nec lacinia dolor luctus. Aenean ac dui enim. Vivamus maximus sem sit amet leo euismod, ac blandit mauris blandit. Donec iaculis dolor interdum orci tincidunt congue. Vivamus ac erat sit amet neque ullamcorper aliquet at vel magna. Mauris auctor blandit est, eu dapibus leo dapibus id.");
+            entry.AddValue("text/plain", "Nullam aliquam neque diam, ut pharetra neque tincidunt sed. Praesent rutrum, orci in tincidunt posuere, turpis velit mollis purus, id ullamcorper ipsum diam in augue. Nunc porttitor tempor orci, eget rhoncus magna molestie pharetra. Nam maximus mollis imperdiet. In vitae ante sollicitudin, ultrices lectus ac, vehicula lacus. Proin eget sapien ut magna sollicitudin eleifend. Integer volutpat ipsum vel nibh malesuada euismod. Sed scelerisque vulputate interdum. Proin bibendum vel lectus et semper. Mauris tincidunt euismod ligula non dignissim. Nulla et quam nec nunc bibendum pulvinar quis nec erat. Suspendisse porta, nulla eu tincidunt maximus, leo ex hendrerit mi, sit amet mattis libero nisl sed arcu. Nunc ac congue ante. Fusce a mollis erat.");
+            return null;
+        }, (obj) =>
+        {
+            Forms9Patch.Toast.Create("Copy complete", "Verify results by performing paste into Note or email");
+            return false;
+        });
+
+        TestElement _htmlStringTest = new TestElement("multiple html test", (entry) =>
+        {
+            // Note: unlike images and text, multiple html items does not work with iOS apps (Notes and mail).
+            //entry.AddValue("text/html", "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>");
+            //entry.AddValue("text/html", "<dl> <dt>Definition list</dt> <dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd> <dt>Lorem ipsum dolor sit amet</dt> <dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd> </dl>");
+            //entry.AddValue("text/html", "<ul> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> <li>Vestibulum auctor dapibus neque.</li> </ul>");
+            //entry.AddValue("text/html", "<ul> <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li> <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li> <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li> <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li> </ul> ");
+            var testHtml = "<h1>HTML Ipsum Presents</h1> <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href=\"#\">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p> <h2>Header Level 2</h2> <ol> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> </ol> <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote> <h3>Header Level 3</h3> <ul> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> </ul> <pre><code> #header h1 a { display: block; width: 300px; height: 80px; } </code></pre>";
+            entry.AddValue("text/html", testHtml);
+            return testHtml;
+        }, (obj) =>
+        {
+            if (obj is string testHtml)
+            {
+                var resultHtml = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "text/html")?.Value as string;
+                return testHtml == resultHtml;
+            }
+            return false;
+        });
         #endregion
 
 
@@ -507,6 +556,7 @@ namespace Forms9PatchDemo
             _layout.Children.Add(_longTest);
             _layout.Children.Add(_doubleTest);
             _layout.Children.Add(_stringTest);
+            _layout.Children.Add(_htmlStringTest);
             _layout.Children.Add(_intListTest);
             _layout.Children.Add(_doubleListTest);
             _layout.Children.Add(_stringListTest);
@@ -519,7 +569,7 @@ namespace Forms9PatchDemo
             _layout.Children.Add(new Label { Text = "Must visually check images because results will not be the same, byte for byte" });
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
 
-            _layout.Children.Add(_pngTest);
+            _layout.Children.Add(_pngByteArrayTest);
             _layout.Children.Add(_jpegByteArrayTest);
             _layout.Children.Add(_jpegFilePathTest);
             _layout.Children.Add(_jpegHttpUrlTest);
@@ -529,7 +579,10 @@ namespace Forms9PatchDemo
             _layout.Children.Add(_entryCaching);
             _layout.Children.Add(_execute);
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
+            _layout.Children.Add(_multipleImagesTest);
+            _layout.Children.Add(_multipleTextTest);
             _layout.Children.Add(_elapsedTimeLabel);
+
 
             Content = new ScrollView
             {
@@ -601,24 +654,26 @@ namespace Forms9PatchDemo
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.07 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testString = (string)_stringTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.08 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testIntList = (List<int>)_intListTest.CopyAction.Invoke(entry);
+            var testHtml = (string)_htmlStringTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.09 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testDoubleList = (List<double>)_doubleListTest.CopyAction.Invoke(entry);
+            var testIntList = (List<int>)_intListTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.10 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testStringList = (List<string>)_stringListTest.CopyAction.Invoke(entry);
+            var testDoubleList = (List<double>)_doubleListTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.11 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testDictionary = (Dictionary<string, double>)_dictionaryTest.CopyAction.Invoke(entry);
+            var testStringList = (List<string>)_stringListTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.12 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testDictionaryList = (List<Dictionary<string, double>>)_dictionaryListTest.CopyAction.Invoke(entry);
+            var testDictionary = (Dictionary<string, double>)_dictionaryTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.13 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testDateTimeJson = (string)_dateTimeTest.CopyAction.Invoke(entry);
+            var testDictionaryList = (List<Dictionary<string, double>>)_dictionaryListTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.14 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testPdf = (byte[])_pdfTest.CopyAction.Invoke(entry);
+            var testDateTimeJson = (string)_dateTimeTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.15 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testJpegByteArray = (byte[])_jpegByteArrayTest.CopyAction.Invoke(entry);
+            var testPdf = (byte[])_pdfTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.16 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testPngByteArray = (byte[])_pngTest.CopyAction.Invoke(entry);
+            var testJpegByteArray = (byte[])_jpegByteArrayTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.17 elapsed: " + stopwatch.ElapsedMilliseconds);
+            var testPngByteArray = (byte[])_pngByteArrayTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.18 elapsed: " + stopwatch.ElapsedMilliseconds);
 
             Forms9Patch.Clipboard.Entry = entry;
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 3 elapsed: " + stopwatch.ElapsedMilliseconds);
@@ -639,24 +694,26 @@ namespace Forms9PatchDemo
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.07 elapsed: " + stopwatch.ElapsedMilliseconds);
             _stringTest.Success = _stringTest.PasteFunction(testString);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.08 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _intListTest.Success = _intListTest.PasteFunction(testIntList);
+            _htmlStringTest.Success = _htmlStringTest.PasteFunction(testHtml);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.09 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _doubleListTest.Success = _doubleListTest.PasteFunction(testDoubleList);
+            _intListTest.Success = _intListTest.PasteFunction(testIntList);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.10 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _stringListTest.Success = _stringListTest.PasteFunction(testStringList);
+            _doubleListTest.Success = _doubleListTest.PasteFunction(testDoubleList);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.11 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _dictionaryTest.Success = _dictionaryTest.PasteFunction(testDictionary);
+            _stringListTest.Success = _stringListTest.PasteFunction(testStringList);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.12 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _dictionaryListTest.Success = _dictionaryListTest.PasteFunction(testDictionaryList);
+            _dictionaryTest.Success = _dictionaryTest.PasteFunction(testDictionary);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.13 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _dateTimeTest.Success = _dateTimeTest.PasteFunction(testDateTimeJson);
+            _dictionaryListTest.Success = _dictionaryListTest.PasteFunction(testDictionaryList);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.14 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _pdfTest.Success = _pdfTest.PasteFunction(testPdf);
+            _dateTimeTest.Success = _dateTimeTest.PasteFunction(testDateTimeJson);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.15 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _jpegByteArrayTest.Success = _jpegByteArrayTest.PasteFunction(testJpegByteArray);
+            _pdfTest.Success = _pdfTest.PasteFunction(testPdf);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.16 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _pngTest.Success = _pngTest.PasteFunction(testPngByteArray);
+            _jpegByteArrayTest.Success = _jpegByteArrayTest.PasteFunction(testJpegByteArray);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.17 elapsed: " + stopwatch.ElapsedMilliseconds);
+            _pngByteArrayTest.Success = _pngByteArrayTest.PasteFunction(testPngByteArray);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.18 elapsed: " + stopwatch.ElapsedMilliseconds);
 
             stopwatch.Stop();
             _elapsedTimeLabel.Text = "Elapsed time: " + stopwatch.ElapsedMilliseconds + "ms";
