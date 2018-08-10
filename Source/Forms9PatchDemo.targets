@@ -179,6 +179,9 @@
   </ItemGroup>
   <!-- EMBEDDED RESOURCE SVGs -->
   <ItemGroup>
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ballot_box.svg" Link="Resources\ballot_box.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ballot_box_with_x.svg" Link="Resources\ballot_box_with_x.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ballot_box_with_check.svg" Link="Resources\ballot_box_with_check.svg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\SvgSample.svg" Link="Resources\SvgSample.svg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\blueWhiteGradient.svg" Link="Resources\blueWhiteGradient.svg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\greenWhiteGradient.svg" Link="Resources\greenWhiteGradient.svg" />

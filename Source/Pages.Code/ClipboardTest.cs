@@ -138,17 +138,17 @@ namespace Forms9PatchDemo
         TestElement _stringTest = new TestElement("string test ", (entry) =>
         {
             var testString = "This is application/x-forms9patchdemo-string: ⅓ ⅔ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳  🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🙃 😐 😑 🤔 🙄 😮 😔 😖 😕";
-            entry.AddValue("application/x-forms9patchdemo-string", testString);
+            //entry.AddValue("application/x-forms9patchdemo-string", testString);
             entry.AddValue("text/plain", testString);
             return testString;
         }, (object obj) =>
         {
             if (obj is string testString)
             {
-                var resultString = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-string")?.Value as string;
-                if (testString != resultString)
-                    return false;
-                resultString = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "text/plain")?.Value as string;
+                //var resultString = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-string")?.Value as string;
+                //if (testString != resultString)
+                //    return false;
+                var resultString = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "text/plain")?.Value as string;
                 return testString == resultString;
             }
             return false;
@@ -470,7 +470,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _htmlStringTest = new TestElement("multiple html test", (entry) =>
+        TestElement _htmlStringTest = new TestElement("html test", (entry) =>
         {
             // Note: unlike images and text, multiple html items does not work with iOS apps (Notes and mail).
             //entry.AddValue("text/html", "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>");
@@ -856,11 +856,14 @@ namespace Forms9PatchDemo
 
             readonly Xamarin.Forms.Button _testButton = new Xamarin.Forms.Button { Text = " Test ", BorderWidth = 1, BorderColor = Color.Blue, HorizontalOptions = LayoutOptions.Start };
             readonly Xamarin.Forms.Label _textLabel = new Xamarin.Forms.Label();
-            readonly Xamarin.Forms.Label _statusLabel = new Xamarin.Forms.Label { Text = "☐" };
+            //readonly Xamarin.Forms.Label _statusLabel = new Xamarin.Forms.Label { Text = "☐" };
+            //readonly Forms9Patch.Image _statusLabel = new Forms9Patch.Image { WidthRequest = 20, HeightRequest = 20, Fill = Forms9Patch.Fill.Fill };
+            readonly Xamarin.Forms.BoxView _statusLabel = new Xamarin.Forms.BoxView { WidthRequest = 20, HeightRequest = 20, Color = Color.Gray };
             readonly Xamarin.Forms.Label _timeLabel = new Xamarin.Forms.Label { HorizontalOptions = LayoutOptions.FillAndExpand, HorizontalTextAlignment = TextAlignment.End };
 
             public TestElement(string text, Func<Forms9Patch.ClipboardEntry, object> copyAction = null, Func<object, bool> pasteFunction = null)
             {
+                //_statusLabel.Source = Forms9Patch.ImageSource.FromResource("Forms9PatchDemo.Resources.ballot_box.svg", this.GetType().Assembly);
                 _textLabel.Text = text;
                 CopyAction = copyAction;
                 PasteFunction = pasteFunction;
@@ -896,8 +899,12 @@ namespace Forms9PatchDemo
                     _textLabel.Text = Text;
                 else if (propertyName == SuccessProperty.PropertyName)
                 {
-                    _statusLabel.Text = Success ? "☑" : "☒";
-                    _statusLabel.TextColor = Success ? Color.DarkGreen : Color.Red;
+                    //_statusLabel.Text = Success ? "☑" : "☒";
+                    //_statusLabel.TextColor = Success ? Color.DarkGreen : Color.Red;
+                    //var resourceId = Success ? "Forms9PatchDemo.Resources.ballot_box_with_check.svg" : "Forms9PatchDemo.Resources.ballot_box_with_x.svg";
+                    //_statusLabel.Source = Forms9Patch.ImageSource.FromResource(resourceId, GetType().Assembly);
+                    _statusLabel.Color = Success ? Color.Green : Color.Red;
+
                 }
                 else if (propertyName == TimeProperty.PropertyName)
                     _timeLabel.Text = Time.ToString() + "ms";
