@@ -304,8 +304,9 @@ namespace Forms9PatchDemo
         TestElement _jpegByteArrayTest = new TestElement("jpeg from byte[] test", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
-            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons1.jpg");
-            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.balloons1.jpg", path);
+            //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons1.jpg");
+            var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "balloons1.jpg");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.balloons1.jpg", path);
             if (!File.Exists(path))
                 throw new Exception("EmbeddedResource (balloons.jpg) was not extracted to file");
             var testByteArray = File.ReadAllBytes(path);
@@ -329,8 +330,9 @@ namespace Forms9PatchDemo
         TestElement _jpegFilePathTest = new TestElement("jpeg from file path test", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
-            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons2.jpg");
-            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.balloons2.jpg", path);
+            //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons2.jpg");
+            var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "balloons2.jpg");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.balloons2.jpg", path);
             if (!File.Exists(path))
                 throw new Exception("EmbeddedResource (balloons.jpg) was not extracted to file");
             entry.AddValue("image/jpeg", path);
@@ -352,8 +354,9 @@ namespace Forms9PatchDemo
 
         TestElement _pngByteArrayTest = new TestElement("png byte[] test", (entry) =>
         {
-            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "236-baby.png");
-            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.236-baby.png", path);
+            //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "236-baby.png");
+            var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "236-baby.png");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.236-baby.png", path);
             if (!File.Exists(path))
                 throw new Exception("EmbeddedResource (236-baby.png) was not extracted to file");
             var result = Forms9Patch.IClipboardEntryExtensions.AddBytesFromFile(entry, "image/png", path);
@@ -375,8 +378,9 @@ namespace Forms9PatchDemo
 
         TestElement _pdfTest = new TestElement("pdf byte[] test", (entry) =>
         {
-            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
-            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.ProjectProposal.pdf", path);
+            //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
+            var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "ProjectProposal.pdf");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.ProjectProposal.pdf", path);
             if (!File.Exists(path))
                 throw new Exception("EmbeddedResource (ProjectProposal.pdf) was not extracted to file");
             return Forms9Patch.IClipboardEntryExtensions.AddBytesFromFile(entry, "application/pdf", path);
@@ -416,8 +420,9 @@ namespace Forms9PatchDemo
 
         TestElement _pdfFileTest = new TestElement("pdf file test", (entry) =>
         {
-            var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
-            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.ProjectProposal.pdf", path);
+            //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
+            var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "ProjectProposal.pdf");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.ProjectProposal.pdf", path);
             if (!File.Exists(path))
                 throw new Exception("EmbeddedResource (ProjectProposal.pdf) was not extracted to file");
             var url = "file://" + path;
@@ -444,8 +449,9 @@ namespace Forms9PatchDemo
         {
             for (int i = 1; i <= 3; i++)
             {
-                var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons" + i + ".jpg");
-                ExtractEmbeddedResourceToPath(typeof(ClipboardTest).Assembly, "Forms9PatchDemo.Resources.balloons" + i + ".jpg", path);
+                //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons" + i + ".jpg");
+                var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "balloons"+i+".jpg");
+                ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.balloons" + i + ".jpg", path);
                 var byteArray = File.ReadAllBytes(path);
                 entry.AddValue("image/jpeg", byteArray);
             }

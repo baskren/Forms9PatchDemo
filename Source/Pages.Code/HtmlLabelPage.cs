@@ -1,4 +1,5 @@
 using Xamarin.Forms;
+using System.Reflection;
 //using Forms9Patch;
 
 namespace Forms9PatchDemo
@@ -17,9 +18,10 @@ namespace Forms9PatchDemo
                 Forms9Patch.Toast.Create("&lt;a&gt; tagged label", "<b>id:</b> " + e.Id + ";\n<b>href:</b>" + e.Href + ";");
             };
 
-            var resources = GetType().Assembly.GetManifestResourceNames();
-            var resourceInfo = GetType().Assembly.GetManifestResourceInfo("Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf");
-            var resourceStream = GetType().Assembly.GetManifestResourceStream("Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf");
+            var assembly = GetType().GetTypeInfo().Assembly;
+            var resources = assembly.GetManifestResourceNames();
+            var resourceInfo = assembly.GetManifestResourceInfo("Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf");
+            var resourceStream = assembly.GetManifestResourceStream("Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf");
 
             var canRead = resourceStream.CanRead;
 
