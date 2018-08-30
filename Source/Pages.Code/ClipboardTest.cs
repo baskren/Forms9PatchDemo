@@ -327,26 +327,31 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _jpegFilePathTest = new TestElement("jpeg from file path test", (entry) =>
+        TestElement _jpegFileInfoTest = new TestElement("jpeg from FileInfo test", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
             //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons2.jpg");
             var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "balloons2.jpg");
             ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.balloons2.jpg", path);
-            if (!File.Exists(path))
+            var fileInfo = new FileInfo(path);
+            if (!fileInfo.Exists)
                 throw new Exception("EmbeddedResource (balloons.jpg) was not extracted to file");
-            entry.AddValue("image/jpeg", path);
-            _testImage.Source = Xamarin.Forms.ImageSource.FromFile(path);
+            entry.AddValue("image/jpeg", fileInfo);
+            _testImage.Source = Xamarin.Forms.ImageSource.FromFile(fileInfo.FullName);
             return path;
         }, (object obj) =>
         {
             if (obj is string testPath)
             {
-                // looks like iOS convertes NSUrl to NSData
-                var mimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "image/jpeg");
-                var resultPath = mimeItem?.Value;
-                _resultImage.Source = Xamarin.Forms.ImageSource.FromFile(resultPath);
-                return testPath == resultPath;
+                // FileInfo will be passed into the clipboard as FileInfo objects but will returned as byte[].
+                var testByteArray = File.ReadAllBytes(testPath);
+
+                var mimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<byte[]>(Forms9Patch.Clipboard.Entry, "image/jpeg");
+                var mimeResult = mimeItem?.Value;
+                _resultImage.Source = Xamarin.Forms.ImageSource.FromStream(() => new MemoryStream(mimeResult));
+                if (testByteArray.Length == mimeResult.Length)
+                    return NewMemCmp(testByteArray, mimeResult, testByteArray.Length);
+                return false;
             }
             return false;
         });
@@ -376,7 +381,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _pdfTest = new TestElement("pdf byte[] test", (entry) =>
+        TestElement _pdfByteArrayTest = new TestElement("pdf byte[] test", (entry) =>
         {
             //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
             var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "ProjectProposal.pdf");
@@ -396,6 +401,32 @@ namespace Forms9PatchDemo
             }
             return false;
         });
+
+        TestElement _pdfFileInfoTest = new TestElement("pdf from FileInfo test", (entry) =>
+        {
+            // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
+            //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons2.jpg");
+            var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "ProjectProposal.pdf");
+            ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.ProjectProposal.pdf", path);
+            var fileInfo = new FileInfo(path);
+            if (!fileInfo.Exists)
+                throw new Exception("EmbeddedResource (ProjectProposal.pdf) was not extracted to file");
+            entry.AddValue("application/pdf", fileInfo);
+            return File.ReadAllBytes(fileInfo.FullName);
+        }, (object obj) =>
+        {
+            if (obj is byte[] testByteArray)
+            {
+                var mimeItem = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<byte[]>(Forms9Patch.Clipboard.Entry, "application/pdf");
+                var resultByteArray = mimeItem?.Value;
+
+                if (resultByteArray != null && testByteArray.Length == resultByteArray.Length)
+                    return NewMemCmp(testByteArray, resultByteArray, testByteArray.Length);
+                return false;
+            }
+            return false;
+        });
+
 
         TestElement _jpegHttpUrlTest = new TestElement("jpeg http url test", (entry) =>
         {
@@ -445,12 +476,12 @@ namespace Forms9PatchDemo
         });
 
 
-        TestElement _multipleImagesTest = new TestElement("multiple images test", (entry) =>
+        TestElement _multipleByteArrayImagesTest = new TestElement("multiple byte[] images test", (entry) =>
         {
             for (int i = 1; i <= 3; i++)
             {
                 //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons" + i + ".jpg");
-                var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "balloons"+i+".jpg");
+                var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "balloons" + i + ".jpg");
                 ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.balloons" + i + ".jpg", path);
                 var byteArray = File.ReadAllBytes(path);
                 entry.AddValue("image/jpeg", byteArray);
@@ -461,6 +492,25 @@ namespace Forms9PatchDemo
             Forms9Patch.Toast.Create("Copy complete", "Verify results by performing paste into Note or email");
             return false;
         });
+
+        TestElement _multipleFileInfoImagesTest = new TestElement("multiple FileInfo images test", (entry) =>
+        {
+            for (int i = 1; i <= 3; i++)
+            {
+                //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons" + i + ".jpg");
+                var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "balloons" + i + ".jpg");
+                ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.balloons" + i + ".jpg", path);
+                //var byteArray = File.ReadAllBytes(path);
+                var fileInfo = new FileInfo(path);
+                entry.AddValue("image/jpeg", fileInfo);
+            }
+            return null;
+        }, (obj) =>
+        {
+            Forms9Patch.Toast.Create("Copy complete", "Verify results by performing paste into Note or email");
+            return false;
+        });
+
 
         TestElement _multipleTextTest = new TestElement("multiple text test", (entry) =>
         {
@@ -569,7 +619,8 @@ namespace Forms9PatchDemo
             _layout.Children.Add(_dictionaryTest);
             _layout.Children.Add(_dictionaryListTest);
             _layout.Children.Add(_dateTimeTest);
-            _layout.Children.Add(_pdfTest);
+            _layout.Children.Add(_pdfByteArrayTest);
+            _layout.Children.Add(_pdfFileInfoTest);
 
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
             _layout.Children.Add(new Label { Text = "Must visually check images because results will not be the same, byte for byte" });
@@ -577,7 +628,7 @@ namespace Forms9PatchDemo
 
             _layout.Children.Add(_pngByteArrayTest);
             _layout.Children.Add(_jpegByteArrayTest);
-            _layout.Children.Add(_jpegFilePathTest);
+            _layout.Children.Add(_jpegFileInfoTest);
             _layout.Children.Add(_jpegHttpUrlTest);
             _layout.Children.Add(_jpegComparisonGrid);
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
@@ -585,7 +636,8 @@ namespace Forms9PatchDemo
             _layout.Children.Add(_entryCaching);
             _layout.Children.Add(_execute);
             _layout.Children.Add(new BoxView { Color = Color.Blue, HeightRequest = 5 });
-            _layout.Children.Add(_multipleImagesTest);
+            _layout.Children.Add(_multipleByteArrayImagesTest);
+            _layout.Children.Add(_multipleFileInfoImagesTest);
             _layout.Children.Add(_multipleTextTest);
             _layout.Children.Add(_elapsedTimeLabel);
 
@@ -674,12 +726,14 @@ namespace Forms9PatchDemo
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.14 elapsed: " + stopwatch.ElapsedMilliseconds);
             var testDateTimeJson = (string)_dateTimeTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.15 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testPdf = (byte[])_pdfTest.CopyAction.Invoke(entry);
+            var testByteArrayPdf = (byte[])_pdfByteArrayTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.16 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testJpegByteArray = (byte[])_jpegByteArrayTest.CopyAction.Invoke(entry);
+            var testFileInfoPdf = (byte[])_pdfByteArrayTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.17 elapsed: " + stopwatch.ElapsedMilliseconds);
-            var testPngByteArray = (byte[])_pngByteArrayTest.CopyAction.Invoke(entry);
+            var testJpegByteArray = (byte[])_jpegByteArrayTest.CopyAction.Invoke(entry);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.18 elapsed: " + stopwatch.ElapsedMilliseconds);
+            var testPngByteArray = (byte[])_pngByteArrayTest.CopyAction.Invoke(entry);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 2.19 elapsed: " + stopwatch.ElapsedMilliseconds);
 
             Forms9Patch.Clipboard.Entry = entry;
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 3 elapsed: " + stopwatch.ElapsedMilliseconds);
@@ -714,7 +768,9 @@ namespace Forms9PatchDemo
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.14 elapsed: " + stopwatch.ElapsedMilliseconds);
             _dateTimeTest.Success = _dateTimeTest.PasteFunction(testDateTimeJson);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.15 elapsed: " + stopwatch.ElapsedMilliseconds);
-            _pdfTest.Success = _pdfTest.PasteFunction(testPdf);
+            _pdfByteArrayTest.Success = _pdfByteArrayTest.PasteFunction(testByteArrayPdf);
+            System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.16 elapsed: " + stopwatch.ElapsedMilliseconds);
+            _pdfFileInfoTest.Success = _pdfFileInfoTest.PasteFunction(testFileInfoPdf);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.16 elapsed: " + stopwatch.ElapsedMilliseconds);
             _jpegByteArrayTest.Success = _jpegByteArrayTest.PasteFunction(testJpegByteArray);
             System.Diagnostics.Debug.WriteLine("\t CopyPaste 4.17 elapsed: " + stopwatch.ElapsedMilliseconds);
