@@ -17,6 +17,13 @@ namespace Forms9PatchDemo
         #region Fields
         static int seed = 3452;
         readonly static Random _rand = new Random(seed);
+
+        const string _htmlBlockQuote = "<blockquote> Gregor then turned to look out the window at the dull weather.Drops of rain could be heard hitting the pane, which made him feel quite sad. \"How about if I sleep a little bit longer and forget all this nonsense\", he thought, but that was something he was unable to do because he was used to sleeping on his right, and in his present state couldn't get into that position. However hard he threw himself onto his right, he always rolled back to where he was. </blockquote>";
+        const string _htmlForm = "<form action=\"#\" method=\"post\"> <fieldset> <label for=\"name\">Name:</label> <input type=\"text\" id=\"name\" placeholder=\"Enter your full name\" /> <label for=\"email\">Email:</label> <input type=\"email\" id=\"email\" placeholder=\"Enter your email address\" /> <label for=\"message\">Message:</label> <textarea id=\"message\" placeholder=\"What's on your mind?\"></textarea> <input type=\"submit\" value=\"Send message\" /> </fieldset> </form> ";
+        const string _htmlTable = "<table class=\"data\"> <tr> <th>Entry Header 1</th> <th>Entry Header 2</th> <th>Entry Header 3</th> <th>Entry Header 4</th> </tr> <tr> <td>Entry First Line 1</td> <td>Entry First Line 2</td> <td>Entry First Line 3</td> <td>Entry First Line 4</td> </tr> <tr> <td>Entry Line 1</td> <td>Entry Line 2</td> <td>Entry Line 3</td> <td>Entry Line 4</td> </tr> <tr> <td>Entry Last Line 1</td> <td>Entry Last Line 2</td> <td>Entry Last Line 3</td> <td>Entry Last Line 4</td> </tr> </table> ";
+        const string _htmlList = "<ul> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa.</li> <li>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem.</li> <li>Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu.</li> <li>In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.</li> </ul> ";
+        const string _htmlSmallEmbeddedImage = "<img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAM0AAADNCAMAAAAsYgRbAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABJQTFRF3NSmzMewPxIG//ncJEJsldTou1jHgAAAARBJREFUeNrs2EEKgCAQBVDLuv+V20dENbMY831wKz4Y/VHb/5RGQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0NDQ0PzMWtyaGhoaGhoaGhoaGhoaGhoxtb0QGhoaGhoaGhoaGhoaGhoaMbRLEvv50VTQ9OTQ5OpyZ01GpM2g0bfmDQaL7S+ofFC6xv3ZpxJiywakzbvd9r3RWPS9I2+MWk0+kbf0Hih9Y17U0nTHibrDDQ0NDQ0NDQ0NDQ0NDQ0NTXbRSL/AK72o6GhoaGhoRlL8951vwsNDQ0NDQ1NDc0WyHtDTEhDQ0NDQ0NTS5MdGhoaGhoaGhoaGhoaGhoaGhoaGhoaGposzSHAAErMwwQ2HwRQAAAAAElFTkSuQmCC\" alt=\"beastie.png\" scale=\"0\">";
+
         #endregion
 
 
@@ -526,6 +533,20 @@ namespace Forms9PatchDemo
             return false;
         });
 
+        TestElement _multipleHtmlTest = new TestElement("multiple HTML fragments test", (entry) =>
+        {
+            entry.AddValue("text/html", _htmlForm);
+            entry.AddValue("text/html", _htmlList);
+            entry.AddValue("text/html", _htmlTable);
+            entry.AddValue("text/html", _htmlBlockQuote);
+            entry.AddValue("text/html", _htmlSmallEmbeddedImage);
+            return null;
+        }, (obj) =>
+         {
+             Forms9Patch.Toast.Create("Copy complete", "Verify results by performing paste into Note or email");
+             return false;
+         });
+
         TestElement _htmlStringTest = new TestElement("html test", (entry) =>
         {
             // Note: unlike images and text, multiple html items does not work with iOS apps (Notes and mail).
@@ -545,6 +566,8 @@ namespace Forms9PatchDemo
             }
             return false;
         });
+
+
         #endregion
 
 
@@ -639,6 +662,7 @@ namespace Forms9PatchDemo
             _layout.Children.Add(_multipleByteArrayImagesTest);
             _layout.Children.Add(_multipleFileInfoImagesTest);
             _layout.Children.Add(_multipleTextTest);
+            _layout.Children.Add(_multipleHtmlTest);
             _layout.Children.Add(_elapsedTimeLabel);
 
 
