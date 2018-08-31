@@ -567,6 +567,76 @@ namespace Forms9PatchDemo
             return false;
         });
 
+        TestElement _htmlFormTest = new TestElement("html Form test", (entry) =>
+        {
+            entry.AddValue("text/html", _htmlForm);
+            return _htmlForm;
+        }, (obj) =>
+        {
+            if (obj is string testHtml)
+            {
+                var resultHtml = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "text/html")?.Value as string;
+                return testHtml == resultHtml;
+            }
+            return false;
+        });
+
+        TestElement _htmlListTest = new TestElement("html List test", (entry) =>
+        {
+            entry.AddValue("text/html", _htmlList);
+            return _htmlList;
+        }, (obj) =>
+        {
+            if (obj is string testHtml)
+            {
+                var resultHtml = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "text/html")?.Value as string;
+                return testHtml == resultHtml;
+            }
+            return false;
+        });
+
+        TestElement _htmlTableTest = new TestElement("html Table test", (entry) =>
+        {
+            entry.AddValue("text/html", _htmlTable);
+            return _htmlTable;
+        }, (obj) =>
+        {
+            if (obj is string testHtml)
+            {
+                var resultHtml = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "text/html")?.Value as string;
+                return testHtml == resultHtml;
+            }
+            return false;
+        });
+
+        TestElement _htmlBlockQuoteTest = new TestElement("html Block Quote test", (entry) =>
+        {
+            entry.AddValue("text/html", _htmlBlockQuote);
+            return _htmlBlockQuote;
+        }, (obj) =>
+        {
+            if (obj is string testHtml)
+            {
+                var resultHtml = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "text/html")?.Value as string;
+                return testHtml == resultHtml;
+            }
+            return false;
+        });
+
+        TestElement _htmlEmbedImageTest = new TestElement("html Embedded Image test", (entry) =>
+        {
+            entry.AddValue("text/html", _htmlSmallEmbeddedImage);
+            return _htmlSmallEmbeddedImage;
+        }, (obj) =>
+        {
+            if (obj is string testHtml)
+            {
+                var resultHtml = Forms9Patch.IClipboardEntryExtensions.GetFirstMimeItem<string>(Forms9Patch.Clipboard.Entry, "text/html")?.Value as string;
+                return testHtml == resultHtml;
+            }
+            return false;
+        });
+
 
         #endregion
 
@@ -636,6 +706,13 @@ namespace Forms9PatchDemo
             _layout.Children.Add(_doubleTest);
             _layout.Children.Add(_stringTest);
             _layout.Children.Add(_htmlStringTest);
+
+            _layout.Children.Add(_htmlFormTest);
+            _layout.Children.Add(_htmlListTest);
+            _layout.Children.Add(_htmlTableTest);
+            _layout.Children.Add(_htmlBlockQuoteTest);
+            _layout.Children.Add(_htmlEmbedImageTest);
+
             _layout.Children.Add(_intListTest);
             _layout.Children.Add(_doubleListTest);
             _layout.Children.Add(_stringListTest);
