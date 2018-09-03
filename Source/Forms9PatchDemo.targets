@@ -172,6 +172,7 @@
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redribbon%402x.png" Link="Resources\redribbon%402x.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redribbon%403x.png" Link="Resources\redribbon%403x.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\red_up.9.png" Link="Resources\red_up.9.png" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\shareIcon.png" Link="Resources\shareIcon.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\tick.png" Link="Resources\tick.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\tick%402x.png" Link="Resources\tick%402x.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\tick%403x.png" Link="Resources\tick%403x.png" />
