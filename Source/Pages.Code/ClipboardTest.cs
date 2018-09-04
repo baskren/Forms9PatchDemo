@@ -18,6 +18,8 @@ namespace Forms9PatchDemo
         static int seed = 3452;
         readonly static Random _rand = new Random(seed);
 
+        const string _textPlain = "This is text/plain: ⅓ ⅔ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳  🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🙃 😐 😑 🤔 🙄 😮 😔 😖 😕";
+        const string _htmlText = "<h1>HTML Ipsum Presents</h1> <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href=\"#\">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p> <h2>Header Level 2</h2> <ol> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> </ol> <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote> <h3>Header Level 3</h3> <ul> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> </ul> <pre><code> #header h1 a { display: block; width: 300px; height: 80px; } </code></pre>";
         const string _htmlBlockQuote = "<blockquote> Gregor then turned to look out the window at the dull weather.Drops of rain could be heard hitting the pane, which made him feel quite sad. \"How about if I sleep a little bit longer and forget all this nonsense\", he thought, but that was something he was unable to do because he was used to sleeping on his right, and in his present state couldn't get into that position. However hard he threw himself onto his right, he always rolled back to where he was. </blockquote>";
         const string _htmlForm = "<form action=\"#\" method=\"post\"> <fieldset> <label for=\"name\">Name:</label> <input type=\"text\" id=\"name\" placeholder=\"Enter your full name\" /> <label for=\"email\">Email:</label> <input type=\"email\" id=\"email\" placeholder=\"Enter your email address\" /> <label for=\"message\">Message:</label> <textarea id=\"message\" placeholder=\"What's on your mind?\"></textarea> <input type=\"submit\" value=\"Send message\" /> </fieldset> </form> ";
         const string _htmlTable = "<table class=\"data\"> <tr> <th>Entry Header 1</th> <th>Entry Header 2</th> <th>Entry Header 3</th> <th>Entry Header 4</th> </tr> <tr> <td>Entry First Line 1</td> <td>Entry First Line 2</td> <td>Entry First Line 3</td> <td>Entry First Line 4</td> </tr> <tr> <td>Entry Line 1</td> <td>Entry Line 2</td> <td>Entry Line 3</td> <td>Entry Line 4</td> </tr> <tr> <td>Entry Last Line 1</td> <td>Entry Last Line 2</td> <td>Entry Last Line 3</td> <td>Entry Last Line 4</td> </tr> </table> ";
@@ -144,10 +146,8 @@ namespace Forms9PatchDemo
         });
         TestElement _stringTest = new TestElement("string test ", (entry) =>
         {
-            var testString = "This is application/x-forms9patchdemo-string: ⅓ ⅔ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳  🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🙃 😐 😑 🤔 🙄 😮 😔 😖 😕";
-            //entry.AddValue("application/x-forms9patchdemo-string", testString);
-            entry.AddValue("text/plain", testString);
-            return testString;
+            entry.AddValue("text/plain", _textPlain);
+            return _textPlain;
         }, (object obj) =>
         {
             if (obj is string testString)
@@ -554,9 +554,8 @@ namespace Forms9PatchDemo
             //entry.AddValue("text/html", "<dl> <dt>Definition list</dt> <dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd> <dt>Lorem ipsum dolor sit amet</dt> <dd>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</dd> </dl>");
             //entry.AddValue("text/html", "<ul> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> <li>Vestibulum auctor dapibus neque.</li> </ul>");
             //entry.AddValue("text/html", "<ul> <li>Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat.</li> <li>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.</li> <li>Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus. Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi.</li> <li>Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc.</li> </ul> ");
-            var testHtml = "<h1>HTML Ipsum Presents</h1> <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. <em>Aenean ultricies mi vitae est.</em> Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, <code>commodo vitae</code>, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a href=\"#\">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p> <h2>Header Level 2</h2> <ol> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> </ol> <blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus magna. Cras in mi at felis aliquet congue. Ut a est eget ligula molestie gravida. Curabitur massa. Donec eleifend, libero at sagittis mollis, tellus est malesuada tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p></blockquote> <h3>Header Level 3</h3> <ul> <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li> <li>Aliquam tincidunt mauris eu risus.</li> </ul> <pre><code> #header h1 a { display: block; width: 300px; height: 80px; } </code></pre>";
-            entry.AddValue("text/html", testHtml);
-            return testHtml;
+            entry.AddValue("text/html", _htmlText);
+            return _htmlText;
         }, (obj) =>
         {
             if (obj is string testHtml)
@@ -637,6 +636,26 @@ namespace Forms9PatchDemo
             return false;
         });
 
+
+        TestElement _mixedContentTest = new TestElement("mixed content test", (entry) =>
+        {
+            entry.AddValue("text/plain", _textPlain);
+            entry.AddValue("text/html", _htmlText);
+            for (int i = 1; i <= 3; i++)
+            {
+                //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons" + i + ".jpg");
+                var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "balloons" + i + ".jpg");
+                ExtractEmbeddedResourceToPath(typeof(ClipboardTest).GetTypeInfo().Assembly, "Forms9PatchDemo.Resources.balloons" + i + ".jpg", path);
+                //var byteArray = File.ReadAllBytes(path);
+                var fileInfo = new FileInfo(path);
+                entry.AddValue("image/jpeg", fileInfo);
+            }
+            return null;
+        }, (obj) =>
+        {
+            Forms9Patch.Toast.Create("Copy complete", "Verify results by performing paste into Note or email");
+            return false;
+        });
 
         #endregion
 
@@ -740,6 +759,7 @@ namespace Forms9PatchDemo
             _layout.Children.Add(_multipleFileInfoImagesTest);
             _layout.Children.Add(_multipleTextTest);
             _layout.Children.Add(_multipleHtmlTest);
+            _layout.Children.Add(_mixedContentTest);
             _layout.Children.Add(_elapsedTimeLabel);
 
 
