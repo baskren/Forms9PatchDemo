@@ -12,7 +12,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="2.4.0.280" />
-    <PackageReference Include="Forms9Patch" Version="1.3.2" />
+    <PackageReference Include="Forms9Patch" Version="1.4.0" />
   </ItemGroup>
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
