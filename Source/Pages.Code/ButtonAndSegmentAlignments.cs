@@ -429,12 +429,12 @@ namespace Forms9PatchDemo
             var source = image?.Source;
             if (source != null)
             {
-                _button.IconImage = new Forms9Patch.Image(source);
-                _stateButton.DefaultState.IconImage = new Forms9Patch.Image(source);
+                _button.IconImage = new Forms9Patch.Image((Xamarin.Forms.ImageSource)source);
+                _stateButton.DefaultState.IconImage = new Forms9Patch.Image((Xamarin.Forms.ImageSource)source);
                 foreach (var segment in _hzSegmentsElement.Segments)
-                    segment.IconImage = new Forms9Patch.Image(source); //new Forms9Patch.Image(image);
+                    segment.IconImage = new Forms9Patch.Image((Xamarin.Forms.ImageSource)source); //new Forms9Patch.Image(image);
                 foreach (var segment in _vtSegmentsElement.Segments)
-                    segment.IconImage = new Forms9Patch.Image(source);
+                    segment.IconImage = new Forms9Patch.Image((Xamarin.Forms.ImageSource)source);
             }
             else
             {

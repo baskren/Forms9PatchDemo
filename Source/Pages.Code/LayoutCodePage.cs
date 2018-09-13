@@ -559,7 +559,7 @@ namespace Forms9PatchDemo
                 */
                 return;
             }
-            ((Forms9Patch.ILayout)Content).BackgroundImage = new Forms9Patch.Image(segment.IconImage?.Source);
+            ((Forms9Patch.ILayout)Content).BackgroundImage = new Forms9Patch.Image((ImageSource)segment.IconImage?.Source);
             /*
             absoluteLayout.BackgroundImage = new Forms9Patch.Image(segment.IconImage?.Source);
             frame.BackgroundImage = new Forms9Patch.Image(segment.IconImage?.Source);
