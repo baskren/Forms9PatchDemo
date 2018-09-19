@@ -546,7 +546,7 @@ namespace Forms9PatchDemo
         {
             double scale = capsUnitsSegmentedControl.IsIndexSelected(0) ? 1 : 0.01; // pixelCapsSwitch.IsToggled ? 1 : 0.01;
             var capsInset = new Thickness(capsInsetsLeftSlider.Value * scale, capsInsetsTopSlider.Value * scale, capsInsetsRightSlider.Value * scale, capsInsetsBottomSlider.Value * scale);
-            System.Diagnostics.Debug.WriteLine("CapsInset=[" + Forms9Patch.ThicknessExtension.Description(capsInset) + "]");
+            //System.Diagnostics.Debug.WriteLine("CapsInset=[" + Forms9Patch.ThicknessExtension.Description(capsInset) + "]");
             f9pImage.CapInsets = capsInset;
         }
         #endregion

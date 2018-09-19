@@ -578,7 +578,7 @@ namespace Forms9PatchDemo
             {
                 double scale = capsUnitsSegmentedControl.IsIndexSelected(0) ? 1 : 0.01;
                 var capsInset = new Thickness(capsInsetsLeftSlider.Value * scale, capsInsetsTopSlider.Value * scale, capsInsetsRightSlider.Value * scale, capsInsetsBottomSlider.Value * scale);
-                System.Diagnostics.Debug.WriteLine("CapsInset=[" + Forms9Patch.ThicknessExtension.Description(capsInset) + "]");
+                //System.Diagnostics.Debug.WriteLine("CapsInset=[" + Forms9Patch.ThicknessExtension.Description(capsInset) + "]");
                 ((Forms9Patch.ILayout)Content).BackgroundImage.CapInsets = capsInset;
                 /*
                 absoluteLayout.BackgroundImage.CapInsets = capsInset;
@@ -607,7 +607,7 @@ namespace Forms9PatchDemo
             var absoluteLayout = new Forms9Patch.AbsoluteLayout();
             var absoluteLayoutContent = new Forms9Patch.Label("CONTENT")
             {
-                TextColor = Color.White,
+                TextColor = Color.Orange,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
                 FontAttributes = FontAttributes.Bold
@@ -622,7 +622,7 @@ namespace Forms9PatchDemo
         {
             var frame = new Forms9Patch.Frame
             {
-                Content = new Forms9Patch.Label("CONTENT") { TextColor = Color.White, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold },
+                Content = new Forms9Patch.Label("CONTENT") { TextColor = Color.Orange, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold },
             };
             return frame;
         }
@@ -642,10 +642,10 @@ namespace Forms9PatchDemo
                     new RowDefinition() { Height = new GridLength(1, GridUnitType.Star)},
                 },
             };
-            grid.Children.Add(new Forms9Patch.Label("C0R0") { TextColor = Color.White, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold }, 0, 0);
-            grid.Children.Add(new Forms9Patch.Label("C0R1") { TextColor = Color.White, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold }, 0, 1);
-            grid.Children.Add(new Forms9Patch.Label("C1R0") { TextColor = Color.White, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold }, 1, 0);
-            grid.Children.Add(new Forms9Patch.Label("C1R1") { TextColor = Color.White, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold }, 1, 1);
+            grid.Children.Add(new Forms9Patch.Label("C0R0") { TextColor = Color.Orange, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold }, 0, 0);
+            grid.Children.Add(new Forms9Patch.Label("C0R1") { TextColor = Color.Orange, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold }, 0, 1);
+            grid.Children.Add(new Forms9Patch.Label("C1R0") { TextColor = Color.Orange, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold }, 1, 0);
+            grid.Children.Add(new Forms9Patch.Label("C1R1") { TextColor = Color.Orange, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment = TextAlignment.Center, FontAttributes = FontAttributes.Bold }, 1, 1);
             return grid;
         }
 
@@ -654,35 +654,35 @@ namespace Forms9PatchDemo
             var relativeLayout = new Forms9Patch.RelativeLayout();
             var cView = new Forms9Patch.Label("C")
             {
-                TextColor = Color.White,
+                TextColor = Color.Orange,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
                 FontAttributes = FontAttributes.Bold
             };
             var lView = new Forms9Patch.Label("L")
             {
-                TextColor = Color.White,
+                TextColor = Color.Orange,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
                 FontAttributes = FontAttributes.Bold
             };
             var rView = new Forms9Patch.Label("R")
             {
-                TextColor = Color.White,
+                TextColor = Color.Orange,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
                 FontAttributes = FontAttributes.Bold
             };
             var tView = new Forms9Patch.Label("T")
             {
-                TextColor = Color.White,
+                TextColor = Color.Orange,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
                 FontAttributes = FontAttributes.Bold
             };
             var bView = new Forms9Patch.Label("T")
             {
-                TextColor = Color.White,
+                TextColor = Color.Orange,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
                 FontAttributes = FontAttributes.Bold
@@ -701,8 +701,8 @@ namespace Forms9PatchDemo
             {
                 Children =
                 {
-                    new Forms9Patch.Label("Child 1") { TextColor = Color.White, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment=TextAlignment.Center, FontAttributes=FontAttributes.Bold },
-                    new Forms9Patch.Label("Child 2") { TextColor = Color.White, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment=TextAlignment.Center, FontAttributes=FontAttributes.Bold }
+                    new Forms9Patch.Label("Child 1") { TextColor = Color.Orange, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment=TextAlignment.Center, FontAttributes=FontAttributes.Bold },
+                    new Forms9Patch.Label("Child 2") { TextColor = Color.Orange, HorizontalTextAlignment = TextAlignment.Center, VerticalTextAlignment=TextAlignment.Center, FontAttributes=FontAttributes.Bold }
                 }
             };
             return stackLayout;
