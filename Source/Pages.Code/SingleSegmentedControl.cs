@@ -45,10 +45,13 @@ namespace Forms9PatchDemo.Pages
                     hasOutlineSwitch,
                     new Forms9Patch.Label("HasSeparators"),
                     hasSeparatorsSwitch,
-
                     segementControl,
                 }
             };
+
+            hasSeparatorsSwitch.IsToggled = Math.Abs(segementControl.SeparatorWidth) > 0.01;
+            hasShadowSwitch.IsToggled = segementControl.HasShadow;
+            hasOutlineSwitch.IsToggled = segementControl.OutlineWidth > 0;
         }
     }
 }
