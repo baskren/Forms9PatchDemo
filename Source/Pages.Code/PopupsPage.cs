@@ -5,8 +5,28 @@ namespace Forms9PatchDemo.Pages.Code
 {
     public class PopupsPage : Xamarin.Forms.ContentPage
     {
+        bool _hasShadow;
+        bool _shadowInverted;
+        bool _blueOutline;
+
+        const string _hasShadowText = "HasShadow";
+        const string _shadowInvertedText = "ShadowInverted";
+        const string _blueOutlineText = "Blue Outline";
+
+        SegmentedControl _decoration = new SegmentedControl
+        {
+            Segments = {
+                new Segment(_hasShadowText),
+                new Segment(_shadowInvertedText),
+                new Segment(_blueOutlineText),
+            },
+            GroupToggleBehavior = GroupToggleBehavior.Multiselect
+        };
+
         public PopupsPage()
         {
+
+
             Padding = 20;
 
             var showModalButton = new Forms9Patch.Button("ModalPopup");
@@ -19,15 +39,23 @@ namespace Forms9PatchDemo.Pages.Code
                         new Forms9Patch.Label("ModalPopup") { FontAttributes=FontAttributes.Bold },
                         cancelModalButton
                     }
-                }
+                },
+                OutlineColor = Color.Blue,
             };
             cancelModalButton.Clicked += (sender, e) => modal.Cancel();
-            showModalButton.Clicked += (sender, e) => modal.IsVisible = true;
+            showModalButton.Clicked += (sender, e) =>
+            {
+                modal.HasShadow = _hasShadow;
+                modal.ShadowInverted = _shadowInverted;
+                modal.OutlineWidth = _blueOutline ? 1 : 0;
+                modal.IsVisible = true;
+            };
 
             var showBubbleButton = new Forms9Patch.Button("BubblePopup");
             var cancelBubbleButton = new Forms9Patch.Button("CANCEL");
             var bubble = new BubblePopup(showBubbleButton)
             {
+                OutlineColor = Color.Blue,
                 Content = new Xamarin.Forms.StackLayout
                 {
                     Children = {
@@ -37,7 +65,14 @@ namespace Forms9PatchDemo.Pages.Code
                 }
             };
             cancelBubbleButton.Clicked += (sender, e) => bubble.Cancel();
-            showBubbleButton.Clicked += (sender, e) => bubble.IsVisible = true;
+            showBubbleButton.Clicked += (sender, e) =>
+            {
+                bubble.OutlineColor = Color.Blue;
+                bubble.HasShadow = _hasShadow;
+                bubble.ShadowInverted = _shadowInverted;
+                bubble.OutlineWidth = _blueOutline ? 1 : 0;
+                bubble.IsVisible = true;
+            };
 
             var showActivityButton = new Forms9Patch.Button("ActivityIndicatorPopup");
             showActivityButton.Clicked += (sender, e) =>
@@ -50,13 +85,31 @@ namespace Forms9PatchDemo.Pages.Code
             showPermissionButton.Clicked += (sender, e) =>
             {
                 var permission = PermissionPopup.Create("PermissionPopup", "Do you agree?");
+                permission.OutlineColor = Color.Blue;
+                permission.HasShadow = _hasShadow;
+                permission.ShadowInverted = _shadowInverted;
+                permission.OutlineWidth = _blueOutline ? 1 : 0;
             };
 
             var showToastButton = new Forms9Patch.Button("Toast");
-            showToastButton.Clicked += (sender, e) => Toast.Create("Toast", "... of the town!");
+            showToastButton.Clicked += (sender, e) =>
+            {
+                var toast = Toast.Create("Toast", "... of the town!");
+                toast.OutlineColor = Color.Blue;
+                toast.HasShadow = _hasShadow;
+                toast.ShadowInverted = _shadowInverted;
+                toast.OutlineWidth = _blueOutline ? 1 : 0;
+            };
 
             var showTargetedToash = new Forms9Patch.Button("TargetedToast");
-            showTargetedToash.Clicked += (sender, e) => TargetedToast.Create(showTargetedToash, "TargetedToast", "... has the far getted most!");
+            showTargetedToash.Clicked += (sender, e) =>
+            {
+                var toast = TargetedToast.Create(showTargetedToash, "TargetedToast", "... has the far getted most!");
+                toast.OutlineColor = Color.Blue;
+                toast.HasShadow = _hasShadow;
+                toast.ShadowInverted = _shadowInverted;
+                toast.OutlineWidth = _blueOutline ? 1 : 0;
+            };
 
             var showTargetedMenu = new Forms9Patch.Button("TargetedMenu");
             var targetedMenu = new Forms9Patch.TargetedMenu(showTargetedMenu)
@@ -76,12 +129,36 @@ namespace Forms9PatchDemo.Pages.Code
                     new Segment("Segment H"),
                 }
             };
-            showTargetedMenu.Clicked += (s, e) => targetedMenu.IsVisible = true;
+            showTargetedMenu.Clicked += (s, e) =>
+            {
+                targetedMenu.OutlineColor = Color.Blue;
+                targetedMenu.IsVisible = true;
+                targetedMenu.HasShadow = _hasShadow;
+                targetedMenu.ShadowInverted = _shadowInverted;
+                targetedMenu.OutlineWidth = _blueOutline ? 1 : 0;
+            };
+
             targetedMenu.SegmentTapped += (s, e) => System.Diagnostics.Debug.WriteLine("TargetedMenu.SegmentTapped: " + e.Segment.Text);
 
             Content = new Xamarin.Forms.StackLayout
             {
-                Children = { showModalButton, showBubbleButton, showActivityButton, showPermissionButton, showToastButton, showTargetedToash, showTargetedMenu }
+                Children = {
+                    new BoxView { HeightRequest = 1},
+                    _decoration,
+                    new BoxView { HeightRequest = 1},
+                    showModalButton, showBubbleButton, showActivityButton, showPermissionButton, showToastButton, showTargetedToash, showTargetedMenu,
+                    new BoxView { HeightRequest = 1},
+                }
+            };
+
+            _decoration.SegmentTapped += (s, e) =>
+            {
+                if (e.Segment.Text == _hasShadowText)
+                    _hasShadow = !_hasShadow;
+                else if (e.Segment.Text == _shadowInvertedText)
+                    _shadowInverted = !_shadowInverted;
+                else if (e.Segment.Text == _blueOutlineText)
+                    _blueOutline = !_blueOutline;
             };
         }
     }
