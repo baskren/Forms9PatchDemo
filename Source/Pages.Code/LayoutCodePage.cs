@@ -491,7 +491,7 @@ namespace Forms9PatchDemo
                 switch (segment.Text)
                 {
                     case "BACKGROUND":
-                        var backgroundColor = segment.IsSelected ? Color.Orange : Color.Default;
+                        var backgroundColor = segment.IsSelected ? Color.Green : Color.Default;
                         ((Forms9Patch.ILayout)Content).BackgroundColor = backgroundColor;
                         /*
                         absoluteLayout.BackgroundColor = backgroundColor;
