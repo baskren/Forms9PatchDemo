@@ -1,6 +1,8 @@
 ﻿using System;
 using Xamarin.Forms;
 using Forms9Patch;
+using System.Collections.Generic;
+
 namespace Forms9PatchDemo.Pages.Code
 {
     public class PopupsPage : Xamarin.Forms.ContentPage
@@ -29,6 +31,7 @@ namespace Forms9PatchDemo.Pages.Code
 
             Padding = 20;
 
+            #region ModalPopup
             var showModalButton = new Forms9Patch.Button("ModalPopup");
             var cancelModalButton = new Forms9Patch.Button("CANCEL");
             var modal = new ModalPopup
@@ -50,7 +53,10 @@ namespace Forms9PatchDemo.Pages.Code
                 modal.OutlineWidth = _blueOutline ? 1 : 0;
                 modal.IsVisible = true;
             };
+            #endregion
 
+
+            #region BubblePopup
             var showBubbleButton = new Forms9Patch.Button("BubblePopup");
             var cancelBubbleButton = new Forms9Patch.Button("CANCEL");
             var bubble = new BubblePopup(showBubbleButton)
@@ -73,14 +79,20 @@ namespace Forms9PatchDemo.Pages.Code
                 bubble.OutlineWidth = _blueOutline ? 1 : 0;
                 bubble.IsVisible = true;
             };
+            #endregion
 
-            var showActivityButton = new Forms9Patch.Button("ActivityIndicatorPopup");
-            showActivityButton.Clicked += (sender, e) =>
+
+            #region ActivityPopup
+            var showActivityPopupButton = new Forms9Patch.Button("ActivityIndicatorPopup");
+            showActivityPopupButton.Clicked += (sender, e) =>
             {
                 var activity = Forms9Patch.ActivityIndicatorPopup.Create();
                 activity.CancelOnPageOverlayTouch = true;
             };
+            #endregion
 
+
+            #region PermissionPopup
             var showPermissionButton = new Forms9Patch.Button("PermissionPopup");
             showPermissionButton.Clicked += (sender, e) =>
             {
@@ -90,7 +102,10 @@ namespace Forms9PatchDemo.Pages.Code
                 permission.ShadowInverted = _shadowInverted;
                 permission.OutlineWidth = _blueOutline ? 1 : 0;
             };
+            #endregion
 
+
+            #region Toast
             var showToastButton = new Forms9Patch.Button("Toast");
             showToastButton.Clicked += (sender, e) =>
             {
@@ -100,7 +115,10 @@ namespace Forms9PatchDemo.Pages.Code
                 toast.ShadowInverted = _shadowInverted;
                 toast.OutlineWidth = _blueOutline ? 1 : 0;
             };
+            #endregion
 
+
+            #region TargetedToast
             var showTargetedToash = new Forms9Patch.Button("TargetedToast");
             showTargetedToash.Clicked += (sender, e) =>
             {
@@ -110,7 +128,10 @@ namespace Forms9PatchDemo.Pages.Code
                 toast.ShadowInverted = _shadowInverted;
                 toast.OutlineWidth = _blueOutline ? 1 : 0;
             };
+            #endregion
 
+
+            #region TargetedMenu
             var showTargetedMenu = new Forms9Patch.Button("TargetedMenu");
             var targetedMenu = new Forms9Patch.TargetedMenu(showTargetedMenu)
             {
@@ -136,9 +157,50 @@ namespace Forms9PatchDemo.Pages.Code
                 targetedMenu.HasShadow = _hasShadow;
                 targetedMenu.ShadowInverted = _shadowInverted;
                 targetedMenu.OutlineWidth = _blueOutline ? 1 : 0;
+                targetedMenu.IsVisible = true;
             };
-
             targetedMenu.SegmentTapped += (s, e) => System.Diagnostics.Debug.WriteLine("TargetedMenu.SegmentTapped: " + e.Segment.Text);
+            #endregion
+
+
+            #region SoftwareKeyboardTest
+            var softwareKeyboardTestButton = new Forms9Patch.Button("Software Keyboard Test");
+            var softwareKeyboardTestPopup = new ModalPopup
+            {
+                Content =
+                new Xamarin.Forms.StackLayout
+                {
+                    Children = {
+                        new Xamarin.Forms.Picker
+                        {
+                            Title = "SELECT YEAR",
+                            ItemsSource = new List<string> { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2006", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"},
+                        },
+                        new Xamarin.Forms.Picker
+                        {
+                            Title = "SELECT MONTH",
+                            ItemsSource = new List<string> { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"},
+                        },
+                        new Xamarin.Forms.Entry
+                        {
+                            Placeholder = "ENTER FIRST NAME",
+                        },
+                        new Xamarin.Forms.Entry
+                        {
+                            Placeholder = "ENTER LAST NAME",
+                        },
+                    }
+                }
+            };
+            softwareKeyboardTestButton.Clicked += (s, e) =>
+            {
+                softwareKeyboardTestPopup.OutlineColor = Color.Blue;
+                softwareKeyboardTestPopup.HasShadow = _hasShadow;
+                softwareKeyboardTestPopup.ShadowInverted = _shadowInverted;
+                softwareKeyboardTestPopup.OutlineWidth = _blueOutline ? 1 : 0;
+                softwareKeyboardTestPopup.IsVisible = true;
+            };
+            #endregion
 
             Content = new Xamarin.Forms.StackLayout
             {
@@ -146,7 +208,7 @@ namespace Forms9PatchDemo.Pages.Code
                     new BoxView { HeightRequest = 1},
                     _decoration,
                     new BoxView { HeightRequest = 1},
-                    showModalButton, showBubbleButton, showActivityButton, showPermissionButton, showToastButton, showTargetedToash, showTargetedMenu,
+                    showModalButton, showBubbleButton, showActivityPopupButton, showPermissionButton, showToastButton, showTargetedToash, showTargetedMenu, softwareKeyboardTestButton,
                     new BoxView { HeightRequest = 1},
                 }
             };
