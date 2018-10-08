@@ -164,6 +164,27 @@ namespace Forms9PatchDemo.Pages.Code
 
 
             #region SoftwareKeyboardTest
+
+            var yearPicker = new Xamarin.Forms.Picker
+            {
+                Title = "SELECT YEAR",
+                ItemsSource = new List<string> { "SELECT YEAR", "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2006", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020" },
+                SelectedItem = "SELECT YEAR",
+                SelectedIndex = 0,
+                TextColor = Color.LightGray,
+            };
+            yearPicker.SelectedIndexChanged += (s, e) => yearPicker.TextColor = yearPicker.SelectedIndex == 0 ? Color.LightGray : Color.Blue;
+
+            var monthPicker = new Xamarin.Forms.Picker
+            {
+                Title = "SELECT MONTH",
+                ItemsSource = new List<string> { "SELECT MONTH", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" },
+                SelectedItem = "SELECT MONTH",
+                TextColor = Color.LightGray,
+            };
+            monthPicker.SelectedIndexChanged += (s, e) => monthPicker.TextColor = monthPicker.SelectedIndex == 0 ? Color.LightGray : Color.Blue;
+
+
             var softwareKeyboardTestButton = new Forms9Patch.Button("Software Keyboard Test");
             var softwareKeyboardTestPopup = new ModalPopup
             {
@@ -171,23 +192,19 @@ namespace Forms9PatchDemo.Pages.Code
                 new Xamarin.Forms.StackLayout
                 {
                     Children = {
-                        new Xamarin.Forms.Picker
-                        {
-                            Title = "SELECT YEAR",
-                            ItemsSource = new List<string> { "2000", "2001", "2002", "2003", "2004", "2005", "2006", "2006", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"},
-                        },
-                        new Xamarin.Forms.Picker
-                        {
-                            Title = "SELECT MONTH",
-                            ItemsSource = new List<string> { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"},
-                        },
+                        yearPicker,
+                        monthPicker,
                         new Xamarin.Forms.Entry
                         {
                             Placeholder = "ENTER FIRST NAME",
+                            TextColor = Color.Blue,
+                            PlaceholderColor = Color.LightGray,
                         },
                         new Xamarin.Forms.Entry
                         {
                             Placeholder = "ENTER LAST NAME",
+                            TextColor = Color.Blue,
+                            PlaceholderColor = Color.LightGray,
                         },
                     }
                 }
