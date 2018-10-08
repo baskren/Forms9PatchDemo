@@ -230,6 +230,13 @@ namespace Forms9PatchDemo
 
                         new TextCell
                         {
+                            Text = "State Button",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(StateButton)
+                        },
+
+                        new TextCell
+                        {
                             Text = "Single SegmentedControl",
                             Command = navigateCommand,
                             CommandParameter = typeof(SingleSegmentedControl)
