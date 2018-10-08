@@ -51,7 +51,7 @@ namespace Forms9PatchDemo
                 new Command<Type>(async (Type pageType) =>
             {
                 var page = (Page)Activator.CreateInstance(pageType);
-                await this.Navigation.PushModalAsync(page);
+                await this.Navigation.PushModalAsync(new Forms9Patch.PopupPage(page));
             });
 
             this.Title = "Forms Gallery";

@@ -49,7 +49,7 @@ namespace Forms9PatchDemo
             };
             detailButton.Clicked += (s, e) =>
             {
-                if (Navigation.ModalStack.Contains(this))
+                if (Navigation.ModalStack.Contains(this) || Navigation.ModalStack.Contains(Parent))
                     Navigation.PopModalAsync();
                 else
                     Navigation.PopAsync();
