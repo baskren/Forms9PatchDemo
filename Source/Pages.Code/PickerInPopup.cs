@@ -43,6 +43,7 @@ namespace Forms9PatchDemo
                         {
                             new Label { Text = "Year:", VerticalTextAlignment = TextAlignment.Center, HorizontalOptions = LayoutOptions.Start, VerticalOptions = LayoutOptions.Fill },
                             _singlePickerButton,
+                            new Label { Text = "Scale: " + Forms9Patch.Display.Scale, VerticalOptions = LayoutOptions.End},
                         }
                     },
                 }
