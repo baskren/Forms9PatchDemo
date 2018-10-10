@@ -50,9 +50,36 @@
     <EmbedAssembliesIntoApk>True</EmbedAssembliesIntoApk>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Forms9Patch, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
+    </Reference>
+    <Reference Include="Forms9Patch.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsGestures, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\FormsGestures.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsGestures.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\FormsGestures.Droid.dll</HintPath>
+    </Reference>
+    <Reference Include="FormsViewGroup, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\FormsViewGroup.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MimeSharp, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\MimeSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\netstandard2.0\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="P42.NumericalMethods, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\P42.NumericalMethods.dll</HintPath>
+    </Reference>
+    <Reference Include="P42.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\P42.Utils.dll</HintPath>
+    </Reference>
+    <Reference Include="P42.Utils.Droid, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Forms9Patch.1.5.0\lib\MonoAndroid10\P42.Utils.Droid.dll</HintPath>
     </Reference>
     <Reference Include="SkiaSharp.Extended.Svg, Version=1.60.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
       <HintPath>..\packages\SkiaSharp.Svg.1.60.0\lib\netstandard2.0\SkiaSharp.Extended.Svg.dll</HintPath>
@@ -101,30 +128,6 @@
     </Reference>
     <Reference Include="Xamarin.Forms.Xaml">
       <HintPath>..\packages\Xamarin.Forms.2.4.0.280\lib\MonoAndroid10\Xamarin.Forms.Xaml.dll</HintPath>
-    </Reference>
-    <Reference Include="Forms9Patch">
-      <HintPath>..\..\packages\Forms9Patch.1.4.0.1-rc1\lib\MonoAndroid10\Forms9Patch.dll</HintPath>
-    </Reference>
-    <Reference Include="Forms9Patch.Droid">
-      <HintPath>..\..\packages\Forms9Patch.1.4.0.1-rc1\lib\MonoAndroid10\Forms9Patch.Droid.dll</HintPath>
-    </Reference>
-    <Reference Include="FormsGestures">
-      <HintPath>..\..\packages\Forms9Patch.1.4.0.1-rc1\lib\MonoAndroid10\FormsGestures.dll</HintPath>
-    </Reference>
-    <Reference Include="FormsGestures.Droid">
-      <HintPath>..\..\packages\Forms9Patch.1.4.0.1-rc1\lib\MonoAndroid10\FormsGestures.Droid.dll</HintPath>
-    </Reference>
-    <Reference Include="MimeSharp">
-      <HintPath>..\..\packages\Forms9Patch.1.4.0.1-rc1\lib\MonoAndroid10\MimeSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="P42.NumericalMethods">
-      <HintPath>..\..\packages\Forms9Patch.1.4.0.1-rc1\lib\MonoAndroid10\P42.NumericalMethods.dll</HintPath>
-    </Reference>
-    <Reference Include="P42.Utils">
-      <HintPath>..\..\packages\Forms9Patch.1.4.0.1-rc1\lib\MonoAndroid10\P42.Utils.dll</HintPath>
-    </Reference>
-    <Reference Include="P42.Utils.Droid">
-      <HintPath>..\..\packages\Forms9Patch.1.4.0.1-rc1\lib\MonoAndroid10\P42.Utils.Droid.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
