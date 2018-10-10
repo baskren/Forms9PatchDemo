@@ -10,9 +10,12 @@
     <DefineConstants>TRACE;DEBUG;NETSTANDARD1_3;$(UseXaml)</DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.Forms" Version="3.1.0.697729" />
-    <PackageReference Include="Forms9Patch" Version="1.5.0-rc2" />
+    <PackageReference Include="Forms9Patch" Version="1.5.0-rc3" />
     <PackageReference Include="SkiaSharp.Views.Forms" Version="1.60.0" />
     <PackageReference Include="SkiaSharp.Svg" Version="1.60.0" />
   </ItemGroup>
