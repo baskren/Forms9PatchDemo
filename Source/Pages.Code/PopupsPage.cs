@@ -14,15 +14,15 @@ namespace Forms9PatchDemo.Pages.Code
         const string _hasShadowText = "HasShadow";
         const string _shadowInvertedText = "ShadowInverted";
         const string _blueOutlineText = "Blue Outline";
-
-        SegmentedControl _decoration = new SegmentedControl
+        readonly SegmentedControl _decoration = new SegmentedControl
         {
             Segments = {
                 new Segment(_hasShadowText),
                 new Segment(_shadowInvertedText),
                 new Segment(_blueOutlineText),
             },
-            GroupToggleBehavior = GroupToggleBehavior.Multiselect
+            GroupToggleBehavior = GroupToggleBehavior.Multiselect,
+            BackgroundColor = Color.White,
         };
 
         public PopupsPage()
@@ -32,7 +32,7 @@ namespace Forms9PatchDemo.Pages.Code
             Padding = 20;
 
             #region ModalPopup
-            var showModalButton = new Forms9Patch.Button("ModalPopup");
+            var showModalButton = new Forms9Patch.Button("ModalPopup") { BackgroundColor = Color.White };
             var cancelModalButton = new Forms9Patch.Button("CANCEL");
             var modal = new ModalPopup
             {
@@ -57,7 +57,7 @@ namespace Forms9PatchDemo.Pages.Code
 
 
             #region BubblePopup
-            var showBubbleButton = new Forms9Patch.Button("BubblePopup");
+            var showBubbleButton = new Forms9Patch.Button("BubblePopup") { BackgroundColor = Color.White };
             var cancelBubbleButton = new Forms9Patch.Button("CANCEL");
             var bubble = new BubblePopup(showBubbleButton)
             {
@@ -83,7 +83,7 @@ namespace Forms9PatchDemo.Pages.Code
 
 
             #region ActivityPopup
-            var showActivityPopupButton = new Forms9Patch.Button("ActivityIndicatorPopup");
+            var showActivityPopupButton = new Forms9Patch.Button("ActivityIndicatorPopup") { BackgroundColor = Color.White };
             showActivityPopupButton.Clicked += (sender, e) =>
             {
                 var activity = Forms9Patch.ActivityIndicatorPopup.Create();
@@ -93,7 +93,7 @@ namespace Forms9PatchDemo.Pages.Code
 
 
             #region PermissionPopup
-            var showPermissionButton = new Forms9Patch.Button("PermissionPopup");
+            var showPermissionButton = new Forms9Patch.Button("PermissionPopup") { BackgroundColor = Color.White };
             showPermissionButton.Clicked += (sender, e) =>
             {
                 var permission = PermissionPopup.Create("PermissionPopup", "Do you agree?");
@@ -106,7 +106,7 @@ namespace Forms9PatchDemo.Pages.Code
 
 
             #region Toast
-            var showToastButton = new Forms9Patch.Button("Toast");
+            var showToastButton = new Forms9Patch.Button("Toast") { BackgroundColor = Color.White };
             showToastButton.Clicked += (sender, e) =>
             {
                 var toast = Toast.Create("Toast", "... of the town!");
@@ -119,7 +119,7 @@ namespace Forms9PatchDemo.Pages.Code
 
 
             #region TargetedToast
-            var showTargetedToash = new Forms9Patch.Button("TargetedToast");
+            var showTargetedToash = new Forms9Patch.Button("TargetedToast") { BackgroundColor = Color.White };
             showTargetedToash.Clicked += (sender, e) =>
             {
                 var toast = TargetedToast.Create(showTargetedToash, "TargetedToast", "... has the far getted most!");
@@ -132,7 +132,7 @@ namespace Forms9PatchDemo.Pages.Code
 
 
             #region TargetedMenu
-            var showTargetedMenu = new Forms9Patch.Button("TargetedMenu");
+            var showTargetedMenu = new Forms9Patch.Button("TargetedMenu") { BackgroundColor = Color.White };
             var targetedMenu = new Forms9Patch.TargetedMenu(showTargetedMenu)
             {
                 Segments =
@@ -185,7 +185,7 @@ namespace Forms9PatchDemo.Pages.Code
             monthPicker.SelectedIndexChanged += (s, e) => monthPicker.TextColor = monthPicker.SelectedIndex == 0 ? Color.LightGray : Color.Blue;
 
 
-            var softwareKeyboardTestButton = new Forms9Patch.Button("Software Keyboard Test");
+            var softwareKeyboardTestButton = new Forms9Patch.Button("Software Keyboard Test") { BackgroundColor = Color.White };
             var softwareKeyboardTestPopup = new ModalPopup
             {
                 Content =
@@ -232,13 +232,21 @@ namespace Forms9PatchDemo.Pages.Code
 
             _decoration.SegmentTapped += (s, e) =>
             {
-                if (e.Segment.Text == _hasShadowText)
-                    _hasShadow = !_hasShadow;
-                else if (e.Segment.Text == _shadowInvertedText)
-                    _shadowInverted = !_shadowInverted;
-                else if (e.Segment.Text == _blueOutlineText)
-                    _blueOutline = !_blueOutline;
+                switch (e.Segment.Text)
+                {
+                    case _hasShadowText:
+                        _hasShadow = !_hasShadow;
+                        break;
+                    case _shadowInvertedText:
+                        _shadowInverted = !_shadowInverted;
+                        break;
+                    case _blueOutlineText:
+                        _blueOutline = !_blueOutline;
+                        break;
+                }
             };
+
+            BackgroundColor = Color.LightSlateGray;
         }
     }
 }
