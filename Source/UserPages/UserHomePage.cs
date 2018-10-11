@@ -51,7 +51,7 @@ namespace Forms9PatchDemo
                 new Command<Type>(async (Type pageType) =>
             {
                 var page = (Page)Activator.CreateInstance(pageType);
-                await this.Navigation.PushModalAsync(new Forms9Patch.PopupPage(page));
+                await this.Navigation.PushModalAsync(page);
             });
 
             this.Title = "Forms Gallery";
@@ -65,11 +65,11 @@ namespace Forms9PatchDemo
 
 #if FROM_SOURCE
                         new TextCell
-						{
-							Text = "App3.MainPage",
-							Command = navigateCommand,
-							CommandParameter = typeof(App3.MainPage)
-						},
+                        {
+                            Text = "App3.MainPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(App3.MainPage)
+                        },
 #endif
 
 

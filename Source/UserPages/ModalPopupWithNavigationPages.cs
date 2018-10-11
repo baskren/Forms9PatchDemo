@@ -12,7 +12,7 @@ namespace Forms9PatchDemo
             Padding = 20;
 
             var button = new Forms9Patch.Button("Show Test Page");
-            button.Clicked += (sender, e) => this.Navigation.PushModalAsync(new Forms9Patch.PopupPage(new BubbonPushModalAsyncPage()));
+            button.Clicked += (sender, e) => this.Navigation.PushModalAsync(new BubbonPushModalAsyncPage());
             // The root page of your application
             var content = new Xamarin.Forms.ContentView
             {
