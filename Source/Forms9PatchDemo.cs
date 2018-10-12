@@ -133,38 +133,7 @@ namespace Forms9PatchDemo
 
             navPage.Popped += OnPagePopped;
 
-            if (true)
-            {
-                //MainPage = Forms9Patch.RootPage.Create(new XamlSegmentedControlPage());
-                //MainPage = new NinePatchButtonPage();
-                //MainPage = new ModalPopupTestPage();
-                //MainPage = new BubbleLayoutTestPage();
-                //MainPage = new ImageBenchmarkPage();
-                //MainPage = new BubblePopupTestPage();
-                //MainPage = new ChatListPage();
-                //MainPage = new XamlStateButtonsPage();
-                //MainPage = new HtmlButtonsPage();
-                //MainPage = new HtmlLabelPage();
-                //MainPage = new ImageCodePage();
-
-                //MainPage = new ZenmekPage();
-                //MainPage = new HeapDemoPage();
-                //MainPage = new ModalPopupOnMasterDetailPage();
-                /*
-                MainPage = new Forms9Patch.RootPage(new MasterDetailPage { Master = new ContentPage { Title = "Test", BackgroundColor = Color.Green }, Detail = new BubblePopupTestPage() })
-                {
-                    BackgroundColor = Color.Brown
-                };
-                */
-                //MainPage = new MasterDetailPage { Master = new ContentPage { Title = "Test", BackgroundColor = Color.Green }, Detail = new BubblePopupTestPage() };
-                //MainPage = Forms9Patch.RootPage.Create(new MasterDetailPage { Master = new ContentPage { Title = "Test", BackgroundColor = Color.Green }, Detail = new BubblePopupTestPage() });
-
-                MainPage = navPage; // Forms9Patch.RootPage.Create(navPage);
-                // MainPage = new Forms9PatchDemo.HardwareKeyPage();
-
-                //MainPage = Forms9Patch.RootPage.Create(new NavigationPage(new UiKeyCommandApp.RootPage()));
-
-            }
+            MainPage = navPage; 
         }
 
 
