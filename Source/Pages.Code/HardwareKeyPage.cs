@@ -41,6 +41,19 @@ namespace Forms9PatchDemo
 
         public HardwareKeyPage()
         {
+            var popup = new ModalPopup
+            {
+                Content = new Xamarin.Forms.Label { Text = "Modal Popup!" },
+            };
+            var popupButton = new Xamarin.Forms.Button { Text = "Display Popup" };
+            popupButton.Clicked += (sender, e) =>
+            {
+                popup.IsVisible = true;
+            };
+
+            popup.Appearing += (sender, e) => Forms9Patch.HardwareKeyPage.DefaultFocusedElement = popup;
+
+            popup.Disappearing += (sender, e) => Forms9Patch.HardwareKeyPage.DefaultFocusedElement = this;
 
             /* IMPORTANT NOTE TO DEVELOPERS USING HARDWARE KEY LISTENING
              In order to make Hardware Key Listening to work, Forms9Patch needs
@@ -224,6 +237,14 @@ namespace Forms9PatchDemo
             _modalButton.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
             #endregion
 
+            #region ... for _modal
+            popup.AddHardwareKeyListener(HardwareKey.UpArrowKeyInput, OnHardwareKeyPressed);
+            popup.AddHardwareKeyListener(HardwareKey.DownArrowKeyInput, OnHardwareKeyPressed);
+            popup.AddHardwareKeyListener(HardwareKey.LeftArrowKeyInput, OnHardwareKeyPressed);
+            popup.AddHardwareKeyListener(HardwareKey.RightArrowKeyInput, OnHardwareKeyPressed);
+            popup.AddHardwareKeyListener(HardwareKey.EscapeKeyInput, OnHardwareKeyPressed);
+            #endregion
+
             #endregion
 
 
@@ -233,9 +254,9 @@ namespace Forms9PatchDemo
 
             Content = new Xamarin.Forms.ScrollView
             {
-            Content = new Xamarin.Forms.StackLayout
-            {
-                Children =
+                Content = new Xamarin.Forms.StackLayout
+                {
+                    Children =
                     {
                     _label,
                     _editor,
@@ -251,9 +272,10 @@ namespace Forms9PatchDemo
                         new BoxView { Color = Color.Black, HeightRequest = 2 },
                     _inputLabel,
                     _modifiersLabel,
-                    _keyboardType
+                    _keyboardType,
+                        popupButton,
                     }
-            }
+                }
 
             };
 
