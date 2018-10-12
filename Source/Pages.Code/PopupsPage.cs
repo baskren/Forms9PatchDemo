@@ -25,33 +25,37 @@ namespace Forms9PatchDemo.Pages.Code
             BackgroundColor = Color.White,
         };
 
-        public PopupsPage()
+        #region Modal Popup VisualElements
+        readonly Forms9Patch.Button showModalButton = new Forms9Patch.Button("ModalPopup") { BackgroundColor = Color.White };
+        static readonly Forms9Patch.Button cancelModalButton = new Forms9Patch.Button("CANCEL");
+
+        readonly ModalPopup _modalPopup = new ModalPopup(true)
         {
-
-
-            Padding = 20;
-
-            #region ModalPopup
-            var showModalButton = new Forms9Patch.Button("ModalPopup") { BackgroundColor = Color.White };
-            var cancelModalButton = new Forms9Patch.Button("CANCEL");
-            var modal = new ModalPopup
+            Content = new Xamarin.Forms.StackLayout
             {
-                Content = new Xamarin.Forms.StackLayout
-                {
-                    Children = {
+                Children = {
                         new Forms9Patch.Label("ModalPopup") { FontAttributes=FontAttributes.Bold },
                         cancelModalButton
                     }
-                },
-                OutlineColor = Color.Blue,
-            };
-            cancelModalButton.Clicked += (sender, e) => modal.Cancel();
+            },
+            OutlineColor = Color.Blue,
+        };
+        #endregion
+
+        Forms9Patch.ActivityIndicatorPopup _activity = new ActivityIndicatorPopup();
+
+        public PopupsPage()
+        {
+            Padding = 20;
+
+            #region ModalPopup
+            cancelModalButton.Clicked += (sender, e) => _modalPopup.Cancel();
             showModalButton.Clicked += (sender, e) =>
             {
-                modal.HasShadow = _hasShadow;
-                modal.ShadowInverted = _shadowInverted;
-                modal.OutlineWidth = _blueOutline ? 1 : 0;
-                modal.IsVisible = true;
+                _modalPopup.HasShadow = _hasShadow;
+                _modalPopup.ShadowInverted = _shadowInverted;
+                _modalPopup.OutlineWidth = _blueOutline ? 1 : 0;
+                _modalPopup.IsVisible = true;
             };
             #endregion
 
@@ -83,11 +87,12 @@ namespace Forms9PatchDemo.Pages.Code
 
 
             #region ActivityPopup
-            var showActivityPopupButton = new Forms9Patch.Button("ActivityIndicatorPopup") { BackgroundColor = Color.White };
+            Forms9Patch.Button showActivityPopupButton = new Forms9Patch.Button("ActivityIndicatorPopup") { BackgroundColor = Color.White };
             showActivityPopupButton.Clicked += (sender, e) =>
             {
-                var activity = Forms9Patch.ActivityIndicatorPopup.Create();
-                activity.CancelOnPageOverlayTouch = true;
+                //var activity = Forms9Patch.ActivityIndicatorPopup.Create();
+                _activity.CancelOnPageOverlayTouch = true;
+                _activity.IsVisible = true;
             };
             #endregion
 
