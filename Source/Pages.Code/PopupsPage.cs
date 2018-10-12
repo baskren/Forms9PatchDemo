@@ -42,7 +42,7 @@ namespace Forms9PatchDemo.Pages.Code
         };
         #endregion
 
-        Forms9Patch.ActivityIndicatorPopup _activity = new ActivityIndicatorPopup();
+        readonly Forms9Patch.ActivityIndicatorPopup _activity = new ActivityIndicatorPopup();
 
         public PopupsPage()
         {
