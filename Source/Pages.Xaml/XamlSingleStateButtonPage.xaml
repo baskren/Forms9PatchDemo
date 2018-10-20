@@ -33,7 +33,7 @@
 		</f9p:StateButton>
 
 
-
+        <Label x:Name="label"/>
 
 		
 	</StackLayout>
