@@ -56,7 +56,7 @@
       <Version>3.1.0.697729</Version>
     </PackageReference>
     <PackageReference Include="Forms9Patch">
-      <Version>1.5.0.7-rc2</Version>
+      <Version>1.5.0.8</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
@@ -112,7 +112,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{1388DC48-9396-40B6-B948-6B56A2AA94D8}</Project>
+      <Project>{745732DA-B606-4DE1-91EF-5136C20EE56A}</Project>
       <Name>Forms9PatchDemo.NetStandard</Name>
     </ProjectReference>
   </ItemGroup>
