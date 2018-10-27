@@ -168,12 +168,12 @@ namespace Forms9PatchDemo.Pages.Code
             showPermissionButton.Clicked += (sender, e) =>
             {
                 var permission = PermissionPopup.Create("PermissionPopup", "Do you agree?");
+                permission.HorizontalOptions = LayoutOption(_hzLayoutOptions);
+                permission.VerticalOptions = LayoutOption(_vtLayoutOptions);
                 permission.OutlineColor = Color.Blue;
                 permission.HasShadow = _hasShadow;
                 permission.ShadowInverted = _shadowInverted;
                 permission.OutlineWidth = _blueOutline ? 1 : 0;
-                permission.HorizontalOptions = LayoutOption(_hzLayoutOptions);
-                permission.VerticalOptions = LayoutOption(_vtLayoutOptions);
             };
             #endregion
 
@@ -225,7 +225,8 @@ namespace Forms9PatchDemo.Pages.Code
                     new Segment("Segment F"),
                     new Segment("Segment G"),
                     new Segment("Segment H"),
-                }
+                },
+                TextColor = Color.White
             };
             showTargetedMenu.Clicked += (s, e) =>
             {
