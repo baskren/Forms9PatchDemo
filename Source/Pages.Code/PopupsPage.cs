@@ -14,6 +14,22 @@ namespace Forms9PatchDemo.Pages.Code
         const string _hasShadowText = "HasShadow";
         const string _shadowInvertedText = "ShadowInverted";
         const string _blueOutlineText = "Blue Outline";
+
+        const string bubbleLeftText = "← BubblePopup";
+        const string bubbleRightText = "BubblePopup →";
+        const string bubbleUpText = "↑ BubblePopup";
+        const string bubbleDownText = "BubblePopup ↓";
+        const string bubbleHzText = "← BubblePopup →";
+        const string bubbleVtText = "↑ BubblePopup ↓";
+        const string bubbleAnyText = "← ↑ BubblePopup → ↓";
+        const string bubbleNoneText = " BubblePopup (none)";
+
+        const string _layoutOptionStartText = "START";
+        const string _layoutOptionCenterText = "CENTER";
+        const string _layoutOptionEndText = "END";
+        const string _layoutOptionFillText = "FILL";
+
+
         readonly SegmentedControl _decoration = new SegmentedControl
         {
             Segments = {
@@ -24,6 +40,32 @@ namespace Forms9PatchDemo.Pages.Code
             GroupToggleBehavior = GroupToggleBehavior.Multiselect,
             BackgroundColor = Color.White,
         };
+
+        BubblePopup bubble;
+
+        readonly SegmentedControl _hzLayoutOptions = new SegmentedControl
+        {
+            Segments = {
+                new Segment(_layoutOptionStartText),
+                new Segment(_layoutOptionCenterText),
+                new Segment(_layoutOptionEndText),
+                new Segment(_layoutOptionFillText),
+            },
+            GroupToggleBehavior = GroupToggleBehavior.Radio,
+            BackgroundColor = Color.White,
+        };
+        readonly SegmentedControl _vtLayoutOptions = new SegmentedControl
+        {
+            Segments = {
+                new Segment(_layoutOptionStartText),
+                new Segment(_layoutOptionCenterText),
+                new Segment(_layoutOptionEndText),
+                new Segment(_layoutOptionFillText),
+            },
+            GroupToggleBehavior = GroupToggleBehavior.Radio,
+            BackgroundColor = Color.White,
+        };
+
 
         #region Modal Popup VisualElements
         readonly Forms9Patch.Button showModalButton = new Forms9Patch.Button("ModalPopup") { BackgroundColor = Color.White };
@@ -47,6 +89,8 @@ namespace Forms9PatchDemo.Pages.Code
         public PopupsPage()
         {
             Padding = 20;
+            _hzLayoutOptions.SelectIndex(1);
+            _vtLayoutOptions.SelectIndex(1);
 
             #region ModalPopup
             cancelModalButton.Clicked += (sender, e) => _modalPopup.Cancel();
@@ -56,33 +100,55 @@ namespace Forms9PatchDemo.Pages.Code
                 _modalPopup.ShadowInverted = _shadowInverted;
                 _modalPopup.OutlineWidth = _blueOutline ? 1 : 0;
                 _modalPopup.IsVisible = true;
+                _modalPopup.HorizontalOptions = LayoutOption(_hzLayoutOptions);
+                _modalPopup.VerticalOptions = LayoutOption(_vtLayoutOptions);
             };
             #endregion
 
 
-            #region BubblePopup
-            var showBubbleButton = new Forms9Patch.Button("BubblePopup") { BackgroundColor = Color.White };
+            #region BubblePopups
+
+
+            var showBubbleLeftButton = new Forms9Patch.Button(bubbleLeftText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
+            var showBubbleRightButton = new Forms9Patch.Button(bubbleRightText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
+            var showBubbleUpButton = new Forms9Patch.Button(bubbleUpText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
+            var showBubbleDownButton = new Forms9Patch.Button(bubbleDownText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
+            var showBubbleHzButton = new Forms9Patch.Button(bubbleHzText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
+            var showBubbleVtButton = new Forms9Patch.Button(bubbleVtText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
+            var showBubbleAnyButton = new Forms9Patch.Button(bubbleAnyText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
+            var showBubbleNoneButton = new Forms9Patch.Button(bubbleNoneText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
             var cancelBubbleButton = new Forms9Patch.Button("CANCEL");
-            var bubble = new BubblePopup(showBubbleButton)
+
+            var bubbleTarget = new Forms9Patch.Frame
             {
-                OutlineColor = Color.Blue,
+                OutlineWidth = 1,
+                OutlineColor = Color.Black,
+                OutlineRadius = 4,
+                Content = new Forms9Patch.Label("BUBBLE TARGET"),
+                HorizontalOptions = LayoutOptions.Center,
+                VerticalOptions = LayoutOptions.Center,
+            };
+
+            bubble = new BubblePopup(bubbleTarget)
+            {
                 Content = new Xamarin.Forms.StackLayout
                 {
                     Children = {
                         new Forms9Patch.Label("BubblePopup") { FontAttributes=FontAttributes.Bold },
                         cancelBubbleButton
-                    }
-                }
+                    },
+                },
             };
+
             cancelBubbleButton.Clicked += (sender, e) => bubble.Cancel();
-            showBubbleButton.Clicked += (sender, e) =>
-            {
-                bubble.OutlineColor = Color.Blue;
-                bubble.HasShadow = _hasShadow;
-                bubble.ShadowInverted = _shadowInverted;
-                bubble.OutlineWidth = _blueOutline ? 1 : 0;
-                bubble.IsVisible = true;
-            };
+            showBubbleLeftButton.Clicked += OnBubbleButtonClicked;
+            showBubbleRightButton.Clicked += OnBubbleButtonClicked;
+            showBubbleUpButton.Clicked += OnBubbleButtonClicked;
+            showBubbleDownButton.Clicked += OnBubbleButtonClicked;
+            showBubbleHzButton.Clicked += OnBubbleButtonClicked;
+            showBubbleVtButton.Clicked += OnBubbleButtonClicked;
+            showBubbleAnyButton.Clicked += OnBubbleButtonClicked;
+            showBubbleNoneButton.Clicked += OnBubbleButtonClicked;
             #endregion
 
 
@@ -106,6 +172,8 @@ namespace Forms9PatchDemo.Pages.Code
                 permission.HasShadow = _hasShadow;
                 permission.ShadowInverted = _shadowInverted;
                 permission.OutlineWidth = _blueOutline ? 1 : 0;
+                permission.HorizontalOptions = LayoutOption(_hzLayoutOptions);
+                permission.VerticalOptions = LayoutOption(_vtLayoutOptions);
             };
             #endregion
 
@@ -119,6 +187,8 @@ namespace Forms9PatchDemo.Pages.Code
                 toast.HasShadow = _hasShadow;
                 toast.ShadowInverted = _shadowInverted;
                 toast.OutlineWidth = _blueOutline ? 1 : 0;
+                toast.HorizontalOptions = LayoutOption(_hzLayoutOptions);
+                toast.VerticalOptions = LayoutOption(_vtLayoutOptions);
             };
             #endregion
 
@@ -132,6 +202,8 @@ namespace Forms9PatchDemo.Pages.Code
                 toast.HasShadow = _hasShadow;
                 toast.ShadowInverted = _shadowInverted;
                 toast.OutlineWidth = _blueOutline ? 1 : 0;
+                toast.HorizontalOptions = LayoutOption(_hzLayoutOptions);
+                toast.VerticalOptions = LayoutOption(_vtLayoutOptions);
             };
             #endregion
 
@@ -163,6 +235,8 @@ namespace Forms9PatchDemo.Pages.Code
                 targetedMenu.ShadowInverted = _shadowInverted;
                 targetedMenu.OutlineWidth = _blueOutline ? 1 : 0;
                 targetedMenu.IsVisible = true;
+                targetedMenu.HorizontalOptions = LayoutOption(_hzLayoutOptions);
+                targetedMenu.VerticalOptions = LayoutOption(_vtLayoutOptions);
             };
             targetedMenu.SegmentTapped += (s, e) => System.Diagnostics.Debug.WriteLine("TargetedMenu.SegmentTapped: " + e.Segment.Text);
             #endregion
@@ -193,6 +267,8 @@ namespace Forms9PatchDemo.Pages.Code
             var softwareKeyboardTestButton = new Forms9Patch.Button("Software Keyboard Test") { BackgroundColor = Color.White };
             var softwareKeyboardTestPopup = new ModalPopup
             {
+                HorizontalOptions = LayoutOption(_hzLayoutOptions),
+                VerticalOptions = LayoutOption(_vtLayoutOptions),
                 Content =
                 new Xamarin.Forms.StackLayout
                 {
@@ -221,17 +297,42 @@ namespace Forms9PatchDemo.Pages.Code
                 softwareKeyboardTestPopup.ShadowInverted = _shadowInverted;
                 softwareKeyboardTestPopup.OutlineWidth = _blueOutline ? 1 : 0;
                 softwareKeyboardTestPopup.IsVisible = true;
+                softwareKeyboardTestPopup.HorizontalOptions = LayoutOption(_hzLayoutOptions);
+                softwareKeyboardTestPopup.VerticalOptions = LayoutOption(_vtLayoutOptions);
             };
             #endregion
 
-            Content = new Xamarin.Forms.StackLayout
+            Content = new Xamarin.Forms.ScrollView
             {
-                Children = {
-                    new BoxView { HeightRequest = 1},
-                    _decoration,
-                    new BoxView { HeightRequest = 1},
-                    showModalButton, showBubbleButton, showActivityPopupButton, showPermissionButton, showToastButton, showTargetedToash, showTargetedMenu, softwareKeyboardTestButton,
-                    new BoxView { HeightRequest = 1},
+                Content = new Xamarin.Forms.StackLayout
+                {
+                    Children =
+                    {
+                        new BoxView { HeightRequest = 1},
+                        _decoration,
+                        new Forms9Patch.Label("HZ LAYOUT ALIGNMENT:"),
+                        _hzLayoutOptions,
+                        new Forms9Patch.Label("VT LAYOUT ALIGNMENT:"),
+                        _vtLayoutOptions,
+                        new BoxView { HeightRequest = 1},
+                        showModalButton,
+                        showBubbleLeftButton,
+                        showBubbleRightButton,
+                        showBubbleUpButton,
+                        showBubbleDownButton,
+                        showBubbleHzButton,
+                        showBubbleVtButton,
+                        showBubbleAnyButton,
+                        showBubbleNoneButton,
+                        bubbleTarget,
+                        showActivityPopupButton,
+                        showPermissionButton,
+                        showToastButton,
+                        showTargetedToash,
+                        showTargetedMenu,
+                        softwareKeyboardTestButton,
+                        new BoxView { HeightRequest = 1},
+                    }
                 }
             };
 
@@ -252,6 +353,41 @@ namespace Forms9PatchDemo.Pages.Code
             };
 
             BackgroundColor = Color.LightSlateGray;
+        }
+
+        void OnBubbleButtonClicked(object sender, EventArgs e)
+        {
+            bubble.OutlineColor = Color.Blue;
+            bubble.HasShadow = _hasShadow;
+            bubble.ShadowInverted = _shadowInverted;
+            bubble.OutlineWidth = _blueOutline ? 1 : 0;
+            bubble.IsVisible = true;
+            bubble.HorizontalOptions = LayoutOption(_hzLayoutOptions);
+            bubble.VerticalOptions = LayoutOption(_vtLayoutOptions);
+
+            switch (((Forms9Patch.Button)sender).Text)
+            {
+                case bubbleLeftText: bubble.PointerDirection = PointerDirection.Left; break;
+                case bubbleRightText: bubble.PointerDirection = PointerDirection.Right; break;
+                case bubbleUpText: bubble.PointerDirection = PointerDirection.Up; break;
+                case bubbleDownText: bubble.PointerDirection = PointerDirection.Down; break;
+                case bubbleHzText: bubble.PointerDirection = PointerDirection.Horizontal; break;
+                case bubbleVtText: bubble.PointerDirection = PointerDirection.Vertical; break;
+                case bubbleAnyText: bubble.PointerDirection = PointerDirection.Any; break;
+                default: bubble.PointerDirection = PointerDirection.None; break;
+            }
+        }
+
+        LayoutOptions LayoutOption(SegmentedControl control)
+        {
+            switch (control.SelectedSegments[0].Text)
+            {
+                case _layoutOptionStartText: return LayoutOptions.Start;
+                case _layoutOptionCenterText: return LayoutOptions.Center;
+                case _layoutOptionEndText: return LayoutOptions.End;
+                case _layoutOptionFillText: return LayoutOptions.Fill;
+            }
+            return LayoutOptions.Center;
         }
     }
 }
