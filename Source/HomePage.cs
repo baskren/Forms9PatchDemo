@@ -69,6 +69,13 @@ namespace Forms9PatchDemo
                     new TableSection("XAML") {
 
                         new TextCell {
+                            Text = "GridPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(GridPage)
+                        },
+
+
+                        new TextCell {
                             Text = "XamlCDATA",
                             Command = navigateCommand,
                             CommandParameter = typeof(XamlCDATA)

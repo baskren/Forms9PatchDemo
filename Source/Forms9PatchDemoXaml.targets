@@ -17,6 +17,15 @@
 	<!-- XAML PAGES -->
 	<ItemGroup>
 
+		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Pages.Xaml\GridPage.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+			<Link>Pages.Xaml\GridPage.xaml</Link>
+		</EmbeddedResource>
+	    <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Xaml\GridPage.xaml.cs">
+	      <DependentUpon>Pages.Xaml\GridPage.xaml</DependentUpon>
+	      <Link>Pages.Xaml\GridPage.xaml.cs</Link>
+	    </Compile>
+
 		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Pages.Xaml\XamlCapsInsetPage.xaml">
 			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 			<Link>Pages.Xaml\XamlCapsInsetPage.xaml</Link>
