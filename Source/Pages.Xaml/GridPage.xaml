@@ -4,8 +4,40 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     xmlns:local="clr-namespace:Forms9PatchDemo" 
     xmlns:f9p="clr-namespace:Forms9Patch;assembly=Forms9Patch"
-    x:Class="Forms9PatchDemo.GridPage">
+    x:Class="Forms9PatchDemo.GridPage"> 
+    <!--
+     <f9p:AbsoluteLayout>
+            <Label Text="I'm centered on iPhone 4 but no other device"
+                AbsoluteLayout.LayoutBounds="115,150,100,100" LineBreakMode="WordWrap"  />
+            <Label Text="I'm bottom center on every device."
+                AbsoluteLayout.LayoutBounds=".5,1,.5,.1" AbsoluteLayout.LayoutFlags="All"
+                LineBreakMode="WordWrap"  />
+            <BoxView Color="Olive"  AbsoluteLayout.LayoutBounds="1,.5, 25, 100"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <BoxView Color="Red" AbsoluteLayout.LayoutBounds="0,.5,25,100"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+            <BoxView Color="Blue" AbsoluteLayout.LayoutBounds=".5,0,100,25"
+                AbsoluteLayout.LayoutFlags="PositionProportional" />
+        </f9p:AbsoluteLayout>
+    -->
+    <!--
+    <f9p:RelativeLayout>
+        <Label Text ="CONTENT VIEW" BackgroundColor="Lime"/>
+        <Label Text ="CONTENT VIEW 2" BackgroundColor="Olive" RelativeLayout.XConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Width,
+                             Factor=0.5,
+                             Constant=-100}"
+    RelativeLayout.YConstraint =
+      "{ConstraintExpression Type=RelativeToParent,
+                             Property=Height,
+                             Factor=0.5,
+                             Constant=-100}"/>
+    </f9p:RelativeLayout>
+    -->
+    
     <f9p:Grid>
+        <!--
       <f9p:Grid.RowDefinitions>
         <RowDefinition Height="2*" />
         <RowDefinition Height="*" />
@@ -15,10 +47,11 @@
         <ColumnDefinition Width="Auto" />
         <ColumnDefinition Width="*" />
       </f9p:Grid.ColumnDefinitions>
+        -->
       <Label Text="Top Left" Grid.Row="0" Grid.Column="0" BackgroundColor = "Lime" />
       <Label Text="Top Right" Grid.Row="0" Grid.Column="1" BackgroundColor = "Olive" />
       <Label Text="Bottom Left" Grid.Row="1" Grid.Column="0" BackgroundColor = "Teal" />
       <Label Text="Bottom Right" Grid.Row="1" Grid.Column="1" BackgroundColor = "Fuchsia" />
     </f9p:Grid>
-
+    
 </ContentPage>
