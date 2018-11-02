@@ -69,6 +69,7 @@ namespace Forms9PatchDemo.Pages.Code
 
         #region Modal Popup VisualElements
         readonly Forms9Patch.Button showModalButton = new Forms9Patch.Button("ModalPopup") { BackgroundColor = Color.White };
+        static readonly Forms9Patch.Button popPushModalButton = new Forms9Patch.Button("POP & PUSH");
         static readonly Forms9Patch.Button cancelModalButton = new Forms9Patch.Button("CANCEL");
 
         readonly ModalPopup _modalPopup = new ModalPopup(true)
@@ -77,6 +78,7 @@ namespace Forms9PatchDemo.Pages.Code
             {
                 Children = {
                         new Forms9Patch.Label("ModalPopup") { FontAttributes=FontAttributes.Bold },
+                        popPushModalButton,
                         cancelModalButton
                     }
             },
@@ -94,6 +96,11 @@ namespace Forms9PatchDemo.Pages.Code
 
             #region ModalPopup
             cancelModalButton.Clicked += (sender, e) => _modalPopup.Cancel();
+            popPushModalButton.Clicked += (sender, e) =>
+            {
+                _modalPopup.IsVisible = false;
+                _modalPopup.IsVisible = true;
+            };
             showModalButton.Clicked += (sender, e) =>
             {
                 _modalPopup.HasShadow = _hasShadow;
