@@ -124,6 +124,22 @@ namespace Forms9PatchDemo.Pages.Code
             var showBubbleVtButton = new Forms9Patch.Button(bubbleVtText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
             var showBubbleAnyButton = new Forms9Patch.Button(bubbleAnyText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
             var showBubbleNoneButton = new Forms9Patch.Button(bubbleNoneText) { BackgroundColor = Color.White, HorizontalOptions = LayoutOptions.Center };
+
+            var bubblePointerDirectionControl = new SegmentedControl
+            {
+                Segments =
+                {
+                    new Segment("←"),
+                    new Segment("↑"),
+                    new Segment("→"),
+                    new Segment("↓"),
+                    new Segment("↔"),
+                    new Segment("↕"),
+                    new Segment("↔↕"),
+                    new Segment(" ")
+                }
+            };
+
             var cancelBubbleButton = new Forms9Patch.Button("CANCEL");
 
             var bubbleTarget = new Forms9Patch.Frame
@@ -142,9 +158,25 @@ namespace Forms9PatchDemo.Pages.Code
                 {
                     Children = {
                         new Forms9Patch.Label("BubblePopup") { FontAttributes=FontAttributes.Bold },
+                        bubblePointerDirectionControl,
                         cancelBubbleButton
                     },
                 },
+            };
+
+            bubblePointerDirectionControl.SegmentTapped += (sender, e) =>
+            {
+                switch (e.Segment.Text)
+                {
+                    case "←": bubble.PointerDirection = PointerDirection.Left; break;
+                    case "↑": bubble.PointerDirection = PointerDirection.Up; break;
+                    case "→": bubble.PointerDirection = PointerDirection.Right; break;
+                    case "↓": bubble.PointerDirection = PointerDirection.Down; break;
+                    case "↔": bubble.PointerDirection = PointerDirection.Horizontal; break;
+                    case "↕": bubble.PointerDirection = PointerDirection.Vertical; break;
+                    case "↔↕": bubble.PointerDirection = PointerDirection.Any; break;
+                    case " ": bubble.PointerDirection = PointerDirection.None; break;
+                }
             };
 
             cancelBubbleButton.Clicked += (sender, e) => bubble.Cancel();
