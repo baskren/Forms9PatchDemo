@@ -137,6 +137,15 @@
 	      <Link>UserPages\Burkhart.xaml.cs</Link>
 	    </Compile>
 
+	    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\UserPages\Mfloyd.xaml">
+	      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	      <Link>UserPages\Mfloyd.xaml</Link>
+	    </EmbeddedResource>
+	    <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\Mfloyd.xaml.cs">
+	      <DependentUpon>UserPages\Mfloyd.xaml</DependentUpon>
+	      <Link>UserPages\Mfloyd.xaml.cs</Link>
+	    </Compile>
+
 	    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\UserPages\SegmentXAML.xaml">
 	      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	      <Link>UserPages\SegmentXAML.xaml</Link>

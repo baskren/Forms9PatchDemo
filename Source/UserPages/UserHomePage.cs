@@ -72,6 +72,12 @@ namespace Forms9PatchDemo
                         },
 #endif
 
+                        new TextCell
+                        {
+                            Text = "Mfloyd",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(Forms9PatchDemo.Mfloyd)
+                        },
 
                         new TextCell
                         {
