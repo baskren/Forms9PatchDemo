@@ -135,9 +135,10 @@ namespace Forms9PatchDemo.Pages.Code
                     new Segment("↓"),
                     new Segment("↔"),
                     new Segment("↕"),
-                    new Segment("↔↕"),
+                    new Segment("↔ ↕"),
                     new Segment(" ")
-                }
+                },
+                SyncSegmentFontSizes = false,
             };
 
             var cancelBubbleButton = new Forms9Patch.Button("CANCEL");
