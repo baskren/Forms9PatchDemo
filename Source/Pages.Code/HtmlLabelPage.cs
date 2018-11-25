@@ -20,12 +20,12 @@ namespace Forms9PatchDemo
 
             var assembly = GetType().GetTypeInfo().Assembly;
             var resources = assembly.GetManifestResourceNames();
-            var resourceInfo = assembly.GetManifestResourceInfo("Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf");
-            var resourceStream = assembly.GetManifestResourceStream("Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf");
+            //var resourceInfo = assembly.GetManifestResourceInfo("Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf");
+            //var resourceStream = assembly.GetManifestResourceStream("Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf");
 
-            var canRead = resourceStream.CanRead;
+            //var canRead = resourceStream.CanRead;
 
-            var x = resourceStream.Length;
+            //var x = resourceStream.Length;
 
             Padding = new Thickness(5, 20, 5, 5);
             Content = new ScrollView
