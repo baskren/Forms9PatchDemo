@@ -14,6 +14,16 @@ namespace Forms9PatchDemo
 
         public GestureTestPage()
         {
+            #region Page
+
+            var pageListener = FormsGestures.Listener.For(this);
+
+            pageListener.LongPressing += (s, e) => System.Diagnostics.Debug.WriteLine("\tPAGE LONG PRESSING");
+            pageListener.LongPressed += (s, e) => System.Diagnostics.Debug.WriteLine("\tPAGE LONG PRESSED");
+
+
+            #endregion
+
             #region Xamarin.Forms.Button
             var button = new Button
             {
@@ -119,6 +129,7 @@ namespace Forms9PatchDemo
             tapBoxListener.DoubleTapped += (sender, e) => System.Diagnostics.Debug.WriteLine("\tTAPBOX DOUBLE TAPPED #[" + e.NumberOfTaps + "]");
 
             #endregion
+
 
             #region RelativeLayout
             relativeLayout = new Xamarin.Forms.RelativeLayout
