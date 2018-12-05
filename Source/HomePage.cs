@@ -293,6 +293,12 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(FontSizeTest)
                         },
 
+                        new TextCell
+                        {
+                            Text = "Segment Crowding",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(SegmentedCrowdingPage)
+                        },
 
                     }
                 }
