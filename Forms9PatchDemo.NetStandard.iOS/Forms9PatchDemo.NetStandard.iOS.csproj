@@ -167,12 +167,12 @@
       <Version>3.4.0.1029999</Version>
     </PackageReference>
     <PackageReference Include="Forms9Patch">
-      <Version>1.6.3</Version>
+      <Version>1.6.5</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{745732DA-B606-4DE1-91EF-5136C20EE56A}</Project>
+      <Project>{0DA53E3F-9215-40EC-AFF5-17AC699FCA89}</Project>
       <Name>Forms9PatchDemo.NetStandard</Name>
     </ProjectReference>
   </ItemGroup>
