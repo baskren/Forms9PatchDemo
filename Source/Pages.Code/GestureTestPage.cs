@@ -16,10 +16,10 @@ namespace Forms9PatchDemo
         {
             #region Page
 
-            var pageListener = FormsGestures.Listener.For(this);
+            //var pageListener = FormsGestures.Listener.For(this);
 
-            pageListener.LongPressing += (s, e) => System.Diagnostics.Debug.WriteLine("\tPAGE LONG PRESSING");
-            pageListener.LongPressed += (s, e) => System.Diagnostics.Debug.WriteLine("\tPAGE LONG PRESSED");
+            //pageListener.LongPressing += (s, e) => System.Diagnostics.Debug.WriteLine("\tPAGE LONG PRESSING");
+            //pageListener.LongPressed += (s, e) => System.Diagnostics.Debug.WriteLine("\tPAGE LONG PRESSED");
 
 
             #endregion
@@ -79,8 +79,8 @@ namespace Forms9PatchDemo
             };
             var boxListener = FormsGestures.Listener.For(box);
 
-            boxListener.Down += OnDown;
-            //boxListener.Down += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX DOWN [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            //boxListener.Down += OnDown;
+            boxListener.Down += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX DOWN [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
             boxListener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX LONG PRESSING [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
             boxListener.RightClicked += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX RIGHT CLICK[" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
 
@@ -102,7 +102,7 @@ namespace Forms9PatchDemo
                 box.Rotation += e.DeltaAngle;
             };
 
-            //boxListener.Up += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX UP [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            boxListener.Up += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX UP [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
             boxListener.Tapping += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX TAPPING #[" + e.NumberOfTaps + "] [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
             boxListener.Tapped += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX TAPPED #[" + e.NumberOfTaps + "] [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
             boxListener.DoubleTapped += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX DOUBLE TAPPED [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
