@@ -74,6 +74,13 @@ namespace Forms9PatchDemo
 
                         new TextCell
                         {
+                            Text = "F9PButtonTest.MainPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(F9PButtonTest.MainPage)
+                        },
+
+                        new TextCell
+                        {
                             Text = "Mfloyd",
                             Command = navigateCommand,
                             CommandParameter = typeof(Forms9PatchDemo.Mfloyd)

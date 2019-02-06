@@ -19,8 +19,8 @@ namespace Forms9PatchDemo.Pages
             var hasOutlineSwitch = new Switch();
             hasOutlineSwitch.Toggled += (sender, e) => button.OutlineWidth = e.Value ? 1 : 0;
 
-            var longPressSwitch = new Switch();
-            longPressSwitch.Toggled += (s, e) => button.IsLongPressEnabled = e.Value;
+            //var longPressSwitch = new Switch();
+            //longPressSwitch.Toggled += (s, e) => button.IsLongPressEnabled = e.Value;
 
             Padding = 20;
             Content = new StackLayout
@@ -30,13 +30,13 @@ namespace Forms9PatchDemo.Pages
                     hasShadowSwitch,
                     new Label { Text = "HasOutline"},
                     hasOutlineSwitch,
-                    new Label { Text = "Long Press Enabled"},
-                    longPressSwitch,
+                    //new Label { Text = "Long Press Enabled"},
+                    //longPressSwitch,
 
                     button,
                 }
             };
-            button.IsLongPressEnabled = longPressSwitch.IsToggled;
+            //button.IsLongPressEnabled = longPressSwitch.IsToggled;
             button.HasShadow = hasShadowSwitch.IsToggled;
             button.OutlineWidth = hasOutlineSwitch.IsToggled ? 1 : 0;
 

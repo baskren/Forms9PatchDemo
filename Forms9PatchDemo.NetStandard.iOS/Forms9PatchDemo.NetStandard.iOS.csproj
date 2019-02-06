@@ -169,6 +169,7 @@
     <PackageReference Include="Forms9Patch">
       <Version>1.6.5</Version>
     </PackageReference>
+    <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
