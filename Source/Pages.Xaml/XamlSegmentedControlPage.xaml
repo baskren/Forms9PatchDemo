@@ -12,9 +12,9 @@ Padding = "40"
 		<StackLayout>
 			<Label Text="SegmentedControl Example" TextColor="Black"/>
 			<f9p:SegmentedControl BackgroundColor="White" FontSize="16" TextColor="#0076FF" Orientation="Vertical" OutlineColor="#CCC" OutlineWidth="0" SeparatorWidth="1" OutlineRadius="6" Padding="5" GroupToggleBehavior="Multiselect">
-				<f9p:Segment Text="Pause 5"/>
-				<f9p:Segment Text="Pause 10"/>
-				<f9p:Segment Text="Pause 15"/>
+				<f9p:Segment><![CDATA[Pause <b>5</b>]]></f9p:Segment>
+				<f9p:Segment><![CDATA[Pause <b>10</b>]]></f9p:Segment>
+                <f9p:Segment> <![CDATA[Pause <b>15</b>]]> </f9p:Segment>
 				<f9p:Segment Text="Cancel" TextColor="Red"/>
 				<f9p:Segment Text="Launch" FontAttributes="Bold"/>
 			</f9p:SegmentedControl>
