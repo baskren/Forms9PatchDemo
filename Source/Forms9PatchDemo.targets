@@ -39,6 +39,7 @@
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SimpleLabelFitting.cs" Link="Pages.Code\SimpleLabelFitting.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SingleSegmentedControl.cs" Link="Pages.Code\SingleSegmentedControl.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\StateButton.cs" Link="Pages.Code\StateButton.cs" />
+    <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SvgInCell.cs" Link="Pages.Code\SvgInCell.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SVG_ButtonBackgroundImage.cs" Link="Pages.Code\SVG_ButtonBackgroundImage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\UnconstrainedLabelAutoFitPage.cs" Link="Pages.Code\UnconstrainedLabelAutoFitPage.cs" />
     <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\AbsoluteLayoutExplorationCode.cs" Link="UserPages\AbsoluteLayoutExplorationCode.cs" />
@@ -164,6 +165,7 @@
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\printerIcon.png" Link="Resources\printerIcon.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\PopupDM.png" Link="Resources\PopupDM.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ProjectProposal.pdf" Link="Resources\ProjectProposal.pdf" />
+
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redButton.9.png" Link="Resources\redButton.9.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redGridBox.png" Link="Resources\redGridBox.png" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redGridBox9.9.png" Link="Resources\redGridBox9.9.png" />
@@ -187,10 +189,33 @@
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ballot_box.svg" Link="Resources\ballot_box.svg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ballot_box_with_x.svg" Link="Resources\ballot_box_with_x.svg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\ballot_box_with_check.svg" Link="Resources\ballot_box_with_check.svg" />
-    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\SvgSample.svg" Link="Resources\SvgSample.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\CameraImage.svg" Link="Resources\CameraImage.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\CameraScanIcon.svg" Link="Resources\CameraScanIcon.svg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\blueWhiteGradient.svg" Link="Resources\blueWhiteGradient.svg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\greenWhiteGradient.svg" Link="Resources\greenWhiteGradient.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\G000.svg" Link="Resources\G000.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\G025.svg" Link="Resources\G025.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\G050.svg" Link="Resources\G050.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\G075.svg" Link="Resources\G075.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\G100.svg" Link="Resources\G100.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\HW_I-70S_(DC_1961).svg" Link="Resources\HW_I-70S_(DC_1961).svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\HW_Louisiana_635_(2008).svg" Link="Resources\HW_Louisiana_635_(2008).svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\HW_OH-112_(1967).svg" Link="Resources\HW_OH-112_(1967).svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\HW_PA-333_(1962).svg" Link="Resources\HW_PA-333_(1962).svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\HW_US_20_(IA).svg" Link="Resources\HW_US_20_(IA).svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Keypad4.svg" Link="Resources\Keypad4.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\R000.svg" Link="Resources\R000.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\R025.svg" Link="Resources\R025.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\R050.svg" Link="Resources\R050.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\R075.svg" Link="Resources\R075.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\R100.svg" Link="Resources\R100.svg" />
     <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\redWhiteGradient.svg" Link="Resources\redWhiteGradient.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\SvgSample.svg" Link="Resources\SvgSample.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Y000.svg" Link="Resources\Y000.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Y025.svg" Link="Resources\Y025.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Y050.svg" Link="Resources\Y050.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Y075.svg" Link="Resources\Y075.svg" />
+    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Resources\Y100.svg" Link="Resources\Y100.svg" />
   </ItemGroup>
   <Import Condition=" '$(UseXaml)'=='USE_XAML' " Project="..\Source\Forms9PatchDemoXaml.targets" />
 </Project>

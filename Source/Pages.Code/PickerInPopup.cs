@@ -20,12 +20,12 @@ namespace Forms9PatchDemo
         };
 
         List<string> _years = new List<string>();
-        
+
         public PickerInPopup()
         {
             Title = "Picker in popup";
 
-            for (int  i = DateTime.Now.Year - 13; i>1899; i--)
+            for (int i = DateTime.Now.Year - 13; i > 1899; i--)
                 _years.Add(i.ToString());
             _singlePicker.ItemsSource = _years;
 
@@ -60,7 +60,7 @@ namespace Forms9PatchDemo
             {
                 _singlePickerButton.HtmlText = (_singlePicker.SelectedItem as string) ?? "select year";
                 _singlePickerButton.TextColor = _singlePicker.SelectedItem == null ? Color.DarkGray : Color.Blue;
-                
+
             }
         }
 
@@ -112,11 +112,11 @@ namespace Forms9PatchDemo
             };
 
             var selectedItemAtStart = _singlePicker.SelectedItem;
-            doneButton.Clicked += (s, args) => bubblePopup.Cancel();
-            cancelButton.Clicked += (s, args) =>
+            doneButton.Clicked += async (s, args) => await bubblePopup.CancelAsync();
+            cancelButton.Clicked += async (s, args) =>
             {
                 _singlePicker.SelectedItem = selectedItemAtStart;
-                bubblePopup.Cancel();
+                await bubblePopup.CancelAsync();
             };
 
             bubblePopup.IsVisible = true;

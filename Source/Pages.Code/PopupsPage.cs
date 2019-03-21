@@ -95,7 +95,7 @@ namespace Forms9PatchDemo.Pages.Code
             _vtLayoutOptions.SelectIndex(1);
 
             #region ModalPopup
-            cancelModalButton.Clicked += (sender, e) => _modalPopup.Cancel();
+            cancelModalButton.Clicked += async (sender, e) => await _modalPopup.CancelAsync();
             popPushModalButton.Clicked += (sender, e) =>
             {
                 _modalPopup.IsVisible = false;
@@ -180,7 +180,7 @@ namespace Forms9PatchDemo.Pages.Code
                 }
             };
 
-            cancelBubbleButton.Clicked += (sender, e) => bubble.Cancel();
+            cancelBubbleButton.Clicked += async (sender, e) => await bubble.CancelAsync();
             showBubbleLeftButton.Clicked += OnBubbleButtonClicked;
             showBubbleRightButton.Clicked += OnBubbleButtonClicked;
             showBubbleUpButton.Clicked += OnBubbleButtonClicked;

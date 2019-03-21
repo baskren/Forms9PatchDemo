@@ -122,7 +122,7 @@ namespace Forms9PatchDemo
             pointerTipRadiusSlider.ValueChanged += (s, e) => bubble.PointerTipRadius = (float)pointerTipRadiusSlider.Value;
             shadowToggle.Toggled += (s, e) => bubble.HasShadow = shadowToggle.IsToggled;
             shadowInvertedToggle.Toggled += (s, e) => bubble.ShadowInverted = shadowInvertedToggle.IsToggled;
-            pointerCornerRadiusSlider.ValueChanged += (s,e) => bubble.PointerCornerRadius = (float)pointerCornerRadiusSlider.Value;
+            pointerCornerRadiusSlider.ValueChanged += (s, e) => bubble.PointerCornerRadius = (float)pointerCornerRadiusSlider.Value;
             paddingSlider.ValueChanged += (s, e) => bubble.Padding = paddingSlider.Value;
             directionSegmentControl.SegmentTapped += (sender, e) =>
             {
@@ -172,9 +172,9 @@ namespace Forms9PatchDemo
                 };
 
                 newbubble.IsVisible = true;
-                newBubbleCancelButton.Clicked += (s1, e1) =>
+                newBubbleCancelButton.Clicked += async (s1, e1) =>
                 {
-                    newbubble.Cancel();
+                    await newbubble.CancelAsync();
                 };
             };
 

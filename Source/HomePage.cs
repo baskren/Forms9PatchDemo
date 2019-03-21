@@ -224,6 +224,13 @@ namespace Forms9PatchDemo
                             Command = navigateCommand,
                             CommandParameter = typeof(KeyboardHeight)
                         },
+
+                        new TextCell {
+                            Text = "Svg In ListView Cell",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(SvgInCell)
+                        },
+
                     },
 
                     new TableSection("Single Examples")
