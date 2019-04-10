@@ -149,6 +149,8 @@
     <BundleResource Include="Resources\SvgSample2.svg" />
     <BundleResource Include="Resources\MaterialIcons-Regular.ttf" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
+    <BundleResource Include="Resources\blkbox_small.jpg" />
+    <BundleResource Include="Resources\blkbox_large.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
@@ -173,7 +175,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{0DA53E3F-9215-40EC-AFF5-17AC699FCA89}</Project>
+      <Project>{06B6BA91-C0EE-43F0-AC31-41CB4E93EEC7}</Project>
       <Name>Forms9PatchDemo.NetStandard</Name>
     </ProjectReference>
   </ItemGroup>

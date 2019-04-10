@@ -107,13 +107,15 @@
     <AndroidResource Include="Resources\drawable-xxhdpi\fivePlus.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\icon.png" />
     <AndroidResource Include="Resources\drawable-xxhdpi\image.png" />
+    <AndroidResource Include="Resources\drawable\blkbox_small.jpg" />
+    <AndroidResource Include="Resources\drawable\blkbox_large.jpg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\SvgSample2.svg" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj">
-      <Project>{0DA53E3F-9215-40EC-AFF5-17AC699FCA89}</Project>
+      <Project>{06B6BA91-C0EE-43F0-AC31-41CB4E93EEC7}</Project>
       <Name>Forms9PatchDemo.NetStandard</Name>
     </ProjectReference>
   </ItemGroup>

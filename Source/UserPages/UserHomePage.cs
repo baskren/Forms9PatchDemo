@@ -74,6 +74,13 @@ namespace Forms9PatchDemo
 
                         new TextCell
                         {
+                            Text = "System Font Size Test",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(JHGamerPage)
+                        },
+
+                        new TextCell
+                        {
                             Text = "F9PButtonTest.MainPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(F9PButtonTest.MainPage)
