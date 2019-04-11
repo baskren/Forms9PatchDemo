@@ -10,7 +10,7 @@ namespace Forms9PatchDemo
         SegmentedControl segCtrl = new SegmentedControl
         {
             HorizontalOptions = LayoutOptions.Start,
-            WidthRequest = 1500,
+            WidthRequest = 900,
             Padding = 4,
             OutlineWidth = 0,
             BackgroundColor = Color.FromRgb(112, 128, 144).MultiplyAlpha(0.5),
@@ -38,6 +38,9 @@ namespace Forms9PatchDemo
                 OutlineColor = Color.FromRgb(112, 128, 144).WithLuminosity(0.25),
                 Segments =
                 {
+                    new Segment { Text = "Orange" },
+                    new Segment { Text = "Blue" },
+                    new Segment { Text = "Yellow" },
                     new Segment { Text = "Orange" },
                     new Segment { Text = "Blue" },
                     new Segment { Text = "Yellow" }
@@ -69,21 +72,27 @@ namespace Forms9PatchDemo
                 Children = {
                     new Xamarin.Forms.Label { Text = "SegmentSelectedBackgroundPage" },
                     //borderSegCtrl,
-                    segCtrl
+                    segCtrl,
+                    new BoxView
+                    {
+                        WidthRequest = 900,
+                        HorizontalOptions = LayoutOptions.Start,
+                        Color = Color.Blue
+                    }
                 }
             };
         }
 
+
         protected override void OnAppearing()
         {
             base.OnAppearing();
-                Device.StartTimer(TimeSpan.FromSeconds(0.2), () =>
-                {
-                    //System.Diagnostics.Debug.WriteLine("=================================================");
-                    segCtrl.WidthRequest -= 0.1;
-                    return true;
-                });
-
+            Device.StartTimer(TimeSpan.FromSeconds(0.2), () =>
+            {
+                //System.Diagnostics.Debug.WriteLine("=================================================");
+                segCtrl.WidthRequest -= 0.1;
+                return true;
+            });
         }
     }
 }
