@@ -137,6 +137,17 @@
 	      <Link>UserPages\Burkhart.xaml.cs</Link>
 	    </Compile>
 
+	    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\UserPages\ImageSourceHotSwap.xaml">
+	      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	      <Link>UserPages\ImageSourceHotSwap.xaml</Link>
+	    </EmbeddedResource>
+	    <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\ImageSourceHotSwap.xaml.cs">
+	      <DependentUpon>UserPages\ImageSourceHotSwap.xaml</DependentUpon>
+	      <Link>UserPages\ImageSourceHotSwap.xaml.cs</Link>
+	    </Compile>
+
+
+
 	    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\UserPages\Mfloyd.xaml">
 	      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	      <Link>UserPages\Mfloyd.xaml</Link>

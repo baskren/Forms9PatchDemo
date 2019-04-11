@@ -70,6 +70,14 @@ namespace Forms9PatchDemo
                             Command = navigateCommand,
                             CommandParameter = typeof(App3.MainPage)
                         },
+
+                        new TextCell
+                        {
+                            Text = "ImageSourceHotSwap",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(ImageSourceHotSwap)
+                        },
+
 #endif
 
                         new TextCell
