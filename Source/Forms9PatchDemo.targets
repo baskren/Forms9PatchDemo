@@ -33,6 +33,7 @@
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\PopupsPage.cs" Link="Pages.Code\PopupsPage.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\PickerInPopup.cs" Link="Pages.Code\PickerInPopup.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SegmentedControlCrowding.cs" Link="Pages.Code\SegmentedControlCrowding.cs" />
+        <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SegmentSelectedBackgroundPage.cs" Link="Pages.Code\SegmentSelectedBackgroundPage.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SingleButton.cs" Link="Pages.Code\SingleButton.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SimpleLabelFitting.cs" Link="Pages.Code\SimpleLabelFitting.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\SingleSegmentedControl.cs" Link="Pages.Code\SingleSegmentedControl.cs" />
@@ -59,7 +60,6 @@
         <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\SegmentNavPage1.cs" Link="UserPages\SegmentNavPage1.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\SegmentNavPage2.cs" Link="UserPages\SegmentNavPage2.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\SegmentNavPage3.cs" Link="UserPages\SegmentNavPage3.cs" />
-        <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\SegmentSelectedBackgroundPage.cs" Link="UserPages\SegmentSelectedBackgroundPage.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\UserHomePage.cs" Link="UserPages\UserHomePage.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\ZenmekPage.cs" Link="UserPages\ZenmekPage.cs" />
     </ItemGroup>

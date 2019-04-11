@@ -312,6 +312,14 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(SegmentedCrowdingPage)
                         },
 
+                        new TextCell {
+                            Text = "SegmentSelectedBackgroundPage",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(SegmentSelectedBackgroundPage)
+                        },
+
+
+
                     }
                 }
             };

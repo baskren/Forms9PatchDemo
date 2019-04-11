@@ -138,13 +138,6 @@ namespace Forms9PatchDemo
                             CommandParameter = typeof(ButtonTapped)
                         },
 
-
-                        new TextCell {
-                            Text = "SegmentSelectedBackgroundPage",
-                            Command = navigateCommand,
-                            CommandParameter = typeof(SegmentSelectedBackgroundPage)
-                        },
-
                         new TextCell {
                             Text = "<br>",
                             Command = navigateCommand,
