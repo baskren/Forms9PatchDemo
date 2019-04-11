@@ -63,6 +63,11 @@ namespace Forms9PatchDemo
                             Command = navigateCommand,
                             CommandParameter = typeof(UserPagesHomePage)
                         },
+                        new TextCell {
+                            Text = "Variable Width Button",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(VariableWidthButton)
+                        },
                     },
 
                     #if USE_XAML

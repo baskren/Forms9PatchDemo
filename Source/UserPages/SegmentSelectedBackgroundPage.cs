@@ -7,13 +7,34 @@ namespace Forms9PatchDemo
 {
     public class SegmentSelectedBackgroundPage : Xamarin.Forms.ContentPage
     {
+        SegmentedControl segCtrl = new SegmentedControl
+        {
+            HorizontalOptions = LayoutOptions.Start,
+            WidthRequest = 1500,
+            Padding = 4,
+            OutlineWidth = 0,
+            BackgroundColor = Color.FromRgb(112, 128, 144).MultiplyAlpha(0.5),
+            OutlineColor = Color.FromRgb(112, 128, 144).WithLuminosity(0.25),
+            Segments =
+                {
+                    new Segment { Text = "Orange" },
+                    new Segment { Text = "Blue" },
+                    new Segment { Text = "Yellow" },
+                    new Segment { Text = "Orange" },
+                    new Segment { Text = "Blue" },
+                    new Segment { Text = "Yellow" }
+                },
+            SyncSegmentFontSizes = false
+        };
 
         public SegmentSelectedBackgroundPage()
         {
-            var matSegCtrl = new SegmentedControl
+
+            var borderSegCtrl = new SegmentedControl
             {
                 Padding = 4,
-                BackgroundColor = Color.FromRgb(112, 128, 144),
+                //OutlineWidth = 0,
+                BackgroundColor = Color.FromRgb(112, 128, 144).MultiplyAlpha(0.5),
                 OutlineColor = Color.FromRgb(112, 128, 144).WithLuminosity(0.25),
                 Segments =
                 {
@@ -23,21 +44,21 @@ namespace Forms9PatchDemo
                 }
             };
 
-            matSegCtrl.SegmentSelected += (sender, e) =>
+            borderSegCtrl.SegmentSelected += (sender, e) =>
             {
                 switch (e.Segment.Text)
                 {
                     case "Orange":
-                        matSegCtrl.SelectedBackgroundColor = Color.Orange;
-                        matSegCtrl.SelectedTextColor = Color.Default;
+                        borderSegCtrl.SelectedBackgroundColor = Color.Orange;
+                        borderSegCtrl.SelectedTextColor = Color.Default;
                         break;
                     case "Blue":
-                        matSegCtrl.SelectedBackgroundColor = Color.Blue;
-                        matSegCtrl.SelectedTextColor = Color.White;
+                        borderSegCtrl.SelectedBackgroundColor = Color.Blue;
+                        borderSegCtrl.SelectedTextColor = Color.White;
                         break;
                     case "Yellow":
-                        matSegCtrl.SelectedBackgroundColor = Color.Yellow;
-                        matSegCtrl.SelectedTextColor = Color.Default;
+                        borderSegCtrl.SelectedBackgroundColor = Color.Yellow;
+                        borderSegCtrl.SelectedTextColor = Color.Default;
                         break;
                 }
             };
@@ -47,9 +68,22 @@ namespace Forms9PatchDemo
                 Padding = new Thickness(20),
                 Children = {
                     new Xamarin.Forms.Label { Text = "SegmentSelectedBackgroundPage" },
-                    matSegCtrl
+                    //borderSegCtrl,
+                    segCtrl
                 }
             };
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+                Device.StartTimer(TimeSpan.FromSeconds(0.2), () =>
+                {
+                    //System.Diagnostics.Debug.WriteLine("=================================================");
+                    segCtrl.WidthRequest -= 0.1;
+                    return true;
+                });
+
         }
     }
 }
