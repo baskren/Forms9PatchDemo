@@ -24,7 +24,7 @@ namespace Forms9PatchDemo
                     new Segment { Text = "Blue" },
                     new Segment { Text = "Yellow" }
                 },
-            SyncSegmentFontSizes = false
+            //SyncSegmentFontSizes = false
         };
 
         Forms9Patch.Button runReduceWidthRequestButton = new Forms9Patch.Button
