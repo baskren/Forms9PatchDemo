@@ -35,6 +35,7 @@ namespace Forms9PatchDemo
 
         public FlyoutDemo()
         {
+            Padding = 30;
             Content = new StackLayout
             {
                 Children =
@@ -45,6 +46,9 @@ namespace Forms9PatchDemo
                     _alignmentControl
                 }
             };
+
+            _orientationControl.SelectIndex(0);
+            _alignmentControl.SelectIndex(0);
 
             _orientationControl.SegmentTapped += (sender, e) =>
             {
@@ -61,6 +65,8 @@ namespace Forms9PatchDemo
                     : Forms9Patch.FlyoutAlignment.End;
                 _flyout.IsVisible = true;
             };
+
+
         }
     }
 }
