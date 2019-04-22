@@ -140,6 +140,12 @@ namespace Forms9PatchDemo
                     new TableSection("Code") {
 
                         new TextCell {
+                            Text = "Flyout Popup Demo",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(FlyoutDemo)
+                        },
+
+                        new TextCell {
                             Text = "Picker in Popup",
                             Command = navigateCommand,
                             CommandParameter = typeof(PickerInPopup)

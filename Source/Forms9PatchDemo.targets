@@ -17,6 +17,7 @@
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ClipboardTest.cs" Link="Pages.Code\ClipboardTest.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\CustomFontEffectPage.cs" Link="Pages.Code\CustomFontEffectPage.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\ExternalEmbeddedResourceImage.cs" Link="Pages.Code\ExternalEmbeddedResourceImage.cs" />
+        <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\FlyoutDemo.cs" Link="Pages.Code\FlyoutDemo.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\FontSizeTest.cs" Link="Pages.Code\FontSizeTest.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HardwareKeyPage.cs" Link="Pages.Code\HardwareKeyPage.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\Pages.Code\HardwareKeyPage1.cs" Link="Pages.Code\HardwareKeyPage1.cs" />
