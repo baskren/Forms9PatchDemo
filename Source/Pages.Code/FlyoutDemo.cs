@@ -8,7 +8,7 @@ namespace Forms9PatchDemo
         #region VisualElements
         Forms9Patch.FlyoutPopup _flyout = new Forms9Patch.FlyoutPopup
         {
-            Content = new Label { Text = "Flyout Content" },
+            Content = new Label { Text = "Your content here!" },
             IsAnimationEnabled = true
         };
 
@@ -30,6 +30,15 @@ namespace Forms9PatchDemo
             }
         };
 
+        Forms9Patch.SegmentedControl _optionsControl = new Forms9Patch.SegmentedControl
+        {
+            Segments =
+            {
+                new Forms9Patch.Segment("Apply Margins"),
+                new Forms9Patch.Segment("Round Corners")
+            },
+            GroupToggleBehavior = Forms9Patch.GroupToggleBehavior.Multiselect
+        };
 
         #endregion
 
@@ -43,7 +52,9 @@ namespace Forms9PatchDemo
                     new Label{Text = "Orientation:"},
                     _orientationControl,
                     new Label{Text = "Alignment:"},
-                    _alignmentControl
+                    _alignmentControl,
+                    new Label{Text = "Options:"},
+                    _optionsControl
                 }
             };
 
@@ -66,7 +77,11 @@ namespace Forms9PatchDemo
                 _flyout.IsVisible = true;
             };
 
-
+            _optionsControl.SegmentTapped += (sender, e) =>
+            {
+                _flyout.Margin = _optionsControl.Segments[0].IsSelected ? 30 : 0;
+                _flyout.OutlineRadius = _optionsControl.Segments[1].IsSelected ? 5 : 0;
+            };
         }
     }
 }
