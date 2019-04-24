@@ -19,6 +19,7 @@ namespace Forms9PatchDemo
 
             //listView.ItemSelected += (sender, e) => Forms9Patch.Toast.Create(null, "ListView item selected");
             listView.ItemTapped += (sender, e) => Forms9Patch.Toast.Create("ListView item tapped", "Content is [" + ((TestClass)e.Item).Content + "]");
+            //listView.ItemTemplate = new DataTemplate(typeof(TestClassCell));
             listView.ItemsSource = new List<TestClass>
             {
                 new TestClass { BackgroundColor = Color.Aqua, TextColor=Color.Blue, Content="1 There are <a href=\"Apples 1\">Apples 1</a> for all." },
@@ -56,6 +57,52 @@ namespace Forms9PatchDemo
         {
             Forms9Patch.Toast.Create(null, e.Href);
         }
+
+        public class TestClassCell : ViewCell
+        {
+
+            readonly Xamarin.Forms.Image _statusIcon = new Xamarin.Forms.Image
+            {
+                VerticalOptions = LayoutOptions.Start,
+                Margin = new Thickness(0, 3, 0, 0)
+            };
+
+            readonly Forms9Patch.Label _label = new Forms9Patch.Label
+            {
+                HorizontalOptions = LayoutOptions.Start
+            };
+
+            Xamarin.Forms.StackLayout _stackLayout = new Xamarin.Forms.StackLayout
+            {
+                Orientation = StackOrientation.Horizontal,
+            };
+
+            Forms9Patch.Frame _frame = new Forms9Patch.Frame
+            {
+                OutlineColor = Color.Gray,
+                OutlineWidth = 1,
+                OutlineRadius = 4,
+                Padding = new Thickness(8, 12, 8, 0),
+                Margin = new Thickness(5, 3, 5, 6),
+                HorizontalOptions = LayoutOptions.FillAndExpand,
+            };
+
+            public TestClassCell()
+            {
+
+                _label.ActionTagTapped += (sender, e) => Forms9Patch.Toast.Create(null, e.Href);
+                _stackLayout.Children.Add(_statusIcon);
+                _stackLayout.Children.Add(_label);
+                _frame.Content = _stackLayout;
+                View = _frame;
+
+                _label.SetBinding(Forms9Patch.Label.HtmlTextProperty, "Content");
+                _label.SetBinding(Forms9Patch.Label.TextColorProperty, "TextColor");
+                _statusIcon.SetBinding(Xamarin.Forms.Image.SourceProperty, "StatusIcon");
+                _frame.SetBinding(Forms9Patch.Frame.BackgroundColorProperty, "BackgroundColor");
+            }
+        }
+
     }
 
 }
