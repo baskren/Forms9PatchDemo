@@ -4,16 +4,22 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using Xamarin.Forms;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace Forms9PatchDemo
 {
     public class ListViewSandbox : Xamarin.Forms.ContentPage
     {
+        readonly Button _button = new Button
+        {
+            Text = "Clear"
+        };
+
         public ListViewSandbox()
         {
             var entry = Forms9Patch.Clipboard.Entry;
             var plain = entry.PlainText;
-
+            /*
             var kids = new People
             {
                 new Person("Jones","Abe", 10, "Forms9PatchDemo.Resources.kid1.jpeg"),
@@ -53,6 +59,18 @@ namespace Forms9PatchDemo
 
             };
             listView.ItemTemplates.Add(typeof(Person), typeof(PersonViewCell));
+            */
+
+            var list = new ObservableCollection<string>
+            {
+                "apples","peaches", "pears", "pizza"
+            };
+
+            var listView = new Forms9Patch.ListView
+            {
+                ItemsSource = list,
+                IsGroupingEnabled = false,
+            };
 
             Title = plain;
             Content = new StackLayout
@@ -60,11 +78,7 @@ namespace Forms9PatchDemo
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 Children =
                 {
-                    new Label
-                    {
-                        HorizontalTextAlignment = TextAlignment.Center,
-                        Text = "Welcome to Xamarin Forms!"
-                    },
+                    _button,
                     listView
                 }
             };
@@ -73,8 +87,14 @@ namespace Forms9PatchDemo
             {
                 Debug.WriteLine("Item [" + e.SelectedItem + "] was selected");
                 listView.SelectedItem = null;
-                kids.Remove(e.SelectedItem as Person);
+                //kids.Remove(e.SelectedItem as Person);
 
+            };
+
+            _button.Clicked += async (sender, e) =>
+            {
+                list.Clear();
+                await Task.Delay(100);
             };
         }
 
