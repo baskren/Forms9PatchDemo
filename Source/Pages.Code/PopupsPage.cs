@@ -270,16 +270,44 @@ namespace Forms9PatchDemo.Pages.Code
             };
             showTargetedMenu.Clicked += (s, e) =>
             {
-                targetedMenu.OutlineColor = Color.Blue;
                 targetedMenu.IsVisible = true;
                 targetedMenu.HasShadow = _hasShadow;
                 targetedMenu.ShadowInverted = _shadowInverted;
-                targetedMenu.OutlineWidth = _blueOutline ? 1 : 0;
                 targetedMenu.IsVisible = true;
-                targetedMenu.HorizontalOptions = LayoutOption(_hzLayoutOptions);
-                targetedMenu.VerticalOptions = LayoutOption(_vtLayoutOptions);
             };
             targetedMenu.SegmentTapped += (s, e) => System.Diagnostics.Debug.WriteLine("TargetedMenu.SegmentTapped: " + e.Segment.Text);
+            #endregion
+
+
+            #region Vertical TargetedMenu
+            var showVerticalTargetedMenu = new Forms9Patch.Button("Vertical TargetedMenu") { BackgroundColor = Color.White };
+            var verticalTargetedMenu = new Forms9Patch.TargetedMenu(showVerticalTargetedMenu)
+            {
+                Orientation = StackOrientation.Vertical,
+                Segments =
+                {
+                    new Segment("Copy", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14D;</font>"),
+                    new Segment("Cut", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14E;</font>"),
+                    new Segment("Paste", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14F;</font>"),
+                    new Segment("Segment A"),
+                    new Segment("Segment B"),
+                    new Segment("Segment C"),
+                    new Segment("Segment D"),
+                    new Segment("Segment E"),
+                    new Segment("Segment F"),
+                    new Segment("Segment G"),
+                    new Segment("Segment H"),
+                },
+            };
+            showVerticalTargetedMenu.Clicked += (s, e) =>
+            {
+                //verticalTargetedMenu.OutlineColor = Color.Blue;
+                verticalTargetedMenu.IsVisible = true;
+                verticalTargetedMenu.HasShadow = _hasShadow;
+                verticalTargetedMenu.ShadowInverted = _shadowInverted;
+                verticalTargetedMenu.IsVisible = true;
+            };
+            verticalTargetedMenu.SegmentTapped += (s, e) => System.Diagnostics.Debug.WriteLine("TargetedMenu.SegmentTapped: " + e.Segment.Text);
             #endregion
 
 
@@ -371,6 +399,7 @@ namespace Forms9PatchDemo.Pages.Code
                         showToastButton,
                         showTargetedToash,
                         showTargetedMenu,
+                        showVerticalTargetedMenu,
                         softwareKeyboardTestButton,
                         new BoxView { HeightRequest = 1},
                     }
