@@ -82,12 +82,8 @@ namespace Forms9PatchDemo
             gridPage.Children.Add(gridTest, 0, 0);
             gridPage.Children.Add(stackLayout, 0, 1);
 
-#if __IOS__
+
             gridPage.Padding = new Thickness(0, 30, 0, 0);
-#elif __ANDROID__
-            gridPage.Padding = new Thickness(0);
-#endif
-            gridPage.Padding = new Thickness(0);
             #endregion
 
             Content = gridPage;
