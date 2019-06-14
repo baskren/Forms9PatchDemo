@@ -191,7 +191,7 @@
       <Version>6.1.4</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>4.0.0.425677</Version>
+      <Version>4.0.0.482894</Version>
     </PackageReference>
     <PackageReference Include="CarouselView.FormsPlugin" Version="5.2.0" />
   </ItemGroup>
