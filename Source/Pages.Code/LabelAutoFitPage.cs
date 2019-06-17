@@ -62,6 +62,8 @@ namespace Forms9PatchDemo
         };
         Label PageWidthLabel = new Label();
 
+        Label LabelSizeLabel = new Label();
+
 
         public LabelAutoFitPage()
         {
@@ -443,7 +445,7 @@ namespace Forms9PatchDemo
                         */
                         new Label { Text = "Forms9Patch.Label:" },
                         frameForF9P,
-
+                        LabelSizeLabel,
                         new StackLayout {
                             Orientation = StackOrientation.Horizontal,
                             Children = { new Label { Text = "Font:", HorizontalOptions = LayoutOptions.Start }, fontPicker, }
@@ -475,11 +477,14 @@ namespace Forms9PatchDemo
             };
 
             SizeChanged += LabelAutoFitPage_SizeChanged;
+            frameForF9P.SizeChanged += LabelAutoFitPage_SizeChanged;
         }
 
         private void LabelAutoFitPage_SizeChanged(object sender, EventArgs e)
         {
             PageWidthLabel.Text = "Page Width: " + this.Width;
+            if (f9pLabel.Parent is Frame frame)
+                LabelSizeLabel.Text = "LABEL: " + f9pLabel.SizeForWidthAndFontSize(frame.Width, f9pLabel.FontSize) + "\t FRAME: " + frame.Bounds.Size;// + "\t PADDING: {" + frame.Padding.HorizontalThickness + ", " + frame.Padding.VerticalThickness + "}";
         }
 
         protected override void OnAppearing()
