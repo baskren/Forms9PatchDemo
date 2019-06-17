@@ -266,7 +266,7 @@ namespace Forms9PatchDemo
     #endregion
 
     #region PersonViewCell
-    public class PersonViewCell : Xamarin.Forms.Grid, Forms9Patch.ICellHeight
+    public class PersonViewCell : Xamarin.Forms.Grid, Forms9Patch.ICellContentView
     {
         public double CellHeight
         {
@@ -345,11 +345,21 @@ namespace Forms9PatchDemo
             CellHeight = BindingContext == null ? 10 : 60;
             _isActiveSwitch.IsVisible = BindingContext != null;
         }
+
+        public void OnAppearing()
+        {
+            
+        }
+
+        public void OnDisappearing()
+        {
+            
+        }
     }
     #endregion
 
     #region PeopleGroupCell
-    public class PeopleGroupCell : StackLayout, Forms9Patch.ICellHeight
+    public class PeopleGroupCell : StackLayout, Forms9Patch.ICellContentView
     {
         #region Fields
         Label _titleLabel = new Label
@@ -387,6 +397,16 @@ namespace Forms9PatchDemo
         }
 
         public double CellHeight => 40;
+
+        public void OnAppearing()
+        {
+            
+        }
+
+        public void OnDisappearing()
+        {
+            
+        }
 
         protected override void OnBindingContextChanged()
         {
