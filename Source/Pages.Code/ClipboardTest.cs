@@ -704,7 +704,7 @@ namespace Forms9PatchDemo
 
         public ClipboardTest()
         {
-            Padding = new Thickness(20, Device.RuntimePlatform == Device.iOS ? 40 : 20, 20, 0);
+            //Padding = new Thickness(20, Device.RuntimePlatform == Device.iOS ? 40 : 20, 20, 0);
 
             _entryCaching.IsToggled = Forms9Patch.Clipboard.EntryCaching;
 

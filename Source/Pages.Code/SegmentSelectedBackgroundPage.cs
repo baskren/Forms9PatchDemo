@@ -11,7 +11,8 @@ namespace Forms9PatchDemo
         {
             HorizontalOptions = LayoutOptions.Start,
             WidthRequest = 900,
-            Padding = 4,
+            //Padding = 4,
+            //Padding = 0,
             OutlineWidth = 0,
             BackgroundColor = Color.FromRgb(112, 128, 144).MultiplyAlpha(0.5),
             OutlineColor = Color.FromRgb(112, 128, 144).WithLuminosity(0.25),
@@ -30,14 +31,15 @@ namespace Forms9PatchDemo
         Forms9Patch.Button runReduceWidthRequestButton = new Forms9Patch.Button
         {
             Text = "Run Reduce WidthRequest",
-            ToggleBehavior = true
+            ToggleBehavior = true,
+            Padding = -6,
         };
 
         SegmentedControl borderSegCtrl = new SegmentedControl
         {
             HorizontalOptions = LayoutOptions.Start,
             WidthRequest = 900,
-            Padding = 4,
+            //Padding = 4,
             //OutlineWidth = 0,
             BackgroundColor = Color.FromRgb(112, 128, 144).MultiplyAlpha(0.5),
             OutlineColor = Color.FromRgb(112, 128, 144).WithLuminosity(0.25),

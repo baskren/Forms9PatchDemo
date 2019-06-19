@@ -8,6 +8,14 @@
     <ItemGroup>
         <Compile Include="$(Forms9PatchDemoSourceDir)\Forms9PatchDemo.cs" Link="Forms9PatchDemo.cs" />
         <Compile Include="$(Forms9PatchDemoSourceDir)\HomePage.cs" Link="HomePage.cs" />
+		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\Shell.xaml">
+			<Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+			<Link>Shell.xaml</Link>
+		</EmbeddedResource>
+	    <Compile Include="$(Forms9PatchDemoSourceDir)\Shell.xaml.cs">
+	      <DependentUpon>Shell.xaml</DependentUpon>
+	      <Link>Shell.xaml.cs</Link>
+	    </Compile>
     </ItemGroup>
     <!-- CODE PAGES -->
     <ItemGroup>

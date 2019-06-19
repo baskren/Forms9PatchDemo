@@ -9,7 +9,8 @@ namespace Forms9PatchDemo
 	{
 		Forms9Patch.Label _label = new Forms9Patch.Label
 		{
-			Text = "This is some text.  It's about pizza and cheese.  And pepperoni."
+			Text = "This is some text.  It's about pizza and cheese.  And pepperoni.",
+            TextColor = Color.Black
 		};
 
 		public LabelGetSize()

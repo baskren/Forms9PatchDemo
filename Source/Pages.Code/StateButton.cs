@@ -11,18 +11,15 @@ namespace Forms9PatchDemo.Pages
     {
         public StateButton()
         {
-            var button = new Forms9Patch.Frame
+            var button = new Forms9Patch.StateButton
             {
-                //Text = "Click me",
-                //ToggleBehavior = true,
+                Text = "Click me",
+                ToggleBehavior = true,
                 BackgroundColor = Color.NavajoWhite,
                 OutlineRadius = 5,
-                //BackgroundImage = new Forms9Patch.Image("Forms9PatchDemo.Resources.button"),
+                BackgroundImage = new Forms9Patch.Image("Forms9PatchDemo.Resources.button"),
             };
 
-            button.Content = new Xamarin.Forms.Label { Text = "Click me" };
-
-            var listener = FormsGestures.Listener.For(button);
 
 
             var hasShadowSwitch = new Switch();
@@ -45,14 +42,6 @@ namespace Forms9PatchDemo.Pages
                 }
             };
 
-            listener.Tapped += (sender, e) =>
-            //button.Clicked += (sender, e) =>
-            {
-                if (button.BackgroundImage == null)
-                    button.BackgroundImage = new Forms9Patch.Image("Forms9PatchDemo.Resources.button");
-                else
-                    button.BackgroundImage = null;
-            };
         }
 
     }

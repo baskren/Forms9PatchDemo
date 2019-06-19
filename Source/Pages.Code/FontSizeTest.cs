@@ -32,8 +32,9 @@ namespace Forms9PatchDemo.Pages
                                 Spacing = 0,
                                 Children =
                                 {
+                                    new Label { Text = "Xamarin:", TextColor = Color.Black },
                                     new BoxView {
-                                        HeightRequest = 30,
+                                        //HeightRequest = 30,
                                         BackgroundColor = Color.Blue
                                     },
                                     label,
@@ -46,7 +47,9 @@ namespace Forms9PatchDemo.Pages
                                         Content = new Xamarin.Forms.Label
                                         {
                                             FontSize = 30,
-                                            Text = "Qwetry"
+                                            Text = "Qwetry",
+                                            TextColor = Color.Black,
+                                            VerticalTextAlignment = TextAlignment.Center
                                         },
 
                                     },
@@ -68,6 +71,7 @@ namespace Forms9PatchDemo.Pages
                                 Spacing = 0,
                                 Children =
                                 {
+                                    new Label { Text = "Forms9Patch:", TextColor = Color.Black },
                                     new BoxView {
                                         HeightRequest = 30,
                                         BackgroundColor = Color.Blue
@@ -86,11 +90,13 @@ namespace Forms9PatchDemo.Pages
                                         //CornerRadius = 0,
                                         Padding = 0,
                                         BackgroundColor = Color.Red,
-                                        HeightRequest = 30,
+                                        //HeightRequest = 30,
                                         Content = new Forms9Patch.Label
                                         {
                                             FontSize = 30,
                                             Text = "Qwetry",
+                                            TextColor = Color.Black,
+                                            VerticalTextAlignment = TextAlignment.Center
                                         }
                                     },
 

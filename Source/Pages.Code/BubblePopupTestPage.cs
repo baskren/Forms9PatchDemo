@@ -8,7 +8,7 @@ namespace Forms9PatchDemo
 {
     public class BubblePopupTestPage : ContentPage
     {
-
+        #region Properties
         public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create("CornerRadius", typeof(double), typeof(BubblePopupTestPage), 4.0);
         public double CornerRadius
         {
@@ -85,14 +85,19 @@ namespace Forms9PatchDemo
                 SetValue(PointerDirectionProperty, value);
             }
         }
+        #endregion
 
+
+        #region Fields
         VisualElement _lastChanged;
+        #endregion
 
+
+        #region Construction
         public BubblePopupTestPage()
         {
-            BackgroundColor = Color.White;
 
-            Padding = new Thickness(20, Device.RuntimePlatform == Device.iOS ? 20 : 0, 20, 20);
+            BackgroundColor = Color.White;
 
             var shadowToggle = new Switch();
             shadowToggle.SetBinding(Switch.IsToggledProperty, "HasShadow");
@@ -372,6 +377,7 @@ namespace Forms9PatchDemo
 
             Content = new StackLayout
             {
+                Padding = 20,
                 Children = {
                     new StackLayout {
                         Orientation = StackOrientation.Horizontal,
@@ -399,8 +405,10 @@ namespace Forms9PatchDemo
                     showButton,
                     new Label { Text = "Arrows choose the BubblePopup's allowed pointer direction.  Bubble's pointer will point at the last selected arrow-segment-button.", TextColor=Color.Black },
                 }
+                
             };
         }
+        #endregion
     }
 }
 

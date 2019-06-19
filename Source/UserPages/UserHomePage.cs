@@ -64,13 +64,14 @@ namespace Forms9PatchDemo
                     new TableSection("XAML") {
 
 #if FROM_SOURCE
+                        /*
                         new TextCell
                         {
                             Text = "App3.MainPage",
                             Command = navigateCommand,
                             CommandParameter = typeof(App3.MainPage)
                         },
-
+                        */
                         new TextCell
                         {
                             Text = "ImageSourceHotSwap",

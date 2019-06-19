@@ -81,7 +81,7 @@ namespace Forms9PatchDemo
         public ModalPopupTestPage()
         {
             BackgroundColor = Color.White;
-            Padding = new Thickness(20, Device.RuntimePlatform == Device.iOS ? 20 : 0, 20, 20);
+            //Padding = new Thickness(20, Device.RuntimePlatform == Device.iOS ? 20 : 0, 20, 20);
 
 
             var shadowToggle = new Switch();
@@ -255,6 +255,7 @@ namespace Forms9PatchDemo
             {
                 BackgroundColor = Color.White,
                 Title = "PopupTestPage - Detail",
+                //IconImageSource = Forms9Patch.ImageSource.FromResourceAsFile("Forms9PatchDemo.Resources.100x100.png", GetType().Assembly),
                 Content = new StackLayout
                 {
                     Children = {
@@ -273,6 +274,7 @@ namespace Forms9PatchDemo
             Master = new ContentPage
             {
                 Title = "PopupTestPage - Master",
+                //IconImageSource = Forms9Patch.ImageSource.FromResourceAsFile("Forms9PatchDemo.Resources.100x100.png", GetType().Assembly),
                 Content = new Label
                 {
                     Text = "Master Page",

@@ -34,6 +34,7 @@ namespace Forms9PatchDemo
             _editor.Effects.Add(new Forms9Patch.EmbeddedResourceFontEffect());
             _entry.Effects.Add(new Forms9Patch.EmbeddedResourceFontEffect());
 
+
             Forms9Patch.SegmentedControl segmentedControl = new SegmentedControl
             {
                 Margin = new Thickness(10, 0),

@@ -72,6 +72,60 @@ namespace Forms9PatchDemo
             #endregion
 
 
+            #region Forms9Patch.Frame
+            var frame = new Forms9Patch.Frame
+            {
+                BackgroundColor = Color.Orange,
+                WidthRequest = 70,
+                HeightRequest = 70,
+                HasShadow = true,
+                OutlineColor = Color.Green,
+                OutlineRadius = 0,
+                OutlineWidth = 1,
+                Content = new Forms9Patch.Label {  Text = "pizza", TextColor = Color.White, BackgroundColor = Color.Blue, HorizontalOptions=LayoutOptions.Start, VerticalOptions = LayoutOptions.Start}
+            };
+            var frameListener = FormsGestures.Listener.For(frame);
+
+            frameListener.Down += (sender, e) =>
+            {
+                e.Handled = true;
+                System.Diagnostics.Debug.WriteLine("\tFRAME DOWN [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            };
+            frameListener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME LONG PRESSING [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            frameListener.RightClicked += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME RIGHT CLICK[" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+
+            frameListener.Panning += (sender, e) =>
+            {
+                System.Diagnostics.Debug.WriteLine("\tFRAME PANNING [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+                frame.TranslationX += e.DeltaDistance.X;
+                frame.TranslationY += e.DeltaDistance.Y;
+            };
+
+            frameListener.Pinching += (sender, e) =>
+            {
+                System.Diagnostics.Debug.WriteLine("\tFRAME PINCHING [" + e.Center + "][" + e.Touches[0] + "][" + e.DeltaScale + "][" + e.ViewPosition + "]");
+                frame.Scale *= e.DeltaScale;
+            };
+            frameListener.Rotating += (sender, e) =>
+            {
+                System.Diagnostics.Debug.WriteLine("\tFRAME ROTATING [" + e.Center + "][" + e.Touches[0] + "][" + e.DeltaAngle + "][" + e.ViewPosition + "]");
+                frame.Rotation += e.DeltaAngle;
+            };
+
+            frameListener.Up += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME UP [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            frameListener.Tapping += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME TAPPING #[" + e.NumberOfTaps + "] [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            frameListener.Tapped += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME TAPPED #[" + e.NumberOfTaps + "] [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            frameListener.DoubleTapped += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME DOUBLE TAPPED [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+
+            frameListener.LongPressed += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME LONG PRESSED [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            frameListener.Panned += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME PANNED TotalDistance=[" + e.TotalDistance + "][" + e.Center + "][" + e.ViewPosition + "]");
+            frameListener.Swiped += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME SWIPED!!! Velocity=" + e.VelocityX + "," + e.VelocityY + "][" + e.Center + "][" + e.ViewPosition + "]");
+
+            frameListener.Pinched += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME PINCHED TotalScale=[" + e.TotalScale + "][" + e.Center + "][" + e.ViewPosition + "]");
+            frameListener.Rotated += (sender, e) => System.Diagnostics.Debug.WriteLine("\tFRAME ROTATED TotalAngle[" + e.TotalAngle + "][" + e.Center + "][" + e.ViewPosition + "]");
+            #endregion
+
+
             #region Xamarin.Forms.BoxView
             var box = new BoxView
             {
@@ -80,7 +134,11 @@ namespace Forms9PatchDemo
             var boxListener = FormsGestures.Listener.For(box);
 
             //boxListener.Down += OnDown;
-            boxListener.Down += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX DOWN [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            boxListener.Down += (sender, e) =>
+            {
+                e.Handled = true;
+                System.Diagnostics.Debug.WriteLine("\tBOX DOWN [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
+            };
             boxListener.LongPressing += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX LONG PRESSING [" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
             boxListener.RightClicked += (sender, e) => System.Diagnostics.Debug.WriteLine("\tBOX RIGHT CLICK[" + e.Center + "][" + e.Touches[0] + "][" + e.ViewPosition + "]");
 
@@ -159,6 +217,11 @@ namespace Forms9PatchDemo
                 widthConstraint: Constraint.RelativeToParent((parent) => { return parent.Width / 16; }),
                 heightConstraint: Constraint.RelativeToParent((parent) => { return parent.Width / 16; })
             );
+            relativeLayout.Children.Add(frame,
+                xConstraint: Constraint.RelativeToParent((parent) => { return parent.X + parent.Width * 1/4 ; }),
+                yConstraint: Constraint.RelativeToParent((parent) => { return parent.Y + parent.Height / 8; })
+            );
+
             #endregion
 
 

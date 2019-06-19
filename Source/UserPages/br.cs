@@ -17,7 +17,7 @@ namespace Forms9PatchDemo
 			Content = new StackLayout
 			{
 				Children = {
-					new Forms9Patch.Label { HtmlText = "Hello<br>ContentPage" }
+					new Forms9Patch.Label { HtmlText = "Hello<br><br>ContentPage", TextColor = Color.Black }
 				}
 			};
 		}

@@ -5,9 +5,10 @@ using System.ComponentModel;
 using Xamarin.Forms;
 using System.Windows.Input;
 
-[assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
+//[assembly: Xamarin.Forms.Xaml.XamlCompilation(Xamarin.Forms.Xaml.XamlCompilationOptions.Compile)]
 namespace Forms9PatchDemo
 {
+    /*
     public class App : Application
     {
 
@@ -79,14 +80,10 @@ namespace Forms9PatchDemo
         const bool debugProperties = true;
         //static bool debugCollections = true;
 
-        NavigationPage navPage = new NavigationPage(new HomePage());
+        HomePage homePage = new HomePage();
+        NavigationPage navPage;
+        Forms9PatchDemo.Shell shell;
 
-
-        void OnPagePopped(object sender, NavigationEventArgs e)
-        {
-            IDisposable displosable = e.Page as IDisposable;
-            //System.Diagnostics.Debug.WriteLine("");
-        }
 
         public App()
         {
@@ -131,11 +128,12 @@ namespace Forms9PatchDemo
             Resources.Add(buttonStyle);
             Resources.Add(textCellStyle);
 
-            navPage.Popped += OnPagePopped;
 
-            MainPage = navPage; 
+            if (Device.RuntimePlatform == Device.UWP)
+                MainPage = navPage = new NavigationPage(homePage);
+            else
+                MainPage = shell = new Forms9PatchDemo.Shell();
         }
-
 
         protected override void OnStart()
         {
@@ -152,5 +150,6 @@ namespace Forms9PatchDemo
             // Handle when your app resumes
         }
     }
+    */
 }
 
