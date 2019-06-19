@@ -171,8 +171,8 @@ namespace Forms9PatchDemo
         {
             if (obj is List<int> testIntList)
             {
-                var resultIntList = Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<List<int>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-int-list")?.Value as List<int>;
-                if (resultIntList == null || resultIntList.Count != testIntList.Count)
+                if (!(Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<List<int>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-int-list")?.Value is List<int> resultIntList) 
+                    || resultIntList.Count != testIntList.Count)
                     return false;
                 for (int i = 0; i < resultIntList.Count; i++)
                     if (resultIntList[i] != testIntList[i])
@@ -192,8 +192,7 @@ namespace Forms9PatchDemo
         {
             if (obj is List<double> testDoubleList)
             {
-                var resulDoubleList = Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<List<double>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-double-list")?.Value as List<double>;
-                if (resulDoubleList == null || resulDoubleList.Count != testDoubleList.Count)
+                if (!(Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<List<double>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-double-list")?.Value is List<double> resulDoubleList) || resulDoubleList.Count != testDoubleList.Count)
                     return false;
                 for (int i = 0; i < resulDoubleList.Count; i++)
                     if (Math.Abs(resulDoubleList[i] - testDoubleList[i]) > 0.00001)
@@ -213,8 +212,7 @@ namespace Forms9PatchDemo
         {
             if (obj is List<string> testStringList)
             {
-                var resultStringList = Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<List<string>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-string-list")?.Value as List<string>;
-                if (resultStringList == null || resultStringList.Count != testStringList.Count)
+                if (!(Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<List<string>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-string-list")?.Value is List<string> resultStringList) || resultStringList.Count != testStringList.Count)
                     return false;
                 for (int i = 0; i < resultStringList.Count; i++)
                     if (resultStringList[i] != testStringList[i])
@@ -235,8 +233,7 @@ namespace Forms9PatchDemo
         {
             if (obj is Dictionary<string, double> testDictionary)
             {
-                var resultDictionary = Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<Dictionary<string, double>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-dictionary")?.Value as Dictionary<string, double>;
-                if (resultDictionary == null || resultDictionary.Keys.Count != testDictionary.Keys.Count)
+                if (!(Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<Dictionary<string, double>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-dictionary")?.Value is Dictionary<string, double> resultDictionary) || resultDictionary.Keys.Count != testDictionary.Keys.Count)
                     return false;
                 foreach (var key in testDictionary.Keys)
                 {
@@ -268,8 +265,7 @@ namespace Forms9PatchDemo
         {
             if (obj is List<Dictionary<string, double>> testDictionaryList)
             {
-                var resultDictionaryList = Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<List<Dictionary<string, double>>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-dictionaryList")?.Value as List<Dictionary<string, double>>;
-                if (resultDictionaryList == null || resultDictionaryList.Count != testDictionaryList.Count)
+                if (!(Forms9Patch.IMimeItemCollectionExtensions.GetFirstMimeItem<List<Dictionary<string, double>>>(Forms9Patch.Clipboard.Entry, "application/x-forms9patchdemo-dictionaryList")?.Value is List<Dictionary<string, double>> resultDictionaryList) || resultDictionaryList.Count != testDictionaryList.Count)
                     return false;
                 for (int i = 0; i < testDictionaryList.Count; i++)
                 {
