@@ -16,45 +16,48 @@ namespace Forms9PatchDemo
 				Text = "Xamarin.Forms.Label",
 				FontFamily = "Forms9PatchDemo.Resources.Fonts.Pacifico.ttf"
 			};
-			label.Effects.Add(Effect.Resolve("Forms9Patch.EmbeddedResourceFontEffect"));
+            Forms9Patch.EmbeddedResourceFontEffect.ApplyTo(label);
 
 			var editor = new Xamarin.Forms.Editor
 			{
 				Text = "Xamarin.Forms.Editor",
 				FontFamily = "Forms9PatchDemo.Resources.Fonts.Pacifico.ttf"
 			};
-			editor.Effects.Add(Effect.Resolve("Forms9Patch.EmbeddedResourceFontEffect"));
+            Forms9Patch.EmbeddedResourceFontEffect.ApplyTo(editor);
 
 			var entry = new Xamarin.Forms.Entry
 			{
 				Text = "Xamarin.Forms.Entry",
 				FontFamily = "Forms9PatchDemo.Resources.Fonts.Pacifico.ttf"
 			};
-			entry.Effects.Add(Effect.Resolve("Forms9Patch.EmbeddedResourceFontEffect"));
+            Forms9Patch.EmbeddedResourceFontEffect.ApplyTo(entry);
 
 			var button = new Xamarin.Forms.Button
 			{
 				Text = "Xamarin.Forms.Button",
 				FontFamily = "Forms9PatchDemo.Resources.Fonts.Pacifico.ttf"
 			};
-			button.Effects.Add(Effect.Resolve("Forms9Patch.EmbeddedResourceFontEffect"));
+            Forms9Patch.EmbeddedResourceFontEffect.ApplyTo(button);
             
             var F9Plabel1 = new Forms9Patch.Label
             {
                 Text = "Forms9Patch.Label - luximb",
-                FontFamily = "Forms9PatchDemo.Resources.Fonts.luximb.ttf"
+                FontFamily = "Forms9PatchDemo.Resources.Fonts.luximb.ttf",
+                //TextColor = Color.Black
             };
             
             var F9Plabel2 = new Forms9Patch.Label
             {
                 Text = "Forms9Patch.Label - CPMono",
-                FontFamily = "Forms9PatchDemo.Resources.Fonts.CPMono_v07_Bold.otf"
+                FontFamily = "Forms9PatchDemo.Resources.Fonts.CPMono_v07_Bold.otf",
+                //TextColor = Color.Black
             };
             
             var F9Plabel3 = new Forms9Patch.Label
             {
                 Text = "Forms9Patch.Label - default FontFamily",
                 // FontFamily = "Forms9PatchDemo.Resources.Fonts.CPMono_v07 Bold.otf"
+                //TextColor = Color.Black
             };
 
 
