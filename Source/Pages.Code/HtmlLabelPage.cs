@@ -26,7 +26,7 @@ namespace Forms9PatchDemo
             //var canRead = resourceStream.CanRead;
 
             //var x = resourceStream.Length;
-
+            BackgroundColor = Color.AliceBlue;
             Padding = new Thickness(5, 20, 5, 5);
             Content = new ScrollView
             {
