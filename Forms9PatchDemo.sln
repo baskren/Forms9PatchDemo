@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forms9PatchDemo.NetStandard", "Forms9PatchDemo.NetStandard\Forms9PatchDemo.NetStandard.csproj", "{1388DC48-9396-40B6-B948-6B56A2AA94D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forms9PatchDemo.NuGet", "Forms9PatchDemo.NuGet\Forms9PatchDemo.NuGet.csproj", "{1388DC48-9396-40B6-B948-6B56A2AA94D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NetStandard.iOS", "Forms9PatchDemo.NetStandard.iOS\Forms9PatchDemo.NetStandard.iOS.csproj", "{7B5EDC91-C784-476D-A3EF-90369B57DF20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NuGet.iOS", "Forms9PatchDemo.NuGet.iOS\Forms9PatchDemo.NuGet.iOS.csproj", "{7B5EDC91-C784-476D-A3EF-90369B57DF20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NetStandard.Droid", "Forms9PatchDemo.NetStandard.Droid\Forms9PatchDemo.NetStandard.Droid.csproj", "{12A221C5-135C-4148-B348-323735D10C55}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NuGet.Droid", "Forms9PatchDemo.NuGet.Droid\Forms9PatchDemo.NuGet.Droid.csproj", "{12A221C5-135C-4148-B348-323735D10C55}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NetStandard.UWP", "Forms9PatchDemo.NetStandard.UWP\Forms9PatchDemo.NetStandard.UWP.csproj", "{592FEF99-BE8D-4111-909B-D7448835B157}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms9PatchDemo.NuGet.UWP", "Forms9PatchDemo.NuGet.UWP\Forms9PatchDemo.NuGet.UWP.csproj", "{592FEF99-BE8D-4111-909B-D7448835B157}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{2CF89FB6-3A3E-41A0-942E-CF8D9878DD13}"
 	ProjectSection(SolutionItems) = preProject
