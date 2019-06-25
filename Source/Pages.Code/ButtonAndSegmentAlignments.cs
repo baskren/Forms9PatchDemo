@@ -13,13 +13,13 @@ namespace Forms9PatchDemo
         const float radius = 4;
         const float width = 1;
         const bool hasShadow = true;
-        static Color outlineColor = Color.Default; // Color.Red.WithAlpha(0.25);
-        static Color backgroundColor = Color.White;
-        static bool ShadowInverted = true;
+        static readonly  Color outlineColor = Color.Default; // Color.Red.WithAlpha(0.25);
+        static readonly Color backgroundColor = Color.White;
+        static readonly bool ShadowInverted = true;
 
-        Switch _hasShadowSwitch = new Switch { IsToggled = hasShadow };
+        readonly Switch _hasShadowSwitch = new Switch { IsToggled = hasShadow };
 
-        SegmentedControl _hzAlignmentElement = new SegmentedControl
+        readonly SegmentedControl _hzAlignmentElement = new SegmentedControl
         {
             ShadowInverted = ShadowInverted,
             HasShadow = hasShadow,
@@ -37,7 +37,7 @@ namespace Forms9PatchDemo
             }
         };
 
-        SegmentedControl _vtAlignmentElement = new SegmentedControl
+        readonly SegmentedControl _vtAlignmentElement = new SegmentedControl
         {
             ShadowInverted = ShadowInverted,
             HasShadow = hasShadow,
@@ -53,7 +53,7 @@ namespace Forms9PatchDemo
             }
         };
 
-        SegmentedControl _optionsElement = new SegmentedControl
+        readonly SegmentedControl _optionsElement = new SegmentedControl
         {
             ShadowInverted = ShadowInverted,
             HasShadow = hasShadow,
@@ -70,7 +70,7 @@ namespace Forms9PatchDemo
             }
         };
 
-        SegmentedControl _iconElement = new SegmentedControl
+        readonly SegmentedControl _iconElement = new SegmentedControl
         {
             ShadowInverted = ShadowInverted,
             HasShadow = hasShadow,
@@ -90,15 +90,15 @@ namespace Forms9PatchDemo
             }
         };
 
-        Switch _imposedHeightSwitch = new Switch();
+        readonly Switch _imposedHeightSwitch = new Switch();
 
-        Slider _spacingSlider = new Slider(0, 50, 5);
+        readonly Slider _spacingSlider = new Slider(0, 50, 5);
 
-        Slider _outlineWidthSlider = new Slider(0, 7, width);
+        readonly Slider _outlineWidthSlider = new Slider(0, 7, width);
 
-        Slider _outlineRadiusSlider = new Slider(0, 16.0, radius);
+        readonly Slider _outlineRadiusSlider = new Slider(0, 16.0, radius);
 
-        Forms9Patch.StateButton _stateButton = new Forms9Patch.StateButton
+        readonly Forms9Patch.StateButton _stateButton = new Forms9Patch.StateButton
         {
             ShadowInverted = ShadowInverted,
             BackgroundColor = backgroundColor,
@@ -122,7 +122,7 @@ namespace Forms9PatchDemo
             ToggleBehavior = true
         };
 
-        Forms9Patch.Button _button = new Forms9Patch.Button
+        readonly Forms9Patch.Button _button = new Forms9Patch.Button
         {
             ShadowInverted = ShadowInverted,
             HasShadow = hasShadow,
@@ -133,7 +133,7 @@ namespace Forms9PatchDemo
             Text = "Button",
         };
 
-        SegmentedControl _hzSegmentsElement = new SegmentedControl
+        readonly SegmentedControl _hzSegmentsElement = new SegmentedControl
         {
             ShadowInverted = ShadowInverted,
             HasShadow = hasShadow,
@@ -158,7 +158,7 @@ namespace Forms9PatchDemo
                         }
         };
 
-        SegmentedControl _vtSegmentsElement = new SegmentedControl
+        readonly SegmentedControl _vtSegmentsElement = new SegmentedControl
         {
             ShadowInverted = ShadowInverted,
             HasShadow = hasShadow,
@@ -184,19 +184,19 @@ namespace Forms9PatchDemo
                         }
         };
 
-        Xamarin.Forms.Grid _grid1 = new Xamarin.Forms.Grid
+        readonly Xamarin.Forms.Grid _grid1 = new Xamarin.Forms.Grid
         {
             ColumnDefinitions = { new ColumnDefinition { Width = new GridLength(19) }, new ColumnDefinition { Width = GridLength.Star } },
             RowDefinitions = { new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto } }
         };
 
-        Xamarin.Forms.Grid _grid2 = new Xamarin.Forms.Grid
+        readonly Xamarin.Forms.Grid _grid2 = new Xamarin.Forms.Grid
         {
             ColumnDefinitions = { new ColumnDefinition { Width = GridLength.Star }, new ColumnDefinition { Width = GridLength.Star } },
             RowDefinitions = { new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto } }
         };
 
-        Xamarin.Forms.Grid _grid3 = new Xamarin.Forms.Grid
+        readonly Xamarin.Forms.Grid _grid3 = new Xamarin.Forms.Grid
         {
             ColumnDefinitions = { new ColumnDefinition { Width = GridLength.Star }, new ColumnDefinition { Width = GridLength.Star } },
             RowDefinitions = { new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto }, new RowDefinition { Height = GridLength.Auto } }
@@ -204,9 +204,9 @@ namespace Forms9PatchDemo
 
 
 
-        Xamarin.Forms.Label _outlineWidthLabel = new Xamarin.Forms.Label { Text = "line W:" + width };
-        Xamarin.Forms.Label _outlineRadiusLabel = new Xamarin.Forms.Label { Text = "line R: " + radius };
-        Forms9Patch.Label _labelElement = new Forms9Patch.Label { Text = "Text" };
+        readonly Xamarin.Forms.Label _outlineWidthLabel = new Xamarin.Forms.Label { Text = "line W:" + width };
+        readonly Xamarin.Forms.Label _outlineRadiusLabel = new Xamarin.Forms.Label { Text = "line R: " + radius };
+        readonly Forms9Patch.Label _labelElement = new Forms9Patch.Label { Text = "Text" };
 
         public ButtonAndSegmentAlignments()
         {
@@ -277,9 +277,8 @@ namespace Forms9PatchDemo
 
             _hzAlignmentElement.SegmentTapped += (sender, e) =>
             {
-                TextAlignment alignment;
                 var buttonText = string.Concat(e.Segment.Text.ToUpper().Substring(0, 1), e.Segment.Text.ToLower().Substring(1));
-                if (!Enum.TryParse<TextAlignment>(buttonText, out alignment))
+                if (!Enum.TryParse<TextAlignment>(buttonText, out TextAlignment alignment))
                     throw new Exception("doh");
                 _labelElement.HorizontalTextAlignment = alignment;
                 _button.HorizontalTextAlignment = alignment;
@@ -290,9 +289,8 @@ namespace Forms9PatchDemo
 
             _vtAlignmentElement.SegmentTapped += (sender, e) =>
             {
-                TextAlignment alignment;
                 var buttonText = string.Concat(e.Segment.Text.ToUpper().Substring(0, 1), e.Segment.Text.ToLower().Substring(1));
-                if (!Enum.TryParse<TextAlignment>(buttonText, out alignment))
+                if (!Enum.TryParse<TextAlignment>(buttonText, out TextAlignment alignment))
                     throw new Exception("doh");
                 _labelElement.VerticalTextAlignment = alignment;
                 _button.VerticalTextAlignment = alignment;

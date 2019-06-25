@@ -15,7 +15,7 @@ namespace Forms9PatchDemo
     public class ClipboardTest : Xamarin.Forms.ContentPage
     {
         #region Fields
-        static int seed = 3452;
+        const int seed = 3452;
         readonly static Random _rand = new Random(seed);
 
         const string _textPlain = "This is text/plain: ⅓ ⅔ ⓪ ① ② ③ ④ ⑤ ⑥ ⑦ ⑧ ⑨ ⑩ ⑪ ⑫ ⑬ ⑭ ⑮ ⑯ ⑰ ⑱ ⑲ ⑳  🅰 🅱 🅲 🅳 🅴 🅵 🅶 🅷 🅸 🅹 🅺 🅻 🅼 🅽 🅾 🅿 🆀 🆁 🆂 🆃 🆄 🆅 🆆 🆇 🆈 🆉 🙃 😐 😑 🤔 🙄 😮 😔 😖 😕";
@@ -30,7 +30,7 @@ namespace Forms9PatchDemo
 
 
         #region Tests
-        TestElement _byteTest = new TestElement("byte test ", (entry) =>
+        readonly TestElement _byteTest = new TestElement("byte test ", (entry) =>
         {
             var testByteArray = new byte[200];
             _rand.NextBytes(testByteArray);
@@ -44,7 +44,7 @@ namespace Forms9PatchDemo
             var resultByte = resultMimeItem.Value;
             return obj.Equals(resultByte);
         });
-        TestElement _byteArrayTest = new TestElement("byte[] test ", (entry) =>
+        readonly TestElement _byteArrayTest = new TestElement("byte[] test ", (entry) =>
         {
             var testByteArray = new byte[200];
             _rand.NextBytes(testByteArray);
@@ -64,7 +64,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _charTest = new TestElement("char test ", (entry) =>
+        readonly TestElement _charTest = new TestElement("char test ", (entry) =>
         {
             var testChar = (char)_rand.Next(255);
             entry.AddValue("application/x-forms9patchdemo-char", testChar);
@@ -80,7 +80,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _shortTest = new TestElement("short test ", (entry) =>
+        readonly TestElement _shortTest = new TestElement("short test ", (entry) =>
         {
             var testShort = (short)_rand.Next(255);
             entry.AddValue("application/x-forms9patchdemo-short", testShort);
@@ -96,7 +96,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _intTest = new TestElement("int test ", (entry) =>
+        readonly TestElement _intTest = new TestElement("int test ", (entry) =>
         {
             var testInt = _rand.Next();
             entry.AddValue("application/x-forms9patchdemo-int", testInt);
@@ -112,7 +112,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _longTest = new TestElement("long test ", (entry) =>
+        readonly TestElement _longTest = new TestElement("long test ", (entry) =>
         {
             var testLong = (long)_rand.Next() + (long)int.MaxValue;
             entry.AddValue("application/x-forms9patchdemo-long", testLong);
@@ -128,7 +128,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _doubleTest = new TestElement("double test ", (entry) =>
+        readonly TestElement _doubleTest = new TestElement("double test ", (entry) =>
         {
             var testDouble = _rand.NextDouble();
             entry.AddValue("application/x-forms9patchdemo-double", testDouble);
@@ -144,7 +144,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _stringTest = new TestElement("string test ", (entry) =>
+        readonly TestElement _stringTest = new TestElement("string test ", (entry) =>
         {
             entry.AddValue("text/plain", _textPlain);
             return _textPlain;
@@ -160,7 +160,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _intListTest = new TestElement("List<int> test ", (entry) =>
+        readonly TestElement _intListTest = new TestElement("List<int> test ", (entry) =>
         {
             var testIntList = new List<int>();
             for (int i = 0; i < 20; i++)
@@ -181,7 +181,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _doubleListTest = new TestElement("List<double> test ", (entry) =>
+        readonly TestElement _doubleListTest = new TestElement("List<double> test ", (entry) =>
         {
             var testDoubleList = new List<double>();
             for (int i = 0; i < 20; i++)
@@ -201,7 +201,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _stringListTest = new TestElement("List<string> test ", (entry) =>
+        readonly TestElement _stringListTest = new TestElement("List<string> test ", (entry) =>
         {
             var testStringList = new List<string>();
             for (int i = 0; i < 20; i++)
@@ -221,7 +221,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _dictionaryTest = new TestElement("Dictionary<string,double> test ", (entry) =>
+        readonly TestElement _dictionaryTest = new TestElement("Dictionary<string,double> test ", (entry) =>
         {
             var testDictionary = new Dictionary<string, double>();
             for (int i = 0; i < 20; i++)
@@ -246,7 +246,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _dictionaryListTest = new TestElement("List<Dictionary<string,double>> test ", (entry) =>
+        readonly TestElement _dictionaryListTest = new TestElement("List<Dictionary<string,double>> test ", (entry) =>
         {
             var keys = new List<string>();
             for (int i = 0; i < 20; i++)
@@ -286,7 +286,7 @@ namespace Forms9PatchDemo
             }
             return false;
         });
-        TestElement _dateTimeTest = new TestElement("DateTime as JSON", (entry) =>
+        readonly TestElement _dateTimeTest = new TestElement("DateTime as JSON", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
             var dateTime = DateTime.Now;
@@ -304,7 +304,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _jpegByteArrayTest = new TestElement("jpeg from byte[] test", (entry) =>
+        readonly TestElement _jpegByteArrayTest = new TestElement("jpeg from byte[] test", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
             //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons1.jpg");
@@ -330,7 +330,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _jpegFileInfoTest = new TestElement("jpeg from FileInfo test", (entry) =>
+        readonly TestElement _jpegFileInfoTest = new TestElement("jpeg from FileInfo test", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
             //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons2.jpg");
@@ -360,7 +360,7 @@ namespace Forms9PatchDemo
         });
 
 
-        TestElement _pngByteArrayTest = new TestElement("png byte[] test", (entry) =>
+        readonly TestElement _pngByteArrayTest = new TestElement("png byte[] test", (entry) =>
         {
             //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "236-baby.png");
             var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "236-baby.png");
@@ -384,7 +384,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _pdfByteArrayTest = new TestElement("pdf byte[] test", (entry) =>
+        readonly TestElement _pdfByteArrayTest = new TestElement("pdf byte[] test", (entry) =>
         {
             //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
             var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "ProjectProposal.pdf");
@@ -405,7 +405,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _pdfFileInfoTest = new TestElement("pdf from FileInfo test", (entry) =>
+        readonly TestElement _pdfFileInfoTest = new TestElement("pdf from FileInfo test", (entry) =>
         {
             // anything more complex than the ClipboardEntry.ValidItemType() types should be serialized (string, byte[], or uri) and stored that way. 
             //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "balloons2.jpg");
@@ -431,7 +431,7 @@ namespace Forms9PatchDemo
         });
 
 
-        TestElement _jpegHttpUrlTest = new TestElement("jpeg http url test", (entry) =>
+        readonly TestElement _jpegHttpUrlTest = new TestElement("jpeg http url test", (entry) =>
         {
             var uri = new Uri("https://i.redditmedia.com/npNromwDHMXlxFMa0CAZqw0MMSKFj-aHx5rvgQNPXyA.jpg?fit=crop&crop=faces%2Centropy&arh=2&w=640&s=04fe226f00868a3182265a9af861608e");
             entry.AddValue("image/jpeg", uri.AbsoluteUri);
@@ -452,7 +452,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _pdfFileTest = new TestElement("pdf file test", (entry) =>
+        readonly TestElement _pdfFileTest = new TestElement("pdf file test", (entry) =>
         {
             //var path = Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.LocalApplicationData), "ProjectProposal.pdf");
             var path = Path.Combine(P42.Utils.Environment.ApplicationDataPath, "ProjectProposal.pdf");
@@ -479,7 +479,7 @@ namespace Forms9PatchDemo
         });
 
 
-        TestElement _multipleByteArrayImagesTest = new TestElement("multiple byte[] images test", (entry) =>
+        readonly TestElement _multipleByteArrayImagesTest = new TestElement("multiple byte[] images test", (entry) =>
         {
             for (int i = 1; i <= 3; i++)
             {
@@ -496,7 +496,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _multipleFileInfoImagesTest = new TestElement("multiple FileInfo images test", (entry) =>
+        readonly TestElement _multipleFileInfoImagesTest = new TestElement("multiple FileInfo images test", (entry) =>
         {
             for (int i = 1; i <= 3; i++)
             {
@@ -515,7 +515,7 @@ namespace Forms9PatchDemo
         });
 
 
-        TestElement _multipleTextTest = new TestElement("multiple text test", (entry) =>
+        readonly TestElement _multipleTextTest = new TestElement("multiple text test", (entry) =>
         {
             entry.AddValue("text/plain", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In at tristique neque. Aliquam libero mauris, pulvinar non ligula quis, ultricies ullamcorper nisl. Ut varius fringilla ipsum ut accumsan. Curabitur luctus pulvinar quam eget pharetra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi tincidunt commodo quam. Phasellus et finibus nisi, quis elementum nisl. Vivamus aliquet lectus vel diam lacinia, vel condimentum eros ultricies. Nulla molestie risus at lectus scelerisque, quis efficitur tortor pulvinar. Aenean sollicitudin justo magna, vitae molestie sapien placerat at. Sed ut mauris auctor, interdum ante ac, porttitor lectus. Morbi iaculis mi a malesuada tincidunt.");
             entry.AddValue("text/plain", "Mauris eu sodales velit. Etiam efficitur gravida neque at mollis. Nunc pellentesque lacus id tortor fringilla consequat. Sed et leo vel urna pulvinar lacinia. Nullam a odio sed urna mollis consequat. Curabitur id tincidunt arcu. Aliquam pulvinar ipsum vehicula lacus faucibus, ut posuere neque porttitor. Etiam consectetur risus sed gravida lobortis. Quisque aliquet nisl lectus, vitae mattis diam mattis sit amet. Donec malesuada lectus leo, vitae viverra diam dictum sed. Cras velit lorem, porta in mattis in, pharetra non odio. Sed consectetur nec tortor a sagittis. Fusce dictum odio sed est commodo sagittis. Morbi accumsan, nisi quis hendrerit consectetur, dolor neque cursus ex, et egestas ipsum enim et purus. Nullam non posuere orci. Proin tincidunt iaculis elit, eu aliquam sapien scelerisque at.");
@@ -529,7 +529,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _multipleHtmlTest = new TestElement("multiple HTML fragments test", (entry) =>
+        readonly TestElement _multipleHtmlTest = new TestElement("multiple HTML fragments test", (entry) =>
         {
             entry.AddValue("text/html", _htmlForm);
             entry.AddValue("text/html", _htmlList);
@@ -543,7 +543,7 @@ namespace Forms9PatchDemo
              return false;
          });
 
-        TestElement _htmlStringTest = new TestElement("html test", (entry) =>
+        readonly TestElement _htmlStringTest = new TestElement("html test", (entry) =>
         {
             // Note: unlike images and text, multiple html items does not work with iOS apps (Notes and mail).
             //entry.AddValue("text/html", "<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>");
@@ -562,7 +562,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _htmlFormTest = new TestElement("html Form test", (entry) =>
+        readonly TestElement _htmlFormTest = new TestElement("html Form test", (entry) =>
         {
             entry.AddValue("text/html", _htmlForm);
             return _htmlForm;
@@ -576,7 +576,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _htmlListTest = new TestElement("html List test", (entry) =>
+        readonly TestElement _htmlListTest = new TestElement("html List test", (entry) =>
         {
             entry.AddValue("text/html", _htmlList);
             return _htmlList;
@@ -590,7 +590,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _htmlTableTest = new TestElement("html Table test", (entry) =>
+        readonly TestElement _htmlTableTest = new TestElement("html Table test", (entry) =>
         {
             entry.AddValue("text/html", _htmlTable);
             return _htmlTable;
@@ -604,7 +604,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _htmlBlockQuoteTest = new TestElement("html Block Quote test", (entry) =>
+        readonly TestElement _htmlBlockQuoteTest = new TestElement("html Block Quote test", (entry) =>
         {
             entry.AddValue("text/html", _htmlBlockQuote);
             return _htmlBlockQuote;
@@ -618,7 +618,7 @@ namespace Forms9PatchDemo
             return false;
         });
 
-        TestElement _htmlEmbedImageTest = new TestElement("html Embedded Image test", (entry) =>
+        readonly TestElement _htmlEmbedImageTest = new TestElement("html Embedded Image test", (entry) =>
         {
             entry.AddValue("text/html", _htmlSmallEmbeddedImage);
             return _htmlSmallEmbeddedImage;
@@ -633,7 +633,7 @@ namespace Forms9PatchDemo
         });
 
 
-        TestElement _mixedContentTest = new TestElement("mixed content test", (entry) =>
+        readonly TestElement _mixedContentTest = new TestElement("mixed content test", (entry) =>
         {
             entry.AddValue("text/plain", _textPlain);
             entry.AddValue("text/html", _htmlText);
@@ -657,35 +657,35 @@ namespace Forms9PatchDemo
 
 
         #region other visual elements
-        Xamarin.Forms.Label _availableMimeTypesLabel = new Xamarin.Forms.Label();
+        readonly Xamarin.Forms.Label _availableMimeTypesLabel = new Xamarin.Forms.Label();
 
-        Xamarin.Forms.Label _elapsedTimeLabel = new Xamarin.Forms.Label();
+        readonly Xamarin.Forms.Label _elapsedTimeLabel = new Xamarin.Forms.Label();
 
-        Xamarin.Forms.StackLayout _layout = new Xamarin.Forms.StackLayout
+        readonly Xamarin.Forms.StackLayout _layout = new Xamarin.Forms.StackLayout
         {
             Children = { new Forms9Patch.Label("<b>Copy / Paste tests:</b>") }
         };
 
-        Xamarin.Forms.Switch _entryCaching = new Xamarin.Forms.Switch { HorizontalOptions = LayoutOptions.End };
+        readonly Xamarin.Forms.Switch _entryCaching = new Xamarin.Forms.Switch { HorizontalOptions = LayoutOptions.End };
         //Switch _entryItemTypeCaching = new Switch { HorizontalOptions = LayoutOptions.End };
-        Xamarin.Forms.Button _execute = new Xamarin.Forms.Button
+        readonly Xamarin.Forms.Button _execute = new Xamarin.Forms.Button
         {
             Text = "run test"
         };
 
-        Forms9Patch.Toast _clipboardChangedToast = new Forms9Patch.Toast { Title = "CLIPBOARD CHANGED", Text = "The clipboard has changed." };
+        readonly Forms9Patch.Toast _clipboardChangedToast = new Forms9Patch.Toast { Title = "CLIPBOARD CHANGED", Text = "The clipboard has changed." };
 
-        static Xamarin.Forms.Image _testImage = new Xamarin.Forms.Image
+        readonly static Xamarin.Forms.Image _testImage = new Xamarin.Forms.Image
         {
             Aspect = Aspect.AspectFit,
         };
 
-        static Xamarin.Forms.Image _resultImage = new Xamarin.Forms.Image
+        readonly static Xamarin.Forms.Image _resultImage = new Xamarin.Forms.Image
         {
             Aspect = Aspect.AspectFit,
         };
 
-        Xamarin.Forms.Grid _jpegComparisonGrid = new Xamarin.Forms.Grid
+        readonly Xamarin.Forms.Grid _jpegComparisonGrid = new Xamarin.Forms.Grid
         {
             ColumnDefinitions =
             {
@@ -939,6 +939,7 @@ namespace Forms9PatchDemo
             }
         }
 
+        /*
         static byte[] ByteArrayFromFile(String path)
         {
             using (FileStream filestream = new FileStream(path, FileMode.Open, FileAccess.Read))
@@ -976,6 +977,7 @@ namespace Forms9PatchDemo
             }
             return null;
         }
+        */
 
         public static unsafe bool NewMemCmp(byte* b0, byte* b1, int length)
         {

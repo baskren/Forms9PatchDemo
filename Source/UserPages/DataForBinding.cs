@@ -50,10 +50,10 @@ namespace Forms9PatchDemo
 
         public GameState()
         {
-            multiPlayers = new ObservableCollection<GameStatePlayer>();
-
-            // we always add a dummy player for the UI
-            multiPlayers.Add(new GameStatePlayer("Player 1", PlayerAvatars[0]));
+            multiPlayers = new ObservableCollection<GameStatePlayer>
+            {
+                new GameStatePlayer("Player 1", PlayerAvatars[0])
+            };
         }
 
         public GameType type { get; set; }

@@ -7,25 +7,25 @@ namespace Forms9PatchDemo
     public class ButtonCodePage : MasterDetailPage
     {
         #region Shape Strings
-        static string Rectangle = "▭";
-        static string Square = "□";
-        static string Circle = "○";
-        static string Ellipse = "⬭";
+        const string Rectangle = "▭";
+        const string Square = "□";
+        const string Circle = "○";
+        const string Ellipse = "⬭";
         #endregion
 
         #region Global Elements
-        Slider capsInsetsLeftSlider = new Slider(0, 100, 0.0);
-        Slider capsInsetsRightSlider = new Slider(0, 100, 0.0);
-        Slider capsInsetsTopSlider = new Slider(0, 100, 0.0);
-        Slider capsInsetsBottomSlider = new Slider(0, 100, 0.0);
+        readonly Slider capsInsetsLeftSlider = new Slider(0, 100, 0.0);
+        readonly Slider capsInsetsRightSlider = new Slider(0, 100, 0.0);
+        readonly Slider capsInsetsTopSlider = new Slider(0, 100, 0.0);
+        readonly Slider capsInsetsBottomSlider = new Slider(0, 100, 0.0);
 
-        Forms9Patch.SliderStepSizeEffect capsInsetsLStepSizeEffect = new Forms9Patch.SliderStepSizeEffect(1);
-        Forms9Patch.SliderStepSizeEffect capsInsetsRStepSizeEffect = new Forms9Patch.SliderStepSizeEffect(1);
-        Forms9Patch.SliderStepSizeEffect capsInsetsTStepSizeEffect = new Forms9Patch.SliderStepSizeEffect(1);
-        Forms9Patch.SliderStepSizeEffect capsInsetsBStepSizeEffect = new Forms9Patch.SliderStepSizeEffect(1);
+        readonly Forms9Patch.SliderStepSizeEffect capsInsetsLStepSizeEffect = new Forms9Patch.SliderStepSizeEffect(1);
+        readonly Forms9Patch.SliderStepSizeEffect capsInsetsRStepSizeEffect = new Forms9Patch.SliderStepSizeEffect(1);
+        readonly Forms9Patch.SliderStepSizeEffect capsInsetsTStepSizeEffect = new Forms9Patch.SliderStepSizeEffect(1);
+        readonly Forms9Patch.SliderStepSizeEffect capsInsetsBStepSizeEffect = new Forms9Patch.SliderStepSizeEffect(1);
 
         //Switch pixelCapsSwitch = new Switch();
-        Forms9Patch.SegmentedControl capsUnitsSegmentedControl = new Forms9Patch.SegmentedControl
+        readonly Forms9Patch.SegmentedControl capsUnitsSegmentedControl = new Forms9Patch.SegmentedControl
         {
             Segments =
             {
@@ -34,25 +34,25 @@ namespace Forms9PatchDemo
             },
         };
 
-        Switch antiAliasSwitch = new Switch();
+        readonly Switch antiAliasSwitch = new Switch();
 
-        Xamarin.Forms.Slider outlineRadiusSlider = new Xamarin.Forms.Slider
+        readonly Xamarin.Forms.Slider outlineRadiusSlider = new Xamarin.Forms.Slider
         {
             Minimum = 0,
             Maximum = 15,
             Value = 2
         };
 
-        Forms9Patch.Button _f9pButton = new Forms9Patch.Button { Text = "Forms9Patch.Button", TextColor = Color.Black };
+        readonly Forms9Patch.Button _f9pButton = new Forms9Patch.Button { Text = "Forms9Patch.Button", TextColor = Color.Black };
 
-        Forms9Patch.Image _f9pImage = new Forms9Patch.Image
+        readonly Forms9Patch.Image _f9pImage = new Forms9Patch.Image
         {
             Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.redGridBox"),
         };
 
-        Xamarin.Forms.Button _xfButton = new Xamarin.Forms.Button { Text = "Xamarin.Forms.Button" };
+        readonly Xamarin.Forms.Button _xfButton = new Xamarin.Forms.Button { Text = "Xamarin.Forms.Button" };
 
-        Xamarin.Forms.Image _xfImage = new Xamarin.Forms.Image
+        readonly Xamarin.Forms.Image _xfImage = new Xamarin.Forms.Image
         {
             Source = Forms9Patch.ImageSource.FromMultiResource("Forms9PatchDemo.Resources.redGridBox"),
             Aspect = Aspect.Fill
@@ -60,7 +60,7 @@ namespace Forms9PatchDemo
 
         //BoxView f9pImageWidthBox = new BoxView { Color = Color.Red, HeightRequest = 1 };
 
-        Forms9Patch.SegmentedControl hzOptionSegmentedControl = new Forms9Patch.SegmentedControl
+        readonly Forms9Patch.SegmentedControl hzOptionSegmentedControl = new Forms9Patch.SegmentedControl
         {
             Segments =
                 {
@@ -74,7 +74,7 @@ namespace Forms9PatchDemo
             Lines = 1,
             AutoFit = Forms9Patch.AutoFit.Width
         };
-        Forms9Patch.SegmentedControl vtOptionSegmentedControl = new Forms9Patch.SegmentedControl
+        readonly Forms9Patch.SegmentedControl vtOptionSegmentedControl = new Forms9Patch.SegmentedControl
         {
             Segments =
                 {
