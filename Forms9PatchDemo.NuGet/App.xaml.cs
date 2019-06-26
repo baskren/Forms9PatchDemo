@@ -8,8 +8,8 @@ namespace Forms9PatchDemo
     {
         public App()
         {
-            InitializeComponent();
-            MainPage =  new NavigationPage(new HomePage());
+            //InitializeComponent();
+            MainPage = new NavigationPage(new HomePage());
         }
 
         protected override void OnStart()
