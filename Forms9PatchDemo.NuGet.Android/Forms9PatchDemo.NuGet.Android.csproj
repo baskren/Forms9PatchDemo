@@ -144,8 +144,8 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Forms9PatchDemo.NuGet\Forms9PatchDemo.NuGet.csproj">
-      <Project>{DCD06B24-AA50-46BB-85C6-ABCB82DC0C5D}</Project>
-      <Name>Forms9PatchDemo</Name>
+      <Project>{425929EA-D781-45B3-A8CF-838F7728075A}</Project>
+      <Name>Forms9PatchDemo.NuGet</Name>
     </ProjectReference>
   </ItemGroup>
  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
