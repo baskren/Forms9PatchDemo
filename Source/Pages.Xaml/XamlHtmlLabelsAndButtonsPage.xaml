@@ -7,6 +7,7 @@
 	xmlns:local="clr-namespace:Forms9PatchDemo;assembly=Forms9PatchDemo"
 	BackgroundColor = "Gray"
 	Padding = "20"
+    Visual="Material"
 	>
 	<ContentPage.Content>
 		<StackLayout>
