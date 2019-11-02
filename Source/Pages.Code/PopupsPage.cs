@@ -72,7 +72,7 @@ namespace Forms9PatchDemo.Pages.Code
         static readonly Forms9Patch.Button popPushModalButton = new Forms9Patch.Button("POP & PUSH");
         static readonly Forms9Patch.Button cancelModalButton = new Forms9Patch.Button("CANCEL");
 
-        readonly ModalPopup _modalPopup = new ModalPopup(true)
+        readonly ModalPopup _modalPopup = new ModalPopup()
         {
             Content = new Xamarin.Forms.StackLayout
             {
