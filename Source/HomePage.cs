@@ -109,6 +109,13 @@ namespace Forms9PatchDemo
 
                     new TableSection("Code") {
 
+                        new TextCell
+                        {
+                            Text = "HTML to PNG",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(PngFromHtmlPage)
+                        },
+
                         new TextCell {
                             Text = "Flyout Popup Demo",
                             Command = navigateCommand,
