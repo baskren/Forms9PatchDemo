@@ -66,14 +66,14 @@ namespace Forms9PatchDemo
             _grid.Children.Add(new Xamarin.Forms.Label { Text = "Convert HTML to PNG", TextColor = Color.White });
             _grid.Children.Add(_htmlEditor, 0, 1);
             _grid.Children.Add(_destinationSelector, 0, 2);
-            _grid.Children.Add(new Xamarin.Forms.Label 
+            _grid.Children.Add(new Xamarin.Forms.Label
             {
-                Text = "Size: " + P42.Utils.DiskSpace.Humanize(P42.Utils.DiskSpace.Size) + "\nUsed: " + P42.Utils.DiskSpace.Humanize( P42.Utils.DiskSpace.Used) + "\nFree: " + P42.Utils.DiskSpace.Humanize(P42.Utils.DiskSpace.Free),
+                Text = "Size: " + P42.Utils.DiskSpace.Humanize(P42.Utils.DiskSpace.Size) + "\nUsed: " + P42.Utils.DiskSpace.Humanize(P42.Utils.DiskSpace.Used) + "\nFree: " + P42.Utils.DiskSpace.Humanize(P42.Utils.DiskSpace.Free),
                 VerticalOptions = LayoutOptions.FillAndExpand,
                 VerticalTextAlignment = TextAlignment.Center,
                 TextColor = Color.Black,
 
-            },0,3);
+            }, 0, 3);
 
             Padding = new Thickness(10, 40);
 
@@ -82,10 +82,13 @@ namespace Forms9PatchDemo
             _destinationSelector.SegmentTapped += OnDestinationSelector_SegmentTapped;
         }
 
+        bool _processing;
         async void OnDestinationSelector_SegmentTapped(object sender, SegmentedControlEventArgs e)
         {
-            var entry = new Forms9Patch.MimeItemCollection();
-            
+            if (_processing)
+                return;
+            _processing = true;
+
             if (await Forms9Patch.HtmlStringExtensions.ToPngAsync(_htmlEditor.Text, "myHtmlPage") is HtmlToPngResult result)
             {
                 if (result.IsError)
@@ -94,6 +97,7 @@ namespace Forms9PatchDemo
                 }
                 else
                 {
+                    var entry = new Forms9Patch.MimeItemCollection();
                     if (result.Result.Contains(".pdf"))
                         entry.AddBytesFromFile("application/pdf", result.Result);
                     else if (result.Result.Contains(".png"))
@@ -105,6 +109,7 @@ namespace Forms9PatchDemo
                         Forms9Patch.Clipboard.Entry = entry;
                 }
             }
+            _processing = false;
         }
         #endregion
     }
