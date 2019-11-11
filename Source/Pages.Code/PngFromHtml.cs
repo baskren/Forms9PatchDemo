@@ -50,14 +50,12 @@ namespace Forms9PatchDemo
                 new RowDefinition { Height = 40 },
                 new RowDefinition { Height = GridLength.Star },
                 new RowDefinition { Height = 40 },
+                new RowDefinition { Height = 100 }
             },
         };
         #endregion
 
 
-        #region Fields
-        int attachments;
-        #endregion
 
 
         #region Constructor
@@ -68,6 +66,14 @@ namespace Forms9PatchDemo
             _grid.Children.Add(new Xamarin.Forms.Label { Text = "Convert HTML to PNG", TextColor = Color.White });
             _grid.Children.Add(_htmlEditor, 0, 1);
             _grid.Children.Add(_destinationSelector, 0, 2);
+            _grid.Children.Add(new Xamarin.Forms.Label 
+            {
+                Text = "Size: " + P42.Utils.DiskSpace.Humanize(P42.Utils.DiskSpace.Size) + "\nUsed: " + P42.Utils.DiskSpace.Humanize( P42.Utils.DiskSpace.Used) + "\nFree: " + P42.Utils.DiskSpace.Humanize(P42.Utils.DiskSpace.Free),
+                VerticalOptions = LayoutOptions.FillAndExpand,
+                VerticalTextAlignment = TextAlignment.Center,
+                TextColor = Color.Black,
+
+            },0,3);
 
             Padding = new Thickness(10, 40);
 
@@ -76,27 +82,29 @@ namespace Forms9PatchDemo
             _destinationSelector.SegmentTapped += OnDestinationSelector_SegmentTapped;
         }
 
-        private void OnDestinationSelector_SegmentTapped(object sender, SegmentedControlEventArgs e)
+        async void OnDestinationSelector_SegmentTapped(object sender, SegmentedControlEventArgs e)
         {
             var entry = new Forms9Patch.MimeItemCollection();
-            Forms9Patch.HtmlStringExtensions.ToPng(_htmlEditor.Text,"myHtmlPage", (string path) =>
+            
+            if (await Forms9Patch.HtmlStringExtensions.ToPngAsync(_htmlEditor.Text, "myHtmlPage") is HtmlToPngResult result)
             {
-                if (path != null)
+                if (result.IsError)
                 {
-                    if (path.Contains(".pdf"))
-                        entry.AddBytesFromFile("application/pdf", path);
-                    else if (path.Contains(".png"))
-                        entry.AddBytesFromFile("image/png", path);
-                    attachments--;
+                    using (Forms9Patch.Toast.Create("PNG error", result.Result)) { }
                 }
-                if (attachments <= 0)
+                else
                 {
+                    if (result.Result.Contains(".pdf"))
+                        entry.AddBytesFromFile("application/pdf", result.Result);
+                    else if (result.Result.Contains(".png"))
+                        entry.AddBytesFromFile("image/png", result.Result);
+
                     if (e.Segment.Text == shareButtonText)
                         Forms9Patch.Sharing.Share(entry, _destinationSelector);
                     else if (e.Segment.Text == copyButtonText)
                         Forms9Patch.Clipboard.Entry = entry;
                 }
-            });
+            }
         }
         #endregion
     }
