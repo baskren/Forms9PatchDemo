@@ -12,7 +12,7 @@ namespace Forms9PatchDemo
 {
 	public partial class SegmentBindingPage : ContentPage
 	{
-		private GameState state;
+		readonly private GameState state;
 
 		public SegmentBindingPage()
 		{

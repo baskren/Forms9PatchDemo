@@ -12,7 +12,7 @@ namespace F9PButtonTest.Model
             set
             {
                 _msgText = value;
-                OnPropertyChanged("MsgText");
+                OnPropertyChanged(nameof(MsgText));
             }
         }
 

@@ -11,7 +11,7 @@ namespace Forms9PatchDemo
 {
     public class ZenmekPage : ContentPage
     {
-        Forms9Patch.StateButton ibStartStop;
+        readonly Forms9Patch.StateButton ibStartStop;
 
         public ZenmekPage()
         {

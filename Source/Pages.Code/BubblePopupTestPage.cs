@@ -9,35 +9,35 @@ namespace Forms9PatchDemo
     public class BubblePopupTestPage : ContentPage
     {
         #region Properties
-        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create("CornerRadius", typeof(double), typeof(BubblePopupTestPage), 4.0);
+        public static readonly BindableProperty CornerRadiusProperty = BindableProperty.Create(nameof(CornerRadius), typeof(double), typeof(BubblePopupTestPage), 4.0);
         public double CornerRadius
         {
             get { return (double)GetValue(CornerRadiusProperty); }
             set { SetValue(CornerRadiusProperty, value); }
         }
 
-        public static readonly BindableProperty PointerCornerRadiusProperty = BindableProperty.Create("PointerCornerRadius", typeof(double), typeof(BubblePopupTestPage), 4.0);
+        public static readonly BindableProperty PointerCornerRadiusProperty = BindableProperty.Create(nameof(PointerCornerRadius), typeof(double), typeof(BubblePopupTestPage), 4.0);
         public double PointerCornerRadius
         {
             get { return (double)GetValue(PointerCornerRadiusProperty); }
             set { SetValue(PointerCornerRadiusProperty, value); }
         }
 
-        public static readonly BindableProperty PointerLengthProperty = BindableProperty.Create("PointerLength", typeof(double), typeof(BubblePopupTestPage), 10.0);
+        public static readonly BindableProperty PointerLengthProperty = BindableProperty.Create(nameof(PointerLength), typeof(double), typeof(BubblePopupTestPage), 10.0);
         public double PointerLength
         {
             get { return (double)GetValue(PointerLengthProperty); }
             set { SetValue(PointerLengthProperty, value); }
         }
 
-        public static readonly BindableProperty PointerTipRadiusProperty = BindableProperty.Create("PointerTipRadius", typeof(double), typeof(BubblePopupTestPage), 0.0);
+        public static readonly BindableProperty PointerTipRadiusProperty = BindableProperty.Create(nameof(PointerTipRadius), typeof(double), typeof(BubblePopupTestPage), 0.0);
         public double PointerTipRadius
         {
             get { return (double)GetValue(PointerTipRadiusProperty); }
             set { SetValue(PointerTipRadiusProperty, value); }
         }
 
-        public static readonly BindableProperty PUDPaddingProperty = BindableProperty.Create("PUDPadding", typeof(double), typeof(BubblePopupTestPage), 10.0);
+        public static readonly BindableProperty PUDPaddingProperty = BindableProperty.Create(nameof(PUDPadding), typeof(double), typeof(BubblePopupTestPage), 10.0);
         public double PUDPadding
         {
             get { return (double)GetValue(PUDPaddingProperty); }
@@ -48,35 +48,35 @@ namespace Forms9PatchDemo
             }
         }
 
-        public static readonly BindableProperty PUPaddingProperty = BindableProperty.Create("PUPadding", typeof(Thickness), typeof(BubblePopupTestPage), new Thickness((double)BubblePopupTestPage.PUDPaddingProperty.DefaultValue));
+        public static readonly BindableProperty PUPaddingProperty = BindableProperty.Create(nameof(PUPadding), typeof(Thickness), typeof(BubblePopupTestPage), new Thickness((double)BubblePopupTestPage.PUDPaddingProperty.DefaultValue));
         public Thickness PUPadding
         {
             get { return (Thickness)GetValue(PUPaddingProperty); }
             set { SetValue(PUPaddingProperty, value); }
         }
 
-        public static readonly BindableProperty PositionProperty = BindableProperty.Create("Position", typeof(double), typeof(BubblePopupTestPage), 0.5);
+        public static readonly BindableProperty PositionProperty = BindableProperty.Create(nameof(Position), typeof(double), typeof(BubblePopupTestPage), 0.5);
         public double Position
         {
             get { return (double)GetValue(PositionProperty); }
             set { SetValue(PositionProperty, value); }
         }
 
-        public static readonly BindableProperty HasShadowProperty = BindableProperty.Create("HasShadow", typeof(bool), typeof(BubblePopupTestPage), false);
+        public static readonly BindableProperty HasShadowProperty = BindableProperty.Create(nameof(HasShadow), typeof(bool), typeof(BubblePopupTestPage), false);
         public bool HasShadow
         {
             get { return (bool)GetValue(HasShadowProperty); }
             set { SetValue(HasShadowProperty, value); }
         }
 
-        public static readonly BindableProperty ShadowInvertedProperty = BindableProperty.Create("ShadowInverted", typeof(bool), typeof(BubblePopupTestPage), false);
+        public static readonly BindableProperty ShadowInvertedProperty = BindableProperty.Create(nameof(ShadowInverted), typeof(bool), typeof(BubblePopupTestPage), false);
         public bool ShadowInverted
         {
             get { return (bool)GetValue(ShadowInvertedProperty); }
             set { SetValue(ShadowInvertedProperty, value); }
         }
 
-        public static readonly BindableProperty PointerDirectionProperty = BindableProperty.Create("PointerDirection", typeof(Forms9Patch.PointerDirection), typeof(BubblePopupTestPage), Forms9Patch.PointerDirection.Any);
+        public static readonly BindableProperty PointerDirectionProperty = BindableProperty.Create(nameof(PointerDirection), typeof(Forms9Patch.PointerDirection), typeof(BubblePopupTestPage), Forms9Patch.PointerDirection.Any);
         public Forms9Patch.PointerDirection PointerDirection
         {
             get { return (Forms9Patch.PointerDirection)GetValue(PointerDirectionProperty); }
