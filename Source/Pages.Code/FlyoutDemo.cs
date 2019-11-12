@@ -8,7 +8,7 @@ namespace Forms9PatchDemo
         #region VisualElements
         Forms9Patch.FlyoutPopup _flyout = new Forms9Patch.FlyoutPopup
         {
-            Content = new Label { Text = "Your content here!" },
+            Content = new Label { Text = "Your content here!", TextColor = Color.Green },
             IsAnimationEnabled = true
         };
 
@@ -44,6 +44,7 @@ namespace Forms9PatchDemo
 
         public FlyoutDemo()
         {
+            BackgroundColor = Color.Blue;
             Padding = 30;
             Content = new StackLayout
             {
