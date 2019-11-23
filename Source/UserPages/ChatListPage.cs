@@ -47,7 +47,7 @@ namespace Forms9PatchDemo
 
         public readonly Forms9Patch.Frame Bubble = new Forms9Patch.Frame();
 
-        readonly Label _label = new Label();
+        protected Label _label = new Label();
 
         public QuoteView()
         {
@@ -55,13 +55,14 @@ namespace Forms9PatchDemo
             Padding = new Thickness(5);
 
             Bubble.BackgroundImage = new Forms9Patch.Image();
+            Bubble.Padding = 10;
             Bubble.Content = _label;
 
             RowDefinitions = new RowDefinitionCollection {
                 new RowDefinition { Height = GridLength.Auto },
                 new RowDefinition { Height = new GridLength(10) },
             };
-
+            _label.TextColor = Color.White;
             _label.SetBinding(Label.TextProperty, "QuoteText");
         }
     }
@@ -86,6 +87,7 @@ namespace Forms9PatchDemo
             Children.Add(Bubble, 0, 0);
             Children.Add(HeadShot, 1, 0);
             Grid.SetRowSpan(HeadShot, 2);
+
         }
     }
 

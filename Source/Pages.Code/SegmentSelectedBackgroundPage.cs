@@ -32,7 +32,7 @@ namespace Forms9PatchDemo
         {
             Text = "Run Reduce WidthRequest",
             ToggleBehavior = true,
-            Padding = -6,
+            //Padding = ,
         };
 
         SegmentedControl borderSegCtrl = new SegmentedControl

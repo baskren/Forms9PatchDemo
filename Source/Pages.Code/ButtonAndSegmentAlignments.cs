@@ -13,7 +13,7 @@ namespace Forms9PatchDemo
         const float radius = 4;
         const float width = 1;
         const bool hasShadow = true;
-        static readonly  Color outlineColor = Color.Default; // Color.Red.WithAlpha(0.25);
+        static readonly Color outlineColor = Color.Default; // Color.Red.WithAlpha(0.25);
         static readonly Color backgroundColor = Color.White;
         static readonly bool ShadowInverted = true;
 
@@ -130,7 +130,7 @@ namespace Forms9PatchDemo
             OutlineRadius = radius,
             OutlineWidth = width,
             OutlineColor = outlineColor,
-            Text = "Button",
+            Text = "H4 BUTTON",
         };
 
         readonly SegmentedControl _hzSegmentsElement = new SegmentedControl
