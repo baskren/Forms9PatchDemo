@@ -26,15 +26,6 @@ namespace Forms9PatchDemo
     #region Cell Content Classes
     class QuoteView : Grid
     {
-
-        /*
-		public readonly ImageCircle HeadShot = new ImageCircle {
-			Aspect = Aspect.AspectFit,
-			HeightRequest = 40,
-			VerticalOptions = LayoutOptions.End,
-		};
-		*/
-
         public readonly Forms9Patch.Image HeadShot = new Forms9Patch.Image
         {
             Fill = Forms9Patch.Fill.AspectFit,
@@ -47,7 +38,7 @@ namespace Forms9PatchDemo
 
         public readonly Forms9Patch.Frame Bubble = new Forms9Patch.Frame();
 
-        protected Label _label = new Label();
+        protected Forms9Patch.Label _label = new Forms9Patch.Label();
 
         public QuoteView()
         {

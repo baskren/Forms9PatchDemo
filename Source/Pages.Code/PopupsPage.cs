@@ -80,11 +80,20 @@ namespace Forms9PatchDemo.Pages.Code
                         new Forms9Patch.Label("ModalPopup") { FontAttributes=FontAttributes.Bold },
                         popPushModalButton,
                         cancelModalButton
-                    }
+                    },
+                BackgroundColor = Color.Pink,
             },
             OutlineColor = Color.Blue,
         };
         #endregion
+
+        Forms9Patch.Button showTargetedMenu;
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+            //showTargetedMenu.Tap();
+        }
 
         readonly Forms9Patch.ActivityIndicatorPopup _activity = new ActivityIndicatorPopup();
 
@@ -249,7 +258,7 @@ namespace Forms9PatchDemo.Pages.Code
 
 
             #region TargetedMenu
-            var showTargetedMenu = new Forms9Patch.Button("TargetedMenu") { BackgroundColor = Color.White };
+            showTargetedMenu = new Forms9Patch.Button("TargetedMenu") { BackgroundColor = Color.White };
             var targetedMenu = new Forms9Patch.TargetedMenu(showTargetedMenu)
             {
                 Segments =
