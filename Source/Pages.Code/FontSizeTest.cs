@@ -53,7 +53,6 @@ namespace Forms9PatchDemo.Pages
                                         },
 
                                     },
-
                                 }
                             }
                         },
@@ -104,6 +103,20 @@ namespace Forms9PatchDemo.Pages
                             }
                         },
                     },
+
+                    new Button
+                    {
+                        Text="Xamarin",
+                        BackgroundColor = Color.Blue,
+                        TextColor = Color.White
+                    },
+                    new Forms9Patch.Button
+                    {
+                        Text = "Forms9Patch",
+                        BackgroundColor = Color.Blue,
+                        TextColor = Color.White
+                    }
+
                 }
             };
         }
