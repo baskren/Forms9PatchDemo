@@ -119,7 +119,19 @@
 
 
 
-	    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\UserPages\fontsizetestPage.xaml">
+		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\UserPages\ButtonCommand.xaml">
+	      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	      <Link>UserPages\ButtonCommand.xaml</Link>
+	    </EmbeddedResource>
+	    <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\ButtonCommand.xaml.cs">
+	      <DependentUpon>UserPages\ButtonCommand.xaml</DependentUpon>
+	      <Link>UserPages\ButtonCommand.xaml.cs</Link>
+	    </Compile>
+	    <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\ButtonCommandModel.cs">
+	      <Link>UserPages\ButtonCommandModel.cs</Link>
+	    </Compile>
+
+		<EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\UserPages\fontsizetestPage.xaml">
 	      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
 	      <Link>UserPages\fontsizetestPage.xaml</Link>
 	    </EmbeddedResource>

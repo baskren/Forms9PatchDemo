@@ -63,6 +63,15 @@ namespace Forms9PatchDemo
                     #if USE_XAML
                     new TableSection("XAML") {
 
+
+                        new TextCell
+                        {
+                            Text = "ButtonCommand",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(ButtonCommand)
+                        },
+
+
 #if FROM_SOURCE
                         /*
                         new TextCell
