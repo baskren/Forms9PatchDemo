@@ -205,6 +205,15 @@
 	      <Link>UserPages\ListViewWithF9PLabelInCells.xaml.cs</Link>
 	    </Compile>
 
+	    <EmbeddedResource Include="$(Forms9PatchDemoSourceDir)\UserPages\WordCroppedDemo.xaml">
+	      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+	      <Link>UserPages\WordCroppedDemo.xaml</Link>
+	    </EmbeddedResource>
+	    <Compile Include="$(Forms9PatchDemoSourceDir)\UserPages\WordCroppedDemo.xaml.cs">
+	      <DependentUpon>UserPages\WordCroppedDemo.xaml</DependentUpon>
+	      <Link>UserPages\WordCroppedDemo.xaml.cs</Link>
+	    </Compile>
+
 	</ItemGroup>
 
 

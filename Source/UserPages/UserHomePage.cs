@@ -66,6 +66,13 @@ namespace Forms9PatchDemo
 
                         new TextCell
                         {
+                            Text = "Word Cropped Demo",
+                            Command = navigateCommand,
+                            CommandParameter = typeof(WordCroppedDemo)
+                        },
+
+                        new TextCell
+                        {
                             Text = "ButtonCommand",
                             Command = navigateCommand,
                             CommandParameter = typeof(ButtonCommand)

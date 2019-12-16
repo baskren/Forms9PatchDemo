@@ -64,6 +64,16 @@ namespace Forms9PatchDemo
 
         Label LabelSizeLabel = new Label();
 
+        Slider LineHeightSlider = new Slider
+        {
+            Minimum = 0.01,
+            Maximum = 8,
+            Value = 1
+        };
+        Label lineHeightLabel = new Label
+        {
+            Text = "LineHeight: 1"
+        };
 
         public LabelAutoFitPage()
         {
@@ -197,6 +207,7 @@ namespace Forms9PatchDemo
 
             #region Font Size selection
             fontSizeSlider.ValueChanged += OnFontSizeSliderValueChanged;
+            LineHeightSlider.ValueChanged += OnLineHeightSlider_ValueChanged;
 
             f9pLabel.FittedFontSizeChanged += (object sender, double e) =>
             {
@@ -453,6 +464,10 @@ namespace Forms9PatchDemo
 
                         fontSizeLabel,
                         fontSizeSlider,
+
+                        lineHeightLabel,
+                        LineHeightSlider,
+
                         fittedFontSizeLabel,
 
                         new Label { Text = "AutoFit:" },
@@ -492,6 +507,12 @@ namespace Forms9PatchDemo
             base.OnAppearing();
             fontSizeSlider.Value = 15;
             PageWidthLabel.Text = "Page Width: " + this.Width;
+        }
+
+        private void OnLineHeightSlider_ValueChanged(object sender, ValueChangedEventArgs e)
+        {
+            lineHeightLabel.Text = "LineHeight: " + e.NewValue;
+            f9pLabel.LineHeight = e.NewValue;
         }
 
         void OnFontSizeSliderValueChanged(object sender, ValueChangedEventArgs e)
