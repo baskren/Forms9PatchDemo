@@ -14,6 +14,8 @@ namespace Forms9PatchDemo
         #endregion
 
         #region Global Elements
+        const double _heightRequest = 30;
+
         readonly Slider capsInsetsLeftSlider = new Slider(0, 100, 0.0);
         readonly Slider capsInsetsRightSlider = new Slider(0, 100, 0.0);
         readonly Slider capsInsetsTopSlider = new Slider(0, 100, 0.0);
@@ -32,6 +34,7 @@ namespace Forms9PatchDemo
                 new Forms9Patch.Segment("PIXL"),
                 new Forms9Patch.Segment("%")
             },
+            HeightRequest = _heightRequest,
         };
 
         readonly Switch antiAliasSwitch = new Switch();
@@ -62,6 +65,7 @@ namespace Forms9PatchDemo
 
         readonly Forms9Patch.SegmentedControl hzOptionSegmentedControl = new Forms9Patch.SegmentedControl
         {
+            HeightRequest = _heightRequest,
             Segments =
                 {
                     new Forms9Patch.Segment("START"),
@@ -76,6 +80,7 @@ namespace Forms9PatchDemo
         };
         readonly Forms9Patch.SegmentedControl vtOptionSegmentedControl = new Forms9Patch.SegmentedControl
         {
+            HeightRequest = _heightRequest,
             Segments =
                 {
                     new Forms9Patch.Segment("START"),
@@ -109,6 +114,7 @@ namespace Forms9PatchDemo
 
             var fillSegmentedControl = new Forms9Patch.SegmentedControl
             {
+                HeightRequest = _heightRequest,
                 Segments =
                 {
                     //new Forms9Patch.Segment("NONE"),
@@ -123,6 +129,7 @@ namespace Forms9PatchDemo
 
             Forms9Patch.SegmentedControl shapesSelector = new Forms9Patch.SegmentedControl
             {
+                HeightRequest = _heightRequest,
                 Segments =
                 {
                 new Forms9Patch.Segment { Text = Rectangle },
@@ -149,6 +156,7 @@ namespace Forms9PatchDemo
 
             var shapeAttributesSelector = new Forms9Patch.SegmentedControl
             {
+                HeightRequest = _heightRequest,
                 GroupToggleBehavior = Forms9Patch.GroupToggleBehavior.Multiselect,
                 Segments =
                 {
@@ -172,7 +180,8 @@ namespace Forms9PatchDemo
 
             var backgroundImageSelector = new Forms9Patch.SegmentedControl
             {
-                HeightRequest = 40,
+                HeightRequest = _heightRequest,
+                //HeightRequest = 40,
                 HasTightSpacing = true,
                 HorizontalTextAlignment = TextAlignment.Center,
                 VerticalTextAlignment = TextAlignment.Center,
