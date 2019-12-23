@@ -21,7 +21,7 @@ namespace Forms9PatchDemo
                 var id = e.Id;
                 var href = e.Href;
                 var uri = new Uri(e.Href);
-                Device.OpenUri(uri);
+                Xamarin.Essentials.Launcher.OpenAsync(uri);
             };
             label2.ActionTagTapped += (sender, e) =>
             {

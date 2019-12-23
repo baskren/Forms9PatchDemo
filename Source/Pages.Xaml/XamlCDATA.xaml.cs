@@ -25,7 +25,7 @@ namespace Forms9PatchDemo
             if (Device.RuntimePlatform == Device.UWP && href.StartsWith("tel:", StringComparison.Ordinal))
                 href = href.Replace("tel:", "callto:");
             var uri = new Uri(href);
-            Device.OpenUri(uri);
+            Xamarin.Essentials.Launcher.OpenAsync(uri);
         }
     }
 }

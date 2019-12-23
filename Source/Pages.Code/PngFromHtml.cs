@@ -89,7 +89,7 @@ namespace Forms9PatchDemo
                 return;
             _processing = true;
 
-            if (await Forms9Patch.HtmlStringExtensions.ToPngAsync(_htmlEditor.Text, "myHtmlPage") is HtmlToPngResult result)
+            if (await Forms9Patch.ToPngService.ToPngAsync(_htmlEditor.Text, "myHtmlPage") is ToPngResult result)
             {
                 if (result.IsError)
                 {
