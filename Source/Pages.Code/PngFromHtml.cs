@@ -106,9 +106,9 @@ namespace Forms9PatchDemo
                     var entry = new Forms9Patch.MimeItemCollection();
                     entry.AddBytesFromFile("image/png", pngResult.Result);
 
-                    if (e.Segment.Text == sharePngButtonText)
+                    if (e.Segment.Text.Contains("SHARE"))
                         Forms9Patch.Sharing.Share(entry, _destinationSelector);
-                    else if (e.Segment.Text == copyPngButtonText)
+                    else
                         Forms9Patch.Clipboard.Entry = entry;
                 }
             }
@@ -129,9 +129,9 @@ namespace Forms9PatchDemo
                         var entry = new Forms9Patch.MimeItemCollection();
                         entry.AddBytesFromFile("application/pdf", pdfResult.Result);
 
-                        if (e.Segment.Text == sharePngButtonText)
+                        if (e.Segment.Text.Contains("SHARE"))
                             Forms9Patch.Sharing.Share(entry, _destinationSelector);
-                        else if (e.Segment.Text == copyPngButtonText)
+                        else
                             Forms9Patch.Clipboard.Entry = entry;
                     }
                 }
