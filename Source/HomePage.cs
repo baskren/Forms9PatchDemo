@@ -111,7 +111,7 @@ namespace Forms9PatchDemo
 
                         new TextCell
                         {
-                            Text = "HTML to PNG",
+                            Text = "Print HTML or Share/Copy as PNG/PDF",
                             Command = navigateCommand,
                             CommandParameter = typeof(PngFromHtmlPage)
                         },

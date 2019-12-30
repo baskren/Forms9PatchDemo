@@ -7,8 +7,11 @@ namespace Forms9PatchDemo
     public class PngFromHtmlPage : Xamarin.Forms.ContentPage
     {
 
-        const string shareButtonText = "SHARE PNG";
-        const string copyButtonText = "COPY PNG";
+        const string sharePngButtonText = "SHARE PNG";
+        const string copyPngButtonText = "COPY PNG";
+        const string sharePdfButtonText = "SHARE PDF";
+        const string copyPdfButtonText = "COPY PDF";
+        const string printButtonText = "PRINT";
 
         const string htmlText = @"
 <!DOCTYPE html>
@@ -17,7 +20,7 @@ namespace Forms9PatchDemo
 
 <h1>Convert to PNG</h1>
 
-<p>This html will be converted to a PNG.</p>
+<p>This html will be converted to a PNG, PDF, or print.</p>
 
 </body>
 </html>
@@ -26,7 +29,7 @@ namespace Forms9PatchDemo
         #region VisualElements
         Editor _htmlEditor = new Editor
         {
-            Placeholder = "enter HTML to convert to PNG here",
+            Placeholder = "enter HTML to convert/print here",
             Text = htmlText,
             TextColor = Color.Black,
             BackgroundColor = Color.White
@@ -36,8 +39,11 @@ namespace Forms9PatchDemo
         {
             Segments =
             {
-                new Segment(shareButtonText),
-                new Segment(copyButtonText)
+                new Segment(sharePngButtonText),
+                new Segment(copyPngButtonText),
+                new Segment(sharePdfButtonText),
+                new Segment(copyPdfButtonText),
+                new Segment(printButtonText),
             },
             GroupToggleBehavior = GroupToggleBehavior.None
         };
@@ -89,26 +95,49 @@ namespace Forms9PatchDemo
                 return;
             _processing = true;
 
-            if (await Forms9Patch.ToPngService.ToPngAsync(_htmlEditor.Text, "myHtmlPage") is ToPngResult result)
+            if (e.Segment.Text.Contains("PNG") && await Forms9Patch.ToPngService.ToPngAsync(_htmlEditor.Text, "myHtmlPage") is ToFileResult pngResult)
             {
-                if (result.IsError)
+                if (pngResult.IsError)
                 {
-                    using (Forms9Patch.Toast.Create("PNG error", result.Result)) { }
+                    using (Forms9Patch.Toast.Create("PNG error", pngResult.Result)) { }
                 }
                 else
                 {
                     var entry = new Forms9Patch.MimeItemCollection();
-                    if (result.Result.Contains(".pdf"))
-                        entry.AddBytesFromFile("application/pdf", result.Result);
-                    else if (result.Result.Contains(".png"))
-                        entry.AddBytesFromFile("image/png", result.Result);
+                    entry.AddBytesFromFile("image/png", pngResult.Result);
 
-                    if (e.Segment.Text == shareButtonText)
+                    if (e.Segment.Text == sharePngButtonText)
                         Forms9Patch.Sharing.Share(entry, _destinationSelector);
-                    else if (e.Segment.Text == copyButtonText)
+                    else if (e.Segment.Text == copyPngButtonText)
                         Forms9Patch.Clipboard.Entry = entry;
                 }
             }
+            else if (e.Segment.Text.Contains("PDF"))
+            {
+                if (Device.RuntimePlatform == Device.UWP)
+                {
+                    using (Forms9Patch.Toast.Create("PDF export not available in UWP", "However, you can print to PDFs!  So, try <b>Print</b> and then select <b>Microsoft Print to PDF</b> as your printer.")) { }
+                }
+                else if (await Forms9Patch.ToPdfService.ToPdfAsync(_htmlEditor.Text, "myHtmlPage") is ToFileResult pdfResult)
+                {
+                    if (pdfResult.IsError)
+                    {
+                        using (Forms9Patch.Toast.Create("PDF error", pdfResult.Result)) { }
+                    }
+                    else
+                    {
+                        var entry = new Forms9Patch.MimeItemCollection();
+                        entry.AddBytesFromFile("application/pdf", pdfResult.Result);
+
+                        if (e.Segment.Text == sharePngButtonText)
+                            Forms9Patch.Sharing.Share(entry, _destinationSelector);
+                        else if (e.Segment.Text == copyPngButtonText)
+                            Forms9Patch.Clipboard.Entry = entry;
+                    }
+                }
+            }
+            else if (e.Segment.Text.Contains("PRINT"))
+                Forms9Patch.WebViewExtensions.Print(_htmlEditor.Text, "myHtmlPage");
             _processing = false;
         }
         #endregion
