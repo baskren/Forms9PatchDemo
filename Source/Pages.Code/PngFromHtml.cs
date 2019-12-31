@@ -87,7 +87,10 @@ namespace Forms9PatchDemo
 
             _destinationSelector.SegmentTapped += OnDestinationSelector_SegmentTapped;
         }
+        #endregion
 
+
+        #region The good stuff!
         bool _processing;
         async void OnDestinationSelector_SegmentTapped(object sender, SegmentedControlEventArgs e)
         {
