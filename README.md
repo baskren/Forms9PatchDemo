@@ -1,8 +1,7 @@
-# Forms9PatchDemo
-Simplify multi-device image, font, text management in your .NetStandard, PCL, and SharedLibrary Xamarin.Forms iOS, Android, and UWP apps
+# Forms9PatchDemo HAS MOVED!!!
+ 
+Demo apps have been moved to the `Demo` folder of the [Forms9Patch repository](https://github.com/baskren/Forms9Patch):
 
-[Documentation](https://baskren.github.io/Forms9Patch)
+ - [Demo app using the Forms9Patch **NuGet package**](https://github.com/baskren/Forms9Patch/tree/master/Demo/UsingForms9PatchNuGet)
+ - [Demo app using the Forms9Patch **source code**](https://github.com/baskren/Forms9Patch/tree/master/Demo/UsingForms9PatchSource)
 
-[Special notes for Android](https://baskren.github.io/Forms9Patch/notes/Android.html)
-
-[Forms9Patch Source Code](https://github.com/baskren/Forms9Patch)
