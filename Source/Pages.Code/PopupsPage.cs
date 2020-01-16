@@ -292,7 +292,6 @@ namespace Forms9PatchDemo.Pages.Code
             var showVerticalTargetedMenu = new Forms9Patch.Button("Vertical TargetedMenu") { BackgroundColor = Color.White };
             var verticalTargetedMenu = new Forms9Patch.TargetedMenu(showVerticalTargetedMenu)
             {
-                Orientation = StackOrientation.Vertical,
                 Segments =
                 {
                     new Segment("Copy", "<font face=\"Forms9PatchDemo.Resources.Fonts.MaterialIcons-Regular.ttf\">&#xE14D;</font>"),
